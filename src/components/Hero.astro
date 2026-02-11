@@ -92,6 +92,8 @@ const backgroundStyle = image ? `background-image: url(${image})` : '';
     );
     z-index: 1;
     pointer-events: none;
+    /* Breathing animation - meditative 6s cycle */
+    animation: ambient-breath 6s ease-in-out infinite;
   }
   
   /* When no image, use golden glow overlay */
@@ -175,6 +177,8 @@ const backgroundStyle = image ? `background-image: url(${image})` : '';
       0 4px 12px rgba(0, 0, 0, 0.25),
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
     border-color: rgba(255, 255, 255, 0.5);
+    /* Candlelight glow animation */
+    animation: candlelight 2s ease-in-out infinite;
   }
 
   @media (max-width: 768px) {

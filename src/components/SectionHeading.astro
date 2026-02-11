@@ -34,6 +34,10 @@ const { title, subtitle, align = 'center', color = 'dark' } = Astro.props;
     font-size: 2.5rem;
     margin: 0 0 0.25rem 0;
     line-height: 1.2;
+    animation: heading-entrance 0.8s ease-out;
+    animation-fill-mode: both;
+    color: var(--color-text-warm);
+    text-shadow: 0 1px 2px rgba(212, 175, 119, 0.15);
   }
 
   .subtitle {
@@ -53,14 +57,36 @@ const { title, subtitle, align = 'center', color = 'dark' } = Astro.props;
     width: 80px;
     background: linear-gradient(
       90deg,
-      var(--color-gold) 0%,
-      var(--color-orange) 50%,
-      var(--color-gold) 100%
+      rgba(212, 175, 119, 0.3) 0%,
+      var(--color-gold) 50%,
+      rgba(212, 175, 119, 0.3) 100%
     );
-    opacity: 1;
+    border-radius: 4px; /* More organic */
+    box-shadow: 0 0 12px rgba(230, 168, 104, 0.4);
     margin-top: 1rem;
-    border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(155, 85, 57, 0.2);
+    position: relative;
+  }
+
+  /* Ornamental dots on both sides */
+  .underline::before,
+  .underline::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-gold);
+    box-shadow: 0 0 8px rgba(230, 168, 104, 0.5);
+  }
+
+  .underline::before {
+    left: -12px;
+  }
+
+  .underline::after {
+    right: -12px;
   }
 
   .center .underline {
