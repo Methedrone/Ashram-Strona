@@ -31,7 +31,22 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
 });
 ---
 
-<Layout title={entry.data.title}>
+<Layout title={entry.data.title} description={entry.data.excerpt || entry.data.title} schema={{
+  "@type": "Article",
+  "headline": entry.data.title,
+  "author": {
+    "@type": "Person",
+    "name": entry.data.author
+  },
+  "datePublished": entry.data.date.toISOString(),
+  "inLanguage": "pl",
+  "url": `https://babaji.org.pl/pl/teachings/${entry.slug.split('/').slice(1).join('/')}`,
+  "publisher": {
+    "@type": "ReligiousOrganization",
+    "name": "Ashram Babaji",
+    "url": "https://babaji.org.pl"
+  }
+}}>
   <article class="teaching-detail">
     <div class="container">
       <header class="teaching-header">

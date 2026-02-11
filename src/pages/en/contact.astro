@@ -1,7 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
 ---
 
-<Layout title="Contact">
+<Layout title={t('nav.contact')} description={t('meta.contact.description')} schema={{
+  "@type": "ContactPage",
+  "name": t('nav.contact'),
+  "description": t('meta.contact.description'),
+  "url": "https://babaji.org.pl/en/contact",
+  "inLanguage": "en"
+}}>
 	<p>Contact information coming soon.</p>
 </Layout>

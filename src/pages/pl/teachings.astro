@@ -15,7 +15,14 @@ const allTeachings = await getCollection('teachings', ({ data }) => {
 const sortedTeachings = allTeachings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title={t('nav.teachings')}>
+<Layout title={t('nav.teachings')} description={t('meta.teachings.description')} schema={{
+  "@type": "CollectionPage",
+  "name": t('nav.teachings'),
+  "description": t('meta.teachings.description'),
+  "url": "https://babaji.org.pl/pl/teachings",
+  "inLanguage": "pl",
+  "numberOfItems": sortedTeachings.length
+}}>
   <section class="teachings-page">
     <div class="container">
       <SectionHeading title={t('nav.teachings')} subtitle="Nauki Śri Haidakhan Babaji" />

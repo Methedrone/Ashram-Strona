@@ -7,7 +7,13 @@ const lang = 'pl';
 const t = useTranslations(lang);
 ---
 
-<Layout title={t('nav.about')}>
+<Layout title={t('nav.about')} description={t('meta.about.description')} schema={{
+  "@type": "AboutPage",
+  "name": t('nav.about'),
+  "description": t('meta.about.description'),
+  "url": "https://babaji.org.pl/pl/about",
+  "inLanguage": "pl"
+}}>
   <div class="about-page">
     <section class="intro">
       <div class="container">

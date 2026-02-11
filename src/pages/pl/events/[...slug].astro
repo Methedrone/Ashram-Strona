@@ -32,7 +32,27 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
 });
 ---
 
-<Layout title={entry.data.title}>
+<Layout title={entry.data.title} description={entry.data.excerpt || entry.data.title} schema={{
+  "@type": "Event",
+  "name": entry.data.title,
+  "startDate": entry.data.date.toISOString(),
+  "location": {
+    "@type": "Place",
+    "name": entry.data.location,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": entry.data.location,
+      "addressCountry": "PL"
+    }
+  },
+  "organizer": {
+    "@type": "ReligiousOrganization",
+    "name": "Ashram Babaji",
+    "url": "https://babaji.org.pl"
+  },
+  "inLanguage": "pl",
+  "url": `https://babaji.org.pl/pl/events/${entry.slug.split('/').slice(1).join('/')}`
+}}>
   <article class="event-detail">
     <div class="container">
       <header class="event-header">

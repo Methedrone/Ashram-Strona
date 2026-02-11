@@ -15,7 +15,13 @@ const contactInfo = {
 };
 ---
 
-<Layout title={t('nav.contact')}>
+<Layout title={t('nav.contact')} description={t('meta.contact.description')} schema={{
+  "@type": "ContactPage",
+  "name": t('nav.contact'),
+  "description": t('meta.contact.description'),
+  "url": "https://babaji.org.pl/pl/contact",
+  "inLanguage": "pl"
+}}>
   <div class="contact-page">
     <div class="container">
       <SectionHeading title={t('nav.contact')} subtitle="Skontaktuj się z nami" />

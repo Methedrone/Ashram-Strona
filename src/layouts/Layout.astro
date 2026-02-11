@@ -6,17 +6,30 @@ import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
+  description?: string;
+  ogImage?: string;
   schema?: Record<string, any>;
 }
 
-const { title, schema } = Astro.props;
+const { title, description: customDescription, ogImage, schema } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const siteUrl = 'https://babaji.org.pl';
 const pageUrl = new URL(Astro.url.pathname, siteUrl).href;
-const description = t('common.description');
+const description = customDescription || t('common.description');
 const currentPath = Astro.url.pathname;
+
+// Generate hreflang alternate URLs
+const alternateLocales = ['pl', 'en'];
+const currentPathWithoutLocale = currentPath.replace(/^\/(pl|en)/, '');
+const hreflangs = alternateLocales.map(locale => ({
+  locale,
+  url: `${siteUrl}/${locale}${currentPathWithoutLocale}`
+}));
+
+// OG image with default fallback
+const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/og-image.jpg`;
 
 const defaultSchema: Record<string, any> = {
   "@context": "https://schema.org",
@@ -71,19 +84,32 @@ if (schema) {
         <meta name="description" content={description} />
         <link rel="canonical" href={pageUrl} />
         <link rel="sitemap" href="/sitemap-index.xml" />
+        
+        <!-- Hreflang -->
+        {hreflangs.map(({ locale, url }) => (
+          <link rel="alternate" hreflang={locale} href={url} />
+        ))}
+        <link rel="alternate" hreflang="x-default" href={hreflangs[0].url} />
 
         <!-- OpenGraph -->
         <meta property="og:type" content="website" />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:title" content={`${title} | Ashram`} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={`${siteUrl}/favicon.svg`} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={`${title} - Ashram Babaji`} />
+        <meta property="og:locale" content={lang === 'pl' ? 'pl_PL' : 'en_US'} />
+        {alternateLocales.filter(l => l !== lang).map(altLang => (
+          <meta property="og:locale:alternate" content={altLang === 'pl' ? 'pl_PL' : 'en_US'} />
+        ))}
 
         <!-- Twitter -->
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${title} | Ashram`} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={`${siteUrl}/favicon.svg`} />
+        <meta name="twitter:image" content={ogImageUrl} />
 
         <!-- Schema.org -->
         <Schema schema={schemaOrg} />
@@ -98,41 +124,6 @@ if (schema) {
 	</body>
 </html>
 
-<style>
-    :root {
-        --color-orange: #FF6B00;
-        --color-gold: #FFD700;
-        --color-text: #333;
-        --color-bg: #fff;
-        --color-header-bg: #fff;
-        --color-footer-bg: #333;
-        --color-footer-text: #fff;
-    }
-
-	html,
-	body {
-		margin: 0;
-		padding: 0;
-		width: 100%;
-		height: 100%;
-		font-family: system-ui, sans-serif;
-		display: flex;
-		flex-direction: column;
-        background-color: var(--color-bg);
-        color: var(--color-text);
-	}
-    body > * {
-        flex-shrink: 0;
-    }
-    main {
-        padding: 2rem;
-        flex-grow: 1;
-        max-width: 1200px;
-        margin: 0 auto;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    h1 {
-        color: var(--color-orange);
-    }
+<style is:global>
+	@import "../styles/global.css";
 </style>

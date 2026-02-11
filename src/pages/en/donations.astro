@@ -1,7 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
 ---
 
-<Layout title="Donations">
+<Layout title={t('nav.donations')} description={t('meta.donations.description')}>
 	<p>Donation information coming soon.</p>
 </Layout>

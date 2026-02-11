@@ -1,7 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
 ---
 
-<Layout title="Gallery">
+<Layout title={t('nav.gallery')} description={t('meta.gallery.description')}>
 	<p>Gallery content coming soon.</p>
 </Layout>

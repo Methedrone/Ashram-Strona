@@ -18,7 +18,14 @@ const upcomingEvents = sortedEvents.filter(event => event.data.date >= new Date(
 const pastEvents = sortedEvents.filter(event => event.data.date < new Date()).reverse();
 ---
 
-<Layout title={t('nav.events')}>
+<Layout title={t('nav.events')} description={t('meta.events.description')} schema={{
+  "@type": "CollectionPage",
+  "name": t('nav.events'),
+  "description": t('meta.events.description'),
+  "url": "https://babaji.org.pl/pl/events",
+  "inLanguage": "pl",
+  "numberOfItems": upcomingEvents.length
+}}>
   <section class="events-page">
     <div class="container">
       <SectionHeading title={t('nav.events')} subtitle="Dołącz do nas podczas świąt i warsztatów" />

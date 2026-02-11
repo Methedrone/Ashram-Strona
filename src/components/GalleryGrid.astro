@@ -34,7 +34,7 @@ const displayImages = limit ? images.slice(0, limit) : images;
   <div class="grid">
     {displayImages.map((image) => (
       <div class="gallery-item">
-        <img src={image.src} alt={image.alt} loading="lazy" />
+        <img src={image.src} alt={image.alt} loading="lazy" width="800" height="600" />
         <div class="overlay">
           <span>{image.alt}</span>
         </div>
