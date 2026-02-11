@@ -111,15 +111,142 @@ Created/updated 7 EN pages mirroring PL structure:
 - Also created PL events routing (was missing)
 
 ### Verification
-- Build passes: ✅
-- EN teachings count (6) = PL teachings count (6): ✅  
-- EN events count (4) = PL events count (4): ✅
-- Lang switcher works (/pl/ ↔ /en/): ✅
-- All routes prerender correctly: ✅
+- Build passes: 
+- EN teachings count (6) = PL teachings count (6):   
+- EN events count (4) = PL events count (4): 
+- Lang switcher works (/pl/  /en/): 
+- All routes prerender correctly: 
 
 ### Translation Quality
 - Natural, fluent English
 - Maintained spiritual tone and Babaji teaching authenticity
 - No machine translation artifacts
 - Consistent terminology across all content
+
+## Wave 2: Polish Pages Implementation
+- Implemented all 7 core pages in Polish (`src/pages/pl/`).
+- Used `useTranslations` for common UI elements (nav, buttons, labels).
+- Implemented dynamic routing for `teachings` and `events` using `[...slug].astro`.
+- Used `getCollection` to fetch content for lists and detail pages.
+- Verified build passes with `npm run build`.
+- Prerendering works correctly for all routes.
+
+## Task 6: SEO Hardening (2026-02-11)
+
+Successfully implemented comprehensive SEO optimizations across the entire website.
+
+### OG Image
+- **Created**: public/og-image.jpg (1200x630px, 127KB)
+- Source: ashram-exterior.webp resized/cropped with ImageMagick
+- Used across all pages with proper dimensions metadata
+
+### Meta Tags Enhancements
+- **Hreflang tags**: Bidirectional pl/en + x-default on every page
+- **Canonical URLs**: Present on all pages (https://babaji.org.pl/{locale}/{path}/)
+- **OG tags**: Complete with image, dimensions, locale, locale:alternate
+- **Twitter cards**: summary_large_image for better sharing
+
+### Page-Specific Descriptions
+Added 7 unique SEO descriptions to i18n/ui.ts:
+- meta.home.description (pl/en)
+- meta.about.description (pl/en)
+- meta.teachings.description (pl/en)
+- meta.events.description (pl/en)
+- meta.gallery.description (pl/en)
+- meta.contact.description (pl/en)
+- meta.donations.description (pl/en)
+
+All descriptions:
+- ≤160 characters
+- Keyword-rich (Babaji, Ashram, Karma Yoga, Havan, Aarti, etc.)
+- Natural language, not keyword stuffing
+- Locale-appropriate content
+
+### Schema.org Implementation
+**Home Page**: ReligiousOrganization + WebSite (already existed, verified)
+**Teachings List**: CollectionPage with numberOfItems
+**Teaching Detail**: Article with author, datePublished, publisher
+**Events List**: CollectionPage with numberOfItems
+**Event Detail**: Event with startDate, location, organizer
+**About Page**: AboutPage
+**Contact Page**: ContactPage
+**Gallery/Donations**: Generic page (no special schema)
+
+All Schema.org structured data includes:
+- @context: https://schema.org
+- @graph array for multiple entities
+- Proper nesting (organizer, publisher, address, etc.)
+- inLanguage property (pl/en)
+- Full URLs for url properties
+
+### Image Alt Text Verification
+- All images already had alt attributes ✅
+- Checked with: `grep -rn '<img' src/ --include="*.astro" | grep -v 'alt='`
+- Zero results = all images have alt text
+
+### Build Verification
+- Build completed successfully ✅
+- 25 routes prerendered (PL + EN pages)
+- Sitemap generated at dist/sitemap-index.xml
+- All locale pages properly structured
+
+### Verification Results (curl checks)
+**PL Home Page** (/pl/):
+- Description: ✅ "Ashram Babaji w Polsce - ośrodek duchowości..."
+- Canonical: ✅ https://babaji.org.pl/pl/
+- Hreflang: ✅ pl, en, x-default
+- OG Image: ✅ https://babaji.org.pl/og-image.jpg (1200x630)
+- OG Locale: ✅ pl_PL + en_US alternate
+- Twitter Card: ✅ summary_large_image
+- Schema: ✅ ReligiousOrganization + WebSite
+
+**EN Teachings List** (/en/teachings/):
+- Description: ✅ "Teachings of Sri Haidakhan Babaji: Karma Yoga..."
+- Canonical: ✅ https://babaji.org.pl/en/teachings/
+- Hreflang: ✅ pl, en, x-default
+- Schema: ✅ CollectionPage with numberOfItems: 6
+
+**PL Teaching Detail** (/pl/teachings/karma-yoga/):
+- Description: ✅ "Karma Yoga - Praca jest Modlitwą"
+- Canonical: ✅ https://babaji.org.pl/pl/teachings/karma-yoga/
+- Schema: ✅ Article with author, datePublished, publisher
+
+**PL Event Detail** (/pl/events/letni-retreat/):
+- Description: ✅ "Letni Retreat Duchowy"
+- Canonical: ✅ https://babaji.org.pl/pl/events/letni-retreat/
+- Schema: ✅ Event with startDate, location, organizer
+
+### Files Modified
+1. **public/og-image.jpg** (NEW) - Default OG image
+2. **src/layouts/Layout.astro** - Added description, ogImage props, hreflang logic
+3. **src/i18n/ui.ts** - Added 7 page-specific meta descriptions (pl/en)
+4. **src/pages/pl/index.astro** - Added description prop
+5. **src/pages/pl/about.astro** - Added description + AboutPage schema
+6. **src/pages/pl/teachings.astro** - Added description + CollectionPage schema
+7. **src/pages/pl/events.astro** - Added description + CollectionPage schema
+8. **src/pages/pl/contact.astro** - Added description + ContactPage schema
+9. **src/pages/pl/gallery.astro** - Added description
+10. **src/pages/pl/donations.astro** - Added description
+11. **src/pages/pl/teachings/[...slug].astro** - Added Article schema
+12. **src/pages/pl/events/[...slug].astro** - Added Event schema
+13. **src/pages/en/*** - All EN pages updated with same pattern
+
+### Key Learnings
+- Hreflang logic: Strip locale prefix from currentPath to generate alternate URLs
+- Schema.org @graph: Allows multiple entities on single page (ReligiousOrganization + CollectionPage)
+- OG locale format: pl_PL, en_US (underscore, uppercase country)
+- Twitter cards: summary_large_image better than summary for pages with hero images
+- TypeScript: Adding new translation keys triggers LSP errors until rebuild (expected)
+- Image optimization: ImageMagick resize with -resize WxH^ -gravity center -extent WxH maintains aspect ratio
+
+### SEO Checklist (Final)
+- [x] OG image created (1200x630px) ✅
+- [x] Hreflang tags on all pages ✅
+- [x] Canonical URLs on all pages ✅
+- [x] Page-specific meta descriptions ✅
+- [x] Schema.org per page type ✅
+- [x] All images have alt text ✅
+- [x] Sitemap accessible ✅
+- [x] robots.txt configured ✅
+- [x] Build verification passed ✅
 

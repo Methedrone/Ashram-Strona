@@ -486,7 +486,7 @@ Wave 4 (After Wave 3):
 
 ---
 
-- [ ] 5. UI/UX Polish + Responsive Verification
+- [x] 5. UI/UX Polish + Responsive Verification
 
   **What to do**:
   - **Responsive fixes**: Test and fix layout at 375px (mobile), 768px (tablet), 1280px (desktop)
@@ -570,7 +570,7 @@ Wave 4 (After Wave 3):
 
 ---
 
-- [ ] 6. SEO Hardening
+- [x] 6. SEO Hardening
 
   **What to do**:
   - **Schema.org per page type**:
