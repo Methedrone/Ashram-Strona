@@ -1,0 +1,146 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import { useTranslations } from '../../../i18n/utils';
+
+export async function getStaticPaths() {
+  const teachings = await getCollection('teachings', ({ data }) => {
+    return data.lang === 'pl';
+  });
+  
+  return teachings.map(entry => {
+    const [lang, ...slugParts] = entry.slug.split('/');
+    const slug = slugParts.join('/');
+    return {
+      params: { slug },
+      props: { entry },
+    };
+  });
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const lang = 'pl';
+const t = useTranslations(lang);
+
+const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Layout title={entry.data.title}>
+  <article class="teaching-detail">
+    <div class="container">
+      <header class="teaching-header">
+        <a href="/pl/teachings" class="back-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          {t('common.back')}
+        </a>
+        
+        <h1>{entry.data.title}</h1>
+        
+        <div class="meta">
+          <span class="date">{formattedDate}</span>
+          <span class="separator">•</span>
+          <span class="author">{entry.data.author}</span>
+        </div>
+      </header>
+      
+      <div class="content">
+        <Content />
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .teaching-detail {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .teaching-header {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--color-orange);
+  }
+
+  h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .meta {
+    color: #666;
+    font-size: 1rem;
+  }
+
+  .separator {
+    margin: 0 0.5rem;
+    color: #ccc;
+  }
+
+  .author {
+    color: var(--color-orange);
+    font-weight: 500;
+  }
+
+  .content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #333;
+  }
+
+  .content :global(h2) {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .content :global(p) {
+    margin-bottom: 1.5rem;
+  }
+
+  .content :global(blockquote) {
+    border-left: 4px solid var(--color-gold);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #555;
+  }
+
+  .content :global(ul) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+</style>
