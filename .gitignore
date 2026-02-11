@@ -25,3 +25,8 @@ pnpm-debug.log*
 .sisyphus/
 .vscode/
 .github/agents/
+.agent/
+.agents/
+.claude/
+.crush/
+.factory/
