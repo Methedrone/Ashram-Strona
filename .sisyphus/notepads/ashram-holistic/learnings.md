@@ -250,3 +250,13 @@ All Schema.org structured data includes:
 - [x] robots.txt configured ✅
 - [x] Build verification passed ✅
 
+
+## Task 7: CI/CD + Cloudflare Pages Deployment (2026-02-11)
+- **Provider**: GitHub Actions
+- **Workflow**: `.github/workflows/deploy.yml`
+- **Target**: Cloudflare Pages
+- **Trigger**: Push to `master` branch
+- **Node Version**: 20 (matching project requirements)
+- **Deployment Action**: `cloudflare/pages-action@v1`
+- **Build Artifacts**: `dist/` directory
+- **Verification**: Local `npm run build` passed successfully; YAML syntax verified.
