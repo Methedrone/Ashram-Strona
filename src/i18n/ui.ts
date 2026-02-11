@@ -35,6 +35,14 @@ export const ui = {
     'hero.subtitle': 'Prawda, Prostota, Miłość',
     'donations.title': 'Wspieraj Ashram',
     'donations.description': 'Twoje darowizny pomagają nam utrzymywać to miejsce i służyć innym.',
+    // Page-specific descriptions (SEO)
+    'meta.home.description': 'Ashram Babaji w Polsce - ośrodek duchowości, medytacji i jogi. Prawda, Prostota, Miłość. Nauki Śri Haidakhan Babaji, ceremonie Havan, Aarti, Karma Yoga.',
+    'meta.about.description': 'Poznaj historię Ashramu Babaji w Polsce. Misja, wartości, nauczanie Śri Haidakhan Babaji. Mąkolno i Lanckorona - miejsca praktyki duchowej.',
+    'meta.teachings.description': 'Nauczanie Śri Haidakhan Babaji: Karma Yoga, Om Namah Shivay, ceremonie Havan i Aarti. Prawda, Prostota, Miłość w codziennej praktyce.',
+    'meta.events.description': 'Nadchodzące wydarzenia w Ashramie Babaji: warsztaty, ceremonie, święta Navaratri, cotygodniowe Havany. Dołącz do naszej społeczności.',
+    'meta.gallery.description': 'Zdjęcia z życia Ashramu Babaji - ceremonie, medytacje, społeczność. Zobacz piękno duchowej praktyki i malowniczej okolicy.',
+    'meta.contact.description': 'Skontaktuj się z Ashramem Babaji w Polsce. Adres: Mąkolno 129, 57-250 Mąkolno. Informacje o wizytach i wydarzeniach.',
+    'meta.donations.description': 'Wesprzyj Ashram Babaji finansowo. Darowizny pomagają utrzymywać ośrodek i organizować ceremonie dla społeczności.',
   },
   en: {
     'nav.home': 'Home',
@@ -65,5 +73,13 @@ export const ui = {
     'gallery.viewAll': 'View All',
     'donations.title': 'Support the Ashram',
     'donations.description': 'Your donations help us maintain this place and serve others.',
+    // Page-specific descriptions (SEO)
+    'meta.home.description': 'Babaji Ashram in Poland - center of spirituality, meditation and yoga. Truth, Simplicity, Love. Sri Haidakhan Babaji teachings, Havan ceremonies, Aarti, Karma Yoga.',
+    'meta.about.description': 'Discover the history of Babaji Ashram in Poland. Mission, values, teachings of Sri Haidakhan Babaji. Mąkolno and Lanckorona - places of spiritual practice.',
+    'meta.teachings.description': 'Teachings of Sri Haidakhan Babaji: Karma Yoga, Om Namah Shivay, Havan and Aarti ceremonies. Truth, Simplicity, Love in daily practice.',
+    'meta.events.description': 'Upcoming events at Babaji Ashram: workshops, ceremonies, Navaratri festival, weekly Havan. Join our community.',
+    'meta.gallery.description': 'Photos from Babaji Ashram life - ceremonies, meditations, community. See the beauty of spiritual practice and scenic surroundings.',
+    'meta.contact.description': 'Contact Babaji Ashram in Poland. Address: Mąkolno 129, 57-250 Mąkolno. Information about visits and events.',
+    'meta.donations.description': 'Support Babaji Ashram financially. Donations help maintain the center and organize ceremonies for the community.',
   },
 } as const;
