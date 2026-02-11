@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { ui, defaultLang } from '../i18n/ui';
 import SectionHeading from './SectionHeading.astro';
 
 interface ScheduleItem {
@@ -38,6 +39,7 @@ const groupedItems = items.reduce((acc, item) => {
 }, {} as Record<string, ScheduleItem[]>);
 
 const periods = ['morning', 'afternoon', 'evening'] as const;
+type UiKey = keyof typeof ui[typeof defaultLang];
 ---
 
 <section class="daily-schedule">
@@ -47,7 +49,7 @@ const periods = ['morning', 'afternoon', 'evening'] as const;
     {periods.map((period) => (
       groupedItems[period] && (
         <div class="period-column">
-          <h3>{t(`schedule.${period}` as any)}</h3>
+          <h3>{t(`schedule.${period}` as UiKey)}</h3>
           <ul class="schedule-list">
             {groupedItems[period].map((item) => (
               <li>
