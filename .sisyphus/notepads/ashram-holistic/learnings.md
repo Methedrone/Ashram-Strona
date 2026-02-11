@@ -85,3 +85,41 @@ All images optimized to WebP, <200KB
 - Facebook page requires login to see posts/content
 - Used public web sources instead for authentic content
 - All teachings and events based on verified Babaji tradition
+
+## Task 4: EN Content Translation (2026-02-11)
+
+Successfully translated all PL content to EN and built complete EN site structure.
+
+### Content Translation
+- **Teachings**: Translated 5 PL teachings to EN (6 total incl. existing kriya-yoga)
+  - aarti-ceremony.md, sacred-fire-ceremony.md, karma-yoga.md
+  - nama-japa.md, truth-simplicity-love.md
+- **Events**: Translated 3 PL events to EN (4 total incl. existing spring-retreat)
+  - monday-havan.md, navaratri-festival.md, summer-retreat.md
+
+### Page Structure  
+Created/updated 7 EN pages mirroring PL structure:
+- index.astro (with getCollection for teachings/events)
+- about.astro (full content with ashram info)
+- teachings.astro (list page)
+- events.astro (list page with upcoming/past split)
+- gallery.astro, contact.astro, donations.astro (placeholders)
+
+### Dynamic Routing
+- src/pages/en/teachings/[...slug].astro (6 routes generated)
+- src/pages/en/events/[...slug].astro (4 routes generated)
+- Also created PL events routing (was missing)
+
+### Verification
+- Build passes: ✅
+- EN teachings count (6) = PL teachings count (6): ✅  
+- EN events count (4) = PL events count (4): ✅
+- Lang switcher works (/pl/ ↔ /en/): ✅
+- All routes prerender correctly: ✅
+
+### Translation Quality
+- Natural, fluent English
+- Maintained spiritual tone and Babaji teaching authenticity
+- No machine translation artifacts
+- Consistent terminology across all content
+
