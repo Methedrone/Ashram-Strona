@@ -324,7 +324,7 @@ Wave 4 (After Wave 3):
 
 ---
 
-- [ ] 3. Build All 7 Pages with Real Content (Polish)
+- [x] 3. Build All 7 Pages with Real Content (Polish)
 
   **What to do**:
   - **Home** (`src/pages/pl/index.astro`): Hero with ashram photo + CTA, Daily Schedule section, latest 3 events preview (EventCard), latest 3 teachings preview (TeachingCard), Location Map section, donation CTA
@@ -419,7 +419,7 @@ Wave 4 (After Wave 3):
 
 ---
 
-- [ ] 4. Translate Content + Build English Pages
+- [x] 4. Translate Content + Build English Pages
 
   **What to do**:
   - Translate all teaching MD files: create `src/content/teachings/en/{slug}.md` for each PL teaching
