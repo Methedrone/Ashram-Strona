@@ -43,21 +43,89 @@ const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US',
 
 <style>
   .teaching-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--color-border);
+    /* Warm gradient background */
+    background: linear-gradient(
+      135deg,
+      rgba(255, 252, 247, 1) 0%,
+      rgba(250, 248, 245, 1) 50%,
+      rgba(255, 252, 247, 1) 100%
+    );
+     
+    /* Softer organic corners */
+    border-radius: 20px;
+    
+    /* Multi-layer depth */
+    box-shadow: 
+      0 4px 24px -4px var(--color-amber-glow),
+      0 2px 12px -2px var(--color-terracotta-glow),
+      inset 0 1px 3px rgba(255, 255, 255, 0.9),
+      inset 0 -1px 2px rgba(212, 175, 119, 0.08);
+     
+    /* Warm border */
+    border: 1px solid rgba(212, 175, 119, 0.25);
+    
+    /* Allow overflow for ornaments */
+    overflow: visible;
+    position: relative;
+    
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     height: 100%;
     display: flex;
     flex-direction: column;
   }
 
   .teaching-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-    border-color: var(--color-gold);
+    transform: translateY(-4px);
+    box-shadow: 
+      0 6px 32px -4px rgba(230, 168, 104, 0.3),
+      0 3px 16px -2px rgba(155, 85, 57, 0.15),
+      inset 0 1px 3px rgba(255, 255, 255, 1),
+      /* Golden aura on hover */
+      0 0 0 2px rgba(212, 175, 119, 0.2);
+    border-color: rgba(212, 175, 119, 0.4);
+  }
+
+  /* Paper texture overlay */
+  .teaching-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(212, 175, 119, 0.025) 2px,
+        rgba(212, 175, 119, 0.025) 4px
+      );
+    pointer-events: none;
+    opacity: 0.7;
+    z-index: 0;
+  }
+
+  /* Lotus petal ornament */
+  .teaching-card::before {
+    content: '❀';
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    color: var(--color-gold);
+    opacity: 0.15;
+    font-size: 1.4rem;
+    transition: opacity 0.4s;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .teaching-card:hover::before {
+    opacity: 0.3;
+  }
+
+  /* Ensure content stays above texture */
+  .teaching-card > * {
+    position: relative;
+    z-index: 1;
   }
 
   .content {
