@@ -1,0 +1,112 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import SectionHeading from './SectionHeading.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const address = "Mąkolno 129, 57-250 Mąkolno, Poland";
+const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+// OSM Embed URL centered on Mąkolno
+const osmEmbedUrl = "https://www.openstreetmap.org/export/embed.html?bbox=16.8200,50.4100,16.8500,50.4300&layer=mapnik&marker=50.4167,16.8333";
+---
+
+<section class="location-map">
+  <SectionHeading title={t('location.title')} />
+  
+  <div class="map-container">
+    <div class="map-frame">
+      <iframe 
+        width="100%" 
+        height="450" 
+        src={osmEmbedUrl}
+        style="border: 0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ashram Location Map"
+      ></iframe>
+    </div>
+    
+    <div class="location-info">
+      <div class="address">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <p>{address}</p>
+      </div>
+      
+      <a href={googleMapsLink} target="_blank" rel="noopener noreferrer" class="directions-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+        {t('location.directions')}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .location-map {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+  }
+
+  .map-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+
+  .map-frame {
+    width: 100%;
+    height: 400px;
+    background: #eee;
+  }
+
+  .location-info {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .address {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--color-text, #333);
+  }
+
+  .icon {
+    color: var(--color-orange, #FF6B00);
+  }
+
+  .directions-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-orange, #FF6B00);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+
+  .directions-btn:hover {
+    background-color: #e65100;
+    transform: translateY(-2px);
+  }
+
+  @media (min-width: 768px) {
+    .location-info {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+</style>

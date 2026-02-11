@@ -1,0 +1,83 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  align?: 'left' | 'center';
+  color?: 'dark' | 'light';
+}
+
+const { title, subtitle, align = 'center', color = 'dark' } = Astro.props;
+---
+
+<div class:list={['section-heading', align, color]}>
+  <h2>{title}</h2>
+  {subtitle && <p class="subtitle">{subtitle}</p>}
+  <div class="underline"></div>
+</div>
+
+<style>
+  .section-heading {
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  .section-heading.center {
+    text-align: center;
+  }
+
+  .section-heading.left {
+    text-align: left;
+  }
+
+  h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    margin: 0 0 1rem 0;
+    opacity: 0.8;
+    max-width: 600px;
+  }
+
+  .center .subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .underline {
+    height: 3px;
+    width: 60px;
+    background: linear-gradient(90deg, var(--color-orange, #FF6B00), var(--color-gold, #FFD700));
+    margin-top: 0.5rem;
+  }
+
+  .center .underline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Color variants */
+  .dark h2 {
+    color: var(--color-text, #333);
+  }
+  .dark .subtitle {
+    color: #666;
+  }
+
+  .light h2 {
+    color: white;
+  }
+  .light .subtitle {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 2rem;
+    }
+  }
+</style>

@@ -1,0 +1,129 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import SectionHeading from './SectionHeading.astro';
+
+interface ScheduleItem {
+  time: string;
+  activity: string;
+  period: 'morning' | 'afternoon' | 'evening';
+}
+
+interface Props {
+  items?: ScheduleItem[];
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const defaultItems: ScheduleItem[] = [
+  { time: '06:00', activity: 'Aarati', period: 'morning' },
+  { time: '07:00', activity: 'Meditation', period: 'morning' },
+  { time: '08:00', activity: 'Breakfast', period: 'morning' },
+  { time: '10:00', activity: 'Karma Yoga', period: 'morning' },
+  { time: '13:00', activity: 'Lunch', period: 'afternoon' },
+  { time: '15:00', activity: 'Tea Time', period: 'afternoon' },
+  { time: '18:00', activity: 'Aarati', period: 'evening' },
+  { time: '19:00', activity: 'Dinner', period: 'evening' },
+  { time: '20:00', activity: 'Satsang', period: 'evening' },
+];
+
+const { items = defaultItems } = Astro.props;
+
+const groupedItems = items.reduce((acc, item) => {
+  if (!acc[item.period]) {
+    acc[item.period] = [];
+  }
+  acc[item.period].push(item);
+  return acc;
+}, {} as Record<string, ScheduleItem[]>);
+
+const periods = ['morning', 'afternoon', 'evening'] as const;
+---
+
+<section class="daily-schedule">
+  <SectionHeading title={t('schedule.title')} />
+  
+  <div class="schedule-container">
+    {periods.map((period) => (
+      groupedItems[period] && (
+        <div class="period-column">
+          <h3>{t(`schedule.${period}` as any)}</h3>
+          <ul class="schedule-list">
+            {groupedItems[period].map((item) => (
+              <li>
+                <span class="time">{item.time}</span>
+                <span class="activity">{item.activity}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    ))}
+  </div>
+</section>
+
+<style>
+  .daily-schedule {
+    padding: 4rem 2rem;
+    background-color: var(--color-bg, #fff);
+  }
+
+  .schedule-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .period-column {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--color-gold, #FFD700);
+    transition: transform 0.3s ease;
+  }
+
+  .period-column:hover {
+    transform: translateY(-5px);
+  }
+
+  h3 {
+    color: var(--color-orange, #FF6B00);
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+  }
+
+  .schedule-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .schedule-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px dashed #eee;
+  }
+
+  .schedule-list li:last-child {
+    border-bottom: none;
+  }
+
+  .time {
+    font-weight: bold;
+    color: var(--color-text, #333);
+    font-family: monospace;
+    font-size: 1.1rem;
+  }
+
+  .activity {
+    color: #666;
+  }
+</style>

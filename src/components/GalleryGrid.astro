@@ -1,0 +1,134 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import SectionHeading from './SectionHeading.astro';
+
+interface ImageItem {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  images?: ImageItem[];
+  limit?: number;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const defaultImages: ImageItem[] = [
+  { src: '/images/gallery/1.jpg', alt: 'Ashram Garden' },
+  { src: '/images/gallery/2.jpg', alt: 'Meditation Hall' },
+  { src: '/images/gallery/3.jpg', alt: 'Morning Aarati' },
+  { src: '/images/gallery/4.jpg', alt: 'Community Lunch' },
+  { src: '/images/gallery/5.jpg', alt: 'Satsang' },
+  { src: '/images/gallery/6.jpg', alt: 'Nature Walk' },
+];
+
+const { images = defaultImages, limit } = Astro.props;
+const displayImages = limit ? images.slice(0, limit) : images;
+---
+
+<section class="gallery-grid">
+  <SectionHeading title={t('nav.gallery')} />
+  
+  <div class="grid">
+    {displayImages.map((image) => (
+      <div class="gallery-item">
+        <img src={image.src} alt={image.alt} loading="lazy" />
+        <div class="overlay">
+          <span>{image.alt}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+  
+  {limit && limit < images.length && (
+    <div class="view-all">
+      <a href={`/${lang}/gallery`} class="view-all-btn">
+        {t('gallery.viewAll')}
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+  )}
+</section>
+
+<style>
+  .gallery-grid {
+    padding: 4rem 2rem;
+    background-color: var(--color-bg, #fff);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.02);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.1);
+  }
+
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .gallery-item:hover .overlay {
+    opacity: 1;
+  }
+
+  .view-all {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid var(--color-orange, #FF6B00);
+    color: var(--color-orange, #FF6B00);
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .view-all-btn:hover {
+    background-color: var(--color-orange, #FF6B00);
+    color: white;
+  }
+</style>

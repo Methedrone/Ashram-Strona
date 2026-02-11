@@ -1,0 +1,163 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+interface Props {
+  post: CollectionEntry<'events'>;
+}
+
+const { post } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { title, description, date, location } = post.data;
+
+// Construct URL: /lang/events/slug-without-lang
+const [postLang, ...slugParts] = post.slug.split('/');
+const slug = slugParts.join('/');
+const href = `/${postLang}/events/${slug}`;
+
+const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="event-card">
+  <div class="date-badge">
+    <span class="day">{date.getDate()}</span>
+    <span class="month">{date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US', { month: 'short' })}</span>
+  </div>
+  
+  <div class="content">
+    <div class="meta">
+      <span class="location">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        {location}
+      </span>
+    </div>
+    
+    <h3>
+      <a href={href}>{title}</a>
+    </h3>
+    
+    <p>{description}</p>
+    
+    <a href={href} class="register-btn">
+      {t('events.register')}
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>
+  </div>
+</article>
+
+<style>
+  .event-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+    height: 100%;
+    display: flex;
+    position: relative;
+  }
+
+  .event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    border-color: var(--color-orange, #FF6B00);
+  }
+
+  .date-badge {
+    background: var(--color-orange, #FF6B00);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    text-align: center;
+  }
+
+  .day {
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  .month {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+
+  .content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+  }
+
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  h3 {
+    margin: 0 0 1rem 0;
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+
+  h3 a {
+    color: var(--color-text, #333);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  h3 a:hover {
+    color: var(--color-orange, #FF6B00);
+  }
+
+  p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    font-size: 0.95rem;
+  }
+
+  .register-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--color-text, #333);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto;
+    transition: background-color 0.2s, transform 0.2s;
+    align-self: flex-start;
+  }
+
+  .register-btn:hover {
+    background-color: var(--color-orange, #FF6B00);
+    transform: translateY(-2px);
+  }
+</style>

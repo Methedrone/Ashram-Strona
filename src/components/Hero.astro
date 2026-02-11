@@ -1,0 +1,138 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  image?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  align?: 'center' | 'left';
+  size?: 'medium' | 'large';
+}
+
+const { 
+  title, 
+  subtitle, 
+  image, 
+  ctaText, 
+  ctaLink, 
+  align = 'center', 
+  size = 'medium' 
+} = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const buttonText = ctaText || t('hero.cta');
+const buttonLink = ctaLink || `/${lang}/contact`;
+---
+
+<section class:list={['hero', align, size]} style={image ? `background-image: url(${image})` : ''}>
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>{title}</h1>
+    {subtitle && <p class="subtitle">{subtitle}</p>}
+    <a href={buttonLink} class="cta-button">{buttonText}</a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-orange, #FF6B00), var(--color-gold, #FFD700));
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero.medium {
+    min-height: 400px;
+  }
+
+  .hero.large {
+    min-height: 600px;
+  }
+
+  .hero.left {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .hero.center {
+    text-align: center;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    width: 100%;
+  }
+
+  .hero.center .content {
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+    font-family: 'Cinzel', serif;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin-bottom: 2rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    opacity: 0.9;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background-color: white;
+    color: var(--color-orange, #FF6B00);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 2px solid white;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    background-color: transparent;
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 1.5rem;
+    }
+    
+    .hero.large {
+      min-height: 500px;
+    }
+  }
+</style>
