@@ -1,0 +1,15 @@
+{
+  "name": "Ashram Babaji",
+  "short_name": "Ashram",
+  "start_url": "/pl/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FF6B00",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

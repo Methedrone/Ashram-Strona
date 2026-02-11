@@ -1,0 +1,20 @@
+# AI Ignore Rules for Ashram-Strona
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+.astro/
+
+# IDE/Editor config (version-controlled, but verbose)
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
