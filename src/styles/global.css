@@ -16,11 +16,17 @@
   --shadow-glow: 0 1px 3px rgba(155, 85, 57, 0.08);
 
   /* Functional Colors - Warm Neutrals */
-  --color-text: #2C2C2C; /* Charcoal */
-  --color-text-light: #5A5A5A;
+  --color-text: #3A3530; /* Warm charcoal (was #2C2C2C) */
+  --color-text-light: #6B5D52; /* Warm medium gray (was #5A5A5A) */
   --color-bg: #FAF8F5; /* Bone/linen */
   --color-bg-alt: #F5F3EF; /* Lighter neutral */
   --color-border: #E8E4DF;
+
+  /* Border Radius System */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
   
   /* Typography - Ascetic Pairing */
   --font-family-sans: 'Work Sans', system-ui, -apple-system, sans-serif;
@@ -38,6 +44,20 @@
   
   /* Transitions */
   --transition-base: 0.2s ease;
+
+   /* Warm papyrus backgrounds */
+   --color-bg-warm: #FFFCF7;
+   --color-bg-warm-alt: #FFF9F0;
+   --color-paper: rgba(255, 252, 247, 1);
+   
+   /* Atmospheric glow colors */
+   --color-amber-glow: rgba(230, 168, 104, 0.22);
+   --color-terracotta-glow: rgba(155, 85, 57, 0.12);
+   --color-gold-soft: rgba(212, 175, 119, 0.3);
+   
+   /* Warm text (not pure black) */
+   --color-text-warm: #3A3530;
+   --color-text-warm-light: #6B5D52;
 }
 
 /* Reset & Base */
@@ -55,12 +75,31 @@ body {
   padding: 0;
   font-family: var(--font-family-sans);
   font-weight: 300;
-  color: var(--color-text);
+  color: var(--color-text-warm);
   /* Subtle background texture - direct background property (no z-index issues) */
   background: 
-    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.015) 2px, rgba(0, 0, 0, 0.015) 4px),
-    linear-gradient(180deg, rgba(245, 243, 239, 0.3) 0%, rgba(250, 248, 245, 1) 100%),
-    var(--color-bg);
+    /* Ethereal light from above */
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(245, 212, 170, 0.12) 0%,
+      transparent 50%
+    ),
+    /* Paper texture */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(212, 175, 119, 0.03) 2px,
+      rgba(212, 175, 119, 0.03) 4px
+    ),
+    /* Warm base gradient */
+    linear-gradient(
+      180deg,
+      rgba(255, 252, 247, 1) 0%,
+      rgba(250, 248, 245, 1) 50%,
+      rgba(255, 252, 247, 1) 100%
+    );
+  background-attachment: fixed, local, fixed;
   line-height: var(--line-height-base);
   -webkit-font-smoothing: antialiased;
   position: relative;
@@ -73,13 +112,18 @@ h1, h2, h3, h4, h5, h6 {
   line-height: var(--line-height-heading);
   margin-top: 0;
   margin-bottom: var(--spacing-md);
-  color: var(--color-text);
+  color: var(--color-text-warm);
+  text-shadow: 0 1px 2px rgba(212, 175, 119, 0.15);
+  letter-spacing: 0.01em;
 }
 
 h1 { 
   font-size: clamp(2rem, 5vw, 3rem); 
   font-weight: 700;
-  color: var(--color-orange); 
+  color: var(--color-orange);
+  text-shadow: 
+    0 2px 4px rgba(155, 85, 57, 0.2),
+    0 0 20px rgba(230, 168, 104, 0.1);
 }
 h2 { 
   font-size: clamp(1.75rem, 4vw, 2.5rem); 
@@ -93,6 +137,8 @@ h4 {
 }
 
 p {
+  color: var(--color-text-warm);
+  line-height: 1.8;
   margin-bottom: var(--spacing-md);
   max-width: 70ch; /* Readable line length */
 }
@@ -100,16 +146,18 @@ p {
 /* Links & Buttons */
 a {
   color: var(--color-orange);
-  text-decoration: underline; /* WCAG AA: underlines by default */
+  text-decoration: underline;
+  text-decoration-color: rgba(155, 85, 57, 0.3);
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
-  transition: color var(--transition-base), text-decoration-thickness var(--transition-base);
+  transition: all 0.3s ease;
   font-weight: 500;
 }
 
 a:hover {
-  color: var(--color-orange-hover);
-  text-decoration-thickness: 2px;
+  color: var(--color-gold);
+  text-shadow: 0 0 8px rgba(230, 168, 104, 0.3);
+  text-decoration-color: var(--color-gold);
 }
 
 button, .btn {
@@ -154,4 +202,42 @@ img {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Sacred Animations */
+@keyframes ambient-breath {
+  0%, 100% { 
+    opacity: 0.35; 
+  }
+  50% { 
+    opacity: 0.5; 
+  }
+}
+
+@keyframes candlelight {
+  0%, 100% {
+    box-shadow: 
+      0 4px 16px rgba(230, 168, 104, 0.4),
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 0 30px rgba(245, 212, 170, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 4px 20px rgba(230, 168, 104, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      0 0 40px rgba(245, 212, 170, 0.4);
+  }
+}
+
+@keyframes heading-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
