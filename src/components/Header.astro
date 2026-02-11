@@ -55,8 +55,8 @@ const switchText = lang === 'pl' ? 'English' : 'Polski';
 
 <style>
     header {
-        background: var(--color-header-bg, #fff);
-        border-bottom: 3px solid var(--color-gold, #FFD700);
+        background: var(--color-bg);
+        border-bottom: 3px solid var(--color-gold);
         position: sticky;
         top: 0;
         z-index: 1000;
@@ -74,10 +74,10 @@ const switchText = lang === 'pl' ? 'English' : 'Polski';
     }
 
     .logo {
-        font-family: var(--font-family-serif, serif);
+        font-family: var(--font-family-serif);
         font-size: 1.5rem;
         font-weight: bold;
-        color: var(--color-orange, #FF6B00);
+        color: var(--color-orange);
         text-decoration: none;
         z-index: 1001;
     }
@@ -100,7 +100,7 @@ const switchText = lang === 'pl' ? 'English' : 'Polski';
     .bar {
         width: 100%;
         height: 3px;
-        background-color: var(--color-text, #333);
+        background-color: var(--color-text);
         border-radius: 3px;
         transition: all 0.3s ease;
     }
@@ -116,7 +116,7 @@ const switchText = lang === 'pl' ? 'English' : 'Polski';
 
     nav a {
         text-decoration: none;
-        color: var(--color-text, #333);
+        color: var(--color-text);
         font-weight: 500;
         transition: color 0.2s;
         padding: 0.5rem;
@@ -124,26 +124,26 @@ const switchText = lang === 'pl' ? 'English' : 'Polski';
     }
 
     nav a:hover, nav a.active {
-        color: var(--color-orange, #FF6B00);
-        background-color: rgba(255, 107, 0, 0.05);
+        color: var(--color-orange);
+        background-color: var(--color-orange-tint);
     }
 
     nav a:focus-visible {
-        outline: 2px solid var(--color-orange, #FF6B00);
+        outline: 2px solid var(--color-orange);
         outline-offset: 2px;
     }
 
     .lang-switch {
         font-weight: bold;
-        color: var(--color-orange, #FF6B00) !important;
-        border: 1px solid var(--color-orange, #FF6B00);
+        color: var(--color-orange) !important;
+        border: 1px solid var(--color-orange);
         padding: 0.25rem 0.75rem;
         border-radius: 20px;
         margin-left: 0.5rem;
     }
 
     .lang-switch:hover {
-        background-color: var(--color-orange, #FF6B00) !important;
+        background-color: var(--color-orange) !important;
         color: white !important;
     }
 
@@ -158,8 +158,8 @@ const switchText = lang === 'pl' ? 'English' : 'Polski';
             top: 100%;
             left: 0;
             width: 100%;
-            background-color: var(--color-bg, #fff);
-            border-bottom: 3px solid var(--color-gold, #FFD700);
+            background-color: var(--color-bg);
+            border-bottom: 3px solid var(--color-gold);
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-in-out, opacity 0.3s ease;

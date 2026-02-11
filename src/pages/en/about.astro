@@ -105,7 +105,7 @@ const t = useTranslations(lang);
   }
 
   .bg-alt {
-    background-color: #f9f9f9;
+    background-color: var(--color-bg-alt);
   }
 
   .content-grid {
@@ -116,7 +116,7 @@ const t = useTranslations(lang);
   }
 
   .text-content h3 {
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-family-serif);
     color: var(--color-orange);
     font-size: 1.8rem;
     margin-top: 2rem;
@@ -129,7 +129,7 @@ const t = useTranslations(lang);
 
   .text-content p {
     line-height: 1.8;
-    color: #444;
+    color: var(--color-text);
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
   }
@@ -170,21 +170,21 @@ const t = useTranslations(lang);
   }
 
   .card-content h3 {
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-family-serif);
     color: var(--color-text);
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
 
   .card-content p {
-    color: #666;
+    color: var(--color-text-light);
     line-height: 1.6;
     margin-bottom: 1.5rem;
   }
 
   .address {
     font-style: italic;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--color-border);
     padding-top: 1rem;
     margin-bottom: 0 !important;
   }

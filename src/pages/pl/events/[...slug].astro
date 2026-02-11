@@ -32,7 +32,7 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
 });
 ---
 
-<Layout title={entry.data.title} description={entry.data.excerpt || entry.data.title} schema={{
+<Layout title={entry.data.title} description={entry.data.description} schema={{
   "@type": "Event",
   "name": entry.data.title,
   "startDate": entry.data.date.toISOString(),
@@ -111,7 +111,7 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #666;
+    color: var(--color-text-light);
     text-decoration: none;
     margin-bottom: 2rem;
     font-size: 0.9rem;
@@ -134,7 +134,7 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
   }
 
   h1 {
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-family-serif);
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     line-height: 1.2;
@@ -143,7 +143,7 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
   .meta {
     display: flex;
     gap: 2rem;
-    color: #666;
+    color: var(--color-text-light);
     font-size: 1.1rem;
   }
 
@@ -156,12 +156,12 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
   .content {
     line-height: 1.8;
     font-size: 1.1rem;
-    color: #333;
+    color: var(--color-text);
     margin-bottom: 4rem;
   }
 
   .content :global(h2) {
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-family-serif);
     font-size: 1.8rem;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
@@ -182,15 +182,15 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
   }
 
   .cta-section {
-    background-color: #f9f9f9;
+    background-color: var(--color-bg-alt);
     padding: 3rem;
     border-radius: 12px;
     text-align: center;
-    border: 1px solid #eee;
+    border: 1px solid var(--color-border);
   }
 
   .cta-section h3 {
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-family-serif);
     font-size: 1.8rem;
     margin-bottom: 1rem;
     color: var(--color-orange);
@@ -198,7 +198,7 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
 
   .cta-section p {
     margin-bottom: 2rem;
-    color: #666;
+    color: var(--color-text-light);
   }
 
   .btn-primary {
@@ -213,6 +213,6 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
   }
 
   .btn-primary:hover {
-    background-color: #e65100;
+    background-color: var(--color-orange-hover);
   }
 </style>

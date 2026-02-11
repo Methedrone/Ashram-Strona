@@ -58,7 +58,7 @@ const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US',
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #eee;
+    border: 1px solid var(--color-border);
     height: 100%;
     display: flex;
     position: relative;
@@ -67,11 +67,11 @@ const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US',
   .event-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-    border-color: var(--color-orange, #FF6B00);
+    border-color: var(--color-orange);
   }
 
   .date-badge {
-    background: var(--color-orange, #FF6B00);
+    background: var(--color-orange);
     color: white;
     padding: 1rem;
     display: flex;
@@ -105,7 +105,7 @@ const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US',
     display: flex;
     gap: 1rem;
     font-size: 0.9rem;
-    color: #888;
+    color: var(--color-text-light);
     margin-bottom: 0.5rem;
   }
 
@@ -117,23 +117,23 @@ const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US',
 
   h3 {
     margin: 0 0 1rem 0;
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-family-serif);
     font-size: 1.4rem;
     line-height: 1.3;
   }
 
   h3 a {
-    color: var(--color-text, #333);
+    color: var(--color-text);
     text-decoration: none;
     transition: color 0.2s;
   }
 
   h3 a:hover {
-    color: var(--color-orange, #FF6B00);
+    color: var(--color-orange);
   }
 
   p {
-    color: #666;
+    color: var(--color-text-light);
     line-height: 1.6;
     margin-bottom: 1.5rem;
     flex-grow: 1;
@@ -145,7 +145,7 @@ const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US',
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background-color: var(--color-text, #333);
+    background-color: var(--color-text);
     color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
@@ -157,7 +157,7 @@ const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US',
   }
 
   .register-btn:hover {
-    background-color: var(--color-orange, #FF6B00);
+    background-color: var(--color-orange);
     transform: translateY(-2px);
   }
 </style>

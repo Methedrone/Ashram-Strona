@@ -40,7 +40,7 @@ const buttonLink = ctaLink || `/${lang}/contact`;
 <style>
   .hero {
     position: relative;
-    background: linear-gradient(135deg, var(--color-orange, #FF6B00), var(--color-gold, #FFD700));
+    background: linear-gradient(135deg, var(--color-orange), var(--color-gold));
     background-size: cover;
     background-position: center;
     color: white;
@@ -92,7 +92,7 @@ const buttonLink = ctaLink || `/${lang}/contact`;
   h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 1rem;
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-family-serif);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     line-height: 1.1;
   }
@@ -108,7 +108,7 @@ const buttonLink = ctaLink || `/${lang}/contact`;
   .cta-button {
     display: inline-block;
     background-color: white;
-    color: var(--color-orange, #FF6B00);
+    color: var(--color-orange);
     padding: 1rem 2rem;
     border-radius: 50px;
     text-decoration: none;

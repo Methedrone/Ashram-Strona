@@ -45,7 +45,7 @@ const osmEmbedUrl = "https://www.openstreetmap.org/export/embed.html?bbox=16.820
 <style>
   .location-map {
     padding: 4rem 2rem;
-    background-color: #f9f9f9;
+    background-color: var(--color-bg-alt);
   }
 
   .map-container {
@@ -60,7 +60,7 @@ const osmEmbedUrl = "https://www.openstreetmap.org/export/embed.html?bbox=16.820
   .map-frame {
     width: 100%;
     height: 400px;
-    background: #eee;
+    background: var(--color-border);
   }
 
   .location-info {
@@ -77,18 +77,18 @@ const osmEmbedUrl = "https://www.openstreetmap.org/export/embed.html?bbox=16.820
     align-items: center;
     gap: 0.5rem;
     font-size: 1.2rem;
-    color: var(--color-text, #333);
+    color: var(--color-text);
   }
 
   .icon {
-    color: var(--color-orange, #FF6B00);
+    color: var(--color-orange);
   }
 
   .directions-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: var(--color-orange, #FF6B00);
+    background-color: var(--color-orange);
     color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
@@ -98,7 +98,7 @@ const osmEmbedUrl = "https://www.openstreetmap.org/export/embed.html?bbox=16.820
   }
 
   .directions-btn:hover {
-    background-color: #e65100;
+    background-color: var(--color-orange-hover);
     transform: translateY(-2px);
   }
 
