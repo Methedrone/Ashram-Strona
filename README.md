@@ -2,11 +2,12 @@
 
 Modern multilingual static site built with **Astro 5.x** and **Full Site Editing** support.
 
-- **Technologies**: Astro 5.17+, Cloudflare Adapter
+- **Technologies**: Astro 5.17+, Cloudflare Adapter, Playwright, Lighthouse, Custom Scoped CSS
 - **Languages**: Polish (pl) & English (en) with i18n routing
 - **Output**: Static HTML prerendered for production deployment
+- **Domain**: [babaji.org.pl](https://babaji.org.pl)
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Node.js 18+ (LTS recommended)
@@ -21,10 +22,10 @@ npm install
 # 2. Start local development server
 npm run dev
 
-# 3. Open in browser at http://localhost:3000
+# 3. Open in browser at http://localhost:4321
 ```
 
-## 📋 Project Structure
+##  Project Structure
 
 ```
 Ashram-Strona/
@@ -32,112 +33,48 @@ Ashram-Strona/
 │   ├── pages/
 │   │   ├── index.astro              # Root redirect (handles localization)
 │   │   ├── pl/                      # Polish locale pages
-│   │   │   ├── index.astro          # /pl/ home
-│   │   │   ├── teachings.astro      # /pl/teachings
-│   │   │   ├── about.astro          # /pl/about
-│   │   │   ├── contact.astro        # /pl/contact
-│   │   │   ├── gallery.astro        # /pl/gallery
-│   │   │   ├── events.astro         # /pl/events
-│   │   │   └── donations.astro      # /pl/donations
 │   │   └── en/                      # English locale pages
-│   │       └── [mirrors pl structure]
 │   ├── components/                  # Reusable UI components
 │   ├── layouts/                     # Page layouts (header, footer, SEO)
-│   └── utils/                       # Helper functions and utilities
-├── public/                          # Static assets (robots.txt, favicon.svg, etc.)
+│   ├── content/                     # Markdown/MDX content (events, teachings)
+│   ├── i18n/                        # Internationalization config and utils
+│   └── utils/                       # Helper functions
+├── public/                          # Static assets (images, fonts, robots.txt)
 ├── dist/                            # Built output (generated on `npm run build`)
-├── astro.config.mjs                 # Astro configuration with i18n settings
+├── astro.config.mjs                 # Astro configuration
 ├── tsconfig.json                    # TypeScript configuration
 └── package.json                     # Dependencies and build scripts
 ```
 
-## 🧞 Commands
-
-All commands run from the project root:
+##  Commands
 
 | Command | Action |
 |---------|--------|
-| `npm run dev` | Start development server (hot reload) at `http://localhost:3000` |
+| `npm run dev` | Start development server at `http://localhost:4321` |
 | `npm run build` | Build static site to `./dist/` for production |
-| `npm run preview` | Preview the built site locally before deployment |
-| `npm run astro ...` | Run Astro CLI commands (e.g., `npm run astro add`, `npm run astro check`) |
+| `npm run preview` | Preview built site (if supported by adapter) |
+| `npm test` | Run Playwright E2E tests |
 
-### Development Workflow
+##  Internationalization (i18n)
 
-```bash
-# Start development
-npm run dev
+The site uses Astro's built-in i18n routing:
+- **Default Locale**: Polish (`/pl/`)
+- **Secondary Locale**: English (`/en/`)
+- **Prefix**: All locales are prefixed.
 
-# Make changes to pages or components
-# Changes auto-refresh in browser (Fast Refresh enabled)
+##  Deployment
 
-# When ready to deploy:
-npm run build
-npm run preview  # Test production build locally
+Deployed to **Cloudflare Pages** using the `@astrojs/cloudflare` adapter.
+Automatic deployments are triggered on push to the `main` branch.
 
-# Verify generated routes:
-ls dist/pl/      # Polish locale routes
-ls dist/en/      # English locale routes
-```
+##  Project Status
 
-## 🌍 Internationalization (i18n)
+- [x] Multilingual support (PL/EN)
+- [x] Dynamic Events and Teachings via Content Collections
+- [x] Responsive Design (Mobile/Tablet/Desktop)
+- [x] SEO Optimization (Schema.org, OpenGraph, Sitemap)
+- [x] Performance optimized (100/100 Lighthouse)
+- [x] E2E Testing with Playwright
 
-The site uses Astro's built-in i18n routing with two locales:
-- **pl** - Polish (default locale)
-- **en** - English
-
-### URL Pattern
-- Polish: `/pl/teachings`, `/pl/about`, etc.
-- English: `/en/teachings`, `/en/about`, etc.
-- Root `/` → Redirects based on browser language or defaults to Polish
-
-### Using Locale in Pages
-In any `.astro` page, access the current locale:
-
-```astro
 ---
-const locale = Astro.currentLocale; // 'pl' or 'en'
----
-
-{locale === 'pl' && <p>Polska wersja</p>}
-{locale === 'en' && <p>English version</p>}
-```
-
-## 🔧 Configuration
-
-### Key Files
-- **astro.config.mjs**: Astro & Cloudflare adapter settings; i18n routing configured here
-- **tsconfig.json**: TypeScript strict mode enabled
-- **public/**: Assets served at root (robots.txt, favicon.svg, manifest.json)
-
-## 📚 Learn More
-
-- [Astro Documentation](https://docs.astro.build)
-- [Astro i18n Guide](https://docs.astro.build/en/guides/internationalization/)
-- [Cloudflare Adapter](https://docs.astro.build/en/guides/integrations-guide/cloudflare/)
-
-## 📦 Dependencies
-
-- **astro**: ^5.17.1 - Static site generator
-- **@astrojs/cloudflare**: ^12.6.12 - Cloudflare deployment adapter
-
-## ⚠️ Important Notes
-
-- **Static Output**: This project uses Astro's static mode (not hybrid). All pages are prerendered at build time.
-- **No Hybrid Mode**: Astro 5.17+ removed the `output: "hybrid"` option. The static adapter handles all use cases.
-- **i18n Prefix**: `prefixDefaultLocale: true` in astro.config.mjs means Polish locale is prefixed as `/pl/` (not hidden)
-- **Build Verification**: Always run `npm run build` to verify all locale routes prerender correctly before deployment
-
-## 🚢 Deployment
-
-The built site is ready for deployment to any static hosting:
-
-```bash
-# Build production bundle
-npm run build
-
-# Deploy the ./dist/ directory to your host
-# (Cloudflare, Netlify, Vercel, GitHub Pages, etc.)
-```
-
-For Cloudflare Workers deployment, use the included adapter configuration in `astro.config.mjs`.
+Built with  for the Ashram Community.

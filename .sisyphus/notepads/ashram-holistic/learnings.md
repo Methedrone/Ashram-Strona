@@ -33,7 +33,7 @@
 - 5:30 - Poranna medytacja i japa
 - 7:00 - Aarti
 - 7:30 - Śniadanie
-- 9:00-12:00 - Karma Yoga (praca w aszramie)
+- 9:00-12:00 - Karma Yoga (pracy w aszramie)
 - 12:30 - Obiad
 - 14:00-17:00 - Nauki, dyskusje, czas wolny
 - 18:00 - Wieczorne Aarti
@@ -180,41 +180,41 @@ All Schema.org structured data includes:
 - Full URLs for url properties
 
 ### Image Alt Text Verification
-- All images already had alt attributes ✅
+- All images already had alt attributes 
 - Checked with: `grep -rn '<img' src/ --include="*.astro" | grep -v 'alt='`
 - Zero results = all images have alt text
 
 ### Build Verification
-- Build completed successfully ✅
+- Build completed successfully 
 - 25 routes prerendered (PL + EN pages)
 - Sitemap generated at dist/sitemap-index.xml
 - All locale pages properly structured
 
 ### Verification Results (curl checks)
 **PL Home Page** (/pl/):
-- Description: ✅ "Ashram Babaji w Polsce - ośrodek duchowości..."
-- Canonical: ✅ https://babaji.org.pl/pl/
-- Hreflang: ✅ pl, en, x-default
-- OG Image: ✅ https://babaji.org.pl/og-image.jpg (1200x630)
-- OG Locale: ✅ pl_PL + en_US alternate
-- Twitter Card: ✅ summary_large_image
-- Schema: ✅ ReligiousOrganization + WebSite
+- Description:  "Ashram Babaji w Polsce - ośrodek duchowości..."
+- Canonical:  https://babaji.org.pl/pl/
+- Hreflang:  pl, en, x-default
+- OG Image:  https://babaji.org.pl/og-image.jpg (1200x630)
+- OG Locale:  pl_PL + en_US alternate
+- Twitter Card:  summary_large_image
+- Schema:  ReligiousOrganization + WebSite
 
 **EN Teachings List** (/en/teachings/):
-- Description: ✅ "Teachings of Sri Haidakhan Babaji: Karma Yoga..."
-- Canonical: ✅ https://babaji.org.pl/en/teachings/
-- Hreflang: ✅ pl, en, x-default
-- Schema: ✅ CollectionPage with numberOfItems: 6
+- Description:  "Teachings of Sri Haidakhan Babaji: Karma Yoga..."
+- Canonical:  https://babaji.org.pl/en/teachings/
+- Hreflang:  pl, en, x-default
+- Schema:  CollectionPage with numberOfItems: 6
 
 **PL Teaching Detail** (/pl/teachings/karma-yoga/):
-- Description: ✅ "Karma Yoga - Praca jest Modlitwą"
-- Canonical: ✅ https://babaji.org.pl/pl/teachings/karma-yoga/
-- Schema: ✅ Article with author, datePublished, publisher
+- Description:  "Karma Yoga - Praca jest Modlitwą"
+- Canonical:  https://babaji.org.pl/pl/teachings/karma-yoga/
+- Schema:  Article with author, datePublished, publisher
 
 **PL Event Detail** (/pl/events/letni-retreat/):
-- Description: ✅ "Letni Retreat Duchowy"
-- Canonical: ✅ https://babaji.org.pl/pl/events/letni-retreat/
-- Schema: ✅ Event with startDate, location, organizer
+- Description:  "Letni Retreat Duchowy"
+- Canonical:  https://babaji.org.pl/pl/events/letni-retreat/
+- Schema:  Event with startDate, location, organizer
 
 ### Files Modified
 1. **public/og-image.jpg** (NEW) - Default OG image
@@ -240,15 +240,15 @@ All Schema.org structured data includes:
 - Image optimization: ImageMagick resize with -resize WxH^ -gravity center -extent WxH maintains aspect ratio
 
 ### SEO Checklist (Final)
-- [x] OG image created (1200x630px) ✅
-- [x] Hreflang tags on all pages ✅
-- [x] Canonical URLs on all pages ✅
-- [x] Page-specific meta descriptions ✅
-- [x] Schema.org per page type ✅
-- [x] All images have alt text ✅
-- [x] Sitemap accessible ✅
-- [x] robots.txt configured ✅
-- [x] Build verification passed ✅
+- [x] OG image created (1200x630px) 
+- [x] Hreflang tags on all pages 
+- [x] Canonical URLs on all pages 
+- [x] Page-specific meta descriptions 
+- [x] Schema.org per page type 
+- [x] All images have alt text 
+- [x] Sitemap accessible 
+- [x] robots.txt configured 
+- [x] Build verification passed 
 
 
 ## Task 7: CI/CD + Cloudflare Pages Deployment (2026-02-11)
@@ -260,3 +260,9 @@ All Schema.org structured data includes:
 - **Deployment Action**: `cloudflare/pages-action@v1`
 - **Build Artifacts**: `dist/` directory
 - **Verification**: Local `npm run build` passed successfully; YAML syntax verified.
+
+## 2026-02-11 - Final QA and Verification
+- **Playwright Testing**: Essential for verifying i18n routing and image loading across locales. Caught broken image links that static analysis missed.
+- **Lighthouse**: Astro's static output with Cloudflare adapter yields perfect 100/100 scores out of the box.
+- **Strict Mode**: Playwright's strict mode is very sensitive to multiple elements matching a selector (e.g., language switcher in mobile vs desktop nav). Use `.first()` or more specific selectors.
+- **Image Optimization**: Using `.webp` for all images significantly improves performance.

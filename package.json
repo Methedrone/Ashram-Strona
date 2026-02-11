@@ -12,5 +12,10 @@
     "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/sitemap": "^3.7.0",
     "astro": "^5.17.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "lighthouse": "^13.0.2",
+    "playwright": "^1.58.2"
   }
 }

@@ -663,7 +663,7 @@ Wave 4 (After Wave 3):
 
 ---
 
-- [ ] 7. CI/CD + Cloudflare Pages Deployment
+- [x] 7. CI/CD + Cloudflare Pages Deployment
 
   **What to do**:
   - Create `.github/workflows/deploy.yml` — GitHub Actions workflow:
@@ -715,7 +715,7 @@ Wave 4 (After Wave 3):
 
 ---
 
-- [ ] 8. Final QA — End-to-End Verification
+- [x] 8. Final QA — End-to-End Verification
 
   **What to do**:
   - Run full Playwright test suite across all pages (PL + EN)
