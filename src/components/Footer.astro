@@ -7,16 +7,68 @@ const year = new Date().getFullYear();
 ---
 
 <footer>
+    <div class="footer-motto">
+        {t('hero.subtitle')}
+    </div>
     <p>&copy; {year} {t('footer.copyright')}</p>
 </footer>
 
 <style>
     footer {
-        background: var(--color-text);
-        color: white;
+        /* Dark warm charcoal/brown gradient (USER APPROVED) */
+        background: linear-gradient(
+            135deg,
+            #3A3530 0%,
+            #2C2520 50%,
+            #3A3530 100%
+        );
+        color: rgba(255, 252, 247, 0.9);
+        position: relative;
         text-align: center;
-        padding: 2rem;
+        padding: 3rem 2rem;
         margin-top: auto;
-        border-top: 3px solid var(--color-gold);
+    }
+
+    /* Decorative top border with golden glow */
+    footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+            90deg,
+            transparent 0%,
+            var(--color-gold) 50%,
+            transparent 100%
+        );
+        box-shadow: 0 0 12px rgba(230, 168, 104, 0.5);
+    }
+
+    .footer-motto {
+        font-size: 1.2rem;
+        color: var(--color-gold);
+        text-align: center;
+        margin-bottom: 2rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        letter-spacing: 0.05em;
+        font-style: italic;
+    }
+
+    footer p {
+        color: rgba(255, 252, 247, 0.7);
+        font-size: 0.9rem;
+    }
+
+    footer a {
+        color: rgba(212, 175, 119, 0.8);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: var(--color-gold);
+        text-shadow: 0 0 8px rgba(230, 168, 104, 0.4);
     }
 </style>
