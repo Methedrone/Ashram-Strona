@@ -5,6 +5,16 @@
   --color-orange-tint: rgba(155, 85, 57, 0.08); /* Light tint for hover backgrounds */
   --color-gold: #D4AF77; /* Softer gold */
   
+  /* New Warmth Variants */
+  --color-text-warm: #3A3530; /* Warm charcoal with brown undertone */
+  --color-text-medium: #6B5D52; /* Warm medium gray */
+  --warmth-gold-light: rgba(212, 175, 119, 0.18);
+  --warmth-terracotta-light: rgba(155, 85, 57, 0.14);
+  
+  /* Shadow System */
+  --shadow-soft: 0 2px 8px -2px rgba(155, 85, 57, 0.15), 0 1px 2px rgba(155, 85, 57, 0.1);
+  --shadow-glow: 0 1px 3px rgba(155, 85, 57, 0.08);
+
   /* Functional Colors - Warm Neutrals */
   --color-text: #2C2C2C; /* Charcoal */
   --color-text-light: #5A5A5A;
