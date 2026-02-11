@@ -1,7 +1,59 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import TeachingCard from '../../components/TeachingCard.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const allTeachings = await getCollection('teachings', ({ data }) => {
+  return data.lang === lang;
+});
+
+const sortedTeachings = allTeachings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title="Teachings">
-	<p>Page content: Teachings.</p>
+<Layout title={t('nav.teachings')}>
+  <section class="teachings-page">
+    <div class="container">
+      <SectionHeading title={t('nav.teachings')} subtitle="Teachings of Sri Haidakhan Babaji" />
+      
+      {sortedTeachings.length > 0 ? (
+        <div class="teachings-grid">
+          {sortedTeachings.map(post => (
+            <TeachingCard post={post} />
+          ))}
+        </div>
+      ) : (
+        <p class="no-content">New teachings coming soon.</p>
+      )}
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .teachings-page {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .teachings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .no-content {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 2rem;
+  }
+</style>
