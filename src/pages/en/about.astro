@@ -1,7 +1,196 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
 ---
 
-<Layout title="About">
-	<p>Page content: About.</p>
+<Layout title={t('nav.about')}>
+  <div class="about-page">
+    <section class="intro">
+      <div class="container">
+        <SectionHeading title="About Us" subtitle="Truth, Simplicity, Love" />
+        
+        <div class="content-grid">
+          <div class="text-content">
+            <h3>Our Mission</h3>
+            <p>
+              Babaji Ashram in Poland is a place dedicated to spiritual practice, meditation and service to humanity. 
+              Our mission is to spread the teachings of Sri Haidakhan Babaji, which are based on three pillars: 
+              <strong>Truth, Simplicity and Love</strong>.
+            </p>
+            <p>
+              We believe that through daily practice of Karma Yoga (work as service), Japa Yoga (repetition of God's name) 
+              and living together in harmony with nature, we can achieve inner peace and spiritual realization.
+            </p>
+
+            <h3>Sri Haidakhan Babaji</h3>
+            <p>
+              Babaji taught that in the present age (Kali Yuga), the most important practice is repetition of God's name 
+              and selfless service. His message is universal and transcends the boundaries of any single religion, 
+              encouraging people of all faiths to follow the path of the heart.
+            </p>
+          </div>
+          
+          <div class="image-content">
+            <img src="/images/babaji-portrait.jpg" alt="Sri Haidakhan Babaji" class="rounded-image shadow-lg" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ashrams bg-alt">
+      <div class="container">
+        <SectionHeading title="Our Centers" />
+        
+        <div class="ashram-grid">
+          <div class="ashram-card">
+            <img src="/images/makolno-ashram.jpg" alt="Ashram in Mąkolno" />
+            <div class="card-content">
+              <h3>Ashram in Mąkolno</h3>
+              <p>
+                A historic place where the tradition of havan (fire ceremony) and aarti has been cultivated for years. 
+                Located in the picturesque area of the Golden Mountains, it provides an oasis of peace for seekers.
+              </p>
+              <p class="address">
+                <strong>Address:</strong><br />
+                Mąkolno 129<br />
+                57-250 Mąkolno
+              </p>
+            </div>
+          </div>
+
+          <div class="ashram-card">
+            <img src="/images/lanckorona-center.jpg" alt="Center in Lanckorona" />
+            <div class="card-content">
+              <h3>Center in Lanckorona</h3>
+              <p>
+                An active center for meetings and workshops. Lanckorona, with its artistic and spiritual atmosphere, 
+                is an ideal place to deepen your practice and meet the sangha.
+              </p>
+              <p class="address">
+                <strong>Address:</strong><br />
+                Lanckorona<br />
+                (Travel details available on contact)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </Layout>
+
+<style>
+  .about-page {
+    padding-bottom: 4rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+
+  .bg-alt {
+    background-color: #f9f9f9;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .text-content h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--color-orange);
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .text-content h3:first-child {
+    margin-top: 0;
+  }
+
+  .text-content p {
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .image-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .ashram-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .ashram-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+  }
+
+  .ashram-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .ashram-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 2rem;
+  }
+
+  .card-content h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--color-text);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .address {
+    font-style: italic;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    margin-bottom: 0 !important;
+  }
+
+  @media (max-width: 768px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .image-content {
+      order: -1;
+    }
+  }
+</style>
