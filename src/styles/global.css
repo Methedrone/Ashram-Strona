@@ -23,9 +23,10 @@
   --color-border: #E8E4DF;
 
   /* Border Radius System */
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  --radius-xs: 8px;
+  --radius-s: 12px;
+  --radius-m: 16px;
+  --radius-l: 20px;
   --radius-xl: 32px;
   
   /* Typography - Ascetic Pairing */
@@ -160,13 +161,87 @@ a:hover {
   text-decoration-color: var(--color-gold);
 }
 
-button, .btn {
+/* Button System */
+button, .btn, .btn-primary, .btn-secondary, .btn-white, .btn-secondary-neutral {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   font-family: inherit;
-  font-weight: 500;
-  transition: all var(--transition-base);
-  border: none;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  min-height: 44px; /* Accessibility target size */
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  line-height: 1.2;
   background: none;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Primary Button (Orange) */
+.btn-primary {
+  background-color: var(--color-orange);
+  color: white;
+  border-color: var(--color-orange);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-orange-hover);
+  border-color: var(--color-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(155, 85, 57, 0.2);
+  color: white;
+  text-decoration: none;
+}
+
+/* Secondary Button (Outline Orange) */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-orange);
+  border-color: var(--color-orange);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-orange);
+  color: white;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+/* White Button (for dark/orange backgrounds) */
+.btn-white {
+  background-color: white;
+  color: var(--color-orange);
+  border-color: white;
+}
+
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-bg-alt);
+  border-color: var(--color-bg-alt);
+  color: var(--color-orange);
+  text-decoration: none;
+}
+
+/* Neutral Secondary (Gray Outline) */
+.btn-secondary-neutral {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.btn-secondary-neutral:hover {
+  background-color: var(--color-text);
+  color: white;
+  text-decoration: none;
 }
 
 /* Focus Styles - Accessible with new palette */
@@ -207,10 +282,10 @@ img {
 /* Sacred Animations */
 @keyframes ambient-breath {
   0%, 100% { 
-    opacity: 0.35; 
+    opacity: 0.5; 
   }
   50% { 
-    opacity: 0.5; 
+    opacity: 0.65; 
   }
 }
 
