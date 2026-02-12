@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import { useTranslations } from '../../../i18n/utils';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
 
 export async function getStaticPaths() {
   const teachings = await getCollection('teachings', ({ data }) => {
@@ -23,6 +24,12 @@ const { Content } = await entry.render();
 
 const lang = 'en';
 const t = useTranslations(lang);
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: '/en' },
+  { label: t('nav.teachings'), href: '/en/teachings' },
+  { label: entry.data.title },
+];
 
 const formattedDate = entry.data.date.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -50,8 +57,9 @@ const formattedDate = entry.data.date.toLocaleDateString('en-US', {
   <article class="teaching-detail">
     <div class="container">
       <header class="teaching-header">
+        <Breadcrumb items={breadcrumbItems} />
         <a href="/en/teachings" class="back-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
           {t('common.back')}
         </a>
         
