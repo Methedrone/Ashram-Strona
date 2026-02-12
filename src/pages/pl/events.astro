@@ -28,7 +28,7 @@ const pastEvents = sortedEvents.filter(event => event.data.date < new Date()).re
 }}>
   <section class="events-page">
     <div class="container">
-      <SectionHeading title={t('nav.events')} subtitle="Dołącz do nas podczas świąt i warsztatów" />
+      <SectionHeading title={t('nav.events')} subtitle="Dołącz do nas podczas świąt i warsztatów" level={1} />
       
       {upcomingEvents.length > 0 ? (
         <div class="events-grid">

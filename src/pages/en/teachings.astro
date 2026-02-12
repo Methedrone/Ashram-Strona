@@ -25,7 +25,7 @@ const sortedTeachings = allTeachings.sort((a, b) => b.data.date.valueOf() - a.da
 }}>
   <section class="teachings-page">
     <div class="container">
-      <SectionHeading title={t('nav.teachings')} subtitle="Teachings of Sri Haidakhan Babaji" />
+      <SectionHeading title={t('nav.teachings')} subtitle="Teachings of Sri Haidakhan Babaji" level={1} />
       
       {sortedTeachings.length > 0 ? (
         <div class="teachings-grid">
