@@ -16,12 +16,12 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const defaultImages: ImageItem[] = [
-  { src: '/images/gallery/ashram-exterior.webp', alt: 'Ashram Exterior' },
-  { src: '/images/gallery/temple-interior.webp', alt: 'Temple Interior' },
-  { src: '/images/gallery/aarti-ceremony.webp', alt: 'Morning Aarati' },
-  { src: '/images/gallery/community-work.webp', alt: 'Community Work' },
-  { src: '/images/gallery/spiritual-gathering.webp', alt: 'Spiritual Gathering' },
-  { src: '/images/gallery/nature-view.webp', alt: 'Nature View' },
+  { src: '/images/gallery/ashram-courtyard-garden-archway.webp', alt: 'Ashram courtyard with brick archway and garden' },
+  { src: '/images/gallery/sacred-temple-room-candles-altar.webp', alt: 'Sacred temple room with altar, candles and rugs' },
+  { src: '/images/gallery/aarti-procession-woman-offerings.webp', alt: 'Woman in yellow sari carrying offerings during Aarti procession' },
+  { src: '/images/gallery/vegetable-garden-leeks-organic.webp', alt: 'Row of leeks in ashram organic garden' },
+  { src: '/images/gallery/meditation-room-babaji-portrait-altar.webp', alt: 'Meditation room with Babaji portrait on altar' },
+  { src: '/images/gallery/autumn-meadow-mountains-golden-grass.webp', alt: 'Autumn meadow with view of Golden Mountains' },
 ];
 
 const { images = defaultImages, limit } = Astro.props;

@@ -4,7 +4,23 @@ description: "Codzienna ceremonia Aarti jako praktyka bhakti yoga i sposób na p
 date: 2026-02-07
 author: "Babaji"
 lang: pl
+featuredImage: "/images/gallery/aarti-ceremony.webp"
+tags:
+  - aarti
+  - bhakti
+  - ceremonia światła
+  - oddanie
+faqs:
+  - question: "Czym jest Aarti?"
+    answer: "Aarti to ceremonia światła, podczas której śpiewa się bhajany i składa ofiary Boskości."
+  - question: "Kiedy odbywa się Aarti w aszramie?"
+    answer: "W tradycji Haidakhan Aarti odbywa się zwykle rano i wieczorem, tworząc rytm dnia."
+  - question: "Czy muszę umieć śpiewać, aby uczestniczyć?"
+    answer: "Nie. Aarti wymaga otwartego serca, nie muzycznego treningu."
+updatedAt: 2026-02-12
 ---
+
+> **Kluczowa myśl:** Aarti to wspólna modlitwa światła, która otwiera serce i wzmacnia oddanie.
 
 Aarti to codzienna ceremonia, podczas której uczestnicy śpiewają i składają ofiary Boskości. Dosłowne znaczenie słowa Aarti to "to, co zabiera ból".
 
@@ -25,5 +41,9 @@ W tradycji Haidakhan, Aarti odbywa się zwykle dwa razy dziennie - rano i wieczo
 Śpiewanie bhajanów podczas Aarti nie wymaga muzycznego treningu - wymaga jedynie otwartego serca. Wibracje świętych pieśni oczyszczają przestrzeń i podnoszą świadomość wszystkich obecnych.
 
 Babadżi kochał bhajany i często sam je śpiewał, prowadząc swoich bhaktów w ekstatycznym oddaniu Boskości.
+
+## Aarti w Ashramie Babaji
+
+W Ashramie Babaji Aarti stanowi serce dnia — poranna i wieczorna ceremonia wyznacza rytm praktyki. Jeśli chcesz doświadczyć Aarti w grupie, zobacz [nadchodzące wydarzenia](/events) lub zaplanuj wizytę przez [kontakt](/contact). Aarti jest naturalnym uzupełnieniem praktyk takich jak [Nama Japa](/teachings/nama-japa) oraz [Havan](/teachings/havan-ogien).
 
 *Om Namah Shivay*

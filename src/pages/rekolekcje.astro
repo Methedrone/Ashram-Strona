@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { useTranslations } from '../i18n/utils';
+
+const lang = 'pl';
+const t = useTranslations(lang);
+---
+
+<Layout title="Rekolekcje" description={t('meta.retreats.description')}>
+  <section class="retreats-page">
+    <div class="container">
+      <Breadcrumb items={[{ label: t('nav.home'), href: '/' }, { label: 'Rekolekcje' }]} />
+      <SectionHeading title="Rekolekcje Duchowe" subtitle="Czas ciszy, praktyki i transformacji" level={1} />
+
+      <p class="intro">
+        Rekolekcje w Ashramie Babaji to zaproszenie do głębszego doświadczenia życia duchowego.
+        Dni w rytmie medytacji, Karma Yogi i ceremonii Aarti otwierają przestrzeń na wewnętrzną ciszę.
+        Zobacz też <a href="/teachings">nauki Babaji</a> i <a href="/praktyki">praktyki duchowe</a>.
+      </p>
+
+      <h2>Czym są rekolekcje w tradycji Babadżiego?</h2>
+      <p>
+        To czas intensywnej praktyki opartej na Prawdzie, Prostocie i Miłości. Codzienność wypełnia
+        medytacja, japa (Om Namah Shivaya), wspólna praca oraz ceremonie Havan i Aarti.
+      </p>
+
+      <h2>Przykładowy harmonogram dnia</h2>
+      <div class="schedule">
+        <div><strong>5:30</strong> Medytacja i japa</div>
+        <div><strong>7:00</strong> Aarti</div>
+        <div><strong>9:00–12:00</strong> Karma Yoga</div>
+        <div><strong>18:00</strong> Wieczorne Aarti i bhajany</div>
+      </div>
+
+      <h2>Rodzaje rekolekcji</h2>
+      <ul>
+        <li><a href="/events/wiosenny-retreat">Wiosenny retreat</a> — łagodne wejście w praktykę.</li>
+        <li><a href="/events/letni-retreat">Letni retreat</a> — intensywne zanurzenie w życiu aszramowym.</li>
+        <li><a href="/events/navaratri-festiwal">Navaratri</a> — dziewięć nocy oddania.</li>
+      </ul>
+
+      <h2>Jak się przygotować?</h2>
+      <p>
+        Zabierz wygodne ubrania, śpiwór, matę i obuwie na zewnątrz. Zapewniamy proste wegetariańskie posiłki.
+        Koszt opiera się na dobrowolnych darowiznach — zobacz <a href="/donations">darowizny</a>.
+      </p>
+
+      <div class="cta">
+        <a href="/contact" class="btn-primary">Skontaktuj się</a>
+        <a href="/events" class="btn-secondary">Sprawdź wydarzenia</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .retreats-page {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .intro a {
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .schedule {
+    display: grid;
+    gap: 0.75rem;
+    margin: 1rem 0 2rem;
+    padding: 1.5rem;
+    background: var(--color-bg-warm);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+  }
+
+  ul a {
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .cta {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+</style>

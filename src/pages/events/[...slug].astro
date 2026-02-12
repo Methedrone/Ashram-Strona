@@ -3,6 +3,9 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { useTranslations } from '../../i18n/utils';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
+import RelatedTeachings from '../../components/RelatedTeachings.astro';
+import RelatedEvents from '../../components/RelatedEvents.astro';
 
 export async function getStaticPaths() {
   const events = await getCollection('events', ({ data }) => {
@@ -19,19 +22,22 @@ export async function getStaticPaths() {
   });
 }
 
-const { entry } = Astro.props;
+const { entry } = Astro.props as { entry: any };
 const { Content } = await entry.render();
 
 const lang = 'pl';
 const t = useTranslations(lang);
+const siteUrl = 'https://babaji.org.pl';
+
+const data = entry.data as Record<string, any>;
 
 const breadcrumbItems = [
-  { label: t('nav.home'), href: '/pl' },
-  { label: t('nav.events'), href: '/pl/events' },
-  { label: entry.data.title },
+  { label: t('nav.home'), href: '/' },
+  { label: t('nav.events'), href: '/events' },
+  { label: data.title },
 ];
 
-const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
+const formattedDate = data.date.toLocaleDateString('pl-PL', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
@@ -39,19 +45,40 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
 });
 
 const shareUrl = encodeURIComponent(Astro.url.href);
-const shareTitle = encodeURIComponent(entry.data.title);
+const shareTitle = encodeURIComponent(data.title);
+
+const ogImagePath = data.featuredImage || '/images/havan-ceremony-group-fire-offerings.webp';
+const eventUrl = `${siteUrl}/events/${entry.slug.split('/').slice(1).join('/')}`;
+const eventImage = `${siteUrl}${ogImagePath}`;
+const eventEndDate = data.endDate ? data.endDate.toISOString() : undefined;
+const eventAttendanceMode = data.isOnline
+  ? 'https://schema.org/OnlineEventAttendanceMode'
+  : 'https://schema.org/OfflineEventAttendanceMode';
+const updatedAt = data.updatedAt ?? data.date;
+const updatedLabel = 'Ostatnia aktualizacja';
+const registrationUrl = data.registrationUrl
+  ? (data.registrationUrl.startsWith('http') ? data.registrationUrl : `${siteUrl}${data.registrationUrl}`)
+  : `${siteUrl}/contact`;
+const faqItems = (data.faqs as { question: string; answer: string }[]) ?? [];
 ---
 
-<Layout title={entry.data.title} description={entry.data.description} schema={{
+<Layout title={data.title} description={data.description} ogImage={ogImagePath} ogImageAlt={data.title} ogType="article" schema={{
   "@type": "Event",
-  "name": entry.data.title,
-  "startDate": entry.data.date.toISOString(),
+  "name": data.title,
+  "description": data.description,
+  "startDate": data.date.toISOString(),
+  "endDate": eventEndDate,
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": eventAttendanceMode,
   "location": {
     "@type": "Place",
-    "name": entry.data.location,
+    "name": "Ashram Babaji",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": entry.data.location,
+      "streetAddress": "Mąkolno 129",
+      "addressLocality": "Mąkolno",
+      "postalCode": "57-250",
+      "addressRegion": "Dolnośląskie",
       "addressCountry": "PL"
     }
   },
@@ -60,14 +87,22 @@ const shareTitle = encodeURIComponent(entry.data.title);
     "name": "Ashram Babaji",
     "url": "https://babaji.org.pl"
   },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "PLN",
+    "availability": "https://schema.org/InStock",
+    "url": registrationUrl
+  },
+  "image": eventImage,
   "inLanguage": "pl",
-  "url": `https://babaji.org.pl/pl/events/${entry.slug.split('/').slice(1).join('/')}`
+  "url": eventUrl
 }}>
   <article class="event-detail">
     <div class="container">
       <header class="event-header">
         <Breadcrumb items={breadcrumbItems} />
-        <a href="/pl/events" class="back-link">
+        <a href="/events" class="back-link">
           <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
           {t('common.back')}
         </a>
@@ -76,12 +111,12 @@ const shareTitle = encodeURIComponent(entry.data.title);
           {formattedDate}
         </div>
         
-        <h1>{entry.data.title}</h1>
+        <h1>{data.title}</h1>
         
         <div class="meta">
           <div class="meta-item">
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            <span>{entry.data.location}</span>
+            <span>{data.location}</span>
           </div>
         </div>
       </header>
@@ -89,6 +124,26 @@ const shareTitle = encodeURIComponent(entry.data.title);
       <div class="content">
         <Content />
       </div>
+
+      <p class="updated">
+        <time datetime={updatedAt.toISOString()}>{updatedLabel}: {updatedAt.toLocaleDateString('pl-PL')}</time>
+      </p>
+
+      {faqItems.length > 0 && (
+        <section class="faq-section">
+          <h2>Najczęściej zadawane pytania</h2>
+          <div class="faq-list">
+            {faqItems.map((faq) => (
+              <details>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {faqItems.length > 0 && <FAQSchema faqs={faqItems} />}
 
       <div class="share-buttons">
         <h3>{t('share.title')}</h3>
@@ -105,8 +160,11 @@ const shareTitle = encodeURIComponent(entry.data.title);
       <div class="cta-section">
         <h3>Zainteresowany udziałem?</h3>
         <p>Skontaktuj się z nami, aby zarezerwować miejsce lub dowiedzieć się więcej.</p>
-        <a href="/pl/contact" class="btn-primary">Skontaktuj się</a>
+        <a href="/contact" class="btn-primary">Skontaktuj się</a>
       </div>
+
+      <RelatedTeachings currentSlug={entry.slug} lang="pl" tags={data.tags} />
+      <RelatedEvents currentSlug={entry.slug} lang="pl" tags={data.tags} />
     </div>
   </article>
 </Layout>
@@ -206,6 +264,46 @@ const shareTitle = encodeURIComponent(entry.data.title);
 
   .content :global(li) {
     margin-bottom: 0.5rem;
+  }
+
+  .updated {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin: 2rem 0 3rem;
+  }
+
+  .faq-section {
+    margin-bottom: 3rem;
+  }
+
+  .faq-section h2 {
+    font-family: var(--font-family-serif);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-list details {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+  }
+
+  .faq-list summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .faq-list p {
+    margin: 0.75rem 0 0;
+    color: var(--color-text-light);
   }
 
   .share-buttons {

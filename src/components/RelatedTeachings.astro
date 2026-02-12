@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  currentSlug: string;
+  lang: 'pl' | 'en';
+  tags?: string[];
+  limit?: number;
+}
+
+const { currentSlug, lang, tags = [], limit = 3 } = Astro.props;
+
+const allTeachings = await getCollection('teachings', ({ data }) => data.lang === lang);
+const related = allTeachings
+  .filter(entry => entry.slug !== currentSlug)
+  .filter(entry => tags.length === 0 || entry.data.tags?.some(tag => tags.includes(tag)))
+  .slice(0, limit);
+---
+
+{related.length > 0 && (
+  <section class="related-content">
+    <h2>{lang === 'pl' ? 'Powiązane nauki' : 'Related teachings'}</h2>
+    <ul>
+      {related.map(teaching => (
+        <li>
+          <a href={lang === 'pl' ? `/teachings/${teaching.slug.split('/').slice(1).join('/')}` : `/en/teachings/${teaching.slug.split('/').slice(1).join('/')}`}>
+            {teaching.data.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .related-content {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .related-content h2 {
+    font-family: var(--font-family-serif);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .related-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .related-content a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .related-content a:hover {
+    color: var(--color-orange);
+  }
+</style>

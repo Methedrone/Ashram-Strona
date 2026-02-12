@@ -4,12 +4,26 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const year = new Date().getFullYear();
+const base = lang === 'pl' ? '' : '/en';
+const footerLinks: { href: string; label: string }[] = [
+  { href: `${base}/`, label: t('nav.home') },
+  { href: `${base}/teachings`, label: t('nav.teachings') },
+  { href: `${base}/events`, label: t('nav.events') },
+  { href: `${base}/contact`, label: t('nav.contact') },
+  { href: `${base}/babaji`, label: 'Babaji' },
+  { href: 'https://www.facebook.com/haidakhandisevadham.polska.9', label: 'Facebook' },
+];
 ---
 
 <footer>
     <div class="footer-motto">
         {t('hero.subtitle')}
     </div>
+    <nav aria-label="Footer" class="footer-nav">
+        {footerLinks.map(link => (
+          <a href={link.href}>{link.label}</a>
+        ))}
+    </nav>
     <p>&copy; {year} {t('footer.copyright')}</p>
 </footer>
 
@@ -54,6 +68,14 @@ const year = new Date().getFullYear();
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         letter-spacing: 0.05em;
         font-style: italic;
+    }
+
+    .footer-nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem 1.5rem;
+        margin-bottom: 1.5rem;
     }
 
     footer p {

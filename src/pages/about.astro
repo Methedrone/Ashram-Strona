@@ -7,11 +7,11 @@ const lang = 'pl';
 const t = useTranslations(lang);
 ---
 
-<Layout title={t('nav.about')} description={t('meta.about.description')} schema={{
+<Layout title={t('nav.about')} description={t('meta.about.description')} ogImage="/og/about.jpg" schema={{
   "@type": "AboutPage",
   "name": t('nav.about'),
   "description": t('meta.about.description'),
-  "url": "https://babaji.org.pl/pl/about",
+  "url": "https://babaji.org.pl/about",
   "inLanguage": "pl"
 }}>
   <div class="about-page">
@@ -23,9 +23,9 @@ const t = useTranslations(lang);
           <div class="text-content">
             <h3>Nasza Misja</h3>
             <p>
-              Ashram Babaji w Polsce jest miejscem dedykowanym praktyce duchowej, medytacji i służbie ludzkości. 
-              Naszą misją jest szerzenie nauk Śri Haidakhan Babaji, które opierają się na trzech filarach: 
-              <strong>Prawdzie, Prostocie i Miłości</strong>.
+              <strong>Ashram Babaji</strong> to duchowe centrum w Mąkolnie (Dolny Śląsk), poświęcone naukom
+              <a href="/babaji">Śri Haidakhan Babaji</a>. Od 1990 roku tworzymy przestrzeń praktyki,
+              medytacji i służby, opartą na trzech filarach: <strong>Prawdzie, Prostocie i Miłości</strong>.
             </p>
             <p>
               Wierzymy, że poprzez codzienną praktykę Karma Jogi (pracy jako służby), Japa Jogi (powtarzania imienia Boga) 
@@ -38,10 +38,46 @@ const t = useTranslations(lang);
               oraz bezinteresowna służba. Jego przesłanie jest uniwersalne i wykracza poza ramy jednej religii, 
               zachęcając ludzi wszystkich wyznań do podążania ścieżką serca.
             </p>
+            <p>
+              Poznaj więcej o życiu i naukach Babaji na stronie
+              <a href="/babaji">Śri Haidakhan Babaji</a>.
+            </p>
           </div>
           
           <div class="image-content">
-            <img src="/images/gallery/babaji-portrait.webp" alt="Śri Haidakhan Babaji" class="rounded-image shadow-lg" />
+            <img src="/images/gallery/babaji-with-devotees-vintage.webp" alt="Śri Haidakhan Babaji z wyznawcami na budowie aszramu" class="rounded-image shadow-lg" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="eeat">
+      <div class="container">
+        <SectionHeading title="Doświadczenie i wspólnota" subtitle="Praktyka, która żyje na co dzień" />
+        <div class="eeat-grid">
+          <div class="eeat-card">
+            <h3>Codzienna praktyka</h3>
+            <p>
+              W aszramie praktykujemy Karma Yogę, medytację, japa i ceremonie Aarti oraz Havan.
+              To rytm, który wzmacnia uważność i buduje duchową dyscyplinę.
+            </p>
+            <a href="/praktyki">Zobacz praktyki</a>
+          </div>
+          <div class="eeat-card">
+            <h3>Programy i wydarzenia</h3>
+            <p>
+              Organizujemy rekolekcje, warsztaty i święta duchowe, w tym Navaratri.
+              Spotykamy się regularnie, aby wspólnie praktykować i służyć.
+            </p>
+            <a href="/events">Nadchodzące wydarzenia</a>
+          </div>
+          <div class="eeat-card">
+            <h3>Goście i wolontariat</h3>
+            <p>
+              Wspólnota aszramu tworzy przestrzeń wsparcia dla osób w każdym etapie drogi.
+              Zapraszamy do odwiedzin i praktyki w duchu otwartości.
+            </p>
+            <a href="/contact">Skontaktuj się</a>
           </div>
         </div>
       </div>
@@ -53,7 +89,7 @@ const t = useTranslations(lang);
         
         <div class="ashram-grid">
           <div class="ashram-card">
-            <img src="/images/gallery/ashram-exterior.webp" alt="Ashram w Mąkolnie" />
+            <img src="/images/gallery/ashram-courtyard-garden-archway.webp" alt="Dziedziniec aszramu w Mąkolnie z ceglanym przejściem" />
             <div class="card-content">
               <h3>Ashram w Mąkolnie</h3>
               <p>
@@ -64,22 +100,6 @@ const t = useTranslations(lang);
                 <strong>Adres:</strong><br />
                 Mąkolno 129<br />
                 57-250 Mąkolno
-              </p>
-            </div>
-          </div>
-
-          <div class="ashram-card">
-            <img src="/images/gallery/ashram-building.webp" alt="Centrum w Lanckoronie" />
-            <div class="card-content">
-              <h3>Centrum w Lanckoronie</h3>
-              <p>
-                Aktywny ośrodek spotkań i warsztatów. Lanckorona, ze swoją artystyczną i duchową atmosferą, 
-                jest idealnym miejscem na pogłębianie praktyki i spotkania sanghi.
-              </p>
-              <p class="address">
-                <strong>Adres:</strong><br />
-                Lanckorona<br />
-                (Szczegóły dojazdu po kontakcie)
               </p>
             </div>
           </div>
@@ -145,6 +165,46 @@ const t = useTranslations(lang);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+  }
+
+  .eeat {
+    background: var(--color-bg-warm);
+  }
+
+  .eeat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  .eeat-card {
+    background: var(--color-bg-alt);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .eeat-card h3 {
+    font-family: var(--font-family-serif);
+    color: var(--color-text);
+    margin-top: 0;
+  }
+
+  .eeat-card p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .eeat-card a {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .eeat-card a:hover {
+    text-decoration: underline;
   }
 
   .ashram-card {

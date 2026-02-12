@@ -10,7 +10,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const navItems = [
-  { href: lang === 'pl' ? '/' : `/${lang}/`, text: t("nav.home") },
+  { href: lang === 'pl' ? '/' : `/${lang}`, text: t("nav.home") },
   { href: lang === 'pl' ? '/about' : `/${lang}/about`, text: t("nav.about") },
   { href: lang === 'pl' ? '/teachings' : `/${lang}/teachings`, text: t("nav.teachings") },
   { href: lang === 'pl' ? '/events' : `/${lang}/events`, text: t("nav.events") },
@@ -23,9 +23,9 @@ const navItems = [
 const currentPath = (activePath || Astro.url.pathname).replace(/\/$/, '');
 let switchPath = "";
 if (lang === "pl") {
-    switchPath = currentPath === "/" || currentPath === "" ? "/en/" : `/en${currentPath}`;
+    switchPath = currentPath === "/" || currentPath === "" ? "/en" : `/en${currentPath}`;
 } else {
-    switchPath = currentPath.replace(/^\/en/, "");
+    switchPath = currentPath.replace(/^\/en/, "") || "/";
 }
 
 const switchText = lang === "pl" ? "English" : "Polski";
@@ -33,7 +33,7 @@ const switchText = lang === "pl" ? "English" : "Polski";
 
 <header>
     <div class="header-container">
-        <a href={lang === 'pl' ? '/' : `/${lang}/`} class="logo">Ashram Babaji</a>
+        <a href={lang === 'pl' ? '/' : `/${lang}`} class="logo">Ashram Babaji</a>
         
         <button 
             type="button"

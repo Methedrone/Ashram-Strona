@@ -4,7 +4,23 @@ description: "Daily Aarti ceremony as a practice of bhakti yoga and a way to con
 date: 2026-02-07
 author: "Babaji"
 lang: en
+featuredImage: "/images/gallery/aarti-ceremony.webp"
+tags:
+  - aarti
+  - bhakti
+  - ceremony of light
+  - devotion
+faqs:
+  - question: "What is Aarti?"
+    answer: "Aarti is a ceremony of light in which bhajans are sung and offerings are made to the Divine."
+  - question: "When is Aarti performed at the ashram?"
+    answer: "In the Haidakhan tradition, Aarti is usually held in the morning and evening, creating the daily rhythm."
+  - question: "Do I need to be a singer to participate?"
+    answer: "No. Aarti requires an open heart, not musical training."
+updatedAt: 2026-02-12
 ---
+
+> **Key insight:** Aarti is a shared prayer of light that opens the heart and strengthens devotion.
 
 Aarti is a daily ceremony in which participants sing and make offerings to the Divine. The literal meaning of the word Aarti is "that which removes pain."
 
@@ -25,5 +41,9 @@ In the Haidakhan tradition, Aarti is usually performed twice daily - morning and
 Singing bhajans during Aarti requires no musical training - it requires only an open heart. The vibrations of sacred songs purify the space and elevate the consciousness of all present.
 
 Babaji loved bhajans and often sang them himself, leading his devotees in ecstatic devotion to the Divine.
+
+## Aarti at Babaji Ashram
+
+At Babaji Ashram, Aarti is the heart of the day — morning and evening ceremonies set the rhythm of practice. If you want to experience Aarti in community, see [upcoming events](/en/events) or plan a visit through [contact](/en/contact). Aarti naturally complements practices like [Nama Japa](/en/teachings/nama-japa) and [Havan](/en/teachings/sacred-fire-ceremony).
 
 *Om Namah Shivay*
