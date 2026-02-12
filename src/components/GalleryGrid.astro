@@ -16,12 +16,12 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const defaultImages: ImageItem[] = [
-  { src: '/images/gallery/1.jpg', alt: 'Ashram Garden' },
-  { src: '/images/gallery/2.jpg', alt: 'Meditation Hall' },
-  { src: '/images/gallery/3.jpg', alt: 'Morning Aarati' },
-  { src: '/images/gallery/4.jpg', alt: 'Community Lunch' },
-  { src: '/images/gallery/5.jpg', alt: 'Satsang' },
-  { src: '/images/gallery/6.jpg', alt: 'Nature Walk' },
+  { src: '/images/gallery/ashram-exterior.webp', alt: 'Ashram Exterior' },
+  { src: '/images/gallery/temple-interior.webp', alt: 'Temple Interior' },
+  { src: '/images/gallery/aarti-ceremony.webp', alt: 'Morning Aarati' },
+  { src: '/images/gallery/community-work.webp', alt: 'Community Work' },
+  { src: '/images/gallery/spiritual-gathering.webp', alt: 'Spiritual Gathering' },
+  { src: '/images/gallery/nature-view.webp', alt: 'Nature View' },
 ];
 
 const { images = defaultImages, limit } = Astro.props;

@@ -1,9 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'en';
 const t = useTranslations(lang);
+
+const contactInfo = {
+  email: "mimohan44@gmail.com"
+};
 ---
 
 <Layout title={t('nav.contact')} description={t('meta.contact.description')} schema={{
@@ -13,5 +18,73 @@ const t = useTranslations(lang);
   "url": "https://babaji.org.pl/en/contact",
   "inLanguage": "en"
 }}>
-	<p>Contact information coming soon.</p>
+  <div class="contact-page">
+    <div class="container">
+      <SectionHeading title={t('nav.contact')} subtitle="Get in touch with us" level={1} />
+      
+      <div class="contact-mailto-container">
+        <div class="mailto-card">
+          <p>{t('contact.mailto.text')}</p>
+          <a href={`mailto:${contactInfo.email}`} class="btn-primary">
+            {t('contact.mailto.btn')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .contact-page {
+    padding-top: 4rem;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+    width: 100%;
+  }
+
+  .contact-mailto-container {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Mailto Card Styles */
+  .mailto-card {
+    background: var(--color-bg-warm);
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .mailto-card p {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .contact-page {
+      padding-top: 2rem;
+    }
+    
+    .mailto-card {
+      padding: 2rem;
+    }
+  }
+</style>
