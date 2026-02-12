@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import FAQSchema from '../components/FAQSchema.astro';
+import { useTranslations } from '../i18n/utils';
+
+const lang = 'pl';
+const t = useTranslations(lang);
+
+const faqs = [
+  {
+    question: 'Czym jest Ashram Babaji w Polsce?',
+    answer: 'Ashram Babaji to ośrodek duchowy poświęcony naukom Śri Haidakhan Babaji, oparty na Prawdzie, Prostocie i Miłości. Nasza siedziba znajduje się w Mąkolnie.'
+  },
+  {
+    question: 'Czy muszę się wcześniej umówić na wizytę?',
+    answer: 'Tak. Prosimy o kontakt mailowy lub telefoniczny przed planowaną wizytą, abyśmy mogli przygotować pobyt.'
+  },
+  {
+    question: 'Jak wygląda typowy dzień w Ashramie?',
+    answer: 'Dzień obejmuje poranną medytację, praktykę mantry, pracę jako służbę (Karma Yoga) oraz ceremonie Aarti i Havan. Rytm dnia sprzyja ciszy i uważności.'
+  },
+  {
+    question: 'Jakie praktyki duchowe są w Ashramie?',
+    answer: 'Główne praktyki to Karma Yoga, Japa Yoga (Om Namah Shivaya), Havan, Aarti oraz medytacja. Nauczanie jest uniwersalne i otwarte dla wszystkich.'
+  },
+  {
+    question: 'Czy mogę przyjechać jako początkujący?',
+    answer: 'Tak. Wspólnota wprowadza nowych uczestników w praktyki i rytm dnia.'
+  },
+  {
+    question: 'Gdzie dokładnie znajduje się Ashram?',
+    answer: 'Siedziba: Mąkolno 129, 57-250 Mąkolno (Dolny Śląsk).'
+  },
+  {
+    question: 'Czy Ashram organizuje wydarzenia i warsztaty?',
+    answer: 'Tak. Organizujemy ceremonie, rekolekcje i święta duchowe. Sprawdź aktualne wydarzenia na stronie Wydarzenia.'
+  },
+  {
+    question: 'Jak mogę wesprzeć Ashram?',
+    answer: 'Ashram utrzymuje się z dobrowolnych darowizn. Szczegóły znajdziesz na stronie Darowizny.'
+  },
+  {
+    question: 'Czy mogę pomóc jako wolontariusz?',
+    answer: 'Tak. Pomoc w kuchni, ogrodzie i utrzymaniu ośrodka jest mile widziana. Skontaktuj się z nami, aby ustalić szczegóły.'
+  },
+  {
+    question: 'Kim był Śri Haidakhan Babaji?',
+    answer: 'Babaji nauczał praktyki mantry i bezinteresownej służby. Jego przesłanie jest uniwersalne i zachęca do podążania ścieżką serca.'
+  },
+  {
+    question: 'Co zabrać na retreat?',
+    answer: 'Warto zabrać wygodne ubrania, śpiwór, matę i obuwie na zewnątrz. Szczegóły zawsze potwierdzamy przed wyjazdem.'
+  },
+  {
+    question: 'W jakich językach dostępna jest strona?',
+    answer: 'Strona dostępna jest w języku polskim i angielskim. Język zmienisz w nagłówku.'
+  }
+];
+---
+
+<Layout title="FAQ" description="Odpowiedzi na najczęściej zadawane pytania o wizyty w Ashramie Babaji, praktyki i wydarzenia.">
+  <section class="faq-page">
+    <div class="container">
+      <Breadcrumb items={[{ label: t('nav.home'), href: '/' }, { label: 'FAQ' }]} />
+      <SectionHeading title="Najczęściej zadawane pytania" subtitle="Praktyczne informacje o aszramie" level={1} />
+
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQSchema faqs={faqs} />
+</Layout>
+
+<style>
+  .faq-page {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .faq-list {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-list details {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+  }
+
+  .faq-list summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .faq-list p {
+    margin: 0.75rem 0 0;
+    color: var(--color-text-light);
+  }
+</style>

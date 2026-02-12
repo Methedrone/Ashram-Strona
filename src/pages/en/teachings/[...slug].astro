@@ -3,6 +3,9 @@ import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import { useTranslations } from '../../../i18n/utils';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
+import FAQSchema from '../../../components/FAQSchema.astro';
+import RelatedTeachings from '../../../components/RelatedTeachings.astro';
+import RelatedEvents from '../../../components/RelatedEvents.astro';
 
 export async function getStaticPaths() {
   const teachings = await getCollection('teachings', ({ data }) => {
@@ -19,38 +22,55 @@ export async function getStaticPaths() {
   });
 }
 
-const { entry } = Astro.props;
+const { entry } = Astro.props as { entry: any };
 const { Content } = await entry.render();
 
 const lang = 'en';
 const t = useTranslations(lang);
+const siteUrl = 'https://babaji.org.pl';
 
+const data = entry.data as Record<string, any>;
 const breadcrumbItems = [
   { label: t('nav.home'), href: '/en' },
   { label: t('nav.teachings'), href: '/en/teachings' },
-  { label: entry.data.title },
+  { label: data.title },
 ];
 
-const formattedDate = entry.data.date.toLocaleDateString('en-US', {
+const formattedDate = data.date.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
 
 const shareUrl = encodeURIComponent(Astro.url.href);
-const shareTitle = encodeURIComponent(entry.data.title);
+const shareTitle = encodeURIComponent(data.title);
+const articleUrl = `${siteUrl}/en/teachings/${entry.slug.split('/').slice(1).join('/')}`;
+const ogImagePath = data.featuredImage || '/images/havan-ceremony-group-fire-offerings.webp';
+const articleImage = `${siteUrl}${ogImagePath}`;
+const updatedAt = data.updatedAt ?? data.date;
+const keywords = data.tags?.join(', ');
+const faqItems = (data.faqs as { question: string; answer: string }[]) ?? [];
+const updatedLabel = 'Last updated';
 ---
 
-<Layout title={entry.data.title} description={entry.data.description} schema={{
+<Layout title={data.title} description={data.description} ogImage={ogImagePath} ogImageAlt={data.title} ogType="article" schema={{
   "@type": "Article",
-  "headline": entry.data.title,
+  "headline": data.title,
+  "description": data.description,
   "author": {
     "@type": "Person",
-    "name": entry.data.author
+    "name": data.author
   },
-  "datePublished": entry.data.date.toISOString(),
+  "datePublished": data.date.toISOString(),
+  "dateModified": updatedAt.toISOString(),
+  "image": articleImage,
+  "keywords": keywords,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": articleUrl
+  },
   "inLanguage": "en",
-  "url": `https://babaji.org.pl/en/teachings/${entry.slug.split('/').slice(1).join('/')}`,
+  "url": articleUrl,
   "publisher": {
     "@type": "ReligiousOrganization",
     "name": "Ashram Babaji",
@@ -66,18 +86,38 @@ const shareTitle = encodeURIComponent(entry.data.title);
           {t('common.back')}
         </a>
         
-        <h1>{entry.data.title}</h1>
+        <h1>{data.title}</h1>
         
         <div class="meta">
           <span class="date">{formattedDate}</span>
           <span class="separator">•</span>
-          <span class="author">{entry.data.author}</span>
+          <span class="author">{data.author}</span>
         </div>
       </header>
       
       <div class="content">
         <Content />
       </div>
+
+      <p class="updated">
+        <time datetime={updatedAt.toISOString()}>{updatedLabel}: {updatedAt.toLocaleDateString('en-US')}</time>
+      </p>
+
+      {faqItems.length > 0 && (
+        <section class="faq-section">
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            {faqItems.map((faq: { question: string; answer: string }) => (
+              <details>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {faqItems.length > 0 && <FAQSchema faqs={faqItems} />}
 
       <div class="share-buttons">
         <h3>{t('share.title')}</h3>
@@ -90,6 +130,9 @@ const shareTitle = encodeURIComponent(entry.data.title);
           </a>
         </div>
       </div>
+
+      <RelatedTeachings currentSlug={entry.slug} lang="en" tags={data.tags} />
+      <RelatedEvents currentSlug={entry.slug} lang="en" tags={data.tags} />
     </div>
   </article>
 </Layout>
@@ -180,6 +223,46 @@ const shareTitle = encodeURIComponent(entry.data.title);
 
   .content :global(li) {
     margin-bottom: 0.5rem;
+  }
+
+  .updated {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin: 2rem 0 3rem;
+  }
+
+  .faq-section {
+    margin: 3rem 0;
+  }
+
+  .faq-section h2 {
+    font-family: var(--font-family-serif);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-list details {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+  }
+
+  .faq-list summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .faq-list p {
+    margin: 0.75rem 0 0;
+    color: var(--color-text-light);
   }
 
   .share-buttons {

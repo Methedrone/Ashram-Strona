@@ -7,25 +7,42 @@ import { useTranslations } from '../../i18n/utils';
 
 const lang = 'en';
 const t = useTranslations(lang);
+const siteUrl = 'https://babaji.org.pl';
 
 const allTeachings = await getCollection('teachings', ({ data }) => {
   return data.lang === lang;
 });
 
 const sortedTeachings = allTeachings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const itemList = sortedTeachings.map((teaching, index) => ({
+  "@type": "ListItem",
+  "position": index + 1,
+  "name": teaching.data.title,
+  "url": `${siteUrl}/en/teachings/${teaching.slug.split('/').slice(1).join('/')}`
+}));
 ---
 
-<Layout title={t('nav.teachings')} description={t('meta.teachings.description')} schema={{
+<Layout title={t('nav.teachings')} description={t('meta.teachings.description')} ogImage="/og/teachings.jpg" schema={{
   "@type": "CollectionPage",
   "name": t('nav.teachings'),
   "description": t('meta.teachings.description'),
   "url": "https://babaji.org.pl/en/teachings",
   "inLanguage": "en",
-  "numberOfItems": sortedTeachings.length
+  "numberOfItems": sortedTeachings.length,
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": itemList
+  }
 }}>
   <section class="teachings-page">
     <div class="container">
       <SectionHeading title={t('nav.teachings')} subtitle="Teachings of Sri Haidakhan Babaji" level={1} />
+
+      <p class="intro">
+        Babaji's teachings emphasize simple practice and daily service.
+        Explore our <a href="/en/practices">spiritual practices</a> and
+        <a href="/en/events">upcoming events</a> to experience them in community.
+      </p>
       
       {sortedTeachings.length > 0 ? (
         <div class="teachings-grid">
@@ -55,6 +72,22 @@ const sortedTeachings = allTeachings.sort((a, b) => b.data.date.valueOf() - a.da
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin: 1.5rem 0 3rem;
+  }
+
+  .intro a {
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .intro a:hover {
+    text-decoration: underline;
   }
 
   .no-content {

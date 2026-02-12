@@ -1,0 +1,106 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+---
+
+<Layout title="Retreats" description={t('meta.retreats.description')}>
+  <section class="retreats-page">
+    <div class="container">
+      <Breadcrumb items={[{ label: t('nav.home'), href: '/en' }, { label: 'Retreats' }]} />
+      <SectionHeading title="Spiritual Retreats" subtitle="Time for silence, practice, and transformation" level={1} />
+
+      <p class="intro">
+        Retreats at Babaji Ashram are an invitation to deeper spiritual life.
+        Days in the rhythm of meditation, Karma Yoga, and Aarti open space for inner silence.
+        Explore <a href="/en/teachings">teachings</a> and <a href="/en/practices">practices</a>.
+      </p>
+
+      <h2>What are retreats in the Babaji tradition?</h2>
+      <p>
+        Retreats are times of intensive practice based on Truth, Simplicity and Love.
+        Each day includes meditation, japa (Om Namah Shivaya), communal work, and Havan and Aarti ceremonies.
+      </p>
+
+      <h2>Sample daily schedule</h2>
+      <div class="schedule">
+        <div><strong>5:30</strong> Meditation and japa</div>
+        <div><strong>7:00</strong> Aarti</div>
+        <div><strong>9:00–12:00</strong> Karma Yoga</div>
+        <div><strong>18:00</strong> Evening Aarti and bhajans</div>
+      </div>
+
+      <h2>Types of retreats</h2>
+      <ul>
+        <li><a href="/en/events/spring-retreat">Spring retreat</a> — a gentle entry into practice.</li>
+        <li><a href="/en/events/summer-retreat">Summer retreat</a> — immersive ashram life.</li>
+        <li><a href="/en/events/navaratri-festival">Navaratri</a> — nine nights of devotion.</li>
+      </ul>
+
+      <h2>How to prepare</h2>
+      <p>
+        Bring comfortable clothes, a sleeping bag, a mat, and outdoor shoes. We provide simple vegetarian meals.
+        Retreats are supported by voluntary donations — see <a href="/en/donations">donations</a>.
+      </p>
+
+      <div class="cta">
+        <a href="/en/contact" class="btn-primary">Contact us</a>
+        <a href="/en/events" class="btn-secondary">See events</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .retreats-page {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .intro a {
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .schedule {
+    display: grid;
+    gap: 0.75rem;
+    margin: 1rem 0 2rem;
+    padding: 1.5rem;
+    background: var(--color-bg-warm);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+  }
+
+  ul a {
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .cta {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+</style>
