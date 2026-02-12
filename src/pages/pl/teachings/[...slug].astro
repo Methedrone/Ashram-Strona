@@ -36,6 +36,9 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
   month: 'long',
   day: 'numeric',
 });
+
+const shareUrl = encodeURIComponent(Astro.url.href);
+const shareTitle = encodeURIComponent(entry.data.title);
 ---
 
 <Layout title={entry.data.title} description={entry.data.description} schema={{
@@ -74,6 +77,18 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
       
       <div class="content">
         <Content />
+      </div>
+
+      <div class="share-buttons">
+        <h3>{t('share.title')}</h3>
+        <div class="buttons">
+          <a href={`mailto:?subject=${shareTitle}&body=${shareUrl}`} class="btn-secondary share-btn">
+            {t('share.email')}
+          </a>
+          <a href={`https://wa.me/?text=${shareTitle}%20${shareUrl}`} target="_blank" rel="noopener noreferrer" class="btn-secondary share-btn">
+            {t('share.whatsapp')}
+          </a>
+        </div>
       </div>
     </div>
   </article>
@@ -165,5 +180,30 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
 
   .content :global(li) {
     margin-bottom: 0.5rem;
+  }
+
+  .share-buttons {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  .share-buttons h3 {
+    font-family: var(--font-family-serif);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .share-btn {
+    min-width: 140px;
   }
 </style>

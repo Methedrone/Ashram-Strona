@@ -57,6 +57,9 @@ export const ui = {
     'contact.phone': 'Telefon',
     'contact.tips.title': 'Wskazówki dla odwiedzających',
     'contact.tips.text': 'Prosimy o wcześniejszy kontakt telefoniczny lub mailowy przed planowaną wizytą. Ashram jest miejscem ciszy i skupienia.',
+    'share.title': 'Udostępnij',
+    'share.email': 'Email',
+    'share.whatsapp': 'WhatsApp',
   },
   en: {
     'nav.home': 'Home',
@@ -109,5 +112,8 @@ export const ui = {
     'contact.phone': 'Phone',
     'contact.tips.title': 'Visitor Information',
     'contact.tips.text': 'Please contact us by phone or email before your planned visit. The Ashram is a place of silence and focus.',
+    'share.title': 'Share',
+    'share.email': 'Email',
+    'share.whatsapp': 'WhatsApp',
   },
 } as const;
