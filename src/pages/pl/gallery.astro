@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import GalleryGrid from '../../components/GalleryGrid.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'pl';
@@ -26,8 +27,7 @@ const galleryImages = [
   <div class="gallery-page">
     <div class="container">
       <div class="intro">
-        <h1>Galeria Zdjęć</h1>
-        <p>Zapraszamy do obejrzenia zdjęć z życia naszego Ashramu, ceremonii i pięknej okolicy.</p>
+        <SectionHeading title="Galeria Zdjęć" subtitle="Zapraszamy do obejrzenia zdjęć z życia naszego Ashramu, ceremonii i pięknej okolicy." level={1} />
       </div>
       
       <GalleryGrid images={galleryImages} />
@@ -55,7 +55,7 @@ const galleryImages = [
   }
 
   h1 {
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-family-serif);
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: var(--color-orange);
@@ -63,6 +63,6 @@ const galleryImages = [
 
   p {
     font-size: 1.2rem;
-    color: #666;
+    color: var(--color-text-light);
   }
 </style>

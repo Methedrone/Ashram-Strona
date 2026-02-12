@@ -1,0 +1,34 @@
+---
+// Simple lotus/mandala SVG for section transitions
+interface Props {
+  opacity?: number;
+}
+
+const { opacity = 0.4 } = Astro.props;
+---
+
+<div class="lotus-divider">
+  <svg aria-hidden="true" width="60" height="40" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+    <!-- Simple geometric lotus shape -->
+    <path 
+      d="M30 5 L35 15 L45 20 L35 25 L30 35 L25 25 L15 20 L25 15 Z" 
+      fill="currentColor" 
+      opacity={opacity}
+    />
+    <circle cx="30" cy="20" r="3" fill="currentColor" opacity={opacity + 0.2}/>
+  </svg>
+</div>
+
+<style>
+  .lotus-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    color: var(--color-gold);
+  }
+  
+  svg {
+    filter: drop-shadow(0 2px 4px rgba(212, 175, 119, 0.3));
+  }
+</style>

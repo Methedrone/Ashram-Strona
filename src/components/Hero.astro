@@ -26,9 +26,12 @@ const t = useTranslations(lang);
 
 const buttonText = ctaText || t('hero.cta');
 const buttonLink = ctaLink || `/${lang}/contact`;
+
+// Simple approach: just the image
+const backgroundStyle = image ? `background-image: url(${image})` : '';
 ---
 
-<section class:list={['hero', align, size]} style={image ? `background-image: url(${image})` : ''}>
+<section class:list={['hero', align, size, { 'has-image': !!image }]} style={backgroundStyle}>
   <div class="overlay"></div>
   <div class="content">
     <h1>{title}</h1>
@@ -40,7 +43,14 @@ const buttonLink = ctaLink || `/${lang}/contact`;
 <style>
   .hero {
     position: relative;
-    background: linear-gradient(135deg, var(--color-orange, #FF6B00), var(--color-gold, #FFD700));
+    /* Warm golden background for pages without images */
+    background: linear-gradient(
+      135deg,
+      rgba(212, 175, 119, 0.9) 0%,
+      rgba(245, 220, 180, 0.85) 50%,
+      rgba(212, 175, 119, 0.9) 100%
+    );
+    background-color: var(--color-gold);
     background-size: cover;
     background-position: center;
     color: white;
@@ -74,8 +84,25 @@ const buttonLink = ctaLink || `/${lang}/contact`;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    /* Stronger darkening for WCAG AA contrast */
+    background: linear-gradient(
+      135deg,
+      rgba(155, 85, 57, 0.6) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
     z-index: 1;
+    pointer-events: none;
+    /* Breathing animation - meditative 6s cycle */
+    animation: ambient-breath 6s ease-in-out infinite;
+  }
+  
+  /* When no image, use golden glow overlay */
+  .hero:not(.has-image) .overlay {
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 70%
+    );
   }
 
   .content {
@@ -92,38 +119,66 @@ const buttonLink = ctaLink || `/${lang}/contact`;
   h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 1rem;
-    font-family: 'Cinzel', serif;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    line-height: 1.1;
+    font-family: var(--font-family-serif);
+    line-height: 1.2;
+    color: white;
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.5),
+      0 4px 12px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
 
   .subtitle {
     font-size: clamp(1.2rem, 3vw, 1.5rem);
     margin-bottom: 2rem;
     font-weight: 300;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.6),
+      0 2px 6px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cta-button {
     display: inline-block;
-    background-color: white;
-    color: var(--color-orange, #FF6B00);
-    padding: 1rem 2rem;
+    /* Vibrant terracotta with golden glow */
+    background: linear-gradient(
+      135deg,
+      var(--color-orange) 0%,
+      var(--color-orange-hover) 100%
+    );
+    color: white;
+    padding: 1rem 2.5rem;
     border-radius: 50px;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
+    font-weight: 600;
+    font-size: 1.15rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border: 2px solid white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 4px 16px rgba(155, 85, 57, 0.4),
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
 
   .cta-button:hover {
+    background: linear-gradient(
+      135deg,
+      var(--color-gold) 0%,
+      var(--color-orange) 100%
+    );
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    background-color: transparent;
-    color: white;
+    box-shadow: 
+      0 6px 20px rgba(155, 85, 57, 0.5),
+      0 4px 12px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    /* Candlelight glow animation */
+    animation: candlelight 2s ease-in-out infinite;
   }
 
   @media (max-width: 768px) {

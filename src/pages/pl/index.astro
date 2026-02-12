@@ -7,6 +7,7 @@ import EventCard from '../../components/EventCard.astro';
 import TeachingCard from '../../components/TeachingCard.astro';
 import LocationMap from '../../components/LocationMap.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
+import LotusDivider from '../../components/LotusDivider.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'pl';
@@ -33,13 +34,15 @@ const latestTeachings = allTeachings
   <Hero 
     title={t('hero.title')} 
     subtitle={t('hero.subtitle')}
-    image="/images/gallery/ashram-exterior.webp"
+    image="/images/hero.webp"
     ctaText={t('hero.cta')}
     ctaLink="/pl/contact"
     size="large"
   />
 
   <DailySchedule />
+
+  <LotusDivider />
 
   {latestEvents.length > 0 && (
     <section class="section-container">
@@ -52,6 +55,7 @@ const latestTeachings = allTeachings
       <div class="center-btn">
         <a href="/pl/events" class="btn-secondary">{t('events.viewAll')}</a>
       </div>
+      <LotusDivider />
     </section>
   )}
 
@@ -66,6 +70,7 @@ const latestTeachings = allTeachings
       <div class="center-btn">
         <a href="/pl/teachings" class="btn-secondary">{t('teachings.viewAll')}</a>
       </div>
+      <LotusDivider />
     </section>
   )}
 
@@ -75,7 +80,7 @@ const latestTeachings = allTeachings
     <div class="cta-content">
       <h2>{t('donations.title')}</h2>
       <p>{t('donations.description')}</p>
-      <a href="/pl/donations" class="btn-primary">{t('nav.donations')}</a>
+      <a href="/pl/donations" class="btn-white">{t('nav.donations')}</a>
     </div>
   </section>
 </Layout>
@@ -88,7 +93,7 @@ const latestTeachings = allTeachings
   }
 
   .bg-alt {
-    background-color: #f9f9f9;
+    background-color: var(--color-bg-alt);
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -120,22 +125,6 @@ const latestTeachings = allTeachings
     margin-top: 2rem;
   }
 
-  .btn-secondary {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    border: 2px solid var(--color-orange);
-    color: var(--color-orange);
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-
-  .btn-secondary:hover {
-    background-color: var(--color-orange);
-    color: white;
-  }
-
   .donation-cta {
     background-color: var(--color-orange);
     color: white;
@@ -149,7 +138,7 @@ const latestTeachings = allTeachings
   }
 
   .donation-cta h2 {
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-family-serif);
     font-size: 2.5rem;
     margin-bottom: 1rem;
   }
@@ -158,22 +147,5 @@ const latestTeachings = allTeachings
     font-size: 1.2rem;
     margin-bottom: 2rem;
     opacity: 0.9;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background-color: white;
-    color: var(--color-orange);
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   }
 </style>
