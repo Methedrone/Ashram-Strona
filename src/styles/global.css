@@ -1,30 +1,64 @@
 :root {
-  /* Brand Colors */
-  --color-orange: #FF6B00;
-  --color-gold: #FFD700;
+  /* Brand Colors - Ascetic Palette */
+  --color-orange: #9B5539; /* Darker terracotta - WCAG AA compliant (4.5:1+ on FAF8F5) */
+  --color-orange-hover: #7D4429; /* Even darker for hover */
+  --color-orange-tint: rgba(155, 85, 57, 0.08); /* Light tint for hover backgrounds */
+  --color-gold: #D4AF77; /* Softer gold */
   
-  /* Functional Colors */
-  --color-text: #333333;
-  --color-text-light: #666666;
-  --color-bg: #ffffff;
-  --color-bg-alt: #f9f9f9;
-  --color-border: #e0e0e0;
+  /* New Warmth Variants */
+  --color-text-warm: #3A3530; /* Warm charcoal with brown undertone */
+  --color-text-medium: #6B5D52; /* Warm medium gray */
+  --warmth-gold-light: rgba(212, 175, 119, 0.18);
+  --warmth-terracotta-light: rgba(155, 85, 57, 0.14);
   
-  /* Typography */
-  --font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  --font-family-serif: Georgia, 'Times New Roman', Times, serif;
+  /* Shadow System */
+  --shadow-soft: 0 2px 8px -2px rgba(155, 85, 57, 0.15), 0 1px 2px rgba(155, 85, 57, 0.1);
+  --shadow-glow: 0 1px 3px rgba(155, 85, 57, 0.08);
+
+  /* Functional Colors - Warm Neutrals */
+  --color-text: #3A3530; /* Warm charcoal (was #2C2C2C) */
+  --color-text-light: #6B5D52; /* Warm medium gray (was #5A5A5A) */
+  --color-bg: #FAF8F5; /* Bone/linen */
+  --color-bg-alt: #F5F3EF; /* Lighter neutral */
+  --color-border: #E8E4DF;
+
+  /* Border Radius System */
+  --radius-xs: 8px;
+  --radius-s: 12px;
+  --radius-m: 16px;
+  --radius-l: 20px;
+  --radius-xl: 32px;
   
-  --line-height-base: 1.6;
-  --line-height-heading: 1.2;
+  /* Typography - Ascetic Pairing */
+  --font-family-sans: 'Work Sans', system-ui, -apple-system, sans-serif;
+  --font-family-serif: 'Cormorant Garamond', Georgia, serif;
   
-  /* Spacing */
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 4rem;
+  --line-height-base: 1.7; /* Increased for calm readability */
+  --line-height-heading: 1.3;
+  
+  /* Spacing - Breathing Room */
+  --spacing-xs: 0.375rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1.25rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 5rem;
   
   /* Transitions */
   --transition-base: 0.2s ease;
+
+   /* Warm papyrus backgrounds */
+   --color-bg-warm: #FFFCF7;
+   --color-bg-warm-alt: #FFF9F0;
+   --color-paper: rgba(255, 252, 247, 1);
+   
+   /* Atmospheric glow colors */
+   --color-amber-glow: rgba(230, 168, 104, 0.22);
+   --color-terracotta-glow: rgba(155, 85, 57, 0.12);
+   --color-gold-soft: rgba(212, 175, 119, 0.3);
+   
+   /* Warm text (not pure black) */
+   --color-text-warm: #3A3530;
+   --color-text-warm-light: #6B5D52;
 }
 
 /* Reset & Base */
@@ -41,27 +75,71 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-family-sans);
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  font-weight: 300;
+  color: var(--color-text-warm);
+  /* Subtle background texture - direct background property (no z-index issues) */
+  background: 
+    /* Ethereal light from above */
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(245, 212, 170, 0.12) 0%,
+      transparent 50%
+    ),
+    /* Paper texture */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(212, 175, 119, 0.03) 2px,
+      rgba(212, 175, 119, 0.03) 4px
+    ),
+    /* Warm base gradient */
+    linear-gradient(
+      180deg,
+      rgba(255, 252, 247, 1) 0%,
+      rgba(250, 248, 245, 1) 50%,
+      rgba(255, 252, 247, 1) 100%
+    );
+  background-attachment: fixed, local, fixed;
   line-height: var(--line-height-base);
   -webkit-font-smoothing: antialiased;
+  position: relative;
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-serif);
+  font-weight: 600;
   line-height: var(--line-height-heading);
   margin-top: 0;
   margin-bottom: var(--spacing-md);
-  color: var(--color-text);
+  color: var(--color-text-warm);
+  text-shadow: 0 1px 2px rgba(212, 175, 119, 0.15);
+  letter-spacing: 0.01em;
 }
 
-h1 { font-size: clamp(2rem, 5vw, 3rem); color: var(--color-orange); }
-h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
-h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
-h4 { font-size: 1.25rem; }
+h1 { 
+  font-size: clamp(2rem, 5vw, 3rem); 
+  font-weight: 700;
+  color: var(--color-orange);
+  text-shadow: 
+    0 2px 4px rgba(155, 85, 57, 0.2),
+    0 0 20px rgba(230, 168, 104, 0.1);
+}
+h2 { 
+  font-size: clamp(1.75rem, 4vw, 2.5rem); 
+}
+h3 { 
+  font-size: clamp(1.5rem, 3vw, 2rem); 
+}
+h4 { 
+  font-size: 1.25rem; 
+  font-weight: 600;
+}
 
 p {
+  color: var(--color-text-warm);
+  line-height: 1.8;
   margin-bottom: var(--spacing-md);
   max-width: 70ch; /* Readable line length */
 }
@@ -69,25 +147,108 @@ p {
 /* Links & Buttons */
 a {
   color: var(--color-orange);
-  text-decoration: none;
-  transition: color var(--transition-base);
+  text-decoration: underline;
+  text-decoration-color: rgba(155, 85, 57, 0.3);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 a:hover {
-  color: #cc5500; /* Darker orange for hover */
-  text-decoration: underline;
+  color: var(--color-gold);
+  text-shadow: 0 0 8px rgba(230, 168, 104, 0.3);
+  text-decoration-color: var(--color-gold);
 }
 
-button, .btn {
+/* Button System */
+button, .btn, .btn-primary, .btn-secondary, .btn-white, .btn-secondary-neutral {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   font-family: inherit;
-  transition: all var(--transition-base);
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  min-height: 44px; /* Accessibility target size */
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  background: none;
 }
 
-/* Focus Styles */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Primary Button (Orange) */
+.btn-primary {
+  background-color: var(--color-orange);
+  color: white;
+  border-color: var(--color-orange);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-orange-hover);
+  border-color: var(--color-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(155, 85, 57, 0.2);
+  color: white;
+  text-decoration: none;
+}
+
+/* Secondary Button (Outline Orange) */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-orange);
+  border-color: var(--color-orange);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-orange);
+  color: white;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+/* White Button (for dark/orange backgrounds) */
+.btn-white {
+  background-color: white;
+  color: var(--color-orange);
+  border-color: white;
+}
+
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-bg-alt);
+  border-color: var(--color-bg-alt);
+  color: var(--color-orange);
+  text-decoration: none;
+}
+
+/* Neutral Secondary (Gray Outline) */
+.btn-secondary-neutral {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.btn-secondary-neutral:hover {
+  background-color: var(--color-text);
+  color: white;
+  text-decoration: none;
+}
+
+/* Focus Styles - Accessible with new palette */
 :focus-visible {
-  outline: 3px solid var(--color-orange);
-  outline-offset: 2px;
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+  box-shadow: none;
 }
 
 /* Images */
@@ -106,6 +267,27 @@ img {
 }
 
 /* Accessibility */
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-bg);
+  color: var(--color-orange);
+  padding: var(--spacing-sm) var(--spacing-md);
+  z-index: 9999;
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-xs) var(--radius-xs);
+  box-shadow: var(--shadow-soft);
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--color-orange);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -116,4 +298,100 @@ img {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Sacred Animations */
+@keyframes ambient-breath {
+  0%, 100% { 
+    opacity: 0.5; 
+  }
+  50% { 
+    opacity: 0.65; 
+  }
+}
+
+@keyframes candlelight {
+  0%, 100% {
+    box-shadow: 
+      0 4px 16px rgba(230, 168, 104, 0.4),
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 0 30px rgba(245, 212, 170, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 4px 20px rgba(230, 168, 104, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      0 0 40px rgba(245, 212, 170, 0.4);
+  }
+}
+
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  nav, 
+  footer, 
+  header,
+  .skip-link, 
+  .cookie-banner, 
+  .share-buttons,
+  .back-link,
+  .breadcrumb,
+  .cta-section {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+  
+  a {
+    text-decoration: none !important;
+    color: black !important;
+  }
+  
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+  
+  .container, 
+  article, 
+  main {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: black !important;
+    text-shadow: none !important;
+    page-break-after: avoid;
+  }
+  
+  p, blockquote, ul, ol {
+    page-break-inside: avoid;
+  }
+  
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
 }

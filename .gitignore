@@ -24,3 +24,15 @@ pnpm-debug.log*
 .idea/
 .sisyphus/
 .vscode/
+.github/agents/
+.agent/
+.agents/
+.claude/
+.crush/
+.factory/
+
+
+#Ignore vscode AI rules
+.github/instructions/codacy.instructions.md
+.sisyphus/
+lh.json

@@ -8,7 +8,7 @@ const t = useTranslations(lang);
 const address = "Mąkolno 129, 57-250 Mąkolno, Poland";
 const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 // OSM Embed URL centered on Mąkolno
-const osmEmbedUrl = "https://www.openstreetmap.org/export/embed.html?bbox=16.8200,50.4100,16.8500,50.4300&layer=mapnik&marker=50.4167,16.8333";
+const osmEmbedUrl = "https://www.openstreetmap.org/export/embed.html?bbox=16.8381953,50.4489724,16.8412456,50.4527314&layer=mapnik&marker=50.4509781,16.8395269";
 ---
 
 <section class="location-map">
@@ -30,12 +30,12 @@ const osmEmbedUrl = "https://www.openstreetmap.org/export/embed.html?bbox=16.820
     
     <div class="location-info">
       <div class="address">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
         <p>{address}</p>
       </div>
       
       <a href={googleMapsLink} target="_blank" rel="noopener noreferrer" class="directions-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
         {t('location.directions')}
       </a>
     </div>
@@ -45,22 +45,22 @@ const osmEmbedUrl = "https://www.openstreetmap.org/export/embed.html?bbox=16.820
 <style>
   .location-map {
     padding: 4rem 2rem;
-    background-color: #f9f9f9;
+    background-color: var(--color-bg-alt);
   }
 
   .map-container {
     max-width: 1000px;
     margin: 0 auto;
-    background: white;
-    border-radius: 12px;
+    background: var(--color-bg-warm); /* Warm background */
+    border-radius: var(--radius-m);
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-soft); /* Warm shadow */
   }
 
   .map-frame {
     width: 100%;
     height: 400px;
-    background: #eee;
+    background: var(--color-border);
   }
 
   .location-info {
@@ -77,18 +77,18 @@ const osmEmbedUrl = "https://www.openstreetmap.org/export/embed.html?bbox=16.820
     align-items: center;
     gap: 0.5rem;
     font-size: 1.2rem;
-    color: var(--color-text, #333);
+    color: var(--color-text);
   }
 
   .icon {
-    color: var(--color-orange, #FF6B00);
+    color: var(--color-orange);
   }
 
   .directions-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: var(--color-orange, #FF6B00);
+    background-color: var(--color-orange);
     color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
@@ -98,7 +98,7 @@ const osmEmbedUrl = "https://www.openstreetmap.org/export/embed.html?bbox=16.820
   }
 
   .directions-btn:hover {
-    background-color: #e65100;
+    background-color: var(--color-orange-hover);
     transform: translateY(-2px);
   }
 

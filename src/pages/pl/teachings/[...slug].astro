@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import { useTranslations } from '../../../i18n/utils';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
 
 export async function getStaticPaths() {
   const teachings = await getCollection('teachings', ({ data }) => {
@@ -24,14 +25,23 @@ const { Content } = await entry.render();
 const lang = 'pl';
 const t = useTranslations(lang);
 
+const breadcrumbItems = [
+  { label: t('nav.home'), href: '/pl' },
+  { label: t('nav.teachings'), href: '/pl/teachings' },
+  { label: entry.data.title },
+];
+
 const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
+
+const shareUrl = encodeURIComponent(Astro.url.href);
+const shareTitle = encodeURIComponent(entry.data.title);
 ---
 
-<Layout title={entry.data.title} description={entry.data.excerpt || entry.data.title} schema={{
+<Layout title={entry.data.title} description={entry.data.description} schema={{
   "@type": "Article",
   "headline": entry.data.title,
   "author": {
@@ -50,8 +60,9 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
   <article class="teaching-detail">
     <div class="container">
       <header class="teaching-header">
+        <Breadcrumb items={breadcrumbItems} />
         <a href="/pl/teachings" class="back-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
           {t('common.back')}
         </a>
         
@@ -66,6 +77,18 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
       
       <div class="content">
         <Content />
+      </div>
+
+      <div class="share-buttons">
+        <h3>{t('share.title')}</h3>
+        <div class="buttons">
+          <a href={`mailto:?subject=${shareTitle}&body=${shareUrl}`} class="btn-secondary share-btn">
+            {t('share.email')}
+          </a>
+          <a href={`https://wa.me/?text=${shareTitle}%20${shareUrl}`} target="_blank" rel="noopener noreferrer" class="btn-secondary share-btn">
+            {t('share.whatsapp')}
+          </a>
+        </div>
       </div>
     </div>
   </article>
@@ -91,7 +114,7 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #666;
+    color: var(--color-text-light);
     text-decoration: none;
     margin-bottom: 2rem;
     font-size: 0.9rem;
@@ -103,20 +126,20 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
   }
 
   h1 {
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-family-serif);
     font-size: 2.5rem;
     margin-bottom: 1rem;
     line-height: 1.2;
   }
 
   .meta {
-    color: #666;
+    color: var(--color-text-light);
     font-size: 1rem;
   }
 
   .separator {
     margin: 0 0.5rem;
-    color: #ccc;
+    color: var(--color-border);
   }
 
   .author {
@@ -127,11 +150,11 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
   .content {
     line-height: 1.8;
     font-size: 1.1rem;
-    color: #333;
+    color: var(--color-text);
   }
 
   .content :global(h2) {
-    font-family: 'Cinzel', serif;
+    font-family: var(--font-family-serif);
     font-size: 1.8rem;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
@@ -147,7 +170,7 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
     padding-left: 1.5rem;
     margin: 2rem 0;
     font-style: italic;
-    color: #555;
+    color: var(--color-text-light);
   }
 
   .content :global(ul) {
@@ -157,5 +180,30 @@ const formattedDate = entry.data.date.toLocaleDateString('pl-PL', {
 
   .content :global(li) {
     margin-bottom: 0.5rem;
+  }
+
+  .share-buttons {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  .share-buttons h3 {
+    font-family: var(--font-family-serif);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .share-btn {
+    min-width: 140px;
   }
 </style>

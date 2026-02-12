@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 interface Props {
   activePath?: string;
@@ -10,104 +10,193 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const navItems = [
-  { href: `/${lang}/`, text: t('nav.home') },
-  { href: `/${lang}/about`, text: t('nav.about') },
-  { href: `/${lang}/teachings`, text: t('nav.teachings') },
-  { href: `/${lang}/events`, text: t('nav.events') },
-  { href: `/${lang}/gallery`, text: t('nav.gallery') },
-  { href: `/${lang}/contact`, text: t('nav.contact') },
-  { href: `/${lang}/donations`, text: t('nav.donations') },
+  { href: `/${lang}/`, text: t("nav.home") },
+  { href: `/${lang}/about`, text: t("nav.about") },
+  { href: `/${lang}/teachings`, text: t("nav.teachings") },
+  { href: `/${lang}/events`, text: t("nav.events") },
+  { href: `/${lang}/gallery`, text: t("nav.gallery") },
+  { href: `/${lang}/contact`, text: t("nav.contact") },
+  { href: `/${lang}/donations`, text: t("nav.donations") },
 ];
 
 // Language switcher logic
-const currentPath = activePath || Astro.url.pathname;
-let switchPath = '';
-if (lang === 'pl') {
-    switchPath = currentPath.replace(/^\/pl/, '/en');
+const currentPath = (activePath || Astro.url.pathname).replace(/\/$/, '');
+let switchPath = "";
+if (lang === "pl") {
+    switchPath = currentPath.replace(/^\/pl/, "/en");
 } else {
-    switchPath = currentPath.replace(/^\/en/, '/pl');
+    switchPath = currentPath.replace(/^\/en/, "/pl");
 }
 
-const switchText = lang === 'pl' ? 'English' : 'Polski';
+const switchText = lang === "pl" ? "English" : "Polski";
 ---
 
 <header>
     <div class="header-container">
         <a href={`/${lang}/`} class="logo">Ashram Babaji</a>
         
-        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation" />
-        <label for="menu-toggle" class="menu-icon">
+        <button 
+            type="button"
+            id="menu-toggle"
+            class="menu-icon"
+            aria-expanded="false"
+            aria-controls="main-navigation"
+            aria-label={t("nav.toggle") || "Toggle navigation"}
+        >
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
-        </label>
+        </button>
 
-        <nav>
+        <nav id="main-navigation" data-visible="false">
             <ul>
-                {navItems.map(item => (
-                    <li><a href={item.href} class={currentPath === item.href ? 'active' : ''}>{item.text}</a></li>
-                ))}
+                {navItems.map(item => {
+                    const normalizedHref = item.href.replace(/\/$/, '');
+                    return (
+                    <li>
+                        <a 
+                            href={item.href} 
+                            class={currentPath === normalizedHref ? "active" : ""}
+                            aria-current={currentPath === normalizedHref ? "page" : undefined}
+                        >
+                            {item.text}
+                        </a>
+                    </li>
+                )})}
                 <li><a href={switchPath} class="lang-switch">{switchText}</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
+<script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("main-navigation");
+    const headerContainer = document.querySelector(".header-container");
+
+    if (menuToggle && nav && headerContainer) {
+        menuToggle.addEventListener("click", () => {
+            const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+            
+            // Toggle state
+            menuToggle.setAttribute("aria-expanded", (!isExpanded).toString());
+            nav.setAttribute("data-visible", (!isExpanded).toString());
+            headerContainer.classList.toggle("menu-open");
+        });
+
+        // Keyboard navigation (Escape to close, Tab trap)
+        document.addEventListener("keydown", (e) => {
+            const isMenuOpen = headerContainer.classList.contains("menu-open");
+            if (!isMenuOpen) return;
+
+            if (e.key === "Escape") {
+                menuToggle.click();
+                menuToggle.focus();
+                return;
+            }
+
+            if (e.key === "Tab") {
+                const navLinks = Array.from(nav.querySelectorAll("a"));
+                const focusables = [menuToggle, ...navLinks];
+                const first = focusables[0];
+                const last = focusables[focusables.length - 1];
+
+                if (e.shiftKey) {
+                    if (document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    }
+                } else {
+                    if (document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+            }
+        });
+    }
+</script>
+
 <style>
     header {
-        background: var(--color-header-bg, #fff);
-        border-bottom: 3px solid var(--color-gold, #FFD700);
+        /* Warm gradient instead of flat */
+        background: linear-gradient(
+            180deg,
+            rgba(250, 248, 245, 0.98) 0%,
+            rgba(255, 252, 247, 0.95) 100%
+        );
+        border-bottom: 1px solid rgba(212, 175, 119, 0.2);
         position: sticky;
         top: 0;
         z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        box-shadow: 0 2px 8px rgba(212, 175, 119, 0.08); /* Warm shadow */
+        backdrop-filter: blur(8px);
     }
 
     .header-container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 1rem 2rem;
+        padding: var(--spacing-md) var(--spacing-lg);
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
+        gap: var(--spacing-md);
     }
 
     .logo {
-        font-family: var(--font-family-serif, serif);
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: var(--color-orange, #FF6B00);
+        position: relative;
+        font-family: var(--font-family-serif);
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: var(--color-gold);
         text-decoration: none;
+        letter-spacing: 0.02em;
         z-index: 1001;
     }
 
-    /* Mobile Menu Toggle */
-    .menu-toggle {
-        display: none;
+    /* Decorative underline for logo */
+    .logo::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+            90deg,
+            transparent 0%,
+            var(--color-gold) 50%,
+            transparent 100%
+        );
+        opacity: 0.4;
     }
 
+    /* Mobile Menu Toggle */
     .menu-icon {
         display: none;
         flex-direction: column;
         justify-content: space-between;
         width: 30px;
-        height: 21px;
+        height: 18px;
         cursor: pointer;
         z-index: 1001;
+        background: transparent;
+        border: none;
+        padding: 0;
     }
 
     .bar {
         width: 100%;
-        height: 3px;
-        background-color: var(--color-text, #333);
-        border-radius: 3px;
+        height: 2px;
+        background-color: var(--color-text-light);
+        border-radius: 4px; /* More organic */
         transition: all 0.3s ease;
     }
 
     nav ul {
         display: flex;
-        gap: 1.5rem;
+        gap: var(--spacing-md);
         list-style: none;
         padding: 0;
         margin: 0;
@@ -115,36 +204,50 @@ const switchText = lang === 'pl' ? 'English' : 'Polski';
     }
 
     nav a {
-        text-decoration: none;
-        color: var(--color-text, #333);
-        font-weight: 500;
-        transition: color 0.2s;
-        padding: 0.5rem;
-        border-radius: 4px;
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 1px;
+        color: var(--color-text);
+        font-weight: 400;
+        transition: text-decoration-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        padding: var(--spacing-xs) var(--spacing-sm);
+        border-bottom: 2px solid transparent; /* Reserve space for active border */
     }
 
-    nav a:hover, nav a.active {
-        color: var(--color-orange, #FF6B00);
-        background-color: rgba(255, 107, 0, 0.05);
+    nav a:hover {
+        color: var(--color-orange);
+        text-decoration-color: var(--color-orange);
+        text-decoration-thickness: 2px;
+    }
+
+    nav a.active {
+        color: var(--color-orange);
+        border-bottom-color: var(--color-orange);
+        text-decoration: none;
+        text-shadow: 0 0 8px rgba(230, 168, 104, 0.2); /* Golden glow */
     }
 
     nav a:focus-visible {
-        outline: 2px solid var(--color-orange, #FF6B00);
-        outline-offset: 2px;
+        outline: 2px solid var(--color-orange);
+        outline-offset: 3px;
     }
 
     .lang-switch {
-        font-weight: bold;
-        color: var(--color-orange, #FF6B00) !important;
-        border: 1px solid var(--color-orange, #FF6B00);
+        font-weight: 500;
+        color: var(--color-text-light) !important;
+        border: 1px solid var(--color-border);
         padding: 0.25rem 0.75rem;
-        border-radius: 20px;
+        border-radius: 12px;
         margin-left: 0.5rem;
+        text-decoration: none !important;
+        border-bottom: none; /* Override nav a style */
     }
 
     .lang-switch:hover {
-        background-color: var(--color-orange, #FF6B00) !important;
-        color: white !important;
+        border-color: var(--color-orange);
+        color: var(--color-orange) !important;
+        background-color: transparent !important;
     }
 
     /* Responsive Styles */
@@ -158,13 +261,18 @@ const switchText = lang === 'pl' ? 'English' : 'Polski';
             top: 100%;
             left: 0;
             width: 100%;
-            background-color: var(--color-bg, #fff);
-            border-bottom: 3px solid var(--color-gold, #FFD700);
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-in-out, opacity 0.3s ease;
+            background-color: var(--color-bg-warm); /* Consistent warm background */
+            /* Border bottom removed */
+            transform: translateY(-100%);
             opacity: 0;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            visibility: hidden;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                        visibility 0s 0.35s; /* Delay visibility hidden until after transition */
+            box-shadow: 0 4px 10px rgba(212, 175, 119, 0.15); /* Warm shadow */
+            z-index: 999;
+            will-change: transform, opacity;
+            border-bottom: 1px solid rgba(212, 175, 119, 0.2);
         }
 
         nav ul {
@@ -182,28 +290,51 @@ const switchText = lang === 'pl' ? 'English' : 'Polski';
             display: block;
             padding: 1rem;
             width: 100%;
+            border-bottom: 1px solid rgba(212, 175, 119, 0.1); /* Subtle separator */
+            text-decoration: none;
         }
 
-        /* Checkbox Hack Logic */
-        .menu-toggle:checked ~ nav {
-            max-height: 500px; /* Adjust based on content */
+        nav a:hover {
+            color: var(--color-orange);
+            text-decoration: none;
+            background-color: var(--color-bg-warm-alt);
+            /* Fix for underline conflict in mobile if any */
+            text-decoration-color: transparent;
+        }
+        
+        nav a.active {
+            border-bottom: 1px solid var(--color-orange);
+            background-color: var(--color-bg-warm-alt);
+        }
+        
+        /* Remove transparent border reservation on mobile as layout is different */
+        nav a:not(.active) {
+            border-bottom: 1px solid rgba(212, 175, 119, 0.1);
+        }
+
+        /* Mobile Menu Open State */
+        .header-container.menu-open nav {
+            transform: translateY(0);
             opacity: 1;
+            visibility: visible;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            /* No delay on visibility when opening */
         }
 
-        .menu-toggle:checked + .menu-icon .bar:nth-child(1) {
-            transform: translateY(9px) rotate(45deg);
+        .header-container.menu-open .menu-icon .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
         }
 
-        .menu-toggle:checked + .menu-icon .bar:nth-child(2) {
+        .header-container.menu-open .menu-icon .bar:nth-child(2) {
             opacity: 0;
         }
 
-        .menu-toggle:checked + .menu-icon .bar:nth-child(3) {
-            transform: translateY(-9px) rotate(-45deg);
+        .header-container.menu-open .menu-icon .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
         }
         
-        /* Focus management for accessibility */
-        .menu-toggle:focus-visible + .menu-icon {
+        .menu-icon:focus-visible {
             outline: 2px solid var(--color-orange);
             outline-offset: 4px;
         }

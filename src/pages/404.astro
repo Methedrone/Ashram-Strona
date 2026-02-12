@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LotusDivider from '../components/LotusDivider.astro';
+import { useTranslations } from '../i18n/utils';
+
+const tPL = useTranslations('pl');
+const tEN = useTranslations('en');
+
+const title = "404 - Strona nie znaleziona / Page Not Found";
+---
+
+<Layout title={title}>
+  <section class="error-page">
+    <div class="container">
+      <h1 class="error-code">404</h1>
+      <LotusDivider />
+      
+      <div class="content-wrapper">
+        <div class="lang-block">
+          <h2>{tPL('404.title')}</h2>
+          <p>{tPL('404.text')}</p>
+          <a href="/pl/" class="btn-primary">{tPL('404.home')}</a>
+        </div>
+
+        <div class="divider-vertical" aria-hidden="true"></div>
+
+        <div class="lang-block">
+          <h2>{tEN('404.title')}</h2>
+          <p>{tEN('404.text')}</p>
+          <a href="/en/" class="btn-primary">{tEN('404.home')}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .error-page {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+
+  .error-code {
+    font-family: var(--font-family-serif);
+    font-size: clamp(6rem, 15vw, 10rem);
+    color: var(--color-gold);
+    margin: 0;
+    line-height: 1;
+    opacity: 0.8;
+    text-shadow: 0 4px 12px rgba(212, 175, 119, 0.2);
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 2rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .content-wrapper {
+      flex-direction: row;
+      justify-content: center;
+      gap: 4rem;
+      align-items: flex-start;
+    }
+
+    .divider-vertical {
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--color-gold), transparent);
+      opacity: 0.4;
+      align-self: stretch;
+      min-height: 150px;
+    }
+  }
+
+  .lang-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    max-width: 300px;
+  }
+
+  h2 {
+    font-family: var(--font-family-serif);
+    font-size: 1.75rem;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  p {
+    color: var(--color-text-light);
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .btn-primary {
+    margin-top: 0.5rem;
+  }
+</style>

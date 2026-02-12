@@ -16,12 +16,12 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const defaultImages: ImageItem[] = [
-  { src: '/images/gallery/1.jpg', alt: 'Ashram Garden' },
-  { src: '/images/gallery/2.jpg', alt: 'Meditation Hall' },
-  { src: '/images/gallery/3.jpg', alt: 'Morning Aarati' },
-  { src: '/images/gallery/4.jpg', alt: 'Community Lunch' },
-  { src: '/images/gallery/5.jpg', alt: 'Satsang' },
-  { src: '/images/gallery/6.jpg', alt: 'Nature Walk' },
+  { src: '/images/gallery/ashram-exterior.webp', alt: 'Ashram Exterior' },
+  { src: '/images/gallery/temple-interior.webp', alt: 'Temple Interior' },
+  { src: '/images/gallery/aarti-ceremony.webp', alt: 'Morning Aarati' },
+  { src: '/images/gallery/community-work.webp', alt: 'Community Work' },
+  { src: '/images/gallery/spiritual-gathering.webp', alt: 'Spiritual Gathering' },
+  { src: '/images/gallery/nature-view.webp', alt: 'Nature View' },
 ];
 
 const { images = defaultImages, limit } = Astro.props;
@@ -46,7 +46,7 @@ const displayImages = limit ? images.slice(0, limit) : images;
     <div class="view-all">
       <a href={`/${lang}/gallery`} class="view-all-btn">
         {t('gallery.viewAll')}
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </a>
     </div>
   )}
@@ -55,7 +55,7 @@ const displayImages = limit ? images.slice(0, limit) : images;
 <style>
   .gallery-grid {
     padding: 4rem 2rem;
-    background-color: var(--color-bg, #fff);
+    background-color: var(--color-bg);
   }
 
   .grid {
@@ -68,27 +68,73 @@ const displayImages = limit ? images.slice(0, limit) : images;
 
   .gallery-item {
     position: relative;
-    border-radius: 12px;
-    overflow: hidden;
+    border-radius: 16px;
+    
+    /* Thicker border for mat effect */
+    border: 4px solid rgba(212, 175, 119, 0.35);
+    padding: 10px;
+    
+    /* Warm papyrus mat background */
+    background: linear-gradient(
+      135deg,
+      rgba(255, 252, 247, 1) 0%,
+      rgba(250, 248, 245, 1) 100%
+    );
+    
+    /* Enhanced golden frame shadow */
+    box-shadow: 
+      0 4px 24px -4px rgba(230, 168, 104, 0.28),
+      0 2px 12px -2px rgba(155, 85, 57, 0.18),
+      inset 0 1px 3px rgba(255, 255, 255, 0.9),
+      inset 0 -1px 2px rgba(212, 175, 119, 0.1);
+    
     aspect-ratio: 4/3;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: all 0.4s ease;
+    overflow: visible;
+  }
+
+  /* Floral ornament */
+  .gallery-item::before {
+    content: '❀';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: var(--color-gold, #D4AF77);
+    opacity: 0.12;
+    font-size: 1.2rem;
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.4s;
+  }
+  
+  .gallery-item:hover::before {
+    opacity: 0.25;
   }
 
   .gallery-item:hover {
-    transform: scale(1.02);
+    border-color: rgba(212, 175, 119, 0.5);
+    transform: translateY(-3px);
+    
+    /* Golden aura on hover */
+    box-shadow: 
+      0 6px 32px -4px rgba(230, 168, 104, 0.35),
+      0 3px 16px -2px rgba(155, 85, 57, 0.2),
+      inset 0 1px 3px rgba(255, 255, 255, 1),
+      0 0 0 2px rgba(212, 175, 119, 0.3);
   }
 
   .gallery-item img {
+    border-radius: 10px;
+    /* Ensure image fits within mat */
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: opacity 0.3s ease;
   }
 
   .gallery-item:hover img {
-    transform: scale(1.1);
+    opacity: 0.9;
   }
 
   .overlay {
@@ -97,12 +143,15 @@ const displayImages = limit ? images.slice(0, limit) : images;
     left: 0;
     width: 100%;
     padding: 1rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    background: linear-gradient(to top, rgba(155, 85, 57, 0.5), transparent);
     color: white;
     opacity: 0;
     transition: opacity 0.3s ease;
     display: flex;
     align-items: flex-end;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(60, 40, 20, 0.5); /* Warm dark text shadow */
   }
 
   .gallery-item:hover .overlay {
@@ -118,17 +167,34 @@ const displayImages = limit ? images.slice(0, limit) : images;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    border: 2px solid var(--color-orange, #FF6B00);
-    color: var(--color-orange, #FF6B00);
-    padding: 0.75rem 2rem;
+    background: linear-gradient(
+      135deg,
+      var(--color-orange) 0%,
+      var(--color-orange-hover) 100%
+    );
+    color: white;
+    padding: 0.85rem 2rem;
     border-radius: 50px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 3px 12px rgba(155, 85, 57, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 
   .view-all-btn:hover {
-    background-color: var(--color-orange, #FF6B00);
-    color: white;
+    background: linear-gradient(
+      135deg,
+      var(--color-gold) 0%,
+      var(--color-orange) 100%
+    );
+    transform: translateY(-2px);
+    box-shadow: 
+      0 5px 16px rgba(155, 85, 57, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    /* Candlelight glow animation */
+    animation: candlelight 2s ease-in-out infinite;
   }
 </style>

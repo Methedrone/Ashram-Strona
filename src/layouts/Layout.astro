@@ -73,11 +73,25 @@ if (schema) {
 <!doctype html>
 <html lang={lang}>
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPJ40KK4Z4"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-QPJ40KK4Z4');
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="manifest" href="/manifest.json" />
 		<meta name="generator" content={Astro.generator} />
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 		<title>{title} | Ashram</title>
         
         <!-- SEO -->
@@ -115,9 +129,9 @@ if (schema) {
         <Schema schema={schemaOrg} />
 	</head>
 	<body>
+		<a href="#main-content" class="skip-link">{t('common.skipToContent')}</a>
 		<Header activePath={currentPath} />
-		<main>
-			<h1>{title}</h1>
+		<main id="main-content" tabindex="-1">
 			<slot />
 		</main>
 		<Footer />

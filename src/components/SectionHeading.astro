@@ -4,13 +4,15 @@ interface Props {
   subtitle?: string;
   align?: 'left' | 'center';
   color?: 'dark' | 'light';
+  level?: 1 | 2;
 }
 
-const { title, subtitle, align = 'center', color = 'dark' } = Astro.props;
+const { title, subtitle, align = 'center', color = 'dark', level = 2 } = Astro.props;
+const Tag = level === 1 ? 'h1' : 'h2';
 ---
 
 <div class:list={['section-heading', align, color]}>
-  <h2>{title}</h2>
+  <Tag>{title}</Tag>
   {subtitle && <p class="subtitle">{subtitle}</p>}
   <div class="underline"></div>
 </div>
@@ -29,18 +31,22 @@ const { title, subtitle, align = 'center', color = 'dark' } = Astro.props;
     text-align: left;
   }
 
-  h2 {
-    font-family: 'Cinzel', serif;
+  h1, h2 {
+    font-family: var(--font-family-serif);
     font-size: 2.5rem;
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.25rem 0;
     line-height: 1.2;
+    animation: heading-entrance 0.8s ease-out;
+    animation-fill-mode: both;
+    color: var(--color-text-warm);
+    text-shadow: 0 1px 2px rgba(212, 175, 119, 0.15);
   }
 
   .subtitle {
     font-size: 1.1rem;
     margin: 0 0 1rem 0;
     opacity: 0.8;
-    max-width: 600px;
+    max-width: 65ch;
   }
 
   .center .subtitle {
@@ -50,9 +56,39 @@ const { title, subtitle, align = 'center', color = 'dark' } = Astro.props;
 
   .underline {
     height: 3px;
-    width: 60px;
-    background: linear-gradient(90deg, var(--color-orange, #FF6B00), var(--color-gold, #FFD700));
-    margin-top: 0.5rem;
+    width: 80px;
+    background: linear-gradient(
+      90deg,
+      rgba(212, 175, 119, 0.3) 0%,
+      var(--color-gold) 50%,
+      rgba(212, 175, 119, 0.3) 100%
+    );
+    border-radius: 4px; /* More organic */
+    box-shadow: 0 0 12px rgba(230, 168, 104, 0.4);
+    margin-top: 1rem;
+    position: relative;
+  }
+
+  /* Ornamental dots on both sides */
+  .underline::before,
+  .underline::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-gold);
+    box-shadow: 0 0 8px rgba(230, 168, 104, 0.5);
+  }
+
+  .underline::before {
+    left: -12px;
+  }
+
+  .underline::after {
+    right: -12px;
   }
 
   .center .underline {
@@ -61,14 +97,14 @@ const { title, subtitle, align = 'center', color = 'dark' } = Astro.props;
   }
 
   /* Color variants */
-  .dark h2 {
-    color: var(--color-text, #333);
+  .dark :is(h1, h2) {
+    color: var(--color-text);
   }
   .dark .subtitle {
-    color: #666;
+    color: var(--color-text-light);
   }
 
-  .light h2 {
+  .light :is(h1, h2) {
     color: white;
   }
   .light .subtitle {
@@ -76,7 +112,7 @@ const { title, subtitle, align = 'center', color = 'dark' } = Astro.props;
   }
 
   @media (max-width: 768px) {
-    h2 {
+    h1, h2 {
       font-size: 2rem;
     }
   }

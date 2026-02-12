@@ -3,8 +3,8 @@
   "short_name": "Ashram",
   "start_url": "/pl/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#FF6B00",
+  "background_color": "#FAF8F5",
+  "theme_color": "#9B5539",
   "icons": [
     {
       "src": "/favicon.svg",
