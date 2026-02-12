@@ -34,7 +34,7 @@ const latestTeachings = allTeachings
   <Hero 
     title={t('hero.title')} 
     subtitle={t('hero.subtitle')}
-    image="/images/gallery/ashram-exterior.webp"
+    image="/images/hero.webp"
     ctaText={t('hero.cta')}
     ctaLink="/en/contact"
     size="large"
@@ -80,7 +80,7 @@ const latestTeachings = allTeachings
     <div class="cta-content">
       <h2>{t('donations.title')}</h2>
       <p>{t('donations.description')}</p>
-      <a href="/en/donations" class="btn-primary">{t('nav.donations')}</a>
+      <a href="/en/donations" class="btn-white">{t('nav.donations')}</a>
     </div>
   </section>
 </Layout>
@@ -125,22 +125,6 @@ const latestTeachings = allTeachings
     margin-top: 2rem;
   }
 
-  .btn-secondary {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    border: 2px solid var(--color-orange);
-    color: var(--color-orange);
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-
-  .btn-secondary:hover {
-    background-color: var(--color-orange);
-    color: white;
-  }
-
   .donation-cta {
     background-color: var(--color-orange);
     color: white;
@@ -163,22 +147,5 @@ const latestTeachings = allTeachings
     font-size: 1.2rem;
     margin-bottom: 2rem;
     opacity: 0.9;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background-color: white;
-    color: var(--color-orange);
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(155, 85, 57, 0.2);
   }
 </style>
