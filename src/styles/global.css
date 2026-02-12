@@ -339,3 +339,59 @@ img {
     scroll-behavior: auto !important;
   }
 }
+
+@media print {
+  nav, 
+  footer, 
+  header,
+  .skip-link, 
+  .cookie-banner, 
+  .share-buttons,
+  .back-link,
+  .breadcrumb,
+  .cta-section {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+  
+  a {
+    text-decoration: none !important;
+    color: black !important;
+  }
+  
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+  
+  .container, 
+  article, 
+  main {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: black !important;
+    text-shadow: none !important;
+    page-break-after: avoid;
+  }
+  
+  p, blockquote, ul, ol {
+    page-break-inside: avoid;
+  }
+  
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+}
