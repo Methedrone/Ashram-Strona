@@ -1,7 +1,7 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
-import { useTranslations } from '../../i18n/utils';
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { useTranslations } from '../i18n/utils';
 
 const lang = 'pl';
 const t = useTranslations(lang);
@@ -72,7 +72,7 @@ const bankAccount = {
               Jeśli masz umiejętności budowlane, ogrodnicze, artystyczne lub inne, którymi chciałbyś się podzielić,
               skontaktuj się z nami.
             </p>
-            <a href="/pl/contact" class="btn-secondary-neutral">Skontaktuj się</a>
+            <a href="/contact" class="btn-secondary-neutral">Skontaktuj się</a>
           </div>
         </div>
       </div>

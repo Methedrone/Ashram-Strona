@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from '../../../layouts/Layout.astro';
-import { useTranslations } from '../../../i18n/utils';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/utils';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 export async function getStaticPaths() {
   const events = await getCollection('events', ({ data }) => {
