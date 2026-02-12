@@ -84,11 +84,34 @@ const switchText = lang === "pl" ? "English" : "Polski";
             headerContainer.classList.toggle("menu-open");
         });
 
-        // Close menu on Escape key
+        // Keyboard navigation (Escape to close, Tab trap)
         document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && headerContainer.classList.contains("menu-open")) {
+            const isMenuOpen = headerContainer.classList.contains("menu-open");
+            if (!isMenuOpen) return;
+
+            if (e.key === "Escape") {
                 menuToggle.click();
                 menuToggle.focus();
+                return;
+            }
+
+            if (e.key === "Tab") {
+                const navLinks = Array.from(nav.querySelectorAll("a"));
+                const focusables = [menuToggle, ...navLinks];
+                const first = focusables[0];
+                const last = focusables[focusables.length - 1];
+
+                if (e.shiftKey) {
+                    if (document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    }
+                } else {
+                    if (document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
             }
         });
     }

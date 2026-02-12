@@ -120,9 +120,9 @@ if (schema) {
         <Schema schema={schemaOrg} />
 	</head>
 	<body>
+		<a href="#main-content" class="skip-link">{t('common.skipToContent')}</a>
 		<Header activePath={currentPath} />
-		<main>
-			<h1>{title}</h1>
+		<main id="main-content">
 			<slot />
 		</main>
 		<Footer />
