@@ -1,0 +1,54 @@
+[
+  {
+    "valid": true,
+    "hasContext": true,
+    "hasType": true,
+    "parsed": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ReligiousOrganization",
+          "name": "Ashram Babaji",
+          "alternateName": "Ashram Haidakhan Babaji",
+          "url": "https://babaji.org.pl",
+          "logo": "https://babaji.org.pl/favicon.svg",
+          "image": "https://babaji.org.pl/images/havan-ceremony-group-fire-offerings.webp",
+          "description": "Spiritual retreat center following the teachings of Haidakhan Babaji, offering programs in karma yoga, kriya yoga, and traditional ceremonies.",
+          "foundingDate": "1990",
+          "sameAs": [
+            "https://www.facebook.com/haidakhandisevadham.polska.9"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Mąkolno 129",
+            "addressLocality": "Mąkolno",
+            "postalCode": "57-250",
+            "addressRegion": "Dolnośląskie",
+            "addressCountry": "PL"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "50.5297",
+            "longitude": "16.9567"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+48 536 555 899",
+            "email": "mimohan44@gmail.com",
+            "contactType": "customer service",
+            "availableLanguage": [
+              "Polish",
+              "English"
+            ]
+          },
+          "areaServed": "Europe"
+        },
+        {
+          "@type": "WebSite",
+          "name": "Ashram Babaji",
+          "url": "https://babaji.org.pl"
+        }
+      ]
+    }
+  }
+]
