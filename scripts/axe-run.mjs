@@ -25,9 +25,10 @@ async function main() {
   const context = await browser.newContext();
   await fs.mkdir('test-results', { recursive: true });
 
+  const port = process.env.AUDIT_PORT || '39755';
   for (const pagePath of pages) {
     const page = await context.newPage();
-    const url = `http://localhost:39755${pagePath}`;
+    const url = `http://localhost:${port}${pagePath}`;
     console.log('Scanning', url);
     try {
       await page.goto(url, { waitUntil: 'networkidle' });
