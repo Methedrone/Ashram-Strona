@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { useTranslations } from '../i18n/utils';
+
+const lang = 'pl';
+const t = useTranslations(lang);
+---
+
+<Layout title="Praktyki" description={t('meta.practices.description')}>
+  <section class="practices-page">
+    <div class="container">
+      <Breadcrumb items={[{ label: t('nav.home'), href: '/' }, { label: 'Praktyki' }]} />
+      <SectionHeading title="Praktyki Duchowe" subtitle="Karma Yoga, japa, Havan, Aarti" level={1} />
+
+      <p class="intro">
+        Praktyki w tradycji Babadżiego są proste, ale głębokie. Pomagają budować uważność
+        i serce otwarte na służbę. Poznaj też <a href="/teachings">nauki Babaji</a>
+        oraz <a href="/rekolekcje">rekolekcje</a>.
+      </p>
+
+      <h2>Karma Yoga</h2>
+      <p>
+        Praca jako służba i modlitwa. Codzienne czynności wykonywane z pełną uwagą oczyszczają umysł.
+        Zobacz <a href="/teachings/karma-yoga">Karma Yoga</a>.
+      </p>
+
+      <h2>Nama Japa</h2>
+      <p>
+        Powtarzanie mantry Om Namah Shivaya to fundament praktyki. Wspiera koncentrację i spokój.
+        Dowiedz się więcej w tekście <a href="/teachings/nama-japa">Nama Japa</a>.
+      </p>
+
+      <h2>Havan</h2>
+      <p>
+        Ceremonia ognia oczyszcza i wzmacnia wspólnotę. Więcej w nauce
+        <a href="/teachings/havan-ogien">Havan</a> oraz na stronie <a href="/events/poniedzialkowo-havan">poniedziałkowych ceremonii</a>.
+      </p>
+
+      <h2>Aarti</h2>
+      <p>
+        Ceremonia światła odprawiana rano i wieczorem tworzy rytm dnia. Zobacz
+        <a href="/teachings/aarti-ceremonia">Aarti</a>.
+      </p>
+
+      <h2>Medytacja i Kriya Yoga</h2>
+      <p>
+        Medytacja to przestrzeń ciszy, w której spotykają się Prawda, Prostota i Miłość.
+        Zacznij od <a href="/teachings/medytacja-dla-poczatkujacych">medytacji dla początkujących</a>
+        i poznaj <a href="/teachings/kriya-yoga">Kriya Yogę</a>.
+      </p>
+
+      <div class="cta">
+        <a href="/contact" class="btn-primary">Skontaktuj się</a>
+        <a href="/events" class="btn-secondary">Praktykuj w aszramie</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .practices-page {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .intro a {
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .cta {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+</style>

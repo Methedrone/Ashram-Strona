@@ -30,6 +30,7 @@ pnpm-debug.log*
 .claude/
 .crush/
 .factory/
+.codacy/
 
 
 #Ignore vscode AI rules

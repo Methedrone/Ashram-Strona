@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const faqs = [
+  {
+    question: 'What is Babaji Ashram in Poland?',
+    answer: 'Babaji Ashram is a spiritual retreat center dedicated to the teachings of Sri Haidakhan Babaji, rooted in Truth, Simplicity and Love. The center is in Mąkolno.'
+  },
+  {
+    question: 'Do I need to arrange my visit in advance?',
+    answer: 'Yes. Please contact us by email or phone before your planned visit so we can prepare for your stay.'
+  },
+  {
+    question: 'What does a typical day look like at the Ashram?',
+    answer: 'A typical day includes morning meditation, mantra practice, Karma Yoga, and Aarti and Havan ceremonies. The rhythm supports silence and attention.'
+  },
+  {
+    question: 'What spiritual practices are offered?',
+    answer: 'The main practices include Karma Yoga, Japa (Om Namah Shivaya), Havan, Aarti, and meditation. The teachings are universal and open to all.'
+  },
+  {
+    question: 'Can I visit as a complete beginner?',
+    answer: 'Yes. The community will guide you through the practices and daily rhythm.'
+  },
+  {
+    question: 'Where exactly is the Ashram located?',
+    answer: 'Mąkolno 129, 57-250 Mąkolno (Lower Silesia).'
+  },
+  {
+    question: 'Does the Ashram organize events and workshops?',
+    answer: 'Yes. We host ceremonies, retreats, and spiritual festivals. Check the Events page for current dates.'
+  },
+  {
+    question: 'How can I support the Ashram?',
+    answer: 'The Ashram is supported by voluntary donations. Details are on the Donations page.'
+  },
+  {
+    question: 'Can I volunteer at the Ashram?',
+    answer: 'Yes. Help in the kitchen, garden, and daily maintenance is welcome. Contact us to arrange details.'
+  },
+  {
+    question: 'Who was Sri Haidakhan Babaji?',
+    answer: 'Babaji taught the repetition of the divine name and selfless service. His message is universal and invites all to follow the path of the heart.'
+  },
+  {
+    question: 'What should I bring for a retreat?',
+    answer: 'Bring comfortable clothes, a sleeping bag, a mat, and outdoor shoes. We confirm practical details before each retreat.'
+  },
+  {
+    question: 'What languages does the website support?',
+    answer: 'The website is available in Polish and English. You can switch languages in the header.'
+  }
+];
+---
+
+<Layout title="FAQ" description="Answers to common questions about visiting Babaji Ashram, practices, and events.">
+  <section class="faq-page">
+    <div class="container">
+      <Breadcrumb items={[{ label: t('nav.home'), href: '/en' }, { label: 'FAQ' }]} />
+      <SectionHeading title="Frequently asked questions" subtitle="Practical information about the ashram" level={1} />
+
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQSchema faqs={faqs} />
+</Layout>
+
+<style>
+  .faq-page {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .faq-list {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-list details {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+  }
+
+  .faq-list summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .faq-list p {
+    margin: 0.75rem 0 0;
+    color: var(--color-text-light);
+  }
+</style>

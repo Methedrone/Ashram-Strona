@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import LocationMap from '../../components/LocationMap.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import { useTranslations } from '../../i18n/utils';
 
@@ -7,58 +8,207 @@ const lang = 'en';
 const t = useTranslations(lang);
 
 const contactInfo = {
-  email: "mimohan44@gmail.com"
+  address: "Mąkolno 129, 57-250 Mąkolno",
+  email: "mimohan44@gmail.com",
+  phone: "+48 536 555 899"
 };
----
 
-<Layout title={t('nav.contact')} description={t('meta.contact.description')} schema={{
+const contactPageSchema = {
   "@type": "ContactPage",
   "name": t('nav.contact'),
   "description": t('meta.contact.description'),
   "url": "https://babaji.org.pl/en/contact",
   "inLanguage": "en"
+};
+
+const localBusinessSchema = {
+  "@type": ["ReligiousOrganization", "LocalBusiness"],
+  "name": "Ashram Babaji",
+  "image": "https://babaji.org.pl/images/havan-ceremony-group-fire-offerings.webp",
+  "sameAs": ["https://www.facebook.com/haidakhandisevadham.polska.9"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Mąkolno 129",
+    "addressLocality": "Mąkolno",
+    "postalCode": "57-250",
+    "addressRegion": "Dolnośląskie",
+    "addressCountry": "PL"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "50.5297",
+    "longitude": "16.9567"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "06:00",
+    "closes": "21:00"
+  },
+  "priceRange": "Free - Donation",
+  "telephone": contactInfo.phone,
+  "email": contactInfo.email,
+  "url": "https://babaji.org.pl"
+};
+---
+
+<Layout title={t('nav.contact')} description={t('meta.contact.description')} ogImage="/og/contact.jpg" schema={{
+  "@graph": [contactPageSchema, localBusinessSchema]
 }}>
   <div class="contact-page">
     <div class="container">
       <SectionHeading title={t('nav.contact')} subtitle="Get in touch with us" level={1} />
       
-      <div class="contact-mailto-container">
-        <div class="mailto-card">
-          <p>{t('contact.mailto.text')}</p>
-          <a href={`mailto:${contactInfo.email}`} class="btn-primary">
-            {t('contact.mailto.btn')}
-          </a>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>{t('contact.info.title')}</h3>
+          
+          <div class="info-item">
+            <div class="icon">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div class="details">
+              <h4>{t('contact.address')}</h4>
+              <p>{contactInfo.address}</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="icon">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div class="details">
+              <h4>{t('contact.email')}</h4>
+              <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="icon">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div class="details">
+              <h4>{t('contact.phone')}</h4>
+              <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}>{contactInfo.phone}</a>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <h4>{t('contact.tips.title')}</h4>
+            <p>
+              {t('contact.tips.text')}
+            </p>
+          </div>
+        </div>
+        
+        <div class="contact-mailto-container">
+          <h3>{t('contact.title')}</h3>
+          <div class="mailto-card">
+            <p>{t('contact.mailto.text')}</p>
+            <a href={`mailto:${contactInfo.email}`} class="btn-primary">
+              {t('contact.mailto.btn')}
+            </a>
+          </div>
         </div>
       </div>
     </div>
+    
+    <LocationMap />
   </div>
 </Layout>
 
 <style>
   .contact-page {
     padding-top: 4rem;
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
   }
 
   .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem 4rem;
-    width: 100%;
   }
 
-  .contact-mailto-container {
-    margin-top: 3rem;
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 2rem;
+  }
+
+  .contact-info h3, .contact-mailto-container h3 {
+    font-family: var(--font-family-serif);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+
+  .info-item {
     display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-bg-alt);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    color: var(--color-orange);
+    flex-shrink: 0;
+  }
+
+  .details h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+  }
+
+  .details p, .details a {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .details a:hover {
+    color: var(--color-orange);
+  }
+
+  .info-box {
+    background-color: var(--color-bg-alt);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--color-gold);
+    margin-top: 2rem;
+  }
+
+  .info-box h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--color-orange);
+  }
+
+  .info-box p {
+    margin: 0;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
   }
 
   /* Mailto Card Styles */
   .mailto-card {
     background: var(--color-bg-warm);
-    padding: 3rem;
+    padding: 2.5rem;
     border-radius: 16px;
     box-shadow: var(--shadow-soft);
     border: 1px solid var(--color-border);
@@ -66,25 +216,19 @@ const contactInfo = {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 2rem;
-    max-width: 500px;
-    width: 100%;
+    gap: 1.5rem;
   }
 
   .mailto-card p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--color-text-light);
     margin: 0;
-    line-height: 1.6;
   }
 
   @media (max-width: 768px) {
-    .contact-page {
-      padding-top: 2rem;
-    }
-    
-    .mailto-card {
-      padding: 2rem;
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
     }
   }
 </style>

@@ -1,15 +1,31 @@
 {
   "name": "Ashram Babaji",
   "short_name": "Ashram",
-  "start_url": "/pl/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#FAF8F5",
   "theme_color": "#9B5539",
+  "description": "Official site of Ashram Babaji in Poland. Teachings, events, and spiritual community.",
   "icons": [
     {
       "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
   ]
 }

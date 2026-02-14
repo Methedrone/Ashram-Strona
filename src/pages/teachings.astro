@@ -1,0 +1,99 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import TeachingCard from '../components/TeachingCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { useTranslations } from '../i18n/utils';
+
+const lang = 'pl';
+const t = useTranslations(lang);
+const siteUrl = 'https://babaji.org.pl';
+
+const allTeachings = await getCollection('teachings', ({ data }) => {
+  return data.lang === lang;
+});
+
+const sortedTeachings = allTeachings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const itemList = sortedTeachings.map((teaching, index) => ({
+  "@type": "ListItem",
+  "position": index + 1,
+  "name": teaching.data.title,
+  "url": `${siteUrl}/teachings/${teaching.slug.split('/').slice(1).join('/')}`
+}));
+---
+
+<Layout title={t('nav.teachings')} description={t('meta.teachings.description')} ogImage="/og/teachings.jpg" schema={{
+  "@type": "CollectionPage",
+  "name": t('nav.teachings'),
+  "description": t('meta.teachings.description'),
+  "url": "https://babaji.org.pl/teachings",
+  "inLanguage": "pl",
+  "numberOfItems": sortedTeachings.length,
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": itemList
+  }
+}}>
+  <section class="teachings-page">
+    <div class="container">
+      <SectionHeading title={t('nav.teachings')} subtitle="Nauki Śri Haidakhan Babaji" level={1} />
+
+      <p class="intro">
+        Nauki Babadżiego prowadzą przez prostotę praktyki i codzienną służbę.
+        Zobacz też <a href="/praktyki">praktyki duchowe</a> i
+        <a href="/events">nadchodzące wydarzenia</a>, aby doświadczyć ich w życiu.
+      </p>
+      
+      {sortedTeachings.length > 0 ? (
+        <div class="teachings-grid">
+          {sortedTeachings.map(post => (
+            <TeachingCard post={post} />
+          ))}
+        </div>
+      ) : (
+        <p class="no-content">Wkrótce pojawią się nowe nauki.</p>
+      )}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .teachings-page {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .teachings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin: 1.5rem 0 3rem;
+  }
+
+  .intro a {
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .intro a:hover {
+    text-decoration: underline;
+  }
+
+  .no-content {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    margin-top: 2rem;
+  }
+</style>

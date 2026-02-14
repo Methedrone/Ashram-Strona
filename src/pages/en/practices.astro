@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+---
+
+<Layout title="Practices" description={t('meta.practices.description')}>
+  <section class="practices-page">
+    <div class="container">
+      <Breadcrumb items={[{ label: t('nav.home'), href: '/en' }, { label: 'Practices' }]} />
+      <SectionHeading title="Spiritual Practices" subtitle="Karma Yoga, japa, Havan, Aarti" level={1} />
+
+      <p class="intro">
+        Practices in the Babaji tradition are simple yet profound. They build attention
+        and a heart open to service. Explore <a href="/en/teachings">teachings</a>
+        and <a href="/en/retreats">retreats</a>.
+      </p>
+
+      <h2>Karma Yoga</h2>
+      <p>
+        Work as service and prayer. Daily tasks performed with attention purify the mind.
+        See <a href="/en/teachings/karma-yoga">Karma Yoga</a>.
+      </p>
+
+      <h2>Nama Japa</h2>
+      <p>
+        Repetition of the Om Namah Shivaya mantra is the foundation of practice.
+        Learn more in <a href="/en/teachings/nama-japa">Nama Japa</a>.
+      </p>
+
+      <h2>Havan</h2>
+      <p>
+        The fire ceremony purifies and strengthens community. Read
+        <a href="/en/teachings/sacred-fire-ceremony">Havan</a> and see
+        <a href="/en/events/monday-havan">Monday ceremonies</a>.
+      </p>
+
+      <h2>Aarti</h2>
+      <p>
+        The ceremony of light in the morning and evening creates the day rhythm. Learn about
+        <a href="/en/teachings/aarti-ceremony">Aarti</a>.
+      </p>
+
+      <h2>Meditation and Kriya Yoga</h2>
+      <p>
+        Meditation is the space of inner silence where Truth, Simplicity and Love meet.
+        Start with <a href="/en/teachings/meditation-for-beginners">meditation for beginners</a>
+        and explore <a href="/en/teachings/kriya-yoga">Kriya Yoga</a>.
+      </p>
+
+      <div class="cta">
+        <a href="/en/contact" class="btn-primary">Contact us</a>
+        <a href="/en/events" class="btn-secondary">Practice in the ashram</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .practices-page {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .intro a {
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .cta {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+</style>

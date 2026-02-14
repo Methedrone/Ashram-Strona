@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
 
 const pages = [
-  '/pl/',
-  '/pl/teachings',
-  '/pl/about',
-  '/pl/contact',
-  '/pl/gallery',
-  '/pl/events',
-  '/pl/donations',
+  '/',
+  '/teachings',
+  '/about',
+  '/contact',
+  '/gallery',
+  '/events',
+  '/donations',
   '/en/',
   '/en/teachings',
   '/en/about',
@@ -43,7 +43,7 @@ test.describe('Ashram Website QA', () => {
   }
 
   test('Responsive check', async ({ page }) => {
-    await page.goto('http://localhost:39755/pl/');
+    await page.goto('http://localhost:39755/');
     
     await page.setViewportSize({ width: 375, height: 667 });
     await expect(page.locator('body')).toBeVisible();
@@ -56,7 +56,7 @@ test.describe('Ashram Website QA', () => {
   });
 
   test('Schema.org verification', async ({ page }) => {
-    for (const pagePath of ['/pl/', '/en/']) {
+    for (const pagePath of ['/', '/en/']) {
       await page.goto(`http://localhost:39755${pagePath}`);
       const schema = await page.locator('script[type="application/ld+json"]').innerText();
       expect(schema).toContain('WebSite');

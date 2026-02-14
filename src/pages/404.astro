@@ -9,7 +9,7 @@ const tEN = useTranslations('en');
 const title = "404 - Strona nie znaleziona / Page Not Found";
 ---
 
-<Layout title={title}>
+<Layout title={title} noIndex={true}>
   <section class="error-page">
     <div class="container">
       <h1 class="error-code">404</h1>
@@ -19,7 +19,7 @@ const title = "404 - Strona nie znaleziona / Page Not Found";
         <div class="lang-block">
           <h2>{tPL('404.title')}</h2>
           <p>{tPL('404.text')}</p>
-          <a href="/pl/" class="btn-primary">{tPL('404.home')}</a>
+          <a href="/" class="btn-primary">{tPL('404.home')}</a>
         </div>
 
         <div class="divider-vertical" aria-hidden="true"></div>
@@ -27,7 +27,7 @@ const title = "404 - Strona nie znaleziona / Page Not Found";
         <div class="lang-block">
           <h2>{tEN('404.title')}</h2>
           <p>{tEN('404.text')}</p>
-          <a href="/en/" class="btn-primary">{tEN('404.home')}</a>
+          <a href="/en" class="btn-primary">{tEN('404.home')}</a>
         </div>
       </div>
     </div>

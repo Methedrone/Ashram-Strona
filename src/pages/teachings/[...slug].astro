@@ -1,0 +1,292 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/utils';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
+import RelatedTeachings from '../../components/RelatedTeachings.astro';
+import RelatedEvents from '../../components/RelatedEvents.astro';
+
+export async function getStaticPaths() {
+  const teachings = await getCollection('teachings', ({ data }) => {
+    return data.lang === 'pl';
+  });
+  
+  return teachings.map(entry => {
+    const [lang, ...slugParts] = entry.slug.split('/');
+    const slug = slugParts.join('/');
+    return {
+      params: { slug },
+      props: { entry },
+    };
+  });
+}
+
+const { entry } = Astro.props as { entry: any };
+const { Content } = await entry.render();
+
+const lang = 'pl';
+const t = useTranslations(lang);
+const siteUrl = 'https://babaji.org.pl';
+
+const data = entry.data as Record<string, any>;
+const breadcrumbItems = [
+  { label: t('nav.home'), href: '/' },
+  { label: t('nav.teachings'), href: '/teachings' },
+  { label: data.title },
+];
+
+const formattedDate = data.date.toLocaleDateString('pl-PL', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const shareUrl = encodeURIComponent(Astro.url.href);
+const shareTitle = encodeURIComponent(data.title);
+const articleUrl = `${siteUrl}/teachings/${entry.slug.split('/').slice(1).join('/')}`;
+const ogImagePath = data.featuredImage || '/images/havan-ceremony-group-fire-offerings.webp';
+const articleImage = `${siteUrl}${ogImagePath}`;
+const updatedAt = data.updatedAt ?? data.date;
+const keywords = data.tags?.join(', ');
+const faqItems = (data.faqs as { question: string; answer: string }[]) ?? [];
+const updatedLabel = 'Ostatnia aktualizacja';
+---
+
+<Layout title={data.title} description={data.description} ogImage={ogImagePath} ogImageAlt={data.title} ogType="article" schema={{
+  "@type": "Article",
+  "headline": data.title,
+  "description": data.description,
+  "author": {
+    "@type": "Person",
+    "name": data.author
+  },
+  "datePublished": data.date.toISOString(),
+  "dateModified": updatedAt.toISOString(),
+  "image": articleImage,
+  "keywords": keywords,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": articleUrl
+  },
+  "inLanguage": "pl",
+  "url": articleUrl,
+  "publisher": {
+    "@type": "ReligiousOrganization",
+    "name": "Ashram Babaji",
+    "url": "https://babaji.org.pl"
+  }
+}}>
+  <article class="teaching-detail">
+    <div class="container">
+      <header class="teaching-header">
+        <Breadcrumb items={breadcrumbItems} />
+        <a href="/teachings" class="back-link">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          {t('common.back')}
+        </a>
+        
+        <h1>{data.title}</h1>
+        
+        <div class="meta">
+          <span class="date">{formattedDate}</span>
+          <span class="separator">•</span>
+          <span class="author">{data.author}</span>
+        </div>
+      </header>
+      
+      <div class="content">
+        <Content />
+      </div>
+
+      <p class="updated">
+        <time datetime={updatedAt.toISOString()}>{updatedLabel}: {updatedAt.toLocaleDateString('pl-PL')}</time>
+      </p>
+
+      {faqItems.length > 0 && (
+        <section class="faq-section">
+          <h2>Najczęściej zadawane pytania</h2>
+          <div class="faq-list">
+            {faqItems.map((faq: { question: string; answer: string }) => (
+              <details>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {faqItems.length > 0 && <FAQSchema faqs={faqItems} />}
+
+      <div class="share-buttons">
+        <h3>{t('share.title')}</h3>
+        <div class="buttons">
+          <a href={`mailto:?subject=${shareTitle}&body=${shareUrl}`} class="btn-secondary share-btn">
+            {t('share.email')}
+          </a>
+          <a href={`https://wa.me/?text=${shareTitle}%20${shareUrl}`} target="_blank" rel="noopener noreferrer" class="btn-secondary share-btn">
+            {t('share.whatsapp')}
+          </a>
+        </div>
+      </div>
+
+      <RelatedTeachings currentSlug={entry.slug} lang="pl" tags={data.tags} />
+      <RelatedEvents currentSlug={entry.slug} lang="pl" tags={data.tags} />
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .teaching-detail {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .teaching-header {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-light);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--color-orange);
+  }
+
+  h1 {
+    font-family: var(--font-family-serif);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .meta {
+    color: var(--color-text-light);
+    font-size: 1rem;
+  }
+
+  .separator {
+    margin: 0 0.5rem;
+    color: var(--color-border);
+  }
+
+  .author {
+    color: var(--color-orange);
+    font-weight: 500;
+  }
+
+  .content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--color-text);
+  }
+
+  .content :global(h2) {
+    font-family: var(--font-family-serif);
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .content :global(p) {
+    margin-bottom: 1.5rem;
+  }
+
+  .content :global(blockquote) {
+    border-left: 4px solid var(--color-gold);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--color-text-light);
+  }
+
+  .content :global(ul) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .updated {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin: 2rem 0 3rem;
+  }
+
+  .faq-section {
+    margin: 3rem 0;
+  }
+
+  .faq-section h2 {
+    font-family: var(--font-family-serif);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-list details {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+  }
+
+  .faq-list summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .faq-list p {
+    margin: 0.75rem 0 0;
+    color: var(--color-text-light);
+  }
+
+  .share-buttons {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  .share-buttons h3 {
+    font-family: var(--font-family-serif);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .share-btn {
+    min-width: 140px;
+  }
+</style>

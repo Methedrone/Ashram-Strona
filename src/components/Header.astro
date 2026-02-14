@@ -10,22 +10,22 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const navItems = [
-  { href: `/${lang}/`, text: t("nav.home") },
-  { href: `/${lang}/about`, text: t("nav.about") },
-  { href: `/${lang}/teachings`, text: t("nav.teachings") },
-  { href: `/${lang}/events`, text: t("nav.events") },
-  { href: `/${lang}/gallery`, text: t("nav.gallery") },
-  { href: `/${lang}/contact`, text: t("nav.contact") },
-  { href: `/${lang}/donations`, text: t("nav.donations") },
+  { href: lang === 'pl' ? '/' : `/${lang}`, text: t("nav.home") },
+  { href: lang === 'pl' ? '/about' : `/${lang}/about`, text: t("nav.about") },
+  { href: lang === 'pl' ? '/teachings' : `/${lang}/teachings`, text: t("nav.teachings") },
+  { href: lang === 'pl' ? '/events' : `/${lang}/events`, text: t("nav.events") },
+  { href: lang === 'pl' ? '/gallery' : `/${lang}/gallery`, text: t("nav.gallery") },
+  { href: lang === 'pl' ? '/contact' : `/${lang}/contact`, text: t("nav.contact") },
+  { href: lang === 'pl' ? '/donations' : `/${lang}/donations`, text: t("nav.donations") },
 ];
 
 // Language switcher logic
 const currentPath = (activePath || Astro.url.pathname).replace(/\/$/, '');
 let switchPath = "";
 if (lang === "pl") {
-    switchPath = currentPath.replace(/^\/pl/, "/en");
+    switchPath = currentPath === "/" || currentPath === "" ? "/en" : `/en${currentPath}`;
 } else {
-    switchPath = currentPath.replace(/^\/en/, "/pl");
+    switchPath = currentPath.replace(/^\/en/, "") || "/";
 }
 
 const switchText = lang === "pl" ? "English" : "Polski";
@@ -33,7 +33,7 @@ const switchText = lang === "pl" ? "English" : "Polski";
 
 <header>
     <div class="header-container">
-        <a href={`/${lang}/`} class="logo">Ashram Babaji</a>
+        <a href={lang === 'pl' ? '/' : `/${lang}`} class="logo">Ashram Babaji</a>
         
         <button 
             type="button"

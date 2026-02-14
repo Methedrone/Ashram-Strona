@@ -1,3 +1,151 @@
 ---
-return Astro.redirect('/pl/');
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import DailySchedule from '../components/DailySchedule.astro';
+import EventCard from '../components/EventCard.astro';
+import TeachingCard from '../components/TeachingCard.astro';
+import LocationMap from '../components/LocationMap.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import LotusDivider from '../components/LotusDivider.astro';
+import { useTranslations } from '../i18n/utils';
+
+const lang = 'pl';
+const t = useTranslations(lang);
+
+// Fetch latest 3 events
+const allEvents = await getCollection('events', ({ data }) => {
+  return data.lang === lang && data.date >= new Date();
+});
+const latestEvents = allEvents
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+  .slice(0, 3);
+
+// Fetch latest 3 teachings
+const allTeachings = await getCollection('teachings', ({ data }) => {
+  return data.lang === lang;
+});
+const latestTeachings = allTeachings
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 ---
+
+<Layout title={t('nav.home')} description={t('meta.home.description')}>
+  <Hero 
+    title={t('hero.title')} 
+    subtitle={t('hero.subtitle')}
+    image="/images/havan-ceremony-group-fire-offerings.webp"
+    ctaText={t('hero.cta')}
+    ctaLink="/contact"
+    size="large"
+  />
+
+  <DailySchedule />
+
+  <LotusDivider />
+
+  {latestEvents.length > 0 && (
+    <section class="section-container">
+      <SectionHeading title={t('nav.events')} />
+      <div class="grid-container">
+        {latestEvents.map(post => (
+          <EventCard post={post} />
+        ))}
+      </div>
+      <div class="center-btn">
+        <a href="/events" class="btn-secondary">{t('events.viewAll')}</a>
+      </div>
+      <LotusDivider />
+    </section>
+  )}
+
+  {latestTeachings.length > 0 && (
+    <section class="section-container bg-alt">
+      <SectionHeading title={t('nav.teachings')} />
+      <div class="grid-container">
+        {latestTeachings.map(post => (
+          <TeachingCard post={post} />
+        ))}
+      </div>
+      <div class="center-btn">
+        <a href="/teachings" class="btn-secondary">{t('teachings.viewAll')}</a>
+      </div>
+      <LotusDivider />
+    </section>
+  )}
+
+  <LocationMap />
+
+  <section class="donation-cta">
+    <div class="cta-content">
+      <h2>{t('donations.title')}</h2>
+      <p>{t('donations.description')}</p>
+      <a href="/donations" class="btn-white">{t('nav.donations')}</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .section-container {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .bg-alt {
+    background-color: var(--color-bg-alt);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Fix for full width background */
+  section.bg-alt {
+    padding: 4rem 2rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  section.bg-alt > * {
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .center-btn {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .donation-cta {
+    background-color: var(--color-orange);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .donation-cta h2 {
+    font-family: var(--font-family-serif);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .donation-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+</style>

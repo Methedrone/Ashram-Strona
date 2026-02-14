@@ -7,6 +7,7 @@ import { useTranslations } from '../../i18n/utils';
 
 const lang = 'en';
 const t = useTranslations(lang);
+const siteUrl = 'https://babaji.org.pl';
 
 const allEvents = await getCollection('events', ({ data }) => {
   return data.lang === lang;
@@ -16,19 +17,35 @@ const sortedEvents = allEvents.sort((a, b) => a.data.date.valueOf() - b.data.dat
 
 const upcomingEvents = sortedEvents.filter(event => event.data.date >= new Date());
 const pastEvents = sortedEvents.filter(event => event.data.date < new Date()).reverse();
+const itemList = sortedEvents.map((event, index) => ({
+  "@type": "ListItem",
+  "position": index + 1,
+  "name": event.data.title,
+  "url": `${siteUrl}/en/events/${event.slug.split('/').slice(1).join('/')}`
+}));
 ---
 
-<Layout title={t('nav.events')} description={t('meta.events.description')} schema={{
+<Layout title={t('nav.events')} description={t('meta.events.description')} ogImage="/og/events.jpg" schema={{
   "@type": "CollectionPage",
   "name": t('nav.events'),
   "description": t('meta.events.description'),
   "url": "https://babaji.org.pl/en/events",
   "inLanguage": "en",
-  "numberOfItems": upcomingEvents.length
+  "numberOfItems": upcomingEvents.length,
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": itemList
+  }
 }}>
   <section class="events-page">
     <div class="container">
       <SectionHeading title={t('nav.events')} subtitle="Join us for celebrations and workshops" level={1} />
+
+      <p class="intro">
+        Events at Babaji Ashram are a place for shared practice and celebration.
+        To deepen your path, explore our <a href="/en/practices">spiritual practices</a>
+        and <a href="/en/teachings">teachings</a>.
+      </p>
       
       {upcomingEvents.length > 0 ? (
         <div class="events-grid">
@@ -70,6 +87,22 @@ const pastEvents = sortedEvents.filter(event => event.data.date < new Date()).re
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
     margin-bottom: 4rem;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin: 1.5rem 0 3rem;
+  }
+
+  .intro a {
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .intro a:hover {
+    text-decoration: underline;
   }
 
   .past-events {

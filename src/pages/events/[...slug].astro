@@ -1,0 +1,353 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/utils';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
+import RelatedTeachings from '../../components/RelatedTeachings.astro';
+import RelatedEvents from '../../components/RelatedEvents.astro';
+
+export async function getStaticPaths() {
+  const events = await getCollection('events', ({ data }) => {
+    return data.lang === 'pl';
+  });
+  
+  return events.map(entry => {
+    const [lang, ...slugParts] = entry.slug.split('/');
+    const slug = slugParts.join('/');
+    return {
+      params: { slug },
+      props: { entry },
+    };
+  });
+}
+
+const { entry } = Astro.props as { entry: any };
+const { Content } = await entry.render();
+
+const lang = 'pl';
+const t = useTranslations(lang);
+const siteUrl = 'https://babaji.org.pl';
+
+const data = entry.data as Record<string, any>;
+
+const breadcrumbItems = [
+  { label: t('nav.home'), href: '/' },
+  { label: t('nav.events'), href: '/events' },
+  { label: data.title },
+];
+
+const formattedDate = data.date.toLocaleDateString('pl-PL', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  weekday: 'long',
+});
+
+const shareUrl = encodeURIComponent(Astro.url.href);
+const shareTitle = encodeURIComponent(data.title);
+
+const ogImagePath = data.featuredImage || '/images/havan-ceremony-group-fire-offerings.webp';
+const eventUrl = `${siteUrl}/events/${entry.slug.split('/').slice(1).join('/')}`;
+const eventImage = `${siteUrl}${ogImagePath}`;
+const eventEndDate = data.endDate ? data.endDate.toISOString() : undefined;
+const eventAttendanceMode = data.isOnline
+  ? 'https://schema.org/OnlineEventAttendanceMode'
+  : 'https://schema.org/OfflineEventAttendanceMode';
+const updatedAt = data.updatedAt ?? data.date;
+const updatedLabel = 'Ostatnia aktualizacja';
+const registrationUrl = data.registrationUrl
+  ? (data.registrationUrl.startsWith('http') ? data.registrationUrl : `${siteUrl}${data.registrationUrl}`)
+  : `${siteUrl}/contact`;
+const faqItems = (data.faqs as { question: string; answer: string }[]) ?? [];
+---
+
+<Layout title={data.title} description={data.description} ogImage={ogImagePath} ogImageAlt={data.title} ogType="article" schema={{
+  "@type": "Event",
+  "name": data.title,
+  "description": data.description,
+  "startDate": data.date.toISOString(),
+  "endDate": eventEndDate,
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": eventAttendanceMode,
+  "location": {
+    "@type": "Place",
+    "name": "Ashram Babaji",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Mąkolno 129",
+      "addressLocality": "Mąkolno",
+      "postalCode": "57-250",
+      "addressRegion": "Dolnośląskie",
+      "addressCountry": "PL"
+    }
+  },
+  "organizer": {
+    "@type": "ReligiousOrganization",
+    "name": "Ashram Babaji",
+    "url": "https://babaji.org.pl"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "PLN",
+    "availability": "https://schema.org/InStock",
+    "url": registrationUrl
+  },
+  "image": eventImage,
+  "inLanguage": "pl",
+  "url": eventUrl
+}}>
+  <article class="event-detail">
+    <div class="container">
+      <header class="event-header">
+        <Breadcrumb items={breadcrumbItems} />
+        <a href="/events" class="back-link">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          {t('common.back')}
+        </a>
+        
+        <div class="date-badge">
+          {formattedDate}
+        </div>
+        
+        <h1>{data.title}</h1>
+        
+        <div class="meta">
+          <div class="meta-item">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>{data.location}</span>
+          </div>
+        </div>
+      </header>
+      
+      <div class="content">
+        <Content />
+      </div>
+
+      <p class="updated">
+        <time datetime={updatedAt.toISOString()}>{updatedLabel}: {updatedAt.toLocaleDateString('pl-PL')}</time>
+      </p>
+
+      {faqItems.length > 0 && (
+        <section class="faq-section">
+          <h2>Najczęściej zadawane pytania</h2>
+          <div class="faq-list">
+            {faqItems.map((faq) => (
+              <details>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {faqItems.length > 0 && <FAQSchema faqs={faqItems} />}
+
+      <div class="share-buttons">
+        <h3>{t('share.title')}</h3>
+        <div class="buttons">
+          <a href={`mailto:?subject=${shareTitle}&body=${shareUrl}`} class="btn-secondary share-btn">
+            {t('share.email')}
+          </a>
+          <a href={`https://wa.me/?text=${shareTitle}%20${shareUrl}`} target="_blank" rel="noopener noreferrer" class="btn-secondary share-btn">
+            {t('share.whatsapp')}
+          </a>
+        </div>
+      </div>
+      
+      <div class="cta-section">
+        <h3>Zainteresowany udziałem?</h3>
+        <p>Skontaktuj się z nami, aby zarezerwować miejsce lub dowiedzieć się więcej.</p>
+        <a href="/contact" class="btn-primary">Skontaktuj się</a>
+      </div>
+
+      <RelatedTeachings currentSlug={entry.slug} lang="pl" tags={data.tags} />
+      <RelatedEvents currentSlug={entry.slug} lang="pl" tags={data.tags} />
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .event-detail {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .event-header {
+    margin-bottom: 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .event-header :global(.breadcrumb) {
+    align-self: flex-start;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-light);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    align-self: flex-start;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--color-orange);
+  }
+
+  .date-badge {
+    background-color: var(--color-orange);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+  }
+
+  h1 {
+    font-family: var(--font-family-serif);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .meta {
+    display: flex;
+    gap: 2rem;
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: 4rem;
+  }
+
+  .content :global(h2) {
+    font-family: var(--font-family-serif);
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .content :global(p) {
+    margin-bottom: 1.5rem;
+  }
+
+  .content :global(ul) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .updated {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin: 2rem 0 3rem;
+  }
+
+  .faq-section {
+    margin-bottom: 3rem;
+  }
+
+  .faq-section h2 {
+    font-family: var(--font-family-serif);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-list details {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-warm);
+  }
+
+  .faq-list summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .faq-list p {
+    margin: 0.75rem 0 0;
+    color: var(--color-text-light);
+  }
+
+  .share-buttons {
+    margin-bottom: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  .share-buttons h3 {
+    font-family: var(--font-family-serif);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .share-btn {
+    min-width: 140px;
+  }
+
+  .cta-section {
+    background-color: var(--color-bg-alt);
+    padding: 3rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--color-border);
+  }
+
+  .cta-section h3 {
+    font-family: var(--font-family-serif);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--color-orange);
+  }
+
+    .cta-section p {
+    margin-bottom: 2rem;
+    color: var(--color-text-light);
+  }
+</style>

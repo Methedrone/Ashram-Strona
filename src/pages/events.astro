@@ -1,0 +1,120 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import EventCard from '../components/EventCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { useTranslations } from '../i18n/utils';
+
+const lang = 'pl';
+const t = useTranslations(lang);
+const siteUrl = 'https://babaji.org.pl';
+
+const allEvents = await getCollection('events', ({ data }) => {
+  return data.lang === lang;
+});
+
+const sortedEvents = allEvents.sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+
+const upcomingEvents = sortedEvents.filter(event => event.data.date >= new Date());
+const pastEvents = sortedEvents.filter(event => event.data.date < new Date()).reverse();
+const itemList = sortedEvents.map((event, index) => ({
+  "@type": "ListItem",
+  "position": index + 1,
+  "name": event.data.title,
+  "url": `${siteUrl}/events/${event.slug.split('/').slice(1).join('/')}`
+}));
+---
+
+<Layout title={t('nav.events')} description={t('meta.events.description')} ogImage="/og/events.jpg" schema={{
+  "@type": "CollectionPage",
+  "name": t('nav.events'),
+  "description": t('meta.events.description'),
+  "url": "https://babaji.org.pl/events",
+  "inLanguage": "pl",
+  "numberOfItems": upcomingEvents.length,
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": itemList
+  }
+}}>
+  <section class="events-page">
+    <div class="container">
+      <SectionHeading title={t('nav.events')} subtitle="Dołącz do nas podczas świąt i warsztatów" level={1} />
+
+      <p class="intro">
+        Wydarzenia w Ashramie Babaji to przestrzeń wspólnej praktyki i celebracji.
+        Jeśli chcesz pogłębić praktykę, zobacz też <a href="/praktyki">praktyki duchowe</a>
+        i <a href="/teachings">nauki Babaji</a>.
+      </p>
+      
+      {upcomingEvents.length > 0 ? (
+        <div class="events-grid">
+          {upcomingEvents.map(post => (
+            <EventCard post={post} />
+          ))}
+        </div>
+      ) : (
+        <p class="no-content">Obecnie nie ma zaplanowanych nadchodzących wydarzeń.</p>
+      )}
+
+      {pastEvents.length > 0 && (
+        <div class="past-events">
+          <SectionHeading title="Minione Wydarzenia" align="left" />
+          <div class="events-grid">
+            {pastEvents.map(post => (
+              <EventCard post={post} />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .events-page {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin: 1.5rem 0 3rem;
+  }
+
+  .intro a {
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .intro a:hover {
+    text-decoration: underline;
+  }
+
+  .past-events {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .no-content {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    margin-top: 2rem;
+  }
+</style>

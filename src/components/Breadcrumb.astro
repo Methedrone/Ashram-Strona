@@ -1,13 +1,34 @@
 ---
-interface Props {
-  items: {
-    label: string;
-    href?: string;
-  }[];
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
 }
 
-const { items } = Astro.props;
+interface Props {
+  items: BreadcrumbItem[];
+  includeSchema?: boolean;
+}
+
+const { items, includeSchema = true } = Astro.props;
+const siteUrl = 'https://babaji.org.pl';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items
+    .map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.label,
+      "item": item.href ? `${siteUrl}${item.href}` : undefined
+    }))
+    .filter(item => item.item)
+};
 ---
+
+{includeSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+)}
 
 <nav aria-label="Breadcrumb" class="breadcrumb">
   <ol>

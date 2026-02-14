@@ -7,7 +7,7 @@ const lang = 'en';
 const t = useTranslations(lang);
 ---
 
-<Layout title={t('nav.about')} description={t('meta.about.description')} schema={{
+<Layout title={t('nav.about')} description={t('meta.about.description')} ogImage="/og/about.jpg" schema={{
   "@type": "AboutPage",
   "name": t('nav.about'),
   "description": t('meta.about.description'),
@@ -23,9 +23,9 @@ const t = useTranslations(lang);
           <div class="text-content">
             <h3>Our Mission</h3>
             <p>
-              Babaji Ashram in Poland is a place dedicated to spiritual practice, meditation and service to humanity. 
-              Our mission is to spread the teachings of Sri Haidakhan Babaji, which are based on three pillars: 
-              <strong>Truth, Simplicity and Love</strong>.
+              <strong>Babaji Ashram</strong> is a spiritual center in Mąkolno (Lower Silesia), dedicated to the teachings of
+              <a href="/en/babaji">Sri Haidakhan Babaji</a>. Since 1990 we have created a space for practice,
+              meditation and service rooted in three pillars: <strong>Truth, Simplicity and Love</strong>.
             </p>
             <p>
               We believe that through daily practice of Karma Yoga (work as service), Japa Yoga (repetition of God's name) 
@@ -38,10 +38,46 @@ const t = useTranslations(lang);
               and selfless service. His message is universal and transcends the boundaries of any single religion, 
               encouraging people of all faiths to follow the path of the heart.
             </p>
+            <p>
+              Learn more on the page about
+              <a href="/en/babaji">Sri Haidakhan Babaji</a>.
+            </p>
           </div>
           
           <div class="image-content">
-            <img src="/images/gallery/babaji-portrait.webp" alt="Sri Haidakhan Babaji" class="rounded-image shadow-lg" />
+            <img src="/images/gallery/babaji-with-devotees-vintage.webp" alt="Sri Haidakhan Babaji with devotees at ashram construction site" class="rounded-image shadow-lg" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="eeat">
+      <div class="container">
+        <SectionHeading title="Experience and community" subtitle="Practice that lives day by day" />
+        <div class="eeat-grid">
+          <div class="eeat-card">
+            <h3>Daily practice</h3>
+            <p>
+              At the ashram we practice Karma Yoga, meditation, japa, and the Aarti and Havan ceremonies.
+              This rhythm strengthens awareness and builds spiritual discipline.
+            </p>
+            <a href="/en/practices">Explore practices</a>
+          </div>
+          <div class="eeat-card">
+            <h3>Programs and events</h3>
+            <p>
+              We organize retreats, workshops and spiritual festivals, including Navaratri.
+              We meet regularly to practice and serve together.
+            </p>
+            <a href="/en/events">Upcoming events</a>
+          </div>
+          <div class="eeat-card">
+            <h3>Guests and volunteering</h3>
+            <p>
+              The ashram community offers support at every stage of the path.
+              You are welcome to visit and practice in a spirit of openness.
+            </p>
+            <a href="/en/contact">Get in touch</a>
           </div>
         </div>
       </div>
@@ -53,7 +89,7 @@ const t = useTranslations(lang);
         
         <div class="ashram-grid">
           <div class="ashram-card">
-            <img src="/images/gallery/ashram-exterior.webp" alt="Ashram in Mąkolno" />
+            <img src="/images/gallery/ashram-courtyard-garden-archway.webp" alt="Ashram courtyard in Mąkolno with brick archway" />
             <div class="card-content">
               <h3>Ashram in Mąkolno</h3>
               <p>
@@ -64,22 +100,6 @@ const t = useTranslations(lang);
                 <strong>Address:</strong><br />
                 Mąkolno 129<br />
                 57-250 Mąkolno
-              </p>
-            </div>
-          </div>
-
-          <div class="ashram-card">
-            <img src="/images/gallery/ashram-building.webp" alt="Center in Lanckorona" />
-            <div class="card-content">
-              <h3>Center in Lanckorona</h3>
-              <p>
-                An active center for meetings and workshops. Lanckorona, with its artistic and spiritual atmosphere, 
-                is an ideal place to deepen your practice and meet the sangha.
-              </p>
-              <p class="address">
-                <strong>Address:</strong><br />
-                Lanckorona<br />
-                (Travel details available on contact)
               </p>
             </div>
           </div>
@@ -145,6 +165,46 @@ const t = useTranslations(lang);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+  }
+
+  .eeat {
+    background: var(--color-bg-warm);
+  }
+
+  .eeat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  .eeat-card {
+    background: var(--color-bg-alt);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .eeat-card h3 {
+    font-family: var(--font-family-serif);
+    color: var(--color-text);
+    margin-top: 0;
+  }
+
+  .eeat-card p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .eeat-card a {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .eeat-card a:hover {
+    text-decoration: underline;
   }
 
   .ashram-card {

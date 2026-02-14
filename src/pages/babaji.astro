@@ -1,0 +1,290 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import LotusDivider from '../components/LotusDivider.astro';
+import { useTranslations } from '../i18n/utils';
+
+const lang = 'pl';
+const t = useTranslations(lang);
+const siteUrl = 'https://babaji.org.pl';
+const description = 'Śri Haidakhan Babaji – nauczyciel duchowy, mistrz Karma Jogi i mantr. Życie, nauki i dziedzictwo. Prawda, Prostota, Miłość.';
+
+const babajiSchema = {
+  "@type": "Person",
+  "name": "Śri Haidakhan Babaji",
+  "alternateName": [
+    "Babaji",
+    "Haidakhan Baba",
+    "Shri Babaji",
+    "Śri Haidakhan Babaji"
+  ],
+  "description": "Nauczyciel duchowy z Haidakhanu w Indiach, znany z nauk o Prawdzie, Prostocie i Miłości oraz praktyki Karma Jogi i mantry Om Namah Shivaya.",
+  "url": `${siteUrl}/babaji`,
+  "image": `${siteUrl}/images/gallery/babaji-with-devotees-vintage.webp`,
+  "birthPlace": {
+    "@type": "Place",
+    "name": "Haidakhan, Uttarakhand, Indie"
+  },
+  "deathDate": "1984-02-14",
+  "deathPlace": {
+    "@type": "Place",
+    "name": "Haidakhan, Uttarakhand, Indie"
+  },
+  "knowsAbout": [
+    "Karma Yoga",
+    "Mantra Yoga",
+    "Havan",
+    "Aarti",
+    "Meditacja"
+  ],
+  "affiliation": {
+    "@type": "ReligiousOrganization",
+    "name": "Ashram Babaji",
+    "url": siteUrl
+  },
+  "sameAs": [
+    "https://en.wikipedia.org/wiki/Haidakhan_Babaji",
+    "https://www.wikidata.org/wiki/Q5640371"
+  ]
+};
+---
+
+<Layout title="Śri Haidakhan Babaji" description={description} ogImage="/og/babaji.jpg" schema={babajiSchema}>
+  <div class="babaji-page">
+    <section class="intro">
+      <div class="container">
+        <Breadcrumb items={[
+          { label: t('nav.home'), href: '/' },
+          { label: 'Babaji' }
+        ]} />
+        <SectionHeading title="Śri Haidakhan Babaji" subtitle="Prawda, Prostota, Miłość" level={1} />
+
+        <div class="content-grid">
+          <div class="text-content">
+            <p>
+              Śri Haidakhan Babaji pojawił się w 1970 roku w okolicach wioski Haidakhan
+              w Indiach. Przez kolejne lata przyciągał ludzi z całego świata prostotą
+              swojego przesłania i głębią obecności.
+            </p>
+            <p>
+              Jego nauki opierają się na trzech filarach: <strong>Prawdzie</strong>,
+              <strong>Prostocie</strong> i <strong>Miłości</strong>. Uczył, że praktyka
+              duchowa polega na pełnym zaangażowaniu w życie, pracę i służbę.
+            </p>
+          </div>
+          <div class="image-content">
+            <img src="/images/gallery/babaji-with-devotees-vintage.webp" alt="Śri Haidakhan Babaji z wyznawcami na budowie aszramu" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <LotusDivider />
+
+    <section class="teachings bg-alt">
+      <div class="container">
+        <SectionHeading title="Trzy filary nauk" />
+        <div class="pillar-grid">
+          <div class="pillar-card">
+            <h3>Prawda (Satya)</h3>
+            <p>Autentyczność w myślach, słowach i działaniach. Prawda oczyszcza umysł.</p>
+          </div>
+          <div class="pillar-card">
+            <h3>Prostota (Saralta)</h3>
+            <p>Życie bez nadmiaru, z uważnością na to, co naprawdę istotne.</p>
+          </div>
+          <div class="pillar-card">
+            <h3>Miłość (Prem)</h3>
+            <p>Współczucie i służba wszystkim istotom jako naturalna postawa serca.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <LotusDivider />
+
+    <section class="practices">
+      <div class="container">
+        <SectionHeading title="Praktyki" subtitle="Drogi realizacji duchowej" />
+        <div class="practice-list">
+          <div class="practice-item">
+            <h3>Karma Yoga</h3>
+            <p>Praca jako służba i modlitwa. Codzienne działania stają się praktyką.</p>
+          </div>
+          <div class="practice-item">
+            <h3>Japa — Om Namah Shivaya</h3>
+            <p>Powtarzanie mantry oczyszcza umysł i otwiera serce.</p>
+          </div>
+          <div class="practice-item">
+            <h3>Havan</h3>
+            <p>Ceremonia ognia, podczas której ofiary i mantry tworzą pole oczyszczenia.</p>
+          </div>
+          <div class="practice-item">
+            <h3>Aarti</h3>
+            <p>Ceremonia światła odprawiana rano i wieczorem, wzmacniająca wspólnotę.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <LotusDivider />
+
+    <section class="timeline bg-alt">
+      <div class="container">
+        <SectionHeading title="Oś czasu" subtitle="Kluczowe wydarzenia" />
+        <div class="timeline-list">
+          <div class="timeline-entry">
+            <span class="year">1970</span>
+            <div>
+              <h4>Pojawienie się w Haidakhanie</h4>
+              <p>Babaji pojawia się w okolicach świątyni w Haidakhanie.</p>
+            </div>
+          </div>
+          <div class="timeline-entry">
+            <span class="year">1970–83</span>
+            <div>
+              <h4>Nauczanie i odbudowa świątyń</h4>
+              <p>Rozpoczyna nauczanie i gromadzi wspólnotę praktyki.</p>
+            </div>
+          </div>
+          <div class="timeline-entry">
+            <span class="year">1984</span>
+            <div>
+              <h4>Mahasamadhi</h4>
+              <p>14 lutego 1984 roku Babaji opuszcza ciało fizyczne.</p>
+            </div>
+          </div>
+          <div class="timeline-entry">
+            <span class="year">1990</span>
+            <div>
+              <h4>Początek aszramu w Polsce</h4>
+              <p>Powstaje ośrodek w Mąkolnie, kontynuujący praktyki tradycji Haidakhan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <LotusDivider />
+
+    <section class="legacy">
+      <div class="cta-content">
+        <h2>Żywe dziedzictwo</h2>
+        <p>
+          Nauki Babaji są kontynuowane w aszramach na całym świecie — także w Polsce.
+          Zapraszamy do wspólnej praktyki i celebracji.
+        </p>
+        <div class="cta-links">
+          <a href="/teachings" class="btn-primary">Nauczanie</a>
+          <a href="/events" class="btn-secondary">Wydarzenia</a>
+          <a href="/contact" class="btn-secondary">Kontakt</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+
+  .bg-alt {
+    background: var(--color-bg-alt);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .image-content img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+  }
+
+  .pillar-card {
+    background: var(--color-bg-warm);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+  }
+
+  .practice-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+  }
+
+  .practice-item {
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-warm);
+  }
+
+  .timeline-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .timeline-entry {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-warm);
+  }
+
+  .year {
+    font-weight: 600;
+    color: var(--color-orange);
+  }
+
+  .legacy {
+    background: var(--color-bg-warm);
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-entry {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

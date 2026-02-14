@@ -1,0 +1,262 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { useTranslations } from '../i18n/utils';
+
+const lang = 'pl';
+const t = useTranslations(lang);
+---
+
+<Layout title={t('nav.about')} description={t('meta.about.description')} ogImage="/og/about.jpg" schema={{
+  "@type": "AboutPage",
+  "name": t('nav.about'),
+  "description": t('meta.about.description'),
+  "url": "https://babaji.org.pl/about",
+  "inLanguage": "pl"
+}}>
+  <div class="about-page">
+    <section class="intro">
+      <div class="container">
+        <SectionHeading title="O Nas" subtitle="Prawda, Prostota, Miłość" level={1} />
+        
+        <div class="content-grid">
+          <div class="text-content">
+            <h3>Nasza Misja</h3>
+            <p>
+              <strong>Ashram Babaji</strong> to duchowe centrum w Mąkolnie (Dolny Śląsk), poświęcone naukom
+              <a href="/babaji">Śri Haidakhan Babaji</a>. Od 1990 roku tworzymy przestrzeń praktyki,
+              medytacji i służby, opartą na trzech filarach: <strong>Prawdzie, Prostocie i Miłości</strong>.
+            </p>
+            <p>
+              Wierzymy, że poprzez codzienną praktykę Karma Jogi (pracy jako służby), Japa Jogi (powtarzania imienia Boga) 
+              oraz wspólne życie w harmonii z naturą, możemy osiągnąć wewnętrzny spokój i realizację duchową.
+            </p>
+
+            <h3>Śri Haidakhan Babaji</h3>
+            <p>
+              Babaji nauczał, że w obecnych czasach (Kali Yuga) najważniejszą praktyką jest powtarzanie imienia Boga 
+              oraz bezinteresowna służba. Jego przesłanie jest uniwersalne i wykracza poza ramy jednej religii, 
+              zachęcając ludzi wszystkich wyznań do podążania ścieżką serca.
+            </p>
+            <p>
+              Poznaj więcej o życiu i naukach Babaji na stronie
+              <a href="/babaji">Śri Haidakhan Babaji</a>.
+            </p>
+          </div>
+          
+          <div class="image-content">
+            <img src="/images/gallery/babaji-with-devotees-vintage.webp" alt="Śri Haidakhan Babaji z wyznawcami na budowie aszramu" class="rounded-image shadow-lg" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="eeat">
+      <div class="container">
+        <SectionHeading title="Doświadczenie i wspólnota" subtitle="Praktyka, która żyje na co dzień" />
+        <div class="eeat-grid">
+          <div class="eeat-card">
+            <h3>Codzienna praktyka</h3>
+            <p>
+              W aszramie praktykujemy Karma Yogę, medytację, japa i ceremonie Aarti oraz Havan.
+              To rytm, który wzmacnia uważność i buduje duchową dyscyplinę.
+            </p>
+            <a href="/praktyki">Zobacz praktyki</a>
+          </div>
+          <div class="eeat-card">
+            <h3>Programy i wydarzenia</h3>
+            <p>
+              Organizujemy rekolekcje, warsztaty i święta duchowe, w tym Navaratri.
+              Spotykamy się regularnie, aby wspólnie praktykować i służyć.
+            </p>
+            <a href="/events">Nadchodzące wydarzenia</a>
+          </div>
+          <div class="eeat-card">
+            <h3>Goście i wolontariat</h3>
+            <p>
+              Wspólnota aszramu tworzy przestrzeń wsparcia dla osób w każdym etapie drogi.
+              Zapraszamy do odwiedzin i praktyki w duchu otwartości.
+            </p>
+            <a href="/contact">Skontaktuj się</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ashrams bg-alt">
+      <div class="container">
+        <SectionHeading title="Nasze Ośrodki" />
+        
+        <div class="ashram-grid">
+          <div class="ashram-card">
+            <img src="/images/gallery/ashram-courtyard-garden-archway.webp" alt="Dziedziniec aszramu w Mąkolnie z ceglanym przejściem" />
+            <div class="card-content">
+              <h3>Ashram w Mąkolnie</h3>
+              <p>
+                Historyczne miejsce, gdzie od lat kultywowana jest tradycja havan (ceremonii ognia) i aarti. 
+                Położony w malowniczej okolicy Gór Złotych, stanowi oazę spokoju dla poszukujących.
+              </p>
+              <p class="address">
+                <strong>Adres:</strong><br />
+                Mąkolno 129<br />
+                57-250 Mąkolno
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .about-page {
+    padding-bottom: 4rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+
+  .bg-alt {
+    background-color: var(--color-bg-alt);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .text-content h3 {
+    font-family: var(--font-family-serif);
+    color: var(--color-orange);
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .text-content h3:first-child {
+    margin-top: 0;
+  }
+
+  .text-content p {
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .image-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(155, 85, 57, 0.15);
+  }
+
+  .ashram-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .eeat {
+    background: var(--color-bg-warm);
+  }
+
+  .eeat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  .eeat-card {
+    background: var(--color-bg-alt);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .eeat-card h3 {
+    font-family: var(--font-family-serif);
+    color: var(--color-text);
+    margin-top: 0;
+  }
+
+  .eeat-card p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .eeat-card a {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .eeat-card a:hover {
+    text-decoration: underline;
+  }
+
+  .ashram-card {
+    background: var(--color-bg-warm);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease;
+  }
+
+  .ashram-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .ashram-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 2rem;
+  }
+
+  .card-content h3 {
+    font-family: var(--font-family-serif);
+    color: var(--color-text);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-content p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .address {
+    font-style: italic;
+    border-top: 1px solid var(--color-border);
+    padding-top: 1rem;
+    margin-bottom: 0 !important;
+  }
+
+  @media (max-width: 768px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .image-content {
+      order: -1;
+    }
+  }
+</style>
