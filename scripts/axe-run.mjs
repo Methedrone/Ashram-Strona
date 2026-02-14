@@ -21,12 +21,12 @@ const pages = [
 ];
 
 async function main() {
-  const browser = await chromium.launch();
-  const context = await browser.newContext();
   await fs.mkdir('test-results', { recursive: true });
 
   const port = process.env.AUDIT_PORT || '39755';
   for (const pagePath of pages) {
+    const browser = await chromium.launch();
+    const context = await browser.newContext();
     const page = await context.newPage();
     const url = `http://localhost:${port}${pagePath}`;
     console.log('Scanning', url);
@@ -41,11 +41,11 @@ async function main() {
     } catch (err) {
       console.error('Error scanning', url, err);
     } finally {
-      await page.close();
+      try { await page.close(); } catch {}
+      try { await context.close(); } catch {}
+      try { await browser.close(); } catch {}
     }
   }
-
-  await browser.close();
 }
 
 main().catch(err => { console.error(err); process.exitCode = 1; });
