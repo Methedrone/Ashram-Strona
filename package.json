@@ -6,9 +6,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test": "playwright test",
     "generate-images": "node scripts/image-gen.mjs",
     "axe-local": "node scripts/axe-run.mjs",
+    "axe-check": "node scripts/axe-check.mjs",
     "audit:quick": "npm run generate-images && node scripts/jsonld-validate.mjs && node scripts/axe-run.mjs",
+    "audit:ci": "npm run generate-images && npm run build && AUDIT_PORT=4321 node scripts/jsonld-validate.mjs && AUDIT_PORT=4321 node scripts/axe-run.mjs && node scripts/axe-check.mjs",
     "astro": "astro"
   },
   "dependencies": {

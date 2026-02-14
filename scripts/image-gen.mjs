@@ -7,8 +7,8 @@ try {
   // dynamic import so script can be added before deps are installed
   sharp = (await import('sharp')).default;
 } catch (err) {
-  console.error('The "sharp" module is not installed. Run `npm install` and try again.');
-  process.exit(1);
+  globalThis.console.error('The "sharp" module is not installed. Run `npm install` and try again.');
+  globalThis.process.exit(1);
 }
 
 const inputDir = path.resolve('public/images');
@@ -26,7 +26,11 @@ async function walk(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
   for (const e of entries) {
     const full = path.join(dir, e.name);
-    if (e.isDirectory()) files = files.concat(await walk(full));
+    if (e.isDirectory()) {
+      // Prevent re-processing generated output (keeps runs idempotent).
+      if (path.resolve(full) === outBase) continue;
+      files = files.concat(await walk(full));
+    }
     else if (e.isFile() && exts.has(path.extname(e.name).toLowerCase())) files.push(full);
   }
   return files;
@@ -37,8 +41,8 @@ async function process() {
     try { await fs.access(inputDir); return true; } catch { return false; }
   })();
   if (!exists) {
-    console.error('No images found at', inputDir);
-    process.exit(1);
+    globalThis.console.error('No images found at', inputDir);
+    globalThis.process.exit(1);
   }
 
   const files = await walk(inputDir);
@@ -74,15 +78,18 @@ async function process() {
       }
 
       manifest[rel] = { variants };
-      console.log('Processed', rel, '->', variants.length, 'variants');
+      globalThis.console.log('Processed', rel, '->', variants.length, 'variants');
     } catch (err) {
-      console.error('Error processing', filePath, err);
+      globalThis.console.error('Error processing', filePath, err);
     }
   }
 
   const manifestPath = path.join(outBase, 'manifest.json');
   await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2));
-  console.log('Wrote manifest to', manifestPath);
+  globalThis.console.log('Wrote manifest to', manifestPath);
 }
 
-process().catch(err => { console.error(err); process.exitCode = 1; });
+process().catch((err) => {
+  globalThis.console.error(err);
+  globalThis.process.exitCode = 1;
+});

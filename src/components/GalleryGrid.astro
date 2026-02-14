@@ -26,6 +26,17 @@ const defaultImages: ImageItem[] = [
 
 const { images = defaultImages, limit } = Astro.props;
 const displayImages = limit ? images.slice(0, limit) : images;
+const optimizedWidths = [480, 768, 1024, 1600];
+
+function makeSrcsets(origPath) {
+  const name = origPath.replace(/^\/images\//, '');
+  const baseNoExt = name.replace(/\.(jpg|jpeg|png|webp|avif)$/i, '');
+  const avif = optimizedWidths.map(w => `/images/optimized/${baseNoExt}-w${w}.avif ${w}w`).join(', ');
+  const webp = optimizedWidths.map(w => `/images/optimized/${baseNoExt}-w${w}.webp ${w}w`).join(', ');
+  // sensible fallback
+  const fallback = `/images/optimized/${baseNoExt}-w1024.webp`;
+  return { avif, webp, fallback };
+}
 ---
 
 <section class="gallery-grid">
@@ -34,7 +45,19 @@ const displayImages = limit ? images.slice(0, limit) : images;
   <div class="grid">
     {displayImages.map((image) => (
       <div class="gallery-item">
-        <img src={image.src} alt={image.alt} loading="lazy" width="800" height="600" />
+        {
+          (() => {
+            const { avif, webp, fallback } = makeSrcsets(image.src);
+            const sizes = '(max-width: 600px) 100vw, 33vw';
+            return (
+              <picture class="gallery-picture" aria-hidden="false">
+                <source type="image/avif" srcset={avif} sizes={sizes} />
+                <source type="image/webp" srcset={webp} sizes={sizes} />
+                <img src={fallback} alt={image.alt} loading="lazy" width="800" height="600" decoding="async" />
+              </picture>
+            );
+          })()
+        }
         <div class="overlay">
           <span>{image.alt}</span>
         </div>
