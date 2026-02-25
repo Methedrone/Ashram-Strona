@@ -11,7 +11,7 @@ const pages = [
   '/gallery',
   '/events',
   '/donations',
-  '/en/',
+  '/en',
   '/en/teachings',
   '/en/about',
   '/en/contact',
@@ -37,6 +37,7 @@ async function main() {
         console.error('Failed to load axe-core source; axe injection will fail', err2);
       }
     }
+  let hasErrors = false;
   for (const pagePath of pages) {
     const browser = await chromium.launch();
     const context = await browser.newContext();
@@ -63,11 +64,16 @@ async function main() {
       console.log('Saved test-results/axe-' + safeName + '.json - violations:', result.violations.length);
     } catch (err) {
       console.error('Error scanning', url, err);
+      hasErrors = true;
     } finally {
       try { await page.close(); } catch {}
       try { await context.close(); } catch {}
       try { await browser.close(); } catch {}
     }
+  }
+  if (hasErrors) {
+    console.error('One or more pages failed to scan. Failing audit.');
+    process.exit(1);
   }
 }
 

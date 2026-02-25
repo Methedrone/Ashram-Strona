@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getLangFromUrl, useTranslations, translatePath } from "../i18n/utils";
 
 interface Props {
   activePath?: string;
@@ -17,18 +17,14 @@ const navItems = [
   { href: lang === 'pl' ? '/gallery' : `/${lang}/gallery`, text: t("nav.gallery") },
   { href: lang === 'pl' ? '/contact' : `/${lang}/contact`, text: t("nav.contact") },
   { href: lang === 'pl' ? '/donations' : `/${lang}/donations`, text: t("nav.donations") },
-    { href: lang === 'pl' ? '/stitch-autogen.html' : `/${lang}/stitch-autogen.html`, text: 'Prototype' },
+    // TODO: stitch-autogen prototype removed - re-evaluate for production features later
 ];
 
 // Language switcher logic
-const currentPath = (activePath || Astro.url.pathname).replace(/\/$/, '');
-let switchPath = "";
-if (lang === "pl") {
-    switchPath = currentPath === "/" || currentPath === "" ? "/en" : `/en${currentPath}`;
-} else {
-    switchPath = currentPath.replace(/^\/en/, "") || "/";
-}
-
+const rawPath = activePath || Astro.url.pathname;
+const currentPath = rawPath.replace(/\/$/, '') || '/';
+const targetLang = lang === 'pl' ? 'en' : 'pl';
+const switchPath = translatePath(currentPath, lang, targetLang);
 const switchText = lang === "pl" ? "English" : "Polski";
 ---
 

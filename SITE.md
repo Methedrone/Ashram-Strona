@@ -9,10 +9,8 @@ Section 4: Sitemap
 - /pl/events
 - /pl/gallery
 - /en/
- - /stitch-autogen.html
 
 Section 5: Roadmap
-- [x] Created stitch-autogen (prototype)
 - Create a Stitch-generated event detail page to prototype Event schema and layout: `stitch-event` (next)
 
 Section 6: Notes

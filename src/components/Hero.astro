@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
 
 interface Props {
   title: string;
@@ -25,7 +25,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const buttonText = ctaText || t('hero.cta');
-const buttonLink = ctaLink || `/${lang}/contact`;
+const buttonLink = ctaLink || getLocalizedPath('/contact', lang);
 
 const optimizedWidths = [480, 768, 1024, 1600];
 

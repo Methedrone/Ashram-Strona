@@ -8,13 +8,17 @@ const pages = [
   '/gallery',
   '/events',
   '/donations',
-  '/en/',
+  '/en',
   '/en/teachings',
   '/en/about',
   '/en/contact',
   '/en/gallery',
   '/en/events',
-  '/en/donations'
+  '/en/donations',
+  '/events/letni-retreat',
+  '/en/events/summer-retreat',
+  '/teachings/havan-ogien',
+  '/en/teachings/sacred-fire-ceremony'
 ];
 
 test.describe('Ashram Website QA', () => {
@@ -38,6 +42,8 @@ test.describe('Ashram Website QA', () => {
       const langSwitcher = page.locator('nav').locator('a.lang-switch');
       if (await langSwitcher.count() > 0) {
         await expect(langSwitcher).toBeVisible();
+        const href = await langSwitcher.getAttribute('href');
+        expect(href).not.toBeNull();
       }
     });
   }
@@ -56,10 +62,29 @@ test.describe('Ashram Website QA', () => {
   });
 
   test('Schema.org verification', async ({ page }) => {
-    for (const pagePath of ['/', '/en/']) {
+    for (const pagePath of ['/', '/en']) {
       await page.goto(`http://localhost:39755${pagePath}`);
       const schema = await page.locator('script[type="application/ld+json"]').innerText();
       expect(schema).toContain('WebSite');
+    }
+  });
+
+  test('Detail page language switching', async ({ page }) => {
+    const switchCases = [
+      { from: '/events/letni-retreat', to: '/en/events/summer-retreat' },
+      { from: '/en/events/summer-retreat', to: '/events/letni-retreat' },
+      { from: '/teachings/havan-ogien', to: '/en/teachings/sacred-fire-ceremony' },
+      { from: '/en/teachings/sacred-fire-ceremony', to: '/teachings/havan-ogien' }
+    ];
+
+    for (const { from, to } of switchCases) {
+      await page.goto(`http://localhost:39755${from}`);
+      const langSwitcher = page.locator('nav').locator('a.lang-switch');
+      const href = await langSwitcher.getAttribute('href');
+      expect(href).toBe(to);
+      
+      const response = await page.goto(`http://localhost:39755${href}`);
+      expect(response?.status()).toBe(200);
     }
   });
 });
