@@ -52,3 +52,4 @@ lh.json
 
 # astro-indexnow
 .astro-indexnow-cache.json
+.juno_task/logs/roundtable_mcp_server.log

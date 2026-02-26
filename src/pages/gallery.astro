@@ -35,6 +35,17 @@ function generateAlbumImages(albumName: string, count: number, altPrefix: string
 const archiveAshramImages = generateAlbumImages('ashram-2001-2012', 45, 'Życie w ashramie 2001-2012 - zdjęcie');
 const archiveHavanImages = generateAlbumImages('havan-2000-2012', 28, 'Ceremonie Havan 2000-2012 - zdjęcie');
 const archiveEarlyImages = generateAlbumImages('1997-1998', 29, 'Początki Ashramu 1997-1998 - zdjęcie');
+
+const archivalArticles = [
+  { src: '/images/gallery/gazetki/radio-herakhan-kwiecien-czerwiec-1997.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-kwiecien-czerwiec-1997-w480.webp', alt: 'Gazetka Radio Herakhan - Radio Herakhan Kwiecien Czerwiec 1997', subHtml: 'Gazetka: Radio Herakhan Kwiecien Czerwiec 1997 <br> <a href="/documents/gazetki/radio-herakhan-kwiecien-czerwiec-1997.pdf" target="_blank" class="download-link">Pobierz PDF</a>', loading: 'lazy' as const },
+  { src: '/images/gallery/gazetki/radio-herakhan-lipiec-wrzesien-1997.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-lipiec-wrzesien-1997-w480.webp', alt: 'Gazetka Radio Herakhan - Radio Herakhan Lipiec Wrzesien 1997', subHtml: 'Gazetka: Radio Herakhan Lipiec Wrzesien 1997 <br> <a href="/documents/gazetki/radio-herakhan-lipiec-wrzesien-1997.pdf" target="_blank" class="download-link">Pobierz PDF</a>', loading: 'lazy' as const },
+  { src: '/images/gallery/gazetki/radio-herakhan-pazdziernik-luty-1997-1998-.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-pazdziernik-luty-1997-1998--w480.webp', alt: 'Gazetka Radio Herakhan - Radio Herakhan Pazdziernik Luty 1997-1998', subHtml: 'Gazetka: Radio Herakhan Pazdziernik Luty 1997-1998 <br> <a href="/documents/gazetki/radio-herakhan-pazdziernik-luty-1997-1998-.pdf" target="_blank" class="download-link">Pobierz PDF</a>', loading: 'lazy' as const },
+  { src: '/images/gallery/gazetki/radio-herakhan-marzec-grudzien-1998.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-marzec-grudzien-1998-w480.webp', alt: 'Gazetka Radio Herakhan - Radio Herakhan Marzec Grudzien 1998', subHtml: 'Gazetka: Radio Herakhan Marzec Grudzien 1998 <br> <a href="/documents/gazetki/radio-herakhan-marzec-grudzien-1998.pdf" target="_blank" class="download-link">Pobierz PDF</a>', loading: 'lazy' as const },
+  { src: '/images/gallery/gazetki/radio-herakhan-czerwiec-2000.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-czerwiec-2000-w480.webp', alt: 'Gazetka Radio Herakhan - Radio Herakhan Czerwiec 2000', subHtml: 'Gazetka: Radio Herakhan Czerwiec 2000 <br> <a href="/documents/gazetki/radio-herakhan-czerwiec-2000.pdf" target="_blank" class="download-link">Pobierz PDF</a>', loading: 'lazy' as const },
+  { src: '/images/gallery/gazetki/radio-herakhan-styczen-2002.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-styczen-2002-w480.webp', alt: 'Gazetka Radio Herakhan - Radio Herakhan Styczen 2002', subHtml: 'Gazetka: Radio Herakhan Styczen 2002 <br> <a href="/documents/gazetki/radio-herakhan-styczen-2002.pdf" target="_blank" class="download-link">Pobierz PDF</a>', loading: 'lazy' as const },
+  { src: '/images/gallery/gazetki/radio-herakhan-kwiecien-maj-2002.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-kwiecien-maj-2002-w480.webp', alt: 'Gazetka Radio Herakhan - Radio Herakhan Kwiecien Maj 2002', subHtml: 'Gazetka: Radio Herakhan Kwiecien Maj 2002 <br> <a href="/documents/gazetki/radio-herakhan-kwiecien-maj-2002.pdf" target="_blank" class="download-link">Pobierz PDF</a>', loading: 'lazy' as const },
+  { src: '/images/gallery/gazetki/radio-herakhan-grudzien-2005.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-grudzien-2005-w480.webp', alt: 'Gazetka Radio Herakhan - Radio Herakhan Grudzien 2005', subHtml: 'Gazetka: Radio Herakhan Grudzien 2005 <br> <a href="/documents/gazetki/radio-herakhan-grudzien-2005.pdf" target="_blank" class="download-link">Pobierz PDF</a>', loading: 'lazy' as const },
+];
 ---
 <Layout title={t('nav.gallery')} description={t('meta.gallery.description')}>
   <div class="gallery-page">
@@ -68,9 +79,9 @@ const archiveEarlyImages = generateAlbumImages('1997-1998', 29, 'Początki Ashra
         <GalleryGrid images={[]} title="Budowa Ashramu" emptyStateText="Wkrótce" />
       </div>
 
-      <!-- Future: Artykuły Archiwalne -->
-      <div class="gallery-section empty">
-        <GalleryGrid images={[]} title="Artykuły Archiwalne" emptyStateText="Wkrótce" />
+      <!-- Historical Articles -->
+      <div class="gallery-section">
+        <GalleryGrid images={archivalArticles} title="Gazetki Archiwalne: Radio Herakhan" />
       </div>
 
     </div>
@@ -125,5 +136,23 @@ const archiveEarlyImages = generateAlbumImages('1997-1998', 29, 'Początki Ashra
   
   .gallery-section:last-child::after {
     display: none;
+  }
+
+  /* Styl dla linku do pobrania w opisie zdjęcia */
+  :global(.download-link) {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.3rem 0.8rem;
+    background-color: var(--color-orange);
+    color: white !important;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+  }
+
+  :global(.download-link:hover) {
+    background-color: var(--color-orange-dark, #e67e22);
   }
 </style>

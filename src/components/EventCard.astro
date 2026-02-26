@@ -16,7 +16,9 @@ const { title, description, date, location } = post.data;
 // Construct URL: /lang/events/slug-without-lang
 const [postLang, ...slugParts] = post.slug.split('/');
 const slug = slugParts.join('/');
-const href = `/${postLang}/events/${slug}`;
+const href = postLang === 'pl' 
+  ? `/events/${slug}` 
+  : `/en/events/${slug}`;
 
 const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US', {
   year: 'numeric',
