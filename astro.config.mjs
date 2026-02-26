@@ -2,11 +2,8 @@
 import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
-import indexnow from "astro-indexnow";
+import indexnow from 'astro-indexnow';
 import 'dotenv/config';
-import cloudflare from '@astrojs/cloudflare';
-import sitemap from '@astrojs/sitemap';
-import indexnow from "astro-indexnow";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://babaji.org.pl',
