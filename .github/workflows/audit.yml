@@ -39,7 +39,7 @@ jobs:
       - name: Install Chromium (for Lighthouse)
         run: |
           sudo apt-get update
-          sudo apt-get install -y chromium-browser
+          sudo apt-get install -y chromium
 
       - name: Run accessibility audits (axe)
         env:
