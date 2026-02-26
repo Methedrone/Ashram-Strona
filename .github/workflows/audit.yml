@@ -29,6 +29,8 @@ jobs:
         run: npm run generate-images
 
       - name: Build site
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY || vars.INDEXNOW_KEY }}
         run: npm run build
 
       - name: Serve site
