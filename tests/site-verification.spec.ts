@@ -15,8 +15,9 @@ const pages = [
   '/en/gallery',
   '/en/events',
   '/en/donations',
-  '/events/letni-retreat',
-  '/en/events/summer-retreat',
+  '/events/siwaratri',
+  '/en/events/shivaratri',
+  '/events/holi',
   '/teachings/havan-ogien',
   '/en/teachings/sacred-fire-ceremony'
 ];
@@ -71,8 +72,9 @@ test.describe('Ashram Website QA', () => {
 
   test('Detail page language switching', async ({ page }) => {
     const switchCases = [
-      { from: '/events/letni-retreat', to: '/en/events/summer-retreat' },
-      { from: '/en/events/summer-retreat', to: '/events/letni-retreat' },
+      { from: '/events/siwaratri', to: '/en/events/shivaratri' },
+      { from: '/en/events/shivaratri', to: '/events/siwaratri' },
+      { from: '/events/holi', to: '/en/events/holi' },
       { from: '/teachings/havan-ogien', to: '/en/teachings/sacred-fire-ceremony' },
       { from: '/en/teachings/sacred-fire-ceremony', to: '/teachings/havan-ogien' }
     ];

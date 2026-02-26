@@ -1799,6 +1799,2454 @@
       }
     ]
   },
+  "gallery/albums/1997-1998/1997-1998-001.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-001-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-001-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-001-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-001-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-001-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-001-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-001-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-001-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-002.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-002-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-002-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-002-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-002-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-002-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-002-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-002-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-002-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-003.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-003-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-003-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-003-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-003-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-003-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-003-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-003-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-003-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-004.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-004-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-004-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-004-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-004-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-004-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-004-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-004-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-004-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-005.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-005-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-005-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-005-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-005-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-005-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-005-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-005-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-005-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-006.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-006-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-006-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-006-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-006-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-006-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-006-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-006-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-006-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-007.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-007-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-007-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-007-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-007-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-007-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-007-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-007-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-007-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-008.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-008-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-008-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-008-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-008-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-008-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-008-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-008-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-008-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-009.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-009-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-009-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-009-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-009-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-009-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-009-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-009-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-009-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-010.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-010-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-010-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-010-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-010-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-010-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-010-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-010-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-010-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-011.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-011-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-011-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-011-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-011-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-011-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-011-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-011-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-011-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-012.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-012-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-012-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-012-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-012-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-012-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-012-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-012-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-012-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-013.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-013-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-013-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-013-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-013-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-013-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-013-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-013-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-013-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-014.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-014-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-014-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-014-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-014-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-014-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-014-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-014-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-014-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-015.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-015-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-015-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-015-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-015-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-015-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-015-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-015-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-015-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-016.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-016-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-016-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-016-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-016-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-016-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-016-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-016-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-016-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-017.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-017-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-017-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-017-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-017-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-017-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-017-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-017-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-017-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-018.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-018-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-018-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-018-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-018-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-018-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-018-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-018-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-018-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-019.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-019-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-019-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-019-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-019-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-019-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-019-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-019-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-019-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-020.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-020-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-020-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-020-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-020-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-020-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-020-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-020-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-020-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-021.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-021-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-021-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-021-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-021-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-021-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-021-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-021-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-021-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-022.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-022-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-022-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-022-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-022-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-022-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-022-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-022-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-022-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-023.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-023-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-023-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-023-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-023-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-023-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-023-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-023-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-023-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-024.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-024-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-024-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-024-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-024-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-024-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-024-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-024-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-024-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-025.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-025-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-025-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-025-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-025-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-025-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-025-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-025-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-025-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-026.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-026-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-026-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-026-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-026-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-026-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-026-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-026-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-026-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-027.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-027-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-027-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-027-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-027-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-027-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-027-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-027-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-027-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-028.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-028-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-028-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-028-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-028-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-028-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-028-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-028-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-028-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/1997-1998/1997-1998-029.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-029-w480.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-029-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-029-w768.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-029-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-029-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-029-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/1997-1998/1997-1998-029-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/1997-1998/1997-1998-029-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-001.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-001-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-001-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-001-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-001-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-001-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-001-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-001-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-001-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-002.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-002-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-002-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-002-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-002-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-002-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-002-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-002-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-002-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-003.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-003-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-003-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-003-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-003-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-003-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-003-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-003-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-003-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-004.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-004-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-004-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-004-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-004-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-004-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-004-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-004-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-004-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-005.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-005-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-005-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-005-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-005-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-005-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-005-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-005-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-005-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-006.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-006-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-006-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-006-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-006-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-006-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-006-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-006-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-006-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-007.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-007-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-007-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-007-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-007-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-007-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-007-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-007-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-007-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-008.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-008-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-008-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-008-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-008-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-008-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-008-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-008-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-008-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-009.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-009-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-009-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-009-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-009-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-009-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-009-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-009-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-009-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-010.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-010-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-010-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-010-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-010-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-010-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-010-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-010-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-010-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-011.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-011-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-011-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-011-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-011-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-011-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-011-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-011-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-011-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-012.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-012-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-012-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-012-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-012-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-012-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-012-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-012-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-012-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-013.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-013-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-013-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-013-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-013-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-013-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-013-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-013-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-013-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-014.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-014-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-014-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-014-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-014-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-014-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-014-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-014-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-014-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-015.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-015-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-015-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-015-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-015-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-015-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-015-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-015-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-015-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-016.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-016-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-016-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-016-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-016-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-016-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-016-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-016-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-016-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-017.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-017-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-017-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-017-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-017-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-017-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-017-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-017-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-017-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-018.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-018-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-018-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-018-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-018-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-018-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-018-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-018-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-018-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-019.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-019-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-019-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-019-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-019-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-019-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-019-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-019-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-019-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-020.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-020-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-020-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-020-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-020-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-020-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-020-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-020-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-020-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-021.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-021-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-021-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-021-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-021-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-021-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-021-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-021-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-021-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-022.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-022-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-022-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-022-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-022-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-022-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-022-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-022-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-022-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-023.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-023-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-023-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-023-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-023-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-023-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-023-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-023-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-023-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-024.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-024-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-024-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-024-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-024-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-024-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-024-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-024-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-024-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-025.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-025-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-025-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-025-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-025-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-025-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-025-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-025-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-025-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-026.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-026-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-026-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-026-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-026-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-026-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-026-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-026-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-026-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-027.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-027-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-027-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-027-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-027-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-027-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-027-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-027-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-027-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-028.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-028-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-028-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-028-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-028-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-028-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-028-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-028-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-028-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-029.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-029-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-029-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-029-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-029-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-029-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-029-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-029-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-029-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-030.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-030-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-030-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-030-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-030-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-030-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-030-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-030-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-030-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-031.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-031-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-031-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-031-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-031-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-031-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-031-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-031-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-031-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-032.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-032-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-032-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-032-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-032-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-032-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-032-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-032-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-032-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-033.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-033-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-033-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-033-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-033-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-033-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-033-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-033-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-033-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-034.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-034-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-034-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-034-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-034-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-034-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-034-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-034-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-034-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-035.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-035-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-035-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-035-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-035-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-035-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-035-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-035-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-035-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-036.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-036-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-036-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-036-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-036-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-036-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-036-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-036-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-036-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-037.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-037-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-037-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-037-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-037-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-037-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-037-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-037-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-037-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-038.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-038-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-038-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-038-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-038-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-038-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-038-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-038-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-038-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-039.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-039-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-039-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-039-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-039-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-039-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-039-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-039-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-039-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-040.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-040-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-040-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-040-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-040-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-040-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-040-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-040-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-040-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-041.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-041-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-041-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-041-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-041-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-041-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-041-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-041-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-041-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-042.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-042-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-042-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-042-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-042-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-042-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-042-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-042-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-042-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-043.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-043-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-043-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-043-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-043-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-043-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-043-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-043-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-043-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-044.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-044-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-044-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-044-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-044-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-044-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-044-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-044-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-044-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/ashram-2001-2012/ashram-2001-2012-045.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-045-w480.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-045-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-045-w768.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-045-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-045-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-045-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-045-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/ashram-2001-2012/ashram-2001-2012-045-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-001.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-001-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-001-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-001-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-001-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-001-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-001-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-001-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-001-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-002.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-002-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-002-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-002-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-002-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-002-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-002-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-002-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-002-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-003.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-003-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-003-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-003-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-003-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-003-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-003-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-003-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-003-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-004.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-004-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-004-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-004-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-004-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-004-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-004-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-004-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-004-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-005.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-005-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-005-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-005-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-005-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-005-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-005-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-005-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-005-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-006.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-006-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-006-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-006-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-006-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-006-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-006-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-006-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-006-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-007.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-007-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-007-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-007-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-007-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-007-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-007-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-007-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-007-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-008.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-008-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-008-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-008-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-008-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-008-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-008-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-008-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-008-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-009.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-009-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-009-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-009-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-009-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-009-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-009-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-009-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-009-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-010.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-010-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-010-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-010-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-010-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-010-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-010-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-010-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-010-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-011.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-011-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-011-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-011-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-011-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-011-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-011-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-011-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-011-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-012.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-012-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-012-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-012-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-012-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-012-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-012-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-012-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-012-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-013.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-013-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-013-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-013-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-013-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-013-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-013-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-013-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-013-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-014.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-014-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-014-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-014-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-014-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-014-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-014-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-014-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-014-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-015.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-015-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-015-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-015-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-015-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-015-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-015-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-015-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-015-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-016.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-016-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-016-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-016-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-016-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-016-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-016-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-016-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-016-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-017.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-017-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-017-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-017-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-017-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-017-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-017-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-017-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-017-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-018.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-018-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-018-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-018-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-018-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-018-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-018-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-018-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-018-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-019.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-019-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-019-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-019-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-019-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-019-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-019-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-019-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-019-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-020.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-020-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-020-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-020-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-020-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-020-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-020-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-020-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-020-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-021.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-021-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-021-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-021-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-021-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-021-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-021-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-021-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-021-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-022.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-022-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-022-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-022-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-022-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-022-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-022-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-022-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-022-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-023.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-023-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-023-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-023-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-023-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-023-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-023-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-023-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-023-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-024.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-024-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-024-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-024-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-024-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-024-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-024-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-024-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-024-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-025.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-025-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-025-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-025-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-025-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-025-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-025-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-025-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-025-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-026.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-026-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-026-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-026-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-026-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-026-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-026-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-026-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-026-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-027.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-027-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-027-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-027-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-027-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-027-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-027-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-027-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-027-w1600.avif"
+      }
+    ]
+  },
+  "gallery/albums/havan-2000-2012/havan-2000-2012-028.webp": {
+    "variants": [
+      {
+        "width": 480,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-028-w480.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-028-w480.avif"
+      },
+      {
+        "width": 768,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-028-w768.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-028-w768.avif"
+      },
+      {
+        "width": 1024,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-028-w1024.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-028-w1024.avif"
+      },
+      {
+        "width": 1600,
+        "webp": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-028-w1600.webp",
+        "avif": "/images/optimized/gallery/albums/havan-2000-2012/havan-2000-2012-028-w1600.avif"
+      }
+    ]
+  },
   "gallery/ashram-courtyard-garden-archway.webp": {
     "variants": [
       {
@@ -2111,195 +4559,27 @@
       }
     ]
   },
-  "optimized/fromFacebook/after-the-havan-w1024.avif": {
+  "logo-babaji.png": {
     "variants": [
       {
         "width": 480,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w480.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w480.avif"
+        "webp": "/images/optimized/logo-babaji-w480.webp",
+        "avif": "/images/optimized/logo-babaji-w480.avif"
       },
       {
         "width": 768,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w768.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w768.avif"
+        "webp": "/images/optimized/logo-babaji-w768.webp",
+        "avif": "/images/optimized/logo-babaji-w768.avif"
       },
       {
         "width": 1024,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w1024.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w1024.avif"
+        "webp": "/images/optimized/logo-babaji-w1024.webp",
+        "avif": "/images/optimized/logo-babaji-w1024.avif"
       },
       {
         "width": 1600,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w1600.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w1600.avif"
-      }
-    ]
-  },
-  "optimized/fromFacebook/after-the-havan-w1024.webp": {
-    "variants": [
-      {
-        "width": 480,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w480.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w480.avif"
-      },
-      {
-        "width": 768,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w768.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w768.avif"
-      },
-      {
-        "width": 1024,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w1024.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w1024.avif"
-      },
-      {
-        "width": 1600,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w1600.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1024-w1600.avif"
-      }
-    ]
-  },
-  "optimized/fromFacebook/after-the-havan-w1600.avif": {
-    "variants": [
-      {
-        "width": 480,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w480.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w480.avif"
-      },
-      {
-        "width": 768,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w768.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w768.avif"
-      },
-      {
-        "width": 1024,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w1024.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w1024.avif"
-      },
-      {
-        "width": 1600,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w1600.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w1600.avif"
-      }
-    ]
-  },
-  "optimized/fromFacebook/after-the-havan-w1600.webp": {
-    "variants": [
-      {
-        "width": 480,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w480.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w480.avif"
-      },
-      {
-        "width": 768,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w768.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w768.avif"
-      },
-      {
-        "width": 1024,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w1024.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w1024.avif"
-      },
-      {
-        "width": 1600,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w1600.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w1600-w1600.avif"
-      }
-    ]
-  },
-  "optimized/fromFacebook/after-the-havan-w480.avif": {
-    "variants": [
-      {
-        "width": 480,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w480.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w480.avif"
-      },
-      {
-        "width": 768,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w768.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w768.avif"
-      },
-      {
-        "width": 1024,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w1024.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w1024.avif"
-      },
-      {
-        "width": 1600,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w1600.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w1600.avif"
-      }
-    ]
-  },
-  "optimized/fromFacebook/after-the-havan-w480.webp": {
-    "variants": [
-      {
-        "width": 480,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w480.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w480.avif"
-      },
-      {
-        "width": 768,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w768.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w768.avif"
-      },
-      {
-        "width": 1024,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w1024.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w1024.avif"
-      },
-      {
-        "width": 1600,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w1600.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w480-w1600.avif"
-      }
-    ]
-  },
-  "optimized/fromFacebook/after-the-havan-w768.avif": {
-    "variants": [
-      {
-        "width": 480,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w480.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w480.avif"
-      },
-      {
-        "width": 768,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w768.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w768.avif"
-      },
-      {
-        "width": 1024,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w1024.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w1024.avif"
-      },
-      {
-        "width": 1600,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w1600.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w1600.avif"
-      }
-    ]
-  },
-  "optimized/fromFacebook/after-the-havan-w768.webp": {
-    "variants": [
-      {
-        "width": 480,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w480.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w480.avif"
-      },
-      {
-        "width": 768,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w768.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w768.avif"
-      },
-      {
-        "width": 1024,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w1024.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w1024.avif"
-      },
-      {
-        "width": 1600,
-        "webp": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w1600.webp",
-        "avif": "/images/optimized/optimized/fromFacebook/after-the-havan-w768-w1600.avif"
+        "webp": "/images/optimized/logo-babaji-w1600.webp",
+        "avif": "/images/optimized/logo-babaji-w1600.avif"
       }
     ]
   }

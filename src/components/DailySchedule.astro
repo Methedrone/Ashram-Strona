@@ -17,13 +17,14 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const defaultItems: ScheduleItem[] = [
-  { time: '06:00', activity: 'Aarati', period: 'morning' },
-  { time: '07:00', activity: 'Medytacja', period: 'morning' },
-  { time: '08:00', activity: 'Śniadanie', period: 'morning' },
+  { time: '08:00', activity: 'Aarti', period: 'morning' },
+  { time: '08:30', activity: 'Medytacja', period: 'morning' },
+  { time: '09:00', activity: 'Śniadanie', period: 'morning' },
   { time: '10:00', activity: 'Karma Yoga', period: 'morning' },
   { time: '13:00', activity: 'Obiad', period: 'afternoon' },
   { time: '15:00', activity: 'Herbata', period: 'afternoon' },
-  { time: '18:00', activity: 'Aarati', period: 'evening' },
+  { time: '15:30', activity: 'Karma Yoga', period: 'afternoon' },
+  { time: '18:00', activity: 'Aarti', period: 'evening' },
   { time: '19:00', activity: 'Kolacja', period: 'evening' },
   { time: '20:00', activity: 'Satsang', period: 'evening' },
 ];

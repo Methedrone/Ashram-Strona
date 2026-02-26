@@ -7,22 +7,35 @@ import { useTranslations } from '../../i18n/utils';
 const lang = 'en';
 const t = useTranslations(lang);
 
-const galleryImages = [
-  { src: '/images/gallery/ashram-courtyard-garden-archway.webp', alt: 'Ashram courtyard with brick archway and garden', caption: 'Ashram courtyard and garden' },
-  { src: '/images/gallery/winter-landscape-sunset-snow-hills.webp', alt: 'Winter landscape with snowy hills at sunset', caption: 'Winter landscape around the ashram' },
-  { src: '/images/gallery/sacred-temple-room-candles-altar.webp', alt: 'Sacred temple room with altar, candles and rugs', caption: 'Temple interior' },
-  { src: '/images/gallery/havan-procession-woman-offerings.webp', alt: 'Woman in yellow sari carrying offerings during Aarti procession', caption: 'Aarti ceremony' },
-  { src: '/images/gallery/sunset-trees-silhouette-twilight.webp', alt: 'Sunset with tree silhouettes in ashram gardens', caption: 'Sunset in the garden' },
-  { src: '/images/gallery/vegetable-garden-leeks-organic.webp', alt: 'Row of leeks in ashram organic garden', caption: 'Ashram vegetable garden' },
-  { src: '/images/gallery/temple-room-babaji-portrait-altar.webp', alt: 'Meditation room with Babaji portrait on altar', caption: 'Altar with Babaji portrait' },
-  { src: '/images/gallery/autumn-meadow-mountains-golden-grass.webp', alt: 'Autumn meadow with view of Golden Mountains', caption: 'View of Golden Mountains' },
-  { src: '/images/gallery/havan-ceremony-fire-pit-devotees.webp', alt: 'Havan fire ceremony with devotees in mountain shelter', caption: 'Havan ceremony' },
-  { src: '/images/gallery/temple-interior-altar-shiva-parvati.webp', alt: 'Temple interior with altar and deity statues', caption: 'Altar in the temple' },
-  { src: '/images/gallery/winter-road-snow-covered-trees-tractor.webp', alt: 'Winter road among snow-covered trees', caption: 'Winter road near the ashram' },
-  { src: '/images/gallery/babaji-with-devotees-vintage.webp', alt: 'Sri Haidakhan Babaji with devotees at ashram construction site', caption: 'Babaji with devotees' },
-];
----
+const currentImages = [
+  { src: '/images/gallery/ashram-courtyard-garden-archway.webp', srcThumb: '/images/optimized/gallery/ashram-courtyard-garden-archway-w480.webp', alt: 'Ashram courtyard with brick archway and garden', subHtml: 'Ashram courtyard and garden' },
+  { src: '/images/gallery/winter-landscape-sunset-snow-hills.webp', srcThumb: '/images/optimized/gallery/winter-landscape-sunset-snow-hills-w480.webp', alt: 'Winter landscape with snowy hills at sunset', subHtml: 'Winter landscape around the ashram' },
+  { src: '/images/gallery/sacred-temple-room-candles-altar.webp', srcThumb: '/images/optimized/gallery/sacred-temple-room-candles-altar-w480.webp', alt: 'Sacred temple room with altar, candles and rugs', subHtml: 'Temple interior' },
+  { src: '/images/gallery/havan-procession-woman-offerings.webp', srcThumb: '/images/optimized/gallery/havan-procession-woman-offerings-w480.webp', alt: 'Woman in yellow sari carrying offerings during Aarti procession', subHtml: 'Aarti ceremony' },
+  { src: '/images/gallery/sunset-trees-silhouette-twilight.webp', srcThumb: '/images/optimized/gallery/sunset-trees-silhouette-twilight-w480.webp', alt: 'Sunset with tree silhouettes in ashram gardens', subHtml: 'Sunset in the garden' },
+  { src: '/images/gallery/vegetable-garden-leeks-organic.webp', srcThumb: '/images/optimized/gallery/vegetable-garden-leeks-organic-w480.webp', alt: 'Row of leeks in ashram organic garden', subHtml: 'Ashram vegetable garden' },
+  { src: '/images/gallery/temple-room-babaji-portrait-altar.webp', srcThumb: '/images/optimized/gallery/temple-room-babaji-portrait-altar-w480.webp', alt: 'Meditation room with Babaji portrait on altar', subHtml: 'Altar with Babaji portrait' },
+  { src: '/images/gallery/autumn-meadow-mountains-golden-grass.webp', srcThumb: '/images/optimized/gallery/autumn-meadow-mountains-golden-grass-w480.webp', alt: 'Autumn meadow with view of Golden Mountains', subHtml: 'View of Golden Mountains' },
+  { src: '/images/gallery/temple-interior-altar-shiva-parvati.webp', srcThumb: '/images/optimized/gallery/temple-interior-altar-shiva-parvati-w480.webp', alt: 'Temple interior with altar and deity statues', subHtml: 'Altar in the temple' },
+  { src: '/images/gallery/winter-road-snow-covered-trees-tractor.webp', srcThumb: '/images/optimized/gallery/winter-road-snow-covered-trees-tractor-w480.webp', alt: 'Winter road among snow-covered trees', subHtml: 'Winter road near the ashram' },
+].map(img => ({ ...img, loading: 'lazy' as const }));
 
+function generateAlbumImages(albumName: string, count: number, altPrefix: string) {
+  return Array.from({ length: count }, (_, i) => {
+    const num = String(i + 1).padStart(3, '0');
+    return {
+      src: `/images/gallery/albums/${albumName}/${albumName}-${num}.webp`,
+      srcThumb: `/images/optimized/gallery/albums/${albumName}/${albumName}-${num}-w480.webp`,
+      alt: `${altPrefix} - ${i + 1}`,
+      loading: 'lazy' as const
+    };
+  });
+}
+
+const archiveAshramImages = generateAlbumImages('ashram-2001-2012', 45, 'Ashram life 2001-2012 - photo');
+const archiveHavanImages = generateAlbumImages('havan-2000-2012', 28, 'Havan ceremonies 2000-2012 - photo');
+const archiveEarlyImages = generateAlbumImages('1997-1998', 29, 'Early Days 1997-1998 - photo');
+---
 <Layout title={t('nav.gallery')} description={t('meta.gallery.description')}>
   <div class="gallery-page">
     <div class="container">
@@ -30,7 +43,36 @@ const galleryImages = [
         <SectionHeading title="Photo Gallery" subtitle="Welcome to view photos of our Ashram life, ceremonies and beautiful surroundings." level={1} />
       </div>
       
-      <GalleryGrid images={galleryImages} />
+      <!-- Current Life -->
+      <div class="gallery-section">
+        <GalleryGrid images={currentImages} title="Contemporary Ashram Life" />
+      </div>
+
+      <!-- Historical Ashram -->
+      <div class="gallery-section">
+        <GalleryGrid images={archiveAshramImages} title="Archive: Ashram (2001-2012)" />
+      </div>
+
+      <!-- Historical Havan -->
+      <div class="gallery-section">
+        <GalleryGrid images={archiveHavanImages} title="Archive: Havan (2000-2012)" />
+      </div>
+
+      <!-- Early Days -->
+      <div class="gallery-section">
+        <GalleryGrid images={archiveEarlyImages} title="Early Days (1997-1998)" />
+      </div>
+
+      <!-- Future: Budowa Ashramu -->
+      <div class="gallery-section empty">
+        <GalleryGrid images={[]} title="Ashram Construction" emptyStateText="Coming Soon" />
+      </div>
+
+      <!-- Future: Artykuły Archiwalne -->
+      <div class="gallery-section empty">
+        <GalleryGrid images={[]} title="Archival Articles" emptyStateText="Coming Soon" />
+      </div>
+
     </div>
   </div>
 </Layout>
@@ -64,5 +106,24 @@ const galleryImages = [
   p {
     font-size: 1.2rem;
     color: var(--color-text-light);
+  }
+
+  .gallery-section {
+    margin-bottom: 4rem;
+    position: relative;
+  }
+  
+  .gallery-section::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--color-gold);
+    margin: 4rem auto 0;
+    opacity: 0.3;
+  }
+  
+  .gallery-section:last-child::after {
+    display: none;
   }
 </style>
