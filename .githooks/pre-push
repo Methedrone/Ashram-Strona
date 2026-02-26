@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Block direct pushes to the protected production branch.
+# Use `dev` + Pull Request into `master` instead.
+
+while read -r local_ref local_sha remote_ref remote_sha
+do
+  case "$remote_ref" in
+    refs/heads/master)
+      echo "ERROR: Direct pushes to 'master' are blocked. Push to 'dev' and open a PR into 'master'." 1>&2
+      exit 1
+      ;;
+  esac
+done
+
+exit 0

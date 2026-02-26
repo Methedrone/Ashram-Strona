@@ -1,0 +1,65 @@
+name: Audit Site
+
+on:
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: audit-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate optimized images
+        run: npm run generate-images
+
+      - name: Build site
+        run: npm run build
+
+      - name: Serve site
+        run: |
+          python3 -m http.server 4321 --directory dist &
+          sleep 4
+
+      - name: Install Chromium (for Lighthouse)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium
+
+      - name: Run accessibility audits (axe)
+        env:
+          AUDIT_PORT: 4321
+        run: npm run axe-local
+
+      - name: Axe check - fail on violations
+        run: npm run axe-check
+
+      - name: Run JSON-LD validation
+        env:
+          AUDIT_PORT: 4321
+        run: node scripts/jsonld-validate.mjs
+
+      - name: Run Lighthouse (root and /en)
+        run: |
+          npx lighthouse http://localhost:4321/ --output=json --output-path=test-results/lighthouse-root.json --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage' --emulated-form-factor=mobile
+          npx lighthouse http://localhost:4321/en --output=json --output-path=test-results/lighthouse-en.json --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage' --emulated-form-factor=mobile
+      - name: Upload audit artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-results
+          path: test-results

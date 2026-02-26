@@ -12,6 +12,11 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# test & audit artifacts
+test-results/
+playwright-report/
+tmp/
+
 
 # environment variables
 .env
@@ -37,3 +42,13 @@ pnpm-debug.log*
 .github/instructions/codacy.instructions.md
 .sisyphus/
 lh.json
+.vibe/skills/design-md
+.vibe/skills/enhance-prompt
+.vibe/skills/react-components
+.vibe/skills/remotion
+.vibe/skills/shadcn-ui
+.vibe/skills/stitch-loop
+
+
+# astro-indexnow
+.astro-indexnow-cache.json

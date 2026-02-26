@@ -31,8 +31,7 @@ npm run dev
 Ashram-Strona/
 ├── src/
 │   ├── pages/
-│   │   ├── index.astro              # Root redirect (handles localization)
-│   │   ├── pl/                      # Polish locale pages
+│   │   ├── index.astro              # Polish home page
 │   │   └── en/                      # English locale pages
 │   ├── components/                  # Reusable UI components
 │   ├── layouts/                     # Page layouts (header, footer, SEO)
@@ -53,7 +52,7 @@ Ashram-Strona/
 | `npm run dev` | Start development server at `http://localhost:4321` |
 | `npm run build` | Build static site to `./dist/` for production |
 | `npm run preview` | Preview built site (if supported by adapter) |
-| `npm test` | Run Playwright E2E tests |
+| `npm run test` | Run Playwright E2E tests |
 
 ##  Internationalization (i18n)
 
@@ -65,7 +64,12 @@ The site uses Astro's built-in i18n routing:
 ##  Deployment
 
 Deployed to **Cloudflare Pages** using the `@astrojs/cloudflare` adapter.
-Automatic deployments are triggered on push to the `main` branch.
+Automatic deployments are triggered on push to the `master` branch.
+
+##  Development Workflow
+
+- Work happens on `dev`.
+- `master` receives changes only via Pull Requests.
 
 ##  Project Status
 

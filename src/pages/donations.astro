@@ -7,10 +7,12 @@ const lang = 'pl';
 const t = useTranslations(lang);
 
 const bankAccount = {
-  name: "Stowarzyszenie Babaji",
-  number: "00 0000 0000 0000 0000 0000 0000",
-  bank: "Bank Polski",
-  swift: "BPKOPLPW"
+  name: "Haidakhandi Samaj - Polska",
+  number: "90 1240 6726 1111 0000 5636 8550",
+  bank: "Bank PEKAO S.A.",
+  nip: "894 24 30 294",
+  tel: "+48 536 555 899",
+  email: "babaji.poland@gmail.com"
 };
 ---
 
@@ -52,14 +54,21 @@ const bankAccount = {
                 <span class="value">{bankAccount.bank}</span>
               </div>
               <div class="detail-row">
-                <span class="label">SWIFT/BIC:</span>
-                <span class="value">{bankAccount.swift}</span>
+                <span class="label">NIP:</span>
+                <span class="value">{bankAccount.nip}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Telefon:</span>
+                <span class="value">{bankAccount.tel}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Email:</span>
+                <span class="value">{bankAccount.email}</span>
               </div>
               <div class="detail-row">
                 <span class="label">Tytuł:</span>
                 <span class="value">Darowizna na cele statutowe</span>
               </div>
-            </div>
           </div>
 
           <div class="method-card other-support">

@@ -2,6 +2,8 @@
 import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
+import indexnow from 'astro-indexnow';
+import 'dotenv/config';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://babaji.org.pl',
@@ -10,6 +12,9 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/404'),
+    }),
+    indexnow({
+      key: process.env.INDEXNOW_KEY,
     }),
   ],
   i18n: {

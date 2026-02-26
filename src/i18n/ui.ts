@@ -39,6 +39,8 @@ export const ui = {
     'events.viewAll': 'Wszystkie wydarzenia',
     'teachings.viewAll': 'Wszystkie nauki',
     'gallery.viewAll': 'Zobacz wszystkie',
+    'gallery.empty': 'Wkrótce',
+    'gallery.comingSoon': 'Ten album jest w przygotowaniu. Zapraszamy wkrótce.',
     'hero.title': 'Ashram Babaji w Polsce',
     'hero.subtitle': 'Prawda, Prostota, Miłość',
     'donations.title': 'Wspieraj Ashram',
@@ -102,6 +104,8 @@ export const ui = {
     'events.viewAll': 'All events',
     'teachings.viewAll': 'All teachings',
     'gallery.viewAll': 'View All',
+    'gallery.empty': 'Coming Soon',
+    'gallery.comingSoon': 'This album is currently in preparation. Please check back soon.',
     'donations.title': 'Support the Ashram',
     'donations.description': 'Your donations help us maintain this place and serve others.',
     // Page-specific descriptions (SEO)

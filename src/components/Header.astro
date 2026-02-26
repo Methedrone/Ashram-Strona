@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getLangFromUrl, useTranslations, translatePath } from "../i18n/utils";
 
 interface Props {
   activePath?: string;
@@ -20,13 +20,9 @@ const navItems = [
 ];
 
 // Language switcher logic
-const currentPath = (activePath || Astro.url.pathname).replace(/\/$/, '');
-let switchPath = "";
-if (lang === "pl") {
-    switchPath = currentPath === "/" || currentPath === "" ? "/en" : `/en${currentPath}`;
-} else {
-    switchPath = currentPath.replace(/^\/en/, "") || "/";
-}
+const currentPath = activePath || Astro.url.pathname;
+const targetLang = lang === "pl" ? "en" : "pl";
+const switchPath = translatePath(currentPath, lang, targetLang);
 
 const switchText = lang === "pl" ? "English" : "Polski";
 ---
@@ -49,7 +45,7 @@ const switchText = lang === "pl" ? "English" : "Polski";
         </button>
 
         <nav id="main-navigation" data-visible="false">
-            <ul>
+            <ul class="nav-main">
                 {navItems.map(item => {
                     const normalizedHref = item.href.replace(/\/$/, '');
                     return (
@@ -63,8 +59,13 @@ const switchText = lang === "pl" ? "English" : "Polski";
                         </a>
                     </li>
                 )})}
-                <li><a href={switchPath} class="lang-switch">{switchText}</a></li>
             </ul>
+            <div class="nav-language">
+                <a href={switchPath} class="lang-switch" aria-label={`Switch to ${switchText}`}>
+                    <span class="lang-flag" aria-hidden="true">{lang === 'pl' ? '🇬🇧' : '🇵🇱'}</span>
+                    <span class="lang-text">{switchText}</span>
+                </a>
+            </div>
         </nav>
     </div>
 </header>
@@ -146,13 +147,19 @@ const switchText = lang === "pl" ? "English" : "Polski";
 
     .logo {
         position: relative;
+        display: inline-block;
         font-family: var(--font-family-serif);
-        font-size: 1.35rem;
+        font-size: 1.15rem;
         font-weight: 600;
         color: var(--color-gold);
         text-decoration: none;
         letter-spacing: 0.02em;
         z-index: 1001;
+        flex: 0 0 auto;
+        max-width: 240px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     /* Decorative underline for logo */
@@ -194,7 +201,23 @@ const switchText = lang === "pl" ? "English" : "Polski";
         transition: all 0.3s ease;
     }
 
+    nav {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-lg);
+        flex: 1 1 auto; /* allow nav to take remaining space */
+        min-width: 0;   /* prevent overflowing flex children */
+        justify-content: flex-end; /* align nav items to the right */
+    }
+
     nav ul {
+        display: flex;
+        gap: var(--spacing-md);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+        flex-wrap: nowrap; /* Prevent wrapping on desktop */
         display: flex;
         gap: var(--spacing-md);
         list-style: none;
@@ -203,7 +226,23 @@ const switchText = lang === "pl" ? "English" : "Polski";
         align-items: center;
     }
 
+    .nav-language {
+        display: flex;
+        align-items: center;
+    }
+
     nav a {
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 1px;
+        color: var(--color-text);
+        font-weight: 400;
+        transition: text-decoration-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        padding: var(--spacing-xs) var(--spacing-sm);
+        border-bottom: 2px solid transparent; /* Reserve space for active border */
+        white-space: nowrap; /* Prevent menu item text wrapping */
+        flex-shrink: 0;     /* Prevent menu items from shrinking */
         text-decoration: underline;
         text-decoration-color: transparent;
         text-underline-offset: 4px;
@@ -234,20 +273,31 @@ const switchText = lang === "pl" ? "English" : "Polski";
     }
 
     .lang-switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
         font-weight: 500;
         color: var(--color-text-light) !important;
         border: 1px solid var(--color-border);
-        padding: 0.25rem 0.75rem;
-        border-radius: 12px;
-        margin-left: 0.5rem;
+        padding: 0.375rem 0.875rem;
+        border-radius: 20px;
         text-decoration: none !important;
-        border-bottom: none; /* Override nav a style */
+        transition: all 0.2s ease;
     }
 
     .lang-switch:hover {
         border-color: var(--color-orange);
         color: var(--color-orange) !important;
-        background-color: transparent !important;
+        background-color: var(--color-orange-tint);
+    }
+
+    .lang-flag {
+        font-size: 1.1rem;
+        line-height: 1;
+    }
+
+    .lang-text {
+        font-size: 0.9rem;
     }
 
     /* Responsive Styles */
@@ -261,24 +311,35 @@ const switchText = lang === "pl" ? "English" : "Polski";
             top: 100%;
             left: 0;
             width: 100%;
-            background-color: var(--color-bg-warm); /* Consistent warm background */
-            /* Border bottom removed */
+            background-color: var(--color-bg-warm);
             transform: translateY(-100%);
             opacity: 0;
             visibility: hidden;
             transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
                         opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                        visibility 0s 0.35s; /* Delay visibility hidden until after transition */
-            box-shadow: 0 4px 10px rgba(212, 175, 119, 0.15); /* Warm shadow */
+                        visibility 0s 0.35s;
+            box-shadow: 0 4px 10px rgba(212, 175, 119, 0.15);
             z-index: 999;
             will-change: transform, opacity;
             border-bottom: 1px solid rgba(212, 175, 119, 0.2);
-        }
-
-        nav ul {
             flex-direction: column;
             padding: 1rem 0;
             gap: 0;
+        }
+
+        nav ul.nav-main {
+            flex-direction: column;
+            padding: 0;
+            gap: 0;
+            width: 100%;
+        }
+
+        .nav-language {
+            width: 100%;
+            padding: 1rem 0;
+            border-top: 1px solid rgba(212, 175, 119, 0.2);
+            margin-top: 0.5rem;
+            justify-content: center;
         }
 
         nav li {
@@ -290,7 +351,7 @@ const switchText = lang === "pl" ? "English" : "Polski";
             display: block;
             padding: 1rem;
             width: 100%;
-            border-bottom: 1px solid rgba(212, 175, 119, 0.1); /* Subtle separator */
+            border-bottom: 1px solid rgba(212, 175, 119, 0.1);
             text-decoration: none;
         }
 
@@ -298,7 +359,6 @@ const switchText = lang === "pl" ? "English" : "Polski";
             color: var(--color-orange);
             text-decoration: none;
             background-color: var(--color-bg-warm-alt);
-            /* Fix for underline conflict in mobile if any */
             text-decoration-color: transparent;
         }
         
@@ -307,19 +367,16 @@ const switchText = lang === "pl" ? "English" : "Polski";
             background-color: var(--color-bg-warm-alt);
         }
         
-        /* Remove transparent border reservation on mobile as layout is different */
         nav a:not(.active) {
             border-bottom: 1px solid rgba(212, 175, 119, 0.1);
         }
 
-        /* Mobile Menu Open State */
         .header-container.menu-open nav {
             transform: translateY(0);
             opacity: 1;
             visibility: visible;
             transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
                         opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            /* No delay on visibility when opening */
         }
 
         .header-container.menu-open .menu-icon .bar:nth-child(1) {
@@ -337,6 +394,14 @@ const switchText = lang === "pl" ? "English" : "Polski";
         .menu-icon:focus-visible {
             outline: 2px solid var(--color-orange);
             outline-offset: 4px;
+        }
+    }
+
+    /* Slightly tighter logo cap on very wide screens */
+    @media (min-width: 1200px) {
+        .logo {
+            max-width: 220px;
+            font-size: 1.15rem;
         }
     }
 </style>
