@@ -48,3 +48,7 @@ lh.json
 .vibe/skills/remotion
 .vibe/skills/shadcn-ui
 .vibe/skills/stitch-loop
+
+
+# astro-indexnow
+.astro-indexnow-cache.json
