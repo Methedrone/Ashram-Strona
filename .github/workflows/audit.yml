@@ -38,10 +38,8 @@ jobs:
           python3 -m http.server 4321 --directory dist &
           sleep 4
 
-      - name: Install Chromium (for Lighthouse)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
 
       - name: Run accessibility audits (axe)
         env:
