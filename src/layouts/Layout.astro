@@ -1,6 +1,6 @@
 ---
 import { SEO } from 'astro-seo';
-import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, translatePath } from '../i18n/utils';
 import Schema from '../components/Schema.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -35,20 +35,10 @@ const robotsExtras = 'max-image-preview:large, max-snippet:-1, max-video-preview
 
 // Generate hreflang alternate URLs
 const alternateLocales: ('pl' | 'en')[] = ['pl', 'en'];
-const currentPathWithoutLocale = currentPath.replace(/^\/(pl|en)(?=\/|$)/, '');
-const basePath = currentPathWithoutLocale === '' ? '/' : currentPathWithoutLocale;
-const hasTrailingSlash = currentPath.endsWith('/');
-const formatLocalizedPath = (path: string) => {
-  if (path !== '/' && hasTrailingSlash && !path.endsWith('/')) return `${path}/`;
-  return path;
-};
-const hreflangs = alternateLocales.map((locale) => {
-  const localizedPath = getLocalizedPath(basePath, locale);
-  return {
-    locale,
-    url: `${siteUrl}${formatLocalizedPath(localizedPath)}`
-  };
-});
+const hreflangs = alternateLocales.map((locale) => ({
+  locale,
+  url: `${siteUrl}${translatePath(currentPath, lang, locale)}`
+}));
 
 // OG image with default fallback
 const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/havan-ceremony-group-fire-offerings.webp`;

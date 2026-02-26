@@ -18,13 +18,16 @@
     "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/sitemap": "^3.7.0",
     "astro": "^5.17.1",
-    "astro-seo": "^1.1.0"
+    "astro-indexnow": "^2.1.0",
+    "astro-lightgallery": "^2.3.0",
+    "astro-seo": "^1.1.0",
+    "dotenv": "^17.3.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
+    "axe-core": "^4.11.1",
     "lighthouse": "^13.0.2",
     "playwright": "^1.58.2",
-    "sharp": "^0.32.5",
-    "axe-core": "^4.11.1"
+    "sharp": "^0.32.5"
   }
 }
