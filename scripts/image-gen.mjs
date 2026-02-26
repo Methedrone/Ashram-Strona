@@ -36,6 +36,53 @@ async function walk(dir) {
   return files;
 }
 
+async function processFile(filePath, inputDir, outBase, widths, quality) {
+  try {
+    const rel = path.relative(inputDir, filePath).split(path.sep).join('/');
+    const dir = path.dirname(rel) === '.' ? '' : path.dirname(rel);
+    const name = path.basename(rel, path.extname(rel));
+    const outDir = path.join(outBase, dir);
+    await ensureDir(outDir);
+
+    const image = sharp(filePath);
+    const meta = await image.metadata();
+
+    const variants = [];
+    for (const w of widths) {
+      // don't upscale
+      const shouldResize = !meta.width || meta.width > w;
+      const resizeOpts = shouldResize ? { width: w } : { width: Math.min(meta.width || w, w), withoutEnlargement: true };
+
+      const webpName = `${name}-w${w}.webp`;
+      const avifName = `${name}-w${w}.avif`;
+      const webpOut = path.join(outDir, webpName);
+      const avifOut = path.join(outDir, avifName);
+
+      const webpExists = await fs.access(webpOut).then(() => true).catch(() => false);
+      const avifExists = await fs.access(avifOut).then(() => true).catch(() => false);
+
+      if (!webpExists) {
+        await image.clone().resize(resizeOpts).webp({ quality, effort: 4 }).toFile(webpOut);
+      }
+      if (!avifExists) {
+        await image.clone().resize(resizeOpts).avif({ quality }).toFile(avifOut);
+      }
+
+      variants.push({
+        width: w,
+        webp: `/images/optimized/${dir ? dir + '/' : ''}${webpName}`,
+        avif: `/images/optimized/${dir ? dir + '/' : ''}${avifName}`
+      });
+    }
+
+    globalThis.console.log('Processed', rel, '->', variants.length, 'variants');
+    return { rel, variants };
+  } catch (err) {
+    globalThis.console.error('Error processing', filePath, err);
+    return null;
+  }
+}
+
 async function process() {
   const exists = await (async () => {
     try { await fs.access(inputDir); return true; } catch { return false; }
@@ -49,38 +96,12 @@ async function process() {
   await ensureDir(outBase);
   const manifest = {};
 
-  for (const filePath of files) {
-    try {
-      const rel = path.relative(inputDir, filePath).split(path.sep).join('/');
-      const dir = path.dirname(rel) === '.' ? '' : path.dirname(rel);
-      const name = path.basename(rel, path.extname(rel));
-      const outDir = path.join(outBase, dir);
-      await ensureDir(outDir);
-
-      const image = sharp(filePath);
-      const meta = await image.metadata();
-
-      const variants = [];
-      for (const w of widths) {
-        // don't upscale
-        const shouldResize = !meta.width || meta.width > w;
-        const resizeOpts = shouldResize ? { width: w } : { width: Math.min(meta.width || w, w), withoutEnlargement: true };
-
-        const webpName = `${name}-w${w}.webp`;
-        const avifName = `${name}-w${w}.avif`;
-        const webpOut = path.join(outDir, webpName);
-        const avifOut = path.join(outDir, avifName);
-
-        await image.clone().resize(resizeOpts).webp({ quality, effort: 4 }).toFile(webpOut);
-        await image.clone().resize(resizeOpts).avif({ quality }).toFile(avifOut);
-
-        variants.push({ width: w, webp: `/images/optimized/${dir ? dir + '/' : ''}${webpName}`, avif: `/images/optimized/${dir ? dir + '/' : ''}${avifName}` });
-      }
-
-      manifest[rel] = { variants };
-      globalThis.console.log('Processed', rel, '->', variants.length, 'variants');
-    } catch (err) {
-      globalThis.console.error('Error processing', filePath, err);
+  const concurrency = 8;
+  for (let i = 0; i < files.length; i += concurrency) {
+    const chunk = files.slice(i, i + concurrency);
+    const results = await Promise.all(chunk.map(f => processFile(f, inputDir, outBase, widths, quality)));
+    for (const res of results) {
+      if (res) manifest[res.rel] = { variants: res.variants };
     }
   }
 

@@ -1,0 +1,627 @@
+2026-02-26 12:37:21,989 - mcp.server.lowlevel.server - DEBUG - Initializing server 'roundtable-ai'
+2026-02-26 12:37:21,990 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-26 12:37:21,990 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-26 12:37:21,990 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-26 12:37:21,990 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-26 12:37:21,990 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-26 12:37:21,990 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-26 12:37:21,990 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-26 12:37:22,012 - roundtable_mcp_server.server - INFO - Ignoring availability cache - enabling all subagents
+2026-02-26 12:37:22,012 - roundtable_mcp_server.server - INFO - Initializing Roundtable AI MCP Server
+2026-02-26 12:37:22,012 - roundtable_mcp_server.server - INFO - Enabled subagents: gemini, cursor, codex, claude
+2026-02-26 12:37:22,012 - roundtable_mcp_server.server - INFO - Working directory: /home/m/.local/share/opencode/worktree/d49c1252984621fb09a5230688436cf806f400d2/glowing-mountain
+2026-02-26 12:37:22,013 - roundtable_mcp_server.server - INFO - Verbose: False
+2026-02-26 12:37:22,013 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 12:37:22,013 - roundtable_mcp_server.server - INFO - Roundtable AI MCP Server vunknown starting at 2026-02-26 12:37:22.013245
+2026-02-26 12:37:22,013 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 12:37:22,013 - roundtable_mcp_server.server - INFO - Enabled subagents: gemini, cursor, codex, claude
+2026-02-26 12:37:22,018 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-26 12:37:22,028 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-26 12:37:22,029 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7feaef4f3ed0>
+2026-02-26 12:37:22,029 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:37:22,029 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:37:22,030 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:37:49,557 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7feaef4f3d90>
+2026-02-26 12:37:49,557 - mcp.server.lowlevel.server - INFO - Processing request of type ListPromptsRequest
+2026-02-26 12:37:49,557 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListPromptsRequest
+2026-02-26 12:37:49,557 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:44:56,984 - mcp.server.lowlevel.server - DEBUG - Initializing server 'roundtable-ai'
+2026-02-26 12:44:56,985 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-26 12:44:56,985 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-26 12:44:56,985 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-26 12:44:56,985 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-26 12:44:56,985 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-26 12:44:56,986 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-26 12:44:56,986 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-26 12:44:57,011 - roundtable_mcp_server.server - INFO - Ignoring availability cache - enabling all subagents
+2026-02-26 12:44:57,012 - roundtable_mcp_server.server - INFO - Initializing Roundtable AI MCP Server
+2026-02-26 12:44:57,012 - roundtable_mcp_server.server - INFO - Enabled subagents: codex, gemini, cursor, claude
+2026-02-26 12:44:57,012 - roundtable_mcp_server.server - INFO - Working directory: /home/m/.local/share/opencode/worktree/d49c1252984621fb09a5230688436cf806f400d2/glowing-mountain
+2026-02-26 12:44:57,012 - roundtable_mcp_server.server - INFO - Verbose: False
+2026-02-26 12:44:57,012 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 12:44:57,012 - roundtable_mcp_server.server - INFO - Roundtable AI MCP Server vunknown starting at 2026-02-26 12:44:57.012503
+2026-02-26 12:44:57,012 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 12:44:57,012 - roundtable_mcp_server.server - INFO - Enabled subagents: codex, gemini, cursor, claude
+2026-02-26 12:44:57,016 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-26 12:44:58,884 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-26 12:44:58,885 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdafb3ed0>
+2026-02-26 12:44:58,885 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:44:58,885 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:44:58,886 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:45:01,334 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdafb3d90>
+2026-02-26 12:45:01,334 - mcp.server.lowlevel.server - INFO - Processing request of type ListPromptsRequest
+2026-02-26 12:45:01,334 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListPromptsRequest
+2026-02-26 12:45:01,335 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:49:47,032 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb005350>
+2026-02-26 12:49:47,032 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:49:47,032 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:49:47,033 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:51:43,476 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb0056e0>
+2026-02-26 12:51:43,476 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:51:43,477 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:51:43,478 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:10,175 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdacc5490>
+2026-02-26 12:52:10,175 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:10,175 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:10,176 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:15,408 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb062030>
+2026-02-26 12:52:15,408 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:15,408 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:15,409 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:21,247 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb061f20>
+2026-02-26 12:52:21,247 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:21,247 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:21,248 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:25,726 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb058850>
+2026-02-26 12:52:25,726 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:25,726 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:25,727 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:29,507 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb05aa50>
+2026-02-26 12:52:29,507 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:29,507 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:29,508 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:30,168 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdacb8230>
+2026-02-26 12:52:30,169 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:30,169 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:30,170 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:30,302 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdacb96d0>
+2026-02-26 12:52:30,302 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:30,303 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:30,303 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:34,053 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdacd7310>
+2026-02-26 12:52:34,053 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:34,053 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:34,054 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:37,786 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdacd67b0>
+2026-02-26 12:52:37,786 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:37,786 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:37,787 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:39,452 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdacf8120>
+2026-02-26 12:52:39,453 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:39,453 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:39,454 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:40,503 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb1abd10>
+2026-02-26 12:52:40,504 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:40,504 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:40,504 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:42,487 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb1abe90>
+2026-02-26 12:52:42,488 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:42,488 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:42,488 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:44,422 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdaf93cd0>
+2026-02-26 12:52:44,422 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:44,422 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:44,423 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:46,360 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdaccc100>
+2026-02-26 12:52:46,360 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:46,360 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:46,360 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:46,903 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02da90>
+2026-02-26 12:52:46,904 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:46,904 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:46,905 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:47,025 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003ed0>
+2026-02-26 12:52:47,026 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:47,026 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:47,026 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:48,083 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02ddb0>
+2026-02-26 12:52:48,083 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:48,083 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:48,084 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:51,285 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb001a90>
+2026-02-26 12:52:51,286 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:51,286 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:51,286 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:54,727 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003ed0>
+2026-02-26 12:52:54,728 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:54,728 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:54,728 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:55,833 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 12:52:55,833 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:55,833 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:55,834 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:57,767 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003ed0>
+2026-02-26 12:52:57,768 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:57,768 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:57,768 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:57,802 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003c50>
+2026-02-26 12:52:57,802 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:57,802 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:57,802 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:52:57,959 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 12:52:57,960 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:52:57,960 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:52:57,961 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:02,204 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003ed0>
+2026-02-26 12:53:02,205 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:02,205 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:02,206 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:02,340 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 12:53:02,340 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:02,340 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:02,340 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:03,565 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003b10>
+2026-02-26 12:53:03,565 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:03,565 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:03,566 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:04,582 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb001a90>
+2026-02-26 12:53:04,583 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:04,583 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:04,584 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:04,844 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 12:53:04,845 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:04,845 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:04,845 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:07,830 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003b10>
+2026-02-26 12:53:07,833 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:07,833 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:07,834 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:08,754 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 12:53:08,754 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:08,754 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:08,754 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:09,435 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003c50>
+2026-02-26 12:53:09,435 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:09,436 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:09,436 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:10,013 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003ed0>
+2026-02-26 12:53:10,013 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:10,013 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:10,014 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:14,193 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 12:53:14,194 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:14,194 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:14,195 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:16,355 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003c50>
+2026-02-26 12:53:16,355 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:16,355 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:16,355 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:18,615 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 12:53:18,617 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:18,617 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:18,620 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:19,733 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb001a90>
+2026-02-26 12:53:19,734 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:19,734 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:19,734 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:22,924 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003b10>
+2026-02-26 12:53:22,924 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:22,924 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:22,925 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:23,424 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 12:53:23,424 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:23,424 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:23,425 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:25,769 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb001a90>
+2026-02-26 12:53:25,769 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:25,770 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:25,770 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:27,865 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 12:53:27,866 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:27,866 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:27,866 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:30,577 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003ed0>
+2026-02-26 12:53:30,578 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:30,578 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:30,579 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:30,920 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003c50>
+2026-02-26 12:53:30,921 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:30,921 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:30,921 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:33,272 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 12:53:33,272 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:33,272 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:33,273 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:34,319 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003ed0>
+2026-02-26 12:53:34,319 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:34,319 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:34,320 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:35,785 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 12:53:35,787 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:35,787 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:35,788 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:36,193 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003b10>
+2026-02-26 12:53:36,193 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:36,194 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:36,194 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:40,512 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb001a90>
+2026-02-26 12:53:40,513 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:40,513 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:40,515 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:42,307 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 12:53:42,308 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:42,308 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:42,308 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:49,086 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003b10>
+2026-02-26 12:53:49,086 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:49,086 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:49,087 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:49,952 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 12:53:49,953 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:49,953 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:49,953 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:53:58,226 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003c50>
+2026-02-26 12:53:58,226 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:53:58,227 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:53:58,228 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:54:14,017 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003ed0>
+2026-02-26 12:54:14,017 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:54:14,017 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:54:14,018 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:54:25,078 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02dd10>
+2026-02-26 12:54:25,078 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:54:25,078 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:54:25,079 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:54:27,961 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003c50>
+2026-02-26 12:54:27,961 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:54:27,961 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:54:27,961 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:54:33,471 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02da90>
+2026-02-26 12:54:33,472 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:54:33,472 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:54:33,473 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:54:37,048 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb001a90>
+2026-02-26 12:54:37,048 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:54:37,048 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:54:37,049 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:55:10,761 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02d770>
+2026-02-26 12:55:10,763 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:55:10,763 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:55:10,764 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:56:19,020 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003b10>
+2026-02-26 12:56:19,020 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:56:19,020 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:56:19,021 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:57:20,975 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02da90>
+2026-02-26 12:57:20,980 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:57:20,980 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:57:20,981 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:57:36,330 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02dd10>
+2026-02-26 12:57:36,331 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:57:36,331 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:57:36,334 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:57:47,652 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02dc70>
+2026-02-26 12:57:47,653 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:57:47,653 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:57:47,654 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 12:57:58,808 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003bb0>
+2026-02-26 12:57:58,808 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 12:57:58,808 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 12:57:58,809 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:43:14,411 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02d8b0>
+2026-02-26 14:43:14,417 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:43:14,417 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:43:14,422 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:43:46,765 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02d770>
+2026-02-26 14:43:46,766 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:43:46,766 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:43:46,767 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:43:46,913 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02d8b0>
+2026-02-26 14:43:46,914 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:43:46,914 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:43:46,915 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:43:57,487 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb001a90>
+2026-02-26 14:43:57,487 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:43:57,488 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:43:57,488 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:43:59,049 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003ed0>
+2026-02-26 14:43:59,050 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:43:59,050 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:43:59,050 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:44:03,602 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb001a90>
+2026-02-26 14:44:03,602 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:44:03,602 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:44:03,603 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:44:10,827 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003bb0>
+2026-02-26 14:44:10,828 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:44:10,828 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:44:10,829 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:44:11,689 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdce84230>
+2026-02-26 14:44:11,689 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:44:11,689 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:44:11,690 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:44:19,598 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02dd10>
+2026-02-26 14:44:19,601 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:44:19,601 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:44:19,601 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:44:25,005 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 14:44:25,005 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:44:25,005 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:44:25,005 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:44:30,889 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003ed0>
+2026-02-26 14:44:30,889 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:44:30,889 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:44:30,890 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:44:34,774 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb001a90>
+2026-02-26 14:44:34,775 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:44:34,775 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:44:34,776 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:44:39,084 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02dc70>
+2026-02-26 14:44:39,085 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:44:39,085 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:44:39,087 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:44:44,320 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdcb22a30>
+2026-02-26 14:44:44,320 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:44:44,320 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:44:44,321 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:44:46,680 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003ed0>
+2026-02-26 14:44:46,680 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:44:46,680 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:44:46,681 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:44:50,487 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 14:44:50,487 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:44:50,487 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:44:50,488 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:44:56,109 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003ed0>
+2026-02-26 14:44:58,072 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:44:58,072 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:44:58,072 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:45:00,351 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 14:45:00,351 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:45:00,351 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:45:00,352 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:45:10,677 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02d770>
+2026-02-26 14:45:10,679 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:45:10,679 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:45:10,679 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:45:13,191 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02dd10>
+2026-02-26 14:45:13,192 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:45:13,192 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:45:13,193 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:45:26,099 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02dc70>
+2026-02-26 14:45:26,099 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:45:26,099 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:45:26,100 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:45:38,695 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 14:45:38,695 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:45:38,695 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:45:38,696 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:46:07,610 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02dc70>
+2026-02-26 14:46:07,610 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:46:07,610 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:46:07,611 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:46:43,071 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02d770>
+2026-02-26 14:46:43,072 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:46:43,072 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:46:43,073 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:47:06,942 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003c50>
+2026-02-26 14:47:06,942 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:47:06,942 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:47:06,943 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:47:19,562 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02dc70>
+2026-02-26 14:47:19,562 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:47:19,563 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:47:19,563 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:47:29,381 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02d770>
+2026-02-26 14:47:29,382 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:47:29,382 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:47:29,383 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:47:42,778 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02d8b0>
+2026-02-26 14:47:42,778 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:47:42,778 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:47:42,779 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:49:25,198 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003890>
+2026-02-26 14:49:25,199 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:49:25,199 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:49:25,200 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:49:36,965 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003ed0>
+2026-02-26 14:49:36,965 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:49:36,965 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:49:36,966 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:52:22,448 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02d8b0>
+2026-02-26 14:52:22,448 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:52:22,448 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:52:22,449 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:52:54,286 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb001a90>
+2026-02-26 14:52:54,287 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:52:54,287 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:52:54,287 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:53:33,436 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb02d8b0>
+2026-02-26 14:53:33,436 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:53:33,436 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:53:33,437 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 14:53:46,530 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7facdb003c50>
+2026-02-26 14:53:46,531 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 14:53:46,531 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 14:53:46,531 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 15:31:11,399 - mcp.server.lowlevel.server - DEBUG - Initializing server 'roundtable-ai'
+2026-02-26 15:31:11,400 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-26 15:31:11,400 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-26 15:31:11,400 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-26 15:31:11,400 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-26 15:31:11,400 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-26 15:31:11,400 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-26 15:31:11,400 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-26 15:31:15,179 - roundtable_mcp_server.server - INFO - Ignoring availability cache - enabling all subagents
+2026-02-26 15:31:15,179 - roundtable_mcp_server.server - INFO - Initializing Roundtable AI MCP Server
+2026-02-26 15:31:15,179 - roundtable_mcp_server.server - INFO - Enabled subagents: claude, gemini, cursor, codex
+2026-02-26 15:31:15,179 - roundtable_mcp_server.server - INFO - Working directory: /home/m/.local/share/opencode/worktree/d49c1252984621fb09a5230688436cf806f400d2/glowing-mountain
+2026-02-26 15:31:15,179 - roundtable_mcp_server.server - INFO - Verbose: False
+2026-02-26 15:31:15,179 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 15:31:15,180 - roundtable_mcp_server.server - INFO - Roundtable AI MCP Server vunknown starting at 2026-02-26 15:31:15.180047
+2026-02-26 15:31:15,180 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 15:31:15,180 - roundtable_mcp_server.server - INFO - Enabled subagents: claude, gemini, cursor, codex
+2026-02-26 15:31:15,433 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-26 15:31:15,440 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-26 15:36:56,298 - mcp.server.lowlevel.server - DEBUG - Initializing server 'roundtable-ai'
+2026-02-26 15:36:56,299 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-26 15:36:56,299 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-26 15:36:56,299 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-26 15:36:56,300 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-26 15:36:56,300 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-26 15:36:56,300 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-26 15:36:56,300 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-26 15:36:56,330 - roundtable_mcp_server.server - INFO - Ignoring availability cache - enabling all subagents
+2026-02-26 15:36:56,330 - roundtable_mcp_server.server - INFO - Initializing Roundtable AI MCP Server
+2026-02-26 15:36:56,330 - roundtable_mcp_server.server - INFO - Enabled subagents: codex, cursor, claude, gemini
+2026-02-26 15:36:56,330 - roundtable_mcp_server.server - INFO - Working directory: /home/m/.local/share/opencode/worktree/d49c1252984621fb09a5230688436cf806f400d2/glowing-mountain
+2026-02-26 15:36:56,330 - roundtable_mcp_server.server - INFO - Verbose: False
+2026-02-26 15:36:56,330 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 15:36:56,330 - roundtable_mcp_server.server - INFO - Roundtable AI MCP Server vunknown starting at 2026-02-26 15:36:56.330894
+2026-02-26 15:36:56,330 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 15:36:56,331 - roundtable_mcp_server.server - INFO - Enabled subagents: codex, cursor, claude, gemini
+2026-02-26 15:36:56,336 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-26 15:36:56,350 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-26 15:36:56,350 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7f67a0cf3ed0>
+2026-02-26 15:36:56,351 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 15:36:56,351 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 15:36:56,351 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 15:37:00,103 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7f67a0cf3d90>
+2026-02-26 15:37:00,103 - mcp.server.lowlevel.server - INFO - Processing request of type ListPromptsRequest
+2026-02-26 15:37:00,103 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListPromptsRequest
+2026-02-26 15:37:00,104 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 16:40:34,963 - mcp.server.lowlevel.server - DEBUG - Initializing server 'roundtable-ai'
+2026-02-26 16:40:34,963 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-26 16:40:34,963 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-26 16:40:34,963 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-26 16:40:34,964 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-26 16:40:34,964 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-26 16:40:34,964 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-26 16:40:34,964 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-26 16:40:35,023 - roundtable_mcp_server.server - INFO - Ignoring availability cache - enabling all subagents
+2026-02-26 16:40:35,023 - roundtable_mcp_server.server - INFO - Initializing Roundtable AI MCP Server
+2026-02-26 16:40:35,023 - roundtable_mcp_server.server - INFO - Enabled subagents: codex, gemini, claude, cursor
+2026-02-26 16:40:35,023 - roundtable_mcp_server.server - INFO - Working directory: /home/m/.local/share/opencode/worktree/d49c1252984621fb09a5230688436cf806f400d2/glowing-mountain
+2026-02-26 16:40:35,023 - roundtable_mcp_server.server - INFO - Verbose: False
+2026-02-26 16:40:35,023 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 16:40:35,023 - roundtable_mcp_server.server - INFO - Roundtable AI MCP Server vunknown starting at 2026-02-26 16:40:35.023825
+2026-02-26 16:40:35,023 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 16:40:35,023 - roundtable_mcp_server.server - INFO - Enabled subagents: codex, gemini, claude, cursor
+2026-02-26 16:40:35,075 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-26 16:40:35,083 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-26 16:44:51,188 - mcp.server.lowlevel.server - DEBUG - Initializing server 'roundtable-ai'
+2026-02-26 16:44:51,189 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-26 16:44:51,189 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-26 16:44:51,189 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-26 16:44:51,189 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-26 16:44:51,189 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-26 16:44:51,189 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-26 16:44:51,189 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-26 16:44:51,220 - roundtable_mcp_server.server - INFO - Ignoring availability cache - enabling all subagents
+2026-02-26 16:44:51,220 - roundtable_mcp_server.server - INFO - Initializing Roundtable AI MCP Server
+2026-02-26 16:44:51,220 - roundtable_mcp_server.server - INFO - Enabled subagents: codex, claude, cursor, gemini
+2026-02-26 16:44:51,220 - roundtable_mcp_server.server - INFO - Working directory: /home/m/.local/share/opencode/worktree/d49c1252984621fb09a5230688436cf806f400d2/glowing-mountain
+2026-02-26 16:44:51,220 - roundtable_mcp_server.server - INFO - Verbose: False
+2026-02-26 16:44:51,220 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 16:44:51,221 - roundtable_mcp_server.server - INFO - Roundtable AI MCP Server vunknown starting at 2026-02-26 16:44:51.221031
+2026-02-26 16:44:51,221 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 16:44:51,221 - roundtable_mcp_server.server - INFO - Enabled subagents: codex, claude, cursor, gemini
+2026-02-26 16:44:51,226 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-26 16:44:51,235 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-26 16:44:51,236 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7f645ddf3ed0>
+2026-02-26 16:44:51,237 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 16:44:51,237 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 16:44:51,237 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 16:44:52,904 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7f645ddf3d90>
+2026-02-26 16:44:52,904 - mcp.server.lowlevel.server - INFO - Processing request of type ListPromptsRequest
+2026-02-26 16:44:52,904 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListPromptsRequest
+2026-02-26 16:44:52,904 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 16:44:52,905 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7f645de45350>
+2026-02-26 16:44:52,905 - mcp.server.lowlevel.server - INFO - Processing request of type ListResourcesRequest
+2026-02-26 16:44:52,905 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListResourcesRequest
+2026-02-26 16:44:52,905 - mcp.server.fastmcp.resources.resource_manager - DEBUG - Listing resources
+2026-02-26 16:44:52,906 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 16:49:32,193 - mcp.server.lowlevel.server - DEBUG - Initializing server 'roundtable-ai'
+2026-02-26 16:49:32,193 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-26 16:49:32,193 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-26 16:49:32,193 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-26 16:49:32,194 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-26 16:49:32,194 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-26 16:49:32,194 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-26 16:49:32,194 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-26 16:49:32,221 - roundtable_mcp_server.server - INFO - Ignoring availability cache - enabling all subagents
+2026-02-26 16:49:32,221 - roundtable_mcp_server.server - INFO - Initializing Roundtable AI MCP Server
+2026-02-26 16:49:32,221 - roundtable_mcp_server.server - INFO - Enabled subagents: codex, gemini, claude, cursor
+2026-02-26 16:49:32,221 - roundtable_mcp_server.server - INFO - Working directory: /home/m/.local/share/opencode/worktree/d49c1252984621fb09a5230688436cf806f400d2/glowing-mountain
+2026-02-26 16:49:32,221 - roundtable_mcp_server.server - INFO - Verbose: False
+2026-02-26 16:49:32,221 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 16:49:32,221 - roundtable_mcp_server.server - INFO - Roundtable AI MCP Server vunknown starting at 2026-02-26 16:49:32.221921
+2026-02-26 16:49:32,222 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 16:49:32,222 - roundtable_mcp_server.server - INFO - Enabled subagents: codex, gemini, claude, cursor
+2026-02-26 16:49:32,226 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-26 16:49:32,239 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-26 16:49:32,240 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7efc14cefed0>
+2026-02-26 16:49:32,240 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 16:49:32,240 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 16:49:32,241 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 16:49:36,409 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7efc14cefd90>
+2026-02-26 16:49:36,409 - mcp.server.lowlevel.server - INFO - Processing request of type ListPromptsRequest
+2026-02-26 16:49:36,410 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListPromptsRequest
+2026-02-26 16:49:36,410 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 16:49:36,411 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7efc14d41350>
+2026-02-26 16:49:36,411 - mcp.server.lowlevel.server - INFO - Processing request of type ListResourcesRequest
+2026-02-26 16:49:36,411 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListResourcesRequest
+2026-02-26 16:49:36,411 - mcp.server.fastmcp.resources.resource_manager - DEBUG - Listing resources
+2026-02-26 16:49:36,412 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 16:50:02,930 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7efc14d40e90>
+2026-02-26 16:50:14,922 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 16:50:14,922 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 16:50:14,923 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 16:50:39,842 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7efc14a01490>
+2026-02-26 16:50:39,842 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 16:50:39,842 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 16:50:39,843 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 16:50:45,991 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7efc149c9f20>
+2026-02-26 16:50:45,992 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 16:50:45,992 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 16:50:45,992 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 16:50:52,711 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7efc149c9ae0>
+2026-02-26 16:50:52,711 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 16:50:52,711 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 16:50:52,712 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 16:51:00,943 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7efc149bc950>
+2026-02-26 16:51:00,943 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 16:51:00,943 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 16:51:00,944 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 16:58:52,689 - mcp.server.lowlevel.server - DEBUG - Initializing server 'roundtable-ai'
+2026-02-26 16:58:52,690 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-26 16:58:52,690 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-26 16:58:52,690 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-26 16:58:52,690 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-26 16:58:52,690 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-26 16:58:52,690 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-26 16:58:52,690 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-26 16:58:52,738 - roundtable_mcp_server.server - INFO - Ignoring availability cache - enabling all subagents
+2026-02-26 16:58:52,739 - roundtable_mcp_server.server - INFO - Initializing Roundtable AI MCP Server
+2026-02-26 16:58:52,739 - roundtable_mcp_server.server - INFO - Enabled subagents: gemini, claude, cursor, codex
+2026-02-26 16:58:52,740 - roundtable_mcp_server.server - INFO - Working directory: /home/m/.local/share/opencode/worktree/d49c1252984621fb09a5230688436cf806f400d2/glowing-mountain
+2026-02-26 16:58:52,740 - roundtable_mcp_server.server - INFO - Verbose: False
+2026-02-26 16:58:52,740 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 16:58:52,740 - roundtable_mcp_server.server - INFO - Roundtable AI MCP Server vunknown starting at 2026-02-26 16:58:52.740308
+2026-02-26 16:58:52,740 - roundtable_mcp_server.server - INFO - ============================================================
+2026-02-26 16:58:52,740 - roundtable_mcp_server.server - INFO - Enabled subagents: gemini, claude, cursor, codex
+2026-02-26 16:58:52,747 - asyncio - DEBUG - Using selector: EpollSelector
+2026-02-26 16:58:52,757 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-26 16:58:52,758 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7fea7b1d7ed0>
+2026-02-26 16:58:52,758 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-26 16:58:52,758 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-26 16:58:52,758 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 16:59:06,183 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7fea7b1d7d90>
+2026-02-26 16:59:06,184 - mcp.server.lowlevel.server - INFO - Processing request of type ListPromptsRequest
+2026-02-26 16:59:06,184 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListPromptsRequest
+2026-02-26 16:59:06,184 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-26 16:59:06,185 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x7fea7b229350>
+2026-02-26 16:59:06,185 - mcp.server.lowlevel.server - INFO - Processing request of type ListResourcesRequest
+2026-02-26 16:59:06,186 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListResourcesRequest
+2026-02-26 16:59:06,186 - mcp.server.fastmcp.resources.resource_manager - DEBUG - Listing resources
+2026-02-26 16:59:06,186 - mcp.server.lowlevel.server - DEBUG - Response sent

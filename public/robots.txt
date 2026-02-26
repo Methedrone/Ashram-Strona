@@ -5,3 +5,5 @@ Disallow: /*.json$
 Disallow: /404
 
 Sitemap: https://babaji.org.pl/sitemap-index.xml
+Sitemap: https://babaji.org.pl/image-sitemap.xml
+Sitemap: https://babaji.org.pl/rss.xml

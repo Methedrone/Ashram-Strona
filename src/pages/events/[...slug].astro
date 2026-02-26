@@ -54,6 +54,20 @@ const eventEndDate = data.endDate ? data.endDate.toISOString() : undefined;
 const eventAttendanceMode = data.isOnline
   ? 'https://schema.org/OnlineEventAttendanceMode'
   : 'https://schema.org/OfflineEventAttendanceMode';
+const eventLocation = data.isOnline
+  ? { "@type": "VirtualLocation", "url": data.registrationUrl || eventUrl }
+  : {
+      "@type": "Place",
+      "name": "Ashram Babaji",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mąkolno 129",
+        "addressLocality": "Mąkolno",
+        "postalCode": "57-250",
+        "addressRegion": "Dolnośląskie",
+        "addressCountry": "PL"
+      }
+    };
 const updatedAt = data.updatedAt ?? data.date;
 const updatedLabel = 'Ostatnia aktualizacja';
 const registrationUrl = data.registrationUrl
@@ -70,18 +84,7 @@ const faqItems = (data.faqs as { question: string; answer: string }[]) ?? [];
   "endDate": eventEndDate,
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": eventAttendanceMode,
-  "location": {
-    "@type": "Place",
-    "name": "Ashram Babaji",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Mąkolno 129",
-      "addressLocality": "Mąkolno",
-      "postalCode": "57-250",
-      "addressRegion": "Dolnośląskie",
-      "addressCountry": "PL"
-    }
-  },
+  "location": eventLocation,
   "organizer": {
     "@type": "ReligiousOrganization",
     "name": "Ashram Babaji",

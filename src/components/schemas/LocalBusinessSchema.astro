@@ -1,0 +1,69 @@
+---
+interface Props {
+  lang?: 'pl' | 'en';
+  additionalType?: string;
+}
+
+const { lang = 'pl', additionalType } = Astro.props;
+
+// Address components
+const address = {
+  streetAddress: 'Mąkolno 129',
+  postalCode: '57-250',
+  addressLocality: lang === 'pl' ? 'Kudowa-Zdrój' : 'Kudowa-Zdroj',
+  addressRegion: lang === 'pl' ? 'Dolnośląskie' : 'Lower Silesia',
+  addressCountry: 'PL'
+};
+
+// Geo coordinates
+const geo = {
+  '@type': 'GeoCoordinates',
+  latitude: 50.5297,
+  longitude: 16.9567
+};
+
+// Contact point
+const contactPoint = {
+  '@type': 'ContactPoint',
+  telephone: '+48-536-555-899',
+  email: 'mimohan44@gmail.com',
+  contactType: lang === 'pl' ? 'Rezerwacje i informacje' : 'Reservations and information',
+  availableLanguage: ['Polish', 'English']
+};
+
+// Area served
+const areaServed = lang === 'pl' 
+  ? 'Dolnośląskie, Polska'
+  : 'Lower Silesia, Poland';
+
+// What the organization knows about
+const knowsAbout = lang === 'pl'
+  ? ['Kriya Yoga', 'Medytacja', 'Techniki oddechowe', 'Mantry', 'Praktyki duchowe']
+  : ['Kriya Yoga', 'Meditation', 'Breathing techniques', 'Mantras', 'Spiritual practices'];
+
+const additionalTypes = additionalType ? ['ReligiousOrganization', 'TouristAttraction', additionalType] : ['ReligiousOrganization', 'TouristAttraction'];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': additionalTypes,
+  name: lang === 'pl' ? 'Babaji Ashram Poland' : 'Babaji Ashram Poland',
+  description: lang === 'pl'
+    ? 'Ashram w Kotlinie Kłodzkiej oferujący nauki Kriya Yoga, medytację i praktyki duchowe'
+    : 'Ashram in the Kłodzko Valley offering Kriya Yoga teachings, meditation and spiritual practices',
+  url: lang === 'pl' ? 'https://babaji.org.pl' : 'https://babaji.org.pl/en',
+  telephone: '+48-536-555-899',
+  email: 'mimohan44@gmail.com',
+  address: address,
+  geo: geo,
+  areaServed: areaServed,
+  knowsAbout: knowsAbout,
+  hasMap: 'https://www.google.com/maps/place/M%C4%85kolno+129,+57-250+Kudowa-Zdr%C3%B3j',
+  contactPoint: contactPoint,
+  sameAs: [
+    'https://www.facebook.com/babajiashrampoland'
+  ],
+  priceRange: lang === 'pl' ? 'Zniżki dla uczniów' : 'Discounts for students'
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

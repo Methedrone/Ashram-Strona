@@ -33,6 +33,9 @@ const description = customDescription || t('common.description');
 const currentPath = Astro.url.pathname;
 const robotsExtras = 'max-image-preview:large, max-snippet:-1, max-video-preview:-1';
 
+// Check if this is the homepage
+const isHome = currentPath === '/' || currentPath === '/en/' || currentPath === '/en';
+
 // Generate hreflang alternate URLs
 const alternateLocales: ('pl' | 'en')[] = ['pl', 'en'];
 const hreflangs = alternateLocales.map((locale) => ({
@@ -95,12 +98,49 @@ const defaultSchema: Record<string, any> = {
 };
 
 const schemaOrg: Record<string, any> = { ...defaultSchema };
+
 if (schema) {
   if (schema['@graph']) {
     schemaOrg['@graph'].push(...schema['@graph']);
   } else {
     schemaOrg['@graph'].push(schema);
   }
+}
+
+// Add TouristAttraction schema for homepage
+if (isHome) {
+  const touristAttraction = {
+    "@type": "TouristAttraction",
+    "name": "Ashram Babaji",
+    "alternateName": "Ashram Haidakhan Babaji",
+    "description": "Spiritual retreat center in Poland following the teachings of Haidakhan Babaji, offering programs in karma yoga, kriya yoga, meditation, and traditional Hindu ceremonies.",
+    "url": siteUrl,
+    "image": `${siteUrl}/images/havan-ceremony-group-fire-offerings.webp`,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Mąkolno 129",
+      "addressLocality": "Mąkolno",
+      "postalCode": "57-250",
+      "addressRegion": "Dolnośląskie",
+      "addressCountry": "PL"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "50.5297",
+      "longitude": "16.9567"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "06:00",
+        "closes": "21:00"
+      }
+    ],
+    "priceRange": "$$",
+    "touristType": ["Spiritual", "Pilgrimage", "Yoga"]
+  };
+  schemaOrg['@graph'].push(touristAttraction);
 }
 ---
 
@@ -178,6 +218,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 href: '/sitemap-index.xml',
               },
             ],
+            meta: [
+              { name: 'geo.region', content: 'PL-DS' },
+              { name: 'geo.placename', content: 'Kudowa-Zdrój' },
+            ],
           }}
           removeTrailingSlashForRoot
         />
@@ -186,7 +230,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	</head>
 	<body>
 		<!-- Google Tag Manager (noscript) -->
-		<noscript is:inline><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5J4NL66W"
+		<noscript is:inline><iframe title="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=GTM-5J4NL66W"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<!-- End Google Tag Manager (noscript) -->
 		<a href="#main-content" class="skip-link">{t('common.skipToContent')}</a>

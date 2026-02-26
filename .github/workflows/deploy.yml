@@ -25,6 +25,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY || vars.INDEXNOW_KEY }}
         run: npm run build
 
       - name: Deploy to Cloudflare Pages

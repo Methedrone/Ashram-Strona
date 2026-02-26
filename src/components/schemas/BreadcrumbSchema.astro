@@ -1,0 +1,36 @@
+---
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+  lang: 'pl' | 'en';
+}
+
+const { items, lang } = Astro.props;
+
+const SITE_URL = 'https://babaji.org.pl';
+const homeLabel = lang === 'pl' ? 'Strona główna' : 'Home';
+const homeUrl = lang === 'pl' ? SITE_URL : `${SITE_URL}/en`;
+
+// Build the full breadcrumb list with Home as position 1
+const breadcrumbList = [
+  { name: homeLabel, url: homeUrl },
+  ...items
+].map((item, index) => ({
+  '@type': 'ListItem',
+  'position': index + 1,
+  'name': item.name,
+  'item': item.url.startsWith('http') ? item.url : `${SITE_URL}${item.url}`
+}));
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': breadcrumbList
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

@@ -29,6 +29,8 @@ jobs:
         run: npm run generate-images
 
       - name: Build site
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY || vars.INDEXNOW_KEY }}
         run: npm run build
 
       - name: Serve site
@@ -36,10 +38,8 @@ jobs:
           python3 -m http.server 4321 --directory dist &
           sleep 4
 
-      - name: Install Chromium (for Lighthouse)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
 
       - name: Run accessibility audits (axe)
         env:
@@ -56,8 +56,8 @@ jobs:
 
       - name: Run Lighthouse (root and /en)
         run: |
-          npx lighthouse http://localhost:4321/ --output=json --output-path=test-results/lighthouse-root.json --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage' --emulated-form-factor=mobile
-          npx lighthouse http://localhost:4321/en --output=json --output-path=test-results/lighthouse-en.json --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage' --emulated-form-factor=mobile
+          npx lighthouse http://localhost:4321/ --output=json --output-path=test-results/lighthouse-root.json --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage' --emulated-form-factor=mobile --only-categories=accessibility,best-practices,seo,performance --throttling-method=provided
+          npx lighthouse http://localhost:4321/en --output=json --output-path=test-results/lighthouse-en.json --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage' --emulated-form-factor=mobile --only-categories=accessibility,best-practices,seo,performance --throttling-method=provided
       - name: Upload audit artifacts
         uses: actions/upload-artifact@v4
         with:
