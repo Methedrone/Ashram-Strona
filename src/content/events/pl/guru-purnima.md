@@ -35,7 +35,7 @@ Tradycja guru-uczeń, znana jako guru-shishya parampara, jest fundamentem duchow
 
 W tym szczególnym wieczorze połączymy się w duchu wdzięczności i oddania. Ceremonia rozpocznie się od aarti — rytualnej modlitwy ku czci guru, której towarzyszy śpiew i dźwięk dzwonków. Następnie odbędzie się satsang, podczas którego będziemy rozważać nauki o tradycji guru-uczeń i jej znaczeniu w codziennym życiu.
 
-Uczestnicy będą mieli możliwość złożenia symbolicznych ofiar oraz prakttyki padapranam — pokłonu przed stopami guru, jako wyraz najgłębszego oddania. Wieczór zakończymy wspólną medytacją, która odbędzie się w blasku pełni księżyca, symbolizującym oświecenie i duchowe światło prowadzące nas przez życie.
+Uczestnicy będą mieli możliwość złożenia symbolicznych ofiar oraz praktyki padapranam — pokłonu przed stopami guru, jako wyraz najgłębszego oddania. Wieczór zakończymy wspólną medytacją, która odbędzie się w blasku pełni księżyca, symbolizującym oświecenie i duchowe światło prowadzące nas przez życie.
 
 ## Program
 
