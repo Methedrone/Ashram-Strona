@@ -31,7 +31,7 @@ Janmashtami, czyli "Ósmy Dzień" (asztami), to uroczystość upamiętniająca n
 
 - 18:00 - Wieczorne aarti
 - 20:00 - Bhajany i kirtan
-- 00:00 - Północna celebracja narodin Kryszny
+- 00:00 - Północna celebracja narodzin Kryszny
 - 01:00 - Prasadam i radosne śpiewy
 
 ## Znaczenie Duchowe
