@@ -36,7 +36,7 @@ Ram Navami to jedno z najważniejszych hinduskich świąt, obchodzone w dziewią
 
 ## Znaczenie Duchowe
 
-Pan Rama jest symbolem idealnego człowieka, który żył zgodnie z dharmą nawet w obliczu najtrudniejszych prób. Jego historia, opisana w Ramajanie, uczy nas o oddaniu, prawości, odpowiedzialności i miłości. W dniu Ram Navami wierni recytują fragmenty Ramajany, śpiewają kirtany i uczestniczą w specjalnych pujach. Święto to jest okazją do zreflectowania nad własnym życiem i dążenia do życia w harmonii z zasadami dharmy.
+Pan Rama jest symbolem idealnego człowieka, który żył zgodnie z dharmą nawet w obliczu najtrudniejszych prób. Jego historia, opisana w Ramajanie, uczy nas o oddaniu, prawości, odpowiedzialności i miłości. W dniu Ram Navami wierni recytują fragmenty Ramajany, śpiewają kirtany i uczestniczą w specjalnych pujach. Święto to jest okazją do refleksji nad własnym życiem i dążenia do życia w harmonii z zasadami dharmy.
 
 ## Informacje dla Uczestników
 
