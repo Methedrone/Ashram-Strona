@@ -36,7 +36,7 @@ Vasant Panchami to jedno z najważniejszych hinduskich świąt wiosennych, obcho
 
 ## Znaczenie Duchowe
 
-Vasant Panchami symbolizuje przebudzenie natury po zimie i początek nowego cyklu życia. Bogini Saraswati przedstawiana jest z białym lotusem, instrumentem strunowym vina i księgą - symbolizującą wiedzę. Jej czcili proszą o błogosławieństwo w nauce, sztuce i duchowej praktyce. Żółty kolor, dominujący tego dnia, reprezentuje słońce, które przynosi światło i ciepło po zimowych ciemnościach.
+Vasant Panchami symbolizuje przebudzenie natury po zimie i początek nowego cyklu życia. Bogini Saraswati przedstawiana jest z białym lotusem, instrumentem strunowym vina i księgą - symbolizującą wiedzę. Jej czciciele proszą o błogosławieństwo w nauce, sztuce i duchowej praktyce. Żółty kolor, dominujący tego dnia, reprezentuje słońce, które przynosi światło i ciepło po zimowych ciemnościach.
 
 ## Informacje dla Uczestników
 
