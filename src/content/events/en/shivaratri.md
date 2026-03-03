@@ -1,10 +1,10 @@
 ---
 title: "Maha Shivaratri - The Great Night of Shiva"
 description: "The most important night of devotion to Lord Shiva, filled with vigil, chanting, and meditation."
-date: 2026-03-17
-endDate: 2026-03-18
+date: 2026-02-15
+endDate: 2026-02-16
 time: "18:00"
-location: "Ashram Babaji, Makolno 129"
+location: "Babaji Ashram, Mąkolno 129"
 lang: en
 featuredImage: "/images/gallery/sacred-temple-room-candles-altar.webp"
 tags:
@@ -19,8 +19,8 @@ faqs:
     answer: "Yes, although we encourage participation in the full cycle of four ceremonies."
 registrationUrl: "/en/contact"
 isOnline: false
-featured: true
-updatedAt: 2026-02-25
+featured: false
+updatedAt: 2026-03-03
 ---
 
 > **Key Thought:** Shivaratri is a time to overcome darkness and ignorance through the light of spiritual wisdom.

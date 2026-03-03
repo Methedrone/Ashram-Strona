@@ -1,8 +1,8 @@
 ---
 title: "Navaratri - Festiwal Dziewięciu Nocy"
 description: "Dziewięciodniowy festiwal oddania Boskiej Matce z codziennymi ceremoniami Havan i Aarti."
-date: 2026-10-15
-endDate: 2026-10-24
+date: 2026-10-11
+endDate: 2026-10-19
 time: "06:00"
 location: "Ashram Babaji, Mąkolno 129"
 lang: pl
@@ -21,8 +21,8 @@ faqs:
     answer: "Tak. Wszyscy są mile widziani podczas ceremonii Havan i Aarti."
 registrationUrl: "/contact"
 isOnline: false
-featured: true
-updatedAt: 2026-02-12
+featured: false
+updatedAt: 2026-03-03
 ---
 
 > **Kluczowa myśl:** Navaratri to czas intensywnej praktyki, który pogłębia oddanie i wspólnotę.
