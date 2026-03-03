@@ -14,7 +14,7 @@ tags:
   - bhakti
 faqs:
   - question: "Co to jest Janmashtami?"
-    answer: "To święto narodzin Pana Kryszny, ósmego awatara Wisznu, obchodzone w północ w miesiąca Bhadrapada."
+    answer: "To święto narodzin Pana Kryszny, ósmego awatara Wisznu, obchodzone o północy miesiąca Bhadrapada."
   - question: "Jak obchodzimy Janmashtami w ashramie?"
     answer: "Nocne czuwanie z bhajanami, o północy celebracja narodzin Kryszny, a potem prasadam i radosne śpiewy."
 registrationUrl: "/contact"
