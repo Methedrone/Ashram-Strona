@@ -1,8 +1,8 @@
 ---
 title: "Maha Śivaratri - Wielka Noc Śiwy"
 description: "Najważniejsza noc oddania Bogu Śiwie, wypełniona czuwaniem, śpiewem i medytacją."
-date: 2026-03-17
-endDate: 2026-03-18
+date: 2026-02-15
+endDate: 2026-02-16
 time: "18:00"
 location: "Ashram Babaji, Mąkolno 129"
 lang: pl
@@ -19,8 +19,8 @@ faqs:
     answer: "Tak, choć zachęcamy do udziału w pełnym cyklu czterech ceremonii."
 registrationUrl: "/contact"
 isOnline: false
-featured: true
-updatedAt: 2026-02-25
+featured: false
+updatedAt: 2026-03-03
 ---
 
 > **Kluczowa myśl:** Śivaratri to czas pokonania ciemności i niewiedzy poprzez światło duchowej mądrości.
