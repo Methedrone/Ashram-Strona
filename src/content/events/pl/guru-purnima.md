@@ -27,7 +27,7 @@ Guru Purnima to jedno z najważniejszych świąt w tradycji duchowej, szczególn
 
 ## Znaczenie dla Ashramu Babaji
 
-W naszym ashramie Guru Purnima nabiera szczególnego wymiaru. To dzień, gdy wspominamy i czcimy Sri Haidakhan Babaji — Wielkiego Nauczyciela, który przyniósł nauki kundalini jogi i adwaita wedzy do współczesnego świata. Jego obecność i nauki nadal kształtują życie tysięcy uczniów na całym świecie.
+W naszym ashramie Guru Purnima nabiera szczególnego wymiaru. To dzień, gdy wspominamy i czcimy Sri Haidakhan Babaji — Wielkiego Nauczyciela, który przyniósł nauki kundalini jogi i adwaita wedanty do współczesnego świata. Jego obecność i nauki nadal kształtują życie tysięcy uczniów na całym świecie.
 
 Tradycja guru-uczeń, znana jako guru-shishya parampara, jest fundamentem duchowego przekazu. Guru Purnima przypomina nam o tym świętym związku między nauczycielem a uczniem, opartym na oddaniu, zaufaniu i pragnieniu prawdy.
 
