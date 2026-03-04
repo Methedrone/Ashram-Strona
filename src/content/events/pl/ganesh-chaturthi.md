@@ -1,6 +1,6 @@
 ---
 title: "Ganesh Chaturthi - Święto Pana Ganeszy"
-description: "Radosny festiwal ku czci Pana Ganeszy, usuwającego przeszkód i patrona nowych początków."
+description: "Radosny festiwal ku czci Pana Ganeszy, usuwającego przeszkody i patrona nowych początków."
 date: 2026-09-07
 endDate: 2026-09-07
 time: "10:00"
@@ -26,7 +26,7 @@ Ganesh Chaturthi to radosne święto upamiętniające narodziny Pana Ganeszy, sy
 
 Podczas tego festiwalu instalujemy w naszym ashramie piękną glinianą figurkę Ganeszy, która będzie przedmiotem czci przez cały dzień. Celebracja rozpocznie się od porannej puji, podczas której śpiewane są mantry dedykowane Panu Ganeszy.
 
-Modak, tradycyjne słodkie pierożki, są szczególnie ofiarowywane Ganeshy podczas tego święta. Wierzy się, że Ganesha tak bardzo kocha modak, że nagradza swoich czcicieli mądrością i pomyślnością.
+Modak, tradycyjne słodkie pierożki, są szczególnie ofiarowywane Ganeszy podczas tego święta. Wierzy się, że Ganesha tak bardzo kocha modak, że nagradza swoich czcicieli mądrością i pomyślnością.
 
 Po uroczystościach religijnych wspólnie zgromadzimy się na tradycyjnym posiłku, dzieląc się Prasadam - poświęconym jedzeniem, które zostało ofiarowane Bogu.
 

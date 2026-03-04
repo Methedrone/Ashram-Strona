@@ -39,6 +39,6 @@ Makar Sankranti przypomina nam o cykliczności życia i konieczności oddawania 
 
 ## Informacje dla Uczestników
 
-Serdecznie zapraszamy do wspólnego świętowania Makar Sankranti w naszym ashramie. Prosimy o zabranie wygodnych ubrań do medytacji oraz chętnych do pomocy przy przygotowaniu posiłków. Wszyscy uczestnicy są mile widziani - niezależnie od doświadczenia duchowego. Połączmy się w duchu wdzięczności i radości, witając nowe początki. Szczegóły i zgłoszenia: /contact
+Serdecznie zapraszamy do wspólnego świętowania Makar Sankranti w naszym ashramie. Prosimy o zabranie wygodnych ubrań do medytacji oraz chętnych do pomocy przy przygotowaniu posiłków. Wszyscy uczestnicy są mile widziani - niezależnie od doświadczenia duchowego. Połączmy się w duchu wdzięczności i radości, witając nowe początki. Szczegóły i zgłoszenia: [kontakt](/contact)
 
 *Om Namah Shivay*

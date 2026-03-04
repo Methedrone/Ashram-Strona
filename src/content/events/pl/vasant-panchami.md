@@ -40,6 +40,6 @@ Vasant Panchami symbolizuje przebudzenie natury po zimie i początek nowego cykl
 
 ## Informacje dla Uczestników
 
-Zapraszamy wszystkich, którzy pragną uczcić boginię mądrości i powitać wiosnę w sercu. Prosimy przybyć przed 10:00 i mieć na sobie żółty element ubrania jako symbol radości i duchowego przebudzenia. Po ceremonii zapraszamy na wspólny posiłek i satsang. Szczegóły i zapisы: [kontakt](/contact).
+Zapraszamy wszystkich, którzy pragną uczcić boginię mądrości i powitać wiosnę w sercu. Prosimy przybyć przed 10:00 i mieć na sobie żółty element ubrania jako symbol radości i duchowego przebudzenia. Po ceremonii zapraszamy na wspólny posiłek i satsang. Szczegóły i zapisy: [kontakt](/contact).
 
 *Om Namah Shivay*

@@ -36,7 +36,6 @@ Holi, known as the Festival of Colors, is one of the most joyful holidays in the
 - March 4 15:00 - Satsang and sharing experiences
 
 ## Symbolism of Holi
-## Symbolism of Holi
 
 The colors in Holi symbolize the diversity of creation and unity in God. It is a day when social differences blur, and everyone becomes equal in the joyful celebration of life.
 

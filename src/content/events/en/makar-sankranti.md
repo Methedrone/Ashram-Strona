@@ -39,6 +39,6 @@ Makar Sankranti reminds us of life's cyclical nature and the importance of givin
 
 ## Information for Participants
 
-You are warmly invited to celebrate Makar Sankranti at our ashram. Please bring comfortable clothing for meditation and feel free to help with meal preparations. All are welcome - regardless of spiritual experience. Let us unite in gratitude and joy, welcoming new beginnings. Details and registration: /en/contact
+You are warmly invited to celebrate Makar Sankranti at our ashram. Please bring comfortable clothing for meditation and feel free to help with meal preparations. All are welcome - regardless of spiritual experience. Let us unite in gratitude and joy, welcoming new beginnings. Details and registration: [contact](/en/contact)
 
 *Om Namah Shivay*

@@ -23,7 +23,7 @@ featured: false
 updatedAt: 2026-03-03
 ---
 
-Diwali, znany również jako Dipawali, jest jednym z najważniejszych i najbardziej radosnych hinduskich świąt. Celebrowany jest w十一月, w noc nowiu, i trwa pięć dni. To święto świateł symbolizuje zwycięstwo światła nad ciemnością, dobra nad złem oraz wiedzy nad ignorancją.
+Diwali, znany również jako Dipawali, jest jednym z najważniejszych i najbardziej radosnych hinduskich świąt. Celebrowany jest w listopadzie, w noc nowiu, i trwa pięć dni. To święto świateł symbolizuje zwycięstwo światła nad ciemnością, dobra nad złem oraz wiedzy nad ignorancją.
 
 ## Znaczenie Diwali
 

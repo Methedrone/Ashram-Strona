@@ -36,7 +36,6 @@ Holi, znane jako Festiwal Kolorów, to jedno z najbardziej radosnych świąt w k
 - 4 marca 15:00 - Satsang i dzielenie się doświadczeniami
 
 ## Symbolika Holi
-## Symbolika Holi
 
 Kolory w Holi symbolizują różnorodność stworzenia i jedność w Bogu. To dzień, w którym zacierają się różnice społeczne, a wszyscy stają się równi w radosnej celebracji życia.
 
