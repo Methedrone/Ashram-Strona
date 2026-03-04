@@ -49,6 +49,6 @@ Babadżi nauczał, że regularna praktyka Havan pomaga oczyścić atmosferę, za
 
 ## Havan w Ashramie Babaji
 
-W Ashramie Babaji Havan odbywa się regularnie, szczególnie w poniedziałki i podczas festiwali. Jeśli chcesz doświadczyć ceremonii w grupie, sprawdź [poniedziałkowy Havan](/events/poniedzialkowo-havan) i inne [wydarzenia](/events). Havan łączy się z praktykami takimi jak [Nama Japa](/teachings/nama-japa) i [Aarti](/teachings/aarti-ceremonia).
+W Ashramie Babaji Havan odbywa się regularnie, szczególnie w poniedziałki i podczas festiwali. Jeśli chcesz doświadczyć ceremonii w grupie, sprawdź [poniedziałkowy Havan](/events) i inne [wydarzenia](/events). Havan łączy się z praktykami takimi jak [Nama Japa](/teachings/nama-japa) i [Aarti](/teachings/aarti-ceremonia).
 
 *Om Namah Shivay*

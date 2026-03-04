@@ -49,6 +49,6 @@ Babaji taught that regular Havan practice helps purify the atmosphere, both oute
 
 ## Havan at Babaji Ashram
 
-At Babaji Ashram, Havan is performed regularly, especially on Mondays and during festivals. If you want to experience the ceremony in community, see [Monday Havan](/en/events/monday-havan) and other [events](/en/events). Havan naturally complements practices like [Nama Japa](/en/teachings/nama-japa) and [Aarti](/en/teachings/aarti-ceremony).
+At Babaji Ashram, Havan is performed regularly, especially on Mondays and during festivals. If you want to experience the ceremony in community, see [Monday Havan](/en/events) and other [events](/en/events). Havan naturally complements practices like [Nama Japa](/en/teachings/nama-japa) and [Aarti](/en/teachings/aarti-ceremony).
 
 *Om Namah Shivay*
