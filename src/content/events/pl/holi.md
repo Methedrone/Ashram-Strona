@@ -1,7 +1,7 @@
 ---
 title: "Holi - Festiwal Kolorów"
 description: "Radosne święto wiosny, zwycięstwa dobra nad złem i braterstwa wszystkich ludzi."
-date: 2026-03-04
+date: 2026-03-03
 endDate: 2026-03-04
 time: "10:00"
 location: "Ashram Babaji, Mąkolno 129"
@@ -20,21 +20,20 @@ faqs:
 registrationUrl: "/contact"
 isOnline: false
 featured: false
-updatedAt: 2026-02-25
+updatedAt: 2026-03-03
 ---
 
 > **Kluczowa myśl:** Holi to czas wybaczania i odnowy relacji w duchu miłości.
 
 Holi, znane jako Festiwal Kolorów, to jedno z najbardziej radosnych świąt w kalendarzu wedyjskim. Celebrujemy nadejście wiosny oraz triumf Prahlada nad Holiką, co symbolizuje zwycięstwo dobra nad złem.
 
-## Przebieg Świętowania
+## Program
 
-W aszramie Holi obchodzimy w duchu wspólnoty i radości:
-
-- 10:00 - Poranne Aarti i błogosławieństwo kolorów
-- 11:00 - Radosna zabawa kolorami i śpiewy
-- 13:00 - Wspólny świąteczny obiad
-- 15:00 - Satsang i dzielenie się doświadczeniami
+- 3 marca wieczorem - Holika Dahan (ceremonia przy ognisku)
+- 4 marca 10:00 - Poranne Aarti i błogosławieństwo kolorów
+- 4 marca 11:00 - Radosna zabawa kolorami i śpiewy
+- 4 marca 13:00 - Wspólny świąteczny obiad
+- 4 marca 15:00 - Satsang i dzielenie się doświadczeniami
 
 ## Symbolika Holi
 

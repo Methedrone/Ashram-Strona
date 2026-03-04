@@ -1,8 +1,8 @@
 ---
 title: "Navaratri - Festival of Nine Nights"
 description: "Nine-day festival of devotion to the Divine Mother with daily Havan and Aarti ceremonies."
-date: 2026-10-15
-endDate: 2026-10-24
+date: 2026-10-11
+endDate: 2026-10-19
 time: "06:00"
 location: "Babaji Ashram, Mąkolno 129"
 lang: en
@@ -21,8 +21,8 @@ faqs:
     answer: "Yes. Everyone is welcome at the Havan and Aarti ceremonies."
 registrationUrl: "/en/contact"
 isOnline: false
-featured: true
-updatedAt: 2026-02-12
+featured: false
+updatedAt: 2026-03-03
 ---
 
 > **Key insight:** Navaratri is a time of intensive practice that deepens devotion and community.

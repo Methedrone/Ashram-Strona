@@ -1,1 +1,0 @@
-# Issues - ashram-holistic
