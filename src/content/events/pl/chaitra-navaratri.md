@@ -22,7 +22,7 @@ faqs:
 registrationUrl: "/contact"
 isOnline: false
 featured: false
-updatedAt: 2026-03-03
+updatedAt: 2026-03-18
 ---
 
 Chaitra Navaratri to wiosenna wersja słynnego dziewięciodniowego festiwalu poświęconego Bogini Durgze. W przeciwieństwie do jesiennej Sharad Navaratri, ta edycja przypada w miesiącu Chaitra (marzec-kwiecień) według hinduskiego kalendarza księżycowego i symbolizuje początek nowego roku.
@@ -33,10 +33,12 @@ Poranek w ashramie rozpoczyna się o szóstej od rytuału ognia - hawanu, podcza
 
 Festiwal osiąga swój szczyt 27 marca, dziewiątego dnia, który jest również dniem przygotowania do Ram Navami - święta narodzin Rama, jednego z najważniejszych bohaterów hinduskiej mitologii. To czas głębokiej duchowej transformacji i oddania.
 
-## Program
+## Program w dniach: 21 - 23.03.2026
 
-- Codziennie 06:00 - Poranny hawan i mantra
-- Codziennie 18:00 - Wieczorne aarti i bhajany
-- Recytacje Durga Saptashati
-- Medytacja na dziewięć form Durgi
-- 27 marca - Zakończenie i przygotowanie na Ram Navami
+- 6:30 Paduka Puja
+- 8:00 Arti
+- 11:00 Ceremonia Ognia Havan
+- po Havanie wspólny posiłek
+- 16:00 czytanie Saptashati
+- 16:30 Satsang
+- 19:00 Arti
