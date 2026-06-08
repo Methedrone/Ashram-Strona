@@ -80,13 +80,21 @@ const defaultSchema: Record<string, any> = {
         "latitude": "50.5297",
         "longitude": "16.9567"
       },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+48 536 555 899",
-        "email": "mimohan44@gmail.com",
-        "contactType": "customer service",
-        "availableLanguage": ["Polish", "English"]
-      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+48 536 555 899",
+          "email": "mimohan44@gmail.com",
+          "contactType": "customer service",
+          "availableLanguage": ["Polish", "English"]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+48 570 016 826",
+          "contactType": "reservations",
+          "availableLanguage": ["Polish", "English"]
+        }
+      ],
       "areaServed": "Europe"
     },
     {
