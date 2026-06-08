@@ -6,28 +6,45 @@ import { useTranslations } from '../i18n/utils';
 const tPL = useTranslations('pl');
 const tEN = useTranslations('en');
 
-const title = "404 - Strona nie znaleziona / Page Not Found";
+const title = '404 - Strona nie znaleziona / Page Not Found';
 ---
 
 <Layout title={title} noIndex={true}>
   <section class="error-page">
-    <div class="container">
-      <h1 class="error-code">404</h1>
-      <LotusDivider />
-      
-      <div class="content-wrapper">
-        <div class="lang-block">
-          <h2>{tPL('404.title')}</h2>
-          <p>{tPL('404.text')}</p>
-          <a href="/" class="btn-primary">{tPL('404.home')}</a>
+    <div class="container reveal">
+      <div class="error-shell">
+        <div class="error-shell__copy">
+          <p class="eyebrow">nie ta ścieżka</p>
+          <h1 class="error-code">404</h1>
+          <p class="error-lead">
+            Ta strona już tu nie prowadzi. Najłatwiej wrócić na stronę główną albo przejść do wybranej wersji językowej poniżej.
+          </p>
         </div>
 
-        <div class="divider-vertical" aria-hidden="true"></div>
+        <div class="error-shell__panel">
+          <LotusDivider variant="flourish" />
 
-        <div class="lang-block">
-          <h2>{tEN('404.title')}</h2>
-          <p>{tEN('404.text')}</p>
-          <a href="/en" class="btn-primary">{tEN('404.home')}</a>
+          <div class="language-grid">
+            <article class="language-card">
+              <span class="language-card__label">polski</span>
+              <h2>{tPL('404.title')}</h2>
+              <p>{tPL('404.text')}</p>
+              <a href="/" class="return-link">
+                <span>{tPL('404.home')}</span>
+                <span class="return-link__icon" aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="language-card">
+              <span class="language-card__label">english</span>
+              <h2>{tEN('404.title')}</h2>
+              <p>{tEN('404.text')}</p>
+              <a href="/en" class="return-link">
+                <span>{tEN('404.home')}</span>
+                <span class="return-link__icon" aria-hidden="true">↗</span>
+              </a>
+            </article>
+          </div>
         </div>
       </div>
     </div>
@@ -36,71 +53,139 @@ const title = "404 - Strona nie znaleziona / Page Not Found";
 
 <style>
   .error-page {
-    min-height: 60vh;
+    min-height: calc(100dvh - 7rem);
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 4rem 1rem;
+    padding: 3rem 0 4rem;
+  }
+
+  .container {
+    width: min(100% - 2rem, 1180px);
+    margin: 0 auto;
+  }
+
+  .error-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(18rem, 0.85fr);
+    gap: 2rem;
+    align-items: stretch;
+  }
+
+  .error-shell__copy,
+  .error-shell__panel {
+    padding: 2.25rem;
+    border-radius: 2rem;
+    background: rgba(255, 252, 247, 0.78);
+    box-shadow: 0 30px 58px -40px rgba(58, 35, 20, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    font-weight: 600;
   }
 
   .error-code {
-    font-family: var(--font-family-serif);
-    font-size: clamp(6rem, 15vw, 10rem);
-    color: var(--color-gold);
     margin: 0;
-    line-height: 1;
-    opacity: 0.8;
-    text-shadow: 0 4px 12px rgba(212, 175, 119, 0.2);
+    font-size: clamp(5rem, 14vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: -0.08em;
+    color: var(--color-text-warm);
+    text-shadow: none;
   }
 
-  .content-wrapper {
+  .error-lead {
+    margin-top: 1.25rem;
+    max-width: 34rem;
+    color: var(--color-text-medium);
+    font-size: 1.08rem;
+    line-height: 1.8;
+  }
+
+  .error-shell__panel {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    margin-top: 2rem;
-    align-items: center;
+    justify-content: center;
   }
 
-  @media (min-width: 768px) {
-    .content-wrapper {
-      flex-direction: row;
-      justify-content: center;
-      gap: 4rem;
-      align-items: flex-start;
+  .language-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .language-card {
+    padding: 1.4rem;
+    border-radius: 1.45rem;
+    background: rgba(255, 252, 247, 0.7);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .language-card__label {
+    display: block;
+    margin-bottom: 0.7rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    font-weight: 600;
+  }
+
+  .language-card h2 {
+    margin: 0 0 0.55rem;
+    font-size: 1.45rem;
+    line-height: 1.05;
+  }
+
+  .language-card p {
+    margin: 0 0 1rem;
+    color: var(--color-text-medium);
+    max-width: none;
+  }
+
+  .return-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.38rem 0.38rem 0.38rem 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, var(--color-orange), var(--color-orange-hover));
+    font-weight: 600;
+    box-shadow: 0 18px 34px -20px rgba(155, 85, 57, 0.64);
+    transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1), box-shadow 300ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .return-link:hover {
+    transform: translateY(-2px);
+  }
+
+  .return-link:active {
+    transform: translateY(1px) scale(0.985);
+  }
+
+  .return-link__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.15rem;
+    height: 2.15rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  @media (max-width: 900px) {
+    .error-shell {
+      grid-template-columns: 1fr;
     }
 
-    .divider-vertical {
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, var(--color-gold), transparent);
-      opacity: 0.4;
-      align-self: stretch;
-      min-height: 150px;
+    .error-page {
+      min-height: auto;
+      padding: 2.5rem 0 3.5rem;
     }
-  }
-
-  .lang-block {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
-    max-width: 300px;
-  }
-
-  h2 {
-    font-family: var(--font-family-serif);
-    font-size: 1.75rem;
-    color: var(--color-text);
-    margin: 0;
-  }
-
-  p {
-    color: var(--color-text-light);
-    margin: 0;
-    font-size: 1.1rem;
-  }
-
-  .btn-primary {
-    margin-top: 0.5rem;
   }
 </style>

@@ -1,34 +1,118 @@
 ---
-// Simple lotus/mandala SVG for section transitions
+// Elegant ornamental divider for section transitions
 interface Props {
-  opacity?: number;
+  variant?: 'lotus' | 'flourish' | 'line';
+  size?: 'small' | 'medium' | 'large';
 }
 
-const { opacity = 0.4 } = Astro.props;
+const { variant = 'lotus', size = 'medium' } = Astro.props;
+
+const sizes = {
+  small: { width: 40, height: 24 },
+  medium: { width: 60, height: 36 },
+  large: { width: 80, height: 48 }
+};
+
+const { width, height } = sizes[size];
 ---
 
-<div class="lotus-divider">
-  <svg aria-hidden="true" width="60" height="40" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-    <!-- Simple geometric lotus shape -->
-    <path 
-      d="M30 5 L35 15 L45 20 L35 25 L30 35 L25 25 L15 20 L25 15 Z" 
-      fill="currentColor" 
-      opacity={opacity}
-    />
-    <circle cx="30" cy="20" r="3" fill="currentColor" opacity={opacity + 0.2}/>
-  </svg>
+<div class:list={['divider', `divider-${variant}`, `divider-${size}`]}>
+  {variant === 'lotus' && (
+    <svg aria-hidden="true" width={width} height={height} viewBox="0 0 60 36" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer petals -->
+      <path d="M30 2 C35 8 42 14 48 16 C42 18 35 24 30 34 C25 24 18 18 12 16 C18 14 25 8 30 2Z" 
+            fill="currentColor" opacity="0.4"/>
+      <path d="M30 6 C34 10 40 15 46 17 C40 19 34 24 30 32 C26 24 20 19 14 17 C20 15 26 10 30 6Z" 
+            fill="currentColor" opacity="0.6"/>
+      <!-- Center -->
+      <circle cx="30" cy="18" r="4" fill="currentColor" opacity="0.8"/>
+      <circle cx="30" cy="18" r="2" fill="currentColor" opacity="1"/>
+    </svg>
+  )}
+  
+  {variant === 'flourish' && (
+    <svg aria-hidden="true" width={width * 1.5} height={height} viewBox="0 0 90 36" xmlns="http://www.w3.org/2000/svg">
+      <!-- Left flourish -->
+      <path d="M45 18 Q30 18 20 8 Q15 3 10 8 Q20 10 30 18 Q20 26 10 32 Q15 37 20 32 Q30 24 45 18Z" 
+            fill="currentColor" opacity="0.5"/>
+      <!-- Right flourish (mirrored) -->
+      <path d="M45 18 Q60 18 70 8 Q75 3 80 8 Q70 10 60 18 Q70 26 80 32 Q75 37 70 32 Q60 24 45 18Z" 
+            fill="currentColor" opacity="0.5"/>
+      <!-- Center dot -->
+      <circle cx="45" cy="18" r="3" fill="currentColor" opacity="0.8"/>
+    </svg>
+  )}
+  
+  {variant === 'line' && (
+    <div class="line-divider">
+      <span class="line"></span>
+      <span class="dot"></span>
+      <span class="line"></span>
+    </div>
+  )}
 </div>
 
 <style>
-  .lotus-divider {
+  .divider {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     color: var(--color-gold);
   }
   
   svg {
-    filter: drop-shadow(0 2px 4px rgba(212, 175, 119, 0.3));
+    filter: drop-shadow(0 2px 6px rgba(212, 175, 119, 0.3));
+    animation: divider-fade 1.5s ease-out forwards;
+    opacity: 0;
+  }
+  
+  @keyframes divider-fade {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .divider-small svg {
+    width: 40px;
+    height: 24px;
+  }
+  
+  .divider-medium svg {
+    width: 60px;
+    height: 36px;
+  }
+  
+  .divider-large svg {
+    width: 80px;
+    height: 48px;
+  }
+  
+  /* Line variant */
+  .line-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 200px;
+  }
+  
+  .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-gold) 50%,
+      transparent 100%
+    );
+    opacity: 0.4;
+  }
+  
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-gold);
+    box-shadow: 0 0 8px rgba(212, 175, 119, 0.5);
   }
 </style>

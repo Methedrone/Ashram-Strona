@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
 import DailySchedule from '../components/DailySchedule.astro';
 import EventCard from '../components/EventCard.astro';
 import TeachingCard from '../components/TeachingCard.astro';
@@ -13,140 +12,675 @@ import { useTranslations } from '../i18n/utils';
 const lang = 'pl';
 const t = useTranslations(lang);
 
-// Fetch latest 3 events
-const allEvents = await getCollection('events', ({ data }) => {
-  return data.lang === lang && data.date >= new Date();
-});
+const allEvents = await getCollection('events', ({ data }) => data.lang === lang && data.date >= new Date());
 const latestEvents = allEvents
   .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
   .slice(0, 3);
 
-// Fetch latest 3 teachings
-const allTeachings = await getCollection('teachings', ({ data }) => {
-  return data.lang === lang;
-});
+const allTeachings = await getCollection('teachings', ({ data }) => data.lang === lang);
 const latestTeachings = allTeachings
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
+
+const nextEvent = latestEvents[0];
+const nextEventDate = nextEvent
+  ? nextEvent.data.date.toLocaleDateString('pl-PL', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    })
+  : null;
 ---
 
 <Layout title={t('nav.home')} description={t('meta.home.description')}>
-  <Hero 
-    title={t('hero.title')} 
-    subtitle={t('hero.subtitle')}
-    image="/images/havan-ceremony-group-fire-offerings.webp"
-    ctaText={t('hero.cta')}
-    ctaLink="/contact"
-    size="large"
-  />
+  <section class="home-hero">
+    <div class="home-hero__container container">
+      <div class="home-hero__shell reveal">
+        <div class="home-hero__copy">
+          <p class="eyebrow">ashram w mąkolnie</p>
+          <h1>{t('hero.title')}</h1>
+          <p class="home-hero__lead">
+            Miejsce codziennej praktyki, wspólnej pracy i ciszy. Przyjeżdża się tu nie po tempo,
+            lecz po rytm, który porządkuje dzień i przywraca uwagę.
+          </p>
+
+          <div class="home-hero__actions">
+            <a href="/contact" class="btn-island btn-island--primary">
+              <span>Odwiedź ashram</span>
+              <span class="btn-island__icon" aria-hidden="true">↗</span>
+            </a>
+            <a href="/praktyki" class="btn-tertiary">Poznaj praktykę</a>
+          </div>
+
+          <div class="home-hero__metrics">
+            <article class="metric-card">
+              <span class="metric-card__label">od</span>
+              <strong>1990</strong>
+              <p>ciągła praktyka i wspólnota</p>
+            </article>
+            <article class="metric-card">
+              <span class="metric-card__label">miejsce</span>
+              <strong>Mąkolno</strong>
+              <p>Dolny Śląsk, w spokojnym krajobrazie Gór Złotych</p>
+            </article>
+            <article class="metric-card">
+              <span class="metric-card__label">najbliżej</span>
+              <strong>{nextEventDate || 'przez cały rok'}</strong>
+              <p>{nextEvent ? nextEvent.data.title : 'codzienny rytm ashramu i regularna praktyka'}</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="home-hero__visual">
+          <div class="visual-frame">
+            <div class="visual-frame__inner">
+              <img
+                src="/images/havan-ceremony-group-fire-offerings.webp"
+                alt="Wspólna ceremonia havan przy ogniu w Ashramie Babaji"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          </div>
+
+          <aside class="floating-panel floating-panel--event">
+            <span class="floating-panel__label">najbliższe spotkanie</span>
+            <strong>{nextEvent ? nextEvent.data.title : 'praktyka codzienna'}</strong>
+            <p>{nextEventDate || 'ashram pozostaje otwarty na spokojny pobyt i służbę'}</p>
+          </aside>
+
+          <aside class="floating-panel floating-panel--note">
+            <span class="floating-panel__label">trzy filary</span>
+            <p>Prawda. Prostota. Miłość.</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-intro-band reveal-children">
+    <div class="container intro-grid">
+      <article class="intro-card">
+        <p class="intro-card__kicker">dzień</p>
+        <h2>Rytm, który daje skupienie</h2>
+        <p>Aarti, medytacja, karma yoga i wspólne posiłki układają dzień bez pośpiechu i nadmiaru.</p>
+      </article>
+      <article class="intro-card intro-card--offset">
+        <p class="intro-card__kicker">wspólnota</p>
+        <h2>Praktyka dzieje się razem</h2>
+        <p>To miejsce dla osób, które chcą pobyć blisko pracy, ciszy, rytuału i prostego życia.</p>
+      </article>
+      <article class="intro-card">
+        <p class="intro-card__kicker">pobyt</p>
+        <h2>Przyjedź na kilka dni albo dłużej</h2>
+        <p>Najlepiej zacząć od rozmowy. Napisz do nas, jeśli chcesz zaplanować przyjazd do ashramu.</p>
+      </article>
+    </div>
+  </section>
 
   <DailySchedule />
 
-  <LotusDivider />
+  <LotusDivider variant="flourish" size="large" />
 
   {latestEvents.length > 0 && (
-    <section class="section-container">
-      <SectionHeading title={t('nav.events')} />
-      <div class="grid-container">
-        {latestEvents.map(post => (
-          <EventCard post={post} />
-        ))}
+    <section class="content-section content-section--events">
+      <div class="container">
+        <div class="section-intro reveal">
+          <div>
+            <p class="eyebrow">wydarzenia</p>
+            <SectionHeading title={t('nav.events')} align="left" />
+          </div>
+          <div class="section-intro__aside">
+            <p>
+              Warsztaty, święta i spotkania mają spokojny charakter. Nie są dodatkiem do miejsca,
+              tylko naturalnym przedłużeniem codziennej praktyki.
+            </p>
+            <a href="/events" class="btn-island btn-island--ghost">
+              <span>{t('events.viewAll')}</span>
+              <span class="btn-island__icon" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="feature-grid feature-grid--events reveal-children">
+          {latestEvents.map((post, index) => (
+            <div class:list={['feature-grid__item', `feature-grid__item--${index + 1}`]}>
+              <EventCard post={post} />
+            </div>
+          ))}
+        </div>
       </div>
-      <div class="center-btn">
-        <a href="/events" class="btn-secondary">{t('events.viewAll')}</a>
-      </div>
-      <LotusDivider />
     </section>
   )}
 
   {latestTeachings.length > 0 && (
-    <section class="section-container bg-alt">
-      <SectionHeading title={t('nav.teachings')} />
-      <div class="grid-container">
-        {latestTeachings.map(post => (
-          <TeachingCard post={post} />
-        ))}
+    <section class="content-section content-section--teachings">
+      <div class="container">
+        <div class="section-intro reveal">
+          <div>
+            <p class="eyebrow">nauki</p>
+            <SectionHeading title={t('nav.teachings')} align="left" />
+          </div>
+          <div class="section-intro__aside">
+            <p>
+              Teksty i materiały pomagają wrócić do tego, co podstawowe: mantra, służba,
+              prostota i uważność w zwykłym dniu.
+            </p>
+            <a href="/teachings" class="btn-island btn-island--ghost">
+              <span>{t('teachings.viewAll')}</span>
+              <span class="btn-island__icon" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="feature-grid feature-grid--teachings reveal-children">
+          {latestTeachings.map((post, index) => (
+            <div class:list={['feature-grid__item', `feature-grid__item--${index + 1}`]}>
+              <TeachingCard post={post} />
+            </div>
+          ))}
+        </div>
       </div>
-      <div class="center-btn">
-        <a href="/teachings" class="btn-secondary">{t('teachings.viewAll')}</a>
-      </div>
-      <LotusDivider />
     </section>
   )}
 
   <LocationMap />
 
-  <section class="donation-cta">
-    <div class="cta-content">
-      <h2>{t('donations.title')}</h2>
-      <p>{t('donations.description')}</p>
-      <a href="/donations" class="btn-white">{t('nav.donations')}</a>
+  <section class="support-band reveal">
+    <div class="container support-band__container">
+      <div class="support-band__shell">
+        <p class="eyebrow eyebrow--light">darowizny</p>
+        <h2>{t('donations.title')}</h2>
+        <p>{t('donations.description')}</p>
+        <a href="/donations" class="btn-island btn-island--light">
+          <span>{t('nav.donations')}</span>
+          <span class="btn-island__icon" aria-hidden="true">↗</span>
+        </a>
+      </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  .section-container {
-    padding: 4rem 2rem;
-    max-width: 1200px;
+  .container {
+    width: min(100% - 2.5rem, 1240px);
     margin: 0 auto;
   }
 
-  .bg-alt {
-    background-color: var(--color-bg-alt);
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+  .home-hero {
+    position: relative;
+    padding: 3rem 0 6rem;
   }
-  
-  /* Fix for full width background */
-  section.bg-alt {
-    padding: 4rem 2rem;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+
+  .home-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 12% 20%, rgba(212, 175, 119, 0.18), transparent 30%),
+      radial-gradient(circle at 85% 18%, rgba(155, 85, 57, 0.14), transparent 28%),
+      linear-gradient(180deg, rgba(255, 252, 247, 0.3), rgba(255, 252, 247, 0));
+    pointer-events: none;
+  }
+
+  .home-hero__shell {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.95fr);
+    gap: clamp(2rem, 4vw, 4.5rem);
     align-items: center;
   }
-  
-  section.bg-alt > * {
-    max-width: 1200px;
-    width: 100%;
+
+  .home-hero__copy {
+    padding-block: 2rem 3rem;
   }
 
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    font-weight: 600;
   }
 
-  .center-btn {
-    text-align: center;
+  .eyebrow--light {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .home-hero h1 {
+    max-width: 10ch;
+    margin-bottom: 1.25rem;
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    line-height: 0.94;
+    letter-spacing: -0.055em;
+    text-wrap: balance;
+    color: var(--color-text-warm);
+    text-shadow: none;
+  }
+
+  .home-hero__lead {
+    max-width: 57ch;
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    line-height: 1.85;
+    color: var(--color-text-medium);
+  }
+
+  .home-hero__actions,
+  .section-intro__aside {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .home-hero__actions {
     margin-top: 2rem;
   }
 
-  .donation-cta {
-    background-color: var(--color-orange);
+  .btn-island {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.45rem 0.45rem 0.45rem 1.25rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1), box-shadow 300ms cubic-bezier(0.32, 0.72, 0, 1), background-color 300ms cubic-bezier(0.32, 0.72, 0, 1), color 300ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .btn-island__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.35rem;
+    height: 2.35rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1), background-color 300ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .btn-island:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-island:active {
+    transform: translateY(1px) scale(0.985);
+  }
+
+  .btn-island:hover .btn-island__icon {
+    transform: translate3d(0.18rem, -0.08rem, 0) scale(1.04);
+  }
+
+  .btn-island--primary {
     color: white;
-    padding: 4rem 2rem;
-    text-align: center;
+    background: linear-gradient(135deg, var(--color-orange), var(--color-orange-hover));
+    box-shadow: 0 18px 34px -18px rgba(155, 85, 57, 0.65);
   }
 
-  .cta-content {
-    max-width: 800px;
-    margin: 0 auto;
+  .btn-island--primary .btn-island__icon {
+    background: rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
   }
 
-  .donation-cta h2 {
+  .btn-island--ghost {
+    color: var(--color-orange);
+    background: rgba(255, 252, 247, 0.7);
+    box-shadow: 0 12px 22px -18px rgba(155, 85, 57, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  }
+
+  .btn-island--ghost .btn-island__icon {
+    background: rgba(155, 85, 57, 0.08);
+  }
+
+  .btn-island--light {
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 18px 34px -22px rgba(0, 0, 0, 0.55);
+  }
+
+  .btn-island--light .btn-island__icon {
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .btn-tertiary {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .home-hero__metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2.4rem;
+  }
+
+  .metric-card {
+    padding: 1.1rem 1.15rem 1.25rem;
+    border-radius: 1.3rem;
+    background: rgba(255, 252, 247, 0.64);
+    box-shadow: 0 22px 44px -34px rgba(155, 85, 57, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  }
+
+  .metric-card__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    font-weight: 600;
+  }
+
+  .metric-card strong {
+    display: block;
+    margin-bottom: 0.45rem;
     font-family: var(--font-family-serif);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #ffffff;
+    font-size: 1.35rem;
+    line-height: 1.05;
+    color: var(--color-text-warm);
+    font-variant-numeric: tabular-nums;
   }
 
-  .donation-cta p {
+  .metric-card p {
+    margin: 0;
+    max-width: none;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--color-text-medium);
+  }
+
+  .home-hero__visual {
+    position: relative;
+    min-height: 38rem;
+  }
+
+  .visual-frame {
+    position: absolute;
+    inset: 1.5rem 2rem 3.5rem 0;
+    padding: 0.75rem;
+    border-radius: 2rem;
+    background: rgba(255, 252, 247, 0.42);
+    box-shadow: 0 32px 70px -38px rgba(155, 85, 57, 0.48);
+  }
+
+  .visual-frame__inner {
+    height: 100%;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26);
+  }
+
+  .visual-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .floating-panel {
+    position: absolute;
+    max-width: 18rem;
+    padding: 1.2rem 1.25rem;
+    border-radius: 1.35rem;
+    background: rgba(255, 252, 247, 0.9);
+    box-shadow: 0 24px 42px -28px rgba(58, 53, 48, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  }
+
+  .floating-panel--event {
+    right: 0;
+    bottom: 5rem;
+  }
+
+  .floating-panel--note {
+    left: -1rem;
+    top: 0;
+  }
+
+  .floating-panel__label {
+    display: block;
+    margin-bottom: 0.55rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    font-weight: 600;
+  }
+
+  .floating-panel strong,
+  .floating-panel p {
+    display: block;
+    margin: 0;
+    max-width: none;
+  }
+
+  .floating-panel strong {
+    font-family: var(--font-family-serif);
     font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: #ffffff;
+    color: var(--color-text-warm);
+    line-height: 1.2;
+  }
+
+  .floating-panel p {
+    margin-top: 0.45rem;
+    color: var(--color-text-medium);
+    line-height: 1.6;
+  }
+
+  .home-intro-band {
+    padding: 0 0 5rem;
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .intro-card {
+    padding: 1.8rem;
+    border-radius: 1.6rem;
+    background: rgba(255, 252, 247, 0.74);
+    box-shadow: 0 22px 44px -34px rgba(155, 85, 57, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  }
+
+  .intro-card--offset {
+    transform: translateY(2rem);
+  }
+
+  .intro-card__kicker {
+    margin: 0 0 0.9rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    font-weight: 600;
+  }
+
+  .intro-card h2 {
+    margin-bottom: 0.8rem;
+    font-size: clamp(1.45rem, 2vw, 1.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  .intro-card p:last-child {
+    margin-bottom: 0;
+    max-width: none;
+    color: var(--color-text-medium);
+  }
+
+  .content-section {
+    padding: 6rem 0;
+  }
+
+  .content-section--teachings {
+    background: linear-gradient(180deg, rgba(245, 243, 239, 0.55), rgba(245, 243, 239, 0.9));
+  }
+
+  .section-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 26rem);
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-intro :global(.section-heading) {
+    margin-bottom: 0;
+  }
+
+  .section-intro__aside {
+    justify-content: flex-start;
+    align-content: flex-start;
+  }
+
+  .section-intro__aside p {
+    max-width: none;
+    margin: 0;
+    color: var(--color-text-medium);
+  }
+
+  .feature-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .feature-grid--events,
+  .feature-grid--teachings {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feature-grid--events .feature-grid__item--1,
+  .feature-grid--teachings .feature-grid__item--1 {
+    grid-row: span 2;
+  }
+
+  .feature-grid__item {
+    min-width: 0;
+  }
+
+  .support-band {
+    padding: 6rem 0 7rem;
+  }
+
+  .support-band__shell {
+    position: relative;
+    overflow: hidden;
+    padding: 3.25rem clamp(1.4rem, 4vw, 3rem);
+    border-radius: 2rem;
+    background:
+      linear-gradient(135deg, rgba(89, 49, 33, 0.97), rgba(130, 71, 46, 0.94)),
+      url('/images/gallery/temple-room-babaji-portrait-altar.webp') center/cover;
+    box-shadow: 0 40px 80px -54px rgba(58, 35, 20, 0.75);
+  }
+
+  .support-band__shell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.18), transparent 24%),
+      radial-gradient(circle at 82% 74%, rgba(212, 175, 119, 0.18), transparent 28%);
+    pointer-events: none;
+  }
+
+  .support-band__shell > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .support-band h2 {
+    max-width: 12ch;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: clamp(2.6rem, 5vw, 4.3rem);
+    letter-spacing: -0.045em;
+    line-height: 0.96;
+    text-shadow: none;
+  }
+
+  .support-band p {
+    max-width: 42rem;
+    margin-bottom: 1.6rem;
+    color: rgba(255, 255, 255, 0.84);
+  }
+
+  @media (max-width: 1024px) {
+    .home-hero__shell,
+    .section-intro,
+    .feature-grid--events,
+    .feature-grid--teachings,
+    .intro-grid,
+    .home-hero__metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .home-hero {
+      padding-top: 2rem;
+    }
+
+    .home-hero__visual {
+      min-height: 32rem;
+      margin-top: 1rem;
+    }
+
+    .floating-panel--event {
+      bottom: 2rem;
+    }
+
+    .intro-card--offset {
+      transform: none;
+    }
+
+    .feature-grid--events .feature-grid__item--1,
+    .feature-grid--teachings .feature-grid__item--1 {
+      grid-row: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      width: min(100% - 1.5rem, 1240px);
+    }
+
+    .home-hero {
+      padding-bottom: 4rem;
+    }
+
+    .home-hero h1 {
+      max-width: none;
+      font-size: clamp(2.8rem, 13vw, 4.3rem);
+    }
+
+    .home-hero__visual {
+      min-height: 24rem;
+    }
+
+    .visual-frame {
+      inset: 2.5rem 0 1rem;
+    }
+
+    .floating-panel {
+      position: static;
+      max-width: none;
+      margin-top: 1rem;
+    }
+
+    .floating-panel--note {
+      margin-top: 1.25rem;
+    }
+
+    .content-section,
+    .support-band {
+      padding: 4rem 0;
+    }
+
+    .support-band__shell {
+      padding: 2rem 1.25rem;
+      border-radius: 1.5rem;
+    }
   }
 </style>

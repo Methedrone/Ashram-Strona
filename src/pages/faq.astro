@@ -68,10 +68,10 @@ const faqs = [
 
       <div class="faq-list">
         {faqs.map((faq) => (
-          <details>
-            <summary>{faq.question}</summary>
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
             <p>{faq.answer}</p>
-          </details>
+          </div>
         ))}
       </div>
     </div>
@@ -92,26 +92,45 @@ const faqs = [
   }
 
   .faq-list {
-    margin-top: 2rem;
+    margin-top: 3rem;
     display: grid;
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem 2rem;
   }
 
-  .faq-list details {
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    padding: 1rem 1.25rem;
-    background: var(--color-bg-warm);
+  .faq-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    position: relative;
+    padding-left: 1.5rem;
   }
 
-  .faq-list summary {
-    cursor: pointer;
-    font-weight: 600;
+  /* Decorative vertical line instead of borders */
+  .faq-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--color-orange), transparent);
+    opacity: 0.5;
+    border-radius: 2px;
+  }
+
+  .faq-item h3 {
+    font-size: 1.25rem;
     color: var(--color-text);
+    margin: 0;
+    font-family: var(--font-family-sans);
+    font-weight: 600;
   }
 
-  .faq-list p {
-    margin: 0.75rem 0 0;
+  .faq-item p {
+    margin: 0;
     color: var(--color-text-light);
+    line-height: 1.6;
+    font-size: 1.05rem;
   }
 </style>

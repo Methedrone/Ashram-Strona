@@ -9,91 +9,224 @@ const lang = 'pl';
 const t = useTranslations(lang);
 const siteUrl = 'https://babaji.org.pl';
 
-const allTeachings = await getCollection('teachings', ({ data }) => {
-  return data.lang === lang;
-});
-
+const allTeachings = await getCollection('teachings', ({ data }) => data.lang === lang);
 const sortedTeachings = allTeachings.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
 const itemList = sortedTeachings.map((teaching, index) => ({
-  "@type": "ListItem",
-  "position": index + 1,
-  "name": teaching.data.title,
-  "url": `${siteUrl}/teachings/${teaching.slug.split('/').slice(1).join('/')}`
+  '@type': 'ListItem',
+  position: index + 1,
+  name: teaching.data.title,
+  url: `${siteUrl}/teachings/${teaching.slug.split('/').slice(1).join('/')}`,
 }));
 ---
 
 <Layout title={t('nav.teachings')} description={t('meta.teachings.description')} ogImage="/og/teachings.jpg" schema={{
-  "@type": "CollectionPage",
-  "name": t('nav.teachings'),
-  "description": t('meta.teachings.description'),
-  "url": "https://babaji.org.pl/teachings",
-  "inLanguage": "pl",
-  "numberOfItems": sortedTeachings.length,
-  "mainEntity": {
-    "@type": "ItemList",
-    "itemListElement": itemList
-  }
+  '@type': 'CollectionPage',
+  name: t('nav.teachings'),
+  description: t('meta.teachings.description'),
+  url: 'https://babaji.org.pl/teachings',
+  inLanguage: 'pl',
+  numberOfItems: sortedTeachings.length,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: itemList,
+  },
 }}>
-  <section class="teachings-page">
+  <section class="listing-page">
     <div class="container">
-      <SectionHeading title={t('nav.teachings')} subtitle="Nauki Śri Haidakhan Babaji" level={1} />
-
-      <p class="intro">
-        Nauki Babadżiego prowadzą przez prostotę praktyki i codzienną służbę.
-        Zobacz też <a href="/praktyki">praktyki duchowe</a> i
-        <a href="/events">nadchodzące wydarzenia</a>, aby doświadczyć ich w życiu.
-      </p>
-      
-      {sortedTeachings.length > 0 ? (
-        <div class="teachings-grid">
-          {sortedTeachings.map(post => (
-            <TeachingCard post={post} />
-          ))}
+      <div class="listing-hero reveal">
+        <div>
+          <p class="eyebrow">nauczanie</p>
+          <SectionHeading title={t('nav.teachings')} subtitle="Teksty i wskazówki prowadzące z powrotem do prostoty praktyki" level={1} align="left" />
         </div>
+        <div class="listing-hero__aside">
+          <p>
+            Nauki Babadżiego nie budują teorii dla samej teorii. Wracają do mantry, służby,
+            prostego życia i uwagi, która ma być obecna w zwykłym dniu.
+          </p>
+          <div class="listing-stats listing-stats--single">
+            <article>
+              <span>tekstów</span>
+              <strong>{sortedTeachings.length}</strong>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      {sortedTeachings.length > 0 ? (
+        <>
+          <div class="section-split reveal">
+            <div>
+              <p class="eyebrow">czytaj</p>
+              <SectionHeading title="Najnowsze nauki" align="left" />
+            </div>
+            <p class="section-note">
+              Zobacz też <a href="/praktyki">praktyki duchowe</a> i <a href="/events">nadchodzące wydarzenia</a>, jeśli chcesz zobaczyć te nauki w życiu wspólnoty.
+            </p>
+          </div>
+
+          <div class="listing-grid reveal-children">
+            {sortedTeachings.map((post, index) => (
+              <div class:list={['listing-grid__item', `listing-grid__item--${index + 1}`]}>
+                <TeachingCard post={post} />
+              </div>
+            ))}
+          </div>
+        </>
       ) : (
-        <p class="no-content">Wkrótce pojawią się nowe nauki.</p>
+        <div class="empty-shell reveal">
+          <span>✦</span>
+          <h2>Wkrótce pojawią się nowe nauki.</h2>
+          <p>Materiały są dodawane stopniowo. W międzyczasie możesz przejść do praktyk i wydarzeń.</p>
+        </div>
       )}
     </div>
   </section>
 </Layout>
 
 <style>
-  .teachings-page {
-    padding: 4rem 0;
+  .listing-page {
+    padding: 4rem 0 5rem;
   }
 
   .container {
-    max-width: 1200px;
+    width: min(100% - 2.5rem, 1200px);
     margin: 0 auto;
-    padding: 0 2rem;
   }
 
-  .teachings-grid {
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    font-weight: 600;
+  }
+
+  .listing-hero,
+  .section-split {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 25rem);
     gap: 2rem;
+    align-items: end;
   }
 
-  .intro {
-    font-size: 1.1rem;
-    line-height: 1.7;
+  .listing-hero {
+    margin-bottom: 3rem;
+    padding: 2.25rem;
+    border-radius: 2rem;
+    background: rgba(255, 252, 247, 0.76);
+    box-shadow: 0 28px 54px -38px rgba(58, 35, 20, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  .listing-hero :global(.section-heading),
+  .section-split :global(.section-heading) {
+    margin-bottom: 0;
+  }
+
+  .listing-hero__aside p,
+  .section-note {
+    margin: 0;
+    max-width: none;
+    color: var(--color-text-medium);
+  }
+
+  .listing-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .listing-stats--single {
+    grid-template-columns: 1fr;
+    max-width: 12rem;
+  }
+
+  .listing-stats article {
+    padding: 1rem 1.1rem;
+    border-radius: 1.25rem;
+    background: rgba(255, 252, 247, 0.65);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .listing-stats span {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     color: var(--color-text-light);
-    margin: 1.5rem 0 3rem;
+    font-weight: 600;
   }
 
-  .intro a {
-    color: var(--color-orange);
-    text-decoration: none;
+  .listing-stats strong {
+    font-family: var(--font-family-serif);
+    font-size: 1.6rem;
+    color: var(--color-text-warm);
+    font-variant-numeric: tabular-nums;
   }
 
-  .intro a:hover {
-    text-decoration: underline;
+  .section-split {
+    margin-bottom: 2rem;
   }
 
-  .no-content {
+  .listing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .listing-grid__item--1 {
+    grid-row: span 2;
+  }
+
+  .empty-shell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 3.5rem 2rem;
     text-align: center;
-    font-size: 1.2rem;
-    color: var(--color-text-light);
-    margin-top: 2rem;
+    border-radius: 1.8rem;
+    background: rgba(255, 252, 247, 0.8);
+    box-shadow: 0 28px 54px -38px rgba(58, 35, 20, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  }
+
+  .empty-shell span {
+    font-size: 2rem;
+    color: var(--color-gold);
+  }
+
+  .empty-shell h2 {
+    margin: 0;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    line-height: 1.05;
+  }
+
+  .empty-shell p {
+    margin: 0;
+    max-width: 44rem;
+    color: var(--color-text-medium);
+  }
+
+  @media (max-width: 960px) {
+    .container {
+      width: min(100% - 1.5rem, 1200px);
+    }
+
+    .listing-hero,
+    .section-split,
+    .listing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .listing-grid__item--1 {
+      grid-row: auto;
+    }
+
+    .listing-page {
+      padding: 3rem 0 4rem;
+    }
   }
 </style>

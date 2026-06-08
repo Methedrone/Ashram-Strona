@@ -170,7 +170,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
         <SEO
           title={title}
@@ -227,6 +227,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
 
         <Schema schema={schemaOrg} />
+		
+		<script>
+			// Scroll-driven reveal animations
+			document.addEventListener('DOMContentLoaded', () => {
+				const observer = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('visible');
+						}
+					});
+				}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+				
+				// Observe all reveal elements
+				document.querySelectorAll('.reveal, .reveal-children').forEach(el => {
+					observer.observe(el);
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<!-- Google Tag Manager (noscript) -->

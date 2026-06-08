@@ -20,37 +20,49 @@ const t = useTranslations(lang);
         and <a href="/en/retreats">retreats</a>.
       </p>
 
-      <h2>Karma Yoga</h2>
-      <p>
-        Work as service and prayer. Daily tasks performed with attention purify the mind.
-        See <a href="/en/teachings/karma-yoga">Karma Yoga</a>.
-      </p>
+      <div class="practices-grid">
+        <div class="practice-card">
+          <h2>Karma Yoga</h2>
+          <p>
+            Work as service and prayer. Daily tasks performed with attention purify the mind.
+            See <a href="/en/teachings/karma-yoga">Karma Yoga</a>.
+          </p>
+        </div>
 
-      <h2>Nama Japa</h2>
-      <p>
-        Repetition of the Om Namah Shivaya mantra is the foundation of practice.
-        Learn more in <a href="/en/teachings/nama-japa">Nama Japa</a>.
-      </p>
+        <div class="practice-card">
+          <h2>Nama Japa</h2>
+          <p>
+            Repetition of the Om Namah Shivaya mantra is the foundation of practice.
+            Learn more in <a href="/en/teachings/nama-japa">Nama Japa</a>.
+          </p>
+        </div>
 
-      <h2>Havan</h2>
-      <p>
-        The fire ceremony purifies and strengthens community. Read
-        <a href="/en/teachings/sacred-fire-ceremony">Havan</a> and see
-        <a href="/en/events">Monday ceremonies</a>.
-      </p>
+        <div class="practice-card">
+          <h2>Havan</h2>
+          <p>
+            The fire ceremony purifies and strengthens community. Read
+            <a href="/en/teachings/sacred-fire-ceremony">Havan</a> and see
+            <a href="/en/events">Monday ceremonies</a>.
+          </p>
+        </div>
 
-      <h2>Aarti</h2>
-      <p>
-        The ceremony of light in the morning and evening creates the day rhythm. Learn about
-        <a href="/en/teachings/aarti-ceremony">Aarti</a>.
-      </p>
+        <div class="practice-card">
+          <h2>Aarti</h2>
+          <p>
+            The ceremony of light in the morning and evening creates the day rhythm. Learn about
+            <a href="/en/teachings/aarti-ceremony">Aarti</a>.
+          </p>
+        </div>
 
-      <h2>Meditation and Kriya Yoga</h2>
-      <p>
-        Meditation is the space of inner silence where Truth, Simplicity and Love meet.
-        Start with <a href="/en/teachings/meditation-for-beginners">meditation for beginners</a>
-        and explore <a href="/en/teachings/kriya-yoga">Kriya Yoga</a>.
-      </p>
+        <div class="practice-card" style="grid-column: 1 / -1; max-width: 600px; justify-self: center; text-align: center;">
+          <h2>Meditation and Kriya Yoga</h2>
+          <p>
+            Meditation is the space of inner silence where Truth, Simplicity and Love meet.
+            Start with <a href="/en/teachings/meditation-for-beginners">meditation for beginners</a>
+            and explore <a href="/en/teachings/kriya-yoga">Kriya Yoga</a>.
+          </p>
+        </div>
+      </div>
 
       <div class="cta">
         <a href="/en/contact" class="btn-primary">Contact us</a>
@@ -84,9 +96,58 @@ const t = useTranslations(lang);
   }
 
   .cta {
-    margin-top: 2.5rem;
+    margin-top: 3.5rem;
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .practices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .practice-card {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 252, 247, 0.85) 0%,
+      rgba(250, 248, 245, 0.65) 50%,
+      rgba(255, 252, 247, 0.85) 100%
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius-l);
+    padding: 2.5rem;
+    box-shadow: 
+      0 12px 32px -8px var(--color-amber-glow),
+      inset 0 1px 1px rgba(255, 255, 255, 0.9),
+      inset 0 -1px 1px rgba(212, 175, 119, 0.1);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .practice-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 
+      0 20px 40px -10px rgba(230, 168, 104, 0.4),
+      0 8px 24px -6px rgba(155, 85, 57, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 1),
+      inset 0 -1px 1px rgba(212, 175, 119, 0.1);
+  }
+
+  .practice-card h2 {
+    font-family: var(--font-family-serif);
+    font-size: 1.6rem;
+    color: var(--color-text);
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .practice-card p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin: 0;
   }
 </style>

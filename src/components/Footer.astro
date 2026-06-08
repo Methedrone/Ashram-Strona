@@ -1,9 +1,10 @@
 ---
-import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, getLocalizedPath } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const year = new Date().getFullYear();
+
 const footerLinks: { href: string; label: string }[] = [
   { href: getLocalizedPath('/', lang), label: t('nav.home') },
   { href: getLocalizedPath('/teachings', lang), label: t('nav.teachings') },
@@ -12,84 +13,221 @@ const footerLinks: { href: string; label: string }[] = [
   { href: getLocalizedPath('/babaji', lang), label: 'Babaji' },
   { href: 'https://www.facebook.com/haidakhandisevadham.polska.9', label: 'Facebook' },
 ];
+
+const quickLinks = [
+  { href: getLocalizedPath('/praktyki', lang), label: t('nav.practices') },
+  { href: getLocalizedPath('/gallery', lang), label: t('nav.gallery') },
+  { href: getLocalizedPath('/rekolekcje', lang), label: t('nav.retreats') },
+  { href: getLocalizedPath('/faq', lang), label: 'FAQ' },
+];
+
+const legalLinks = [
+  {
+    href: lang === 'pl' ? '/polityka-prywatnosci' : '/en/privacy-policy',
+    label: lang === 'pl' ? 'Polityka prywatności' : 'Privacy policy',
+  },
+  {
+    href: lang === 'pl' ? '/regulamin' : '/en/terms',
+    label: lang === 'pl' ? 'Regulamin' : 'Terms',
+  },
+];
 ---
 
 <footer>
-    <div class="footer-motto">
-        {t('hero.subtitle')}
+  <div class="footer-glow"></div>
+  <div class="footer-content">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href={getLocalizedPath('/', lang)} class="footer-logo">Ashram Babaji</a>
+        <p class="footer-motto">{t('hero.subtitle')}</p>
+        <div class="footer-ornament">✦</div>
+      </div>
+      
+      <nav aria-label="Footer" class="footer-nav">
+        <div class="nav-section">
+          <h4>Nawigacja</h4>
+          {footerLinks.map(link => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+        </div>
+        <div class="nav-section">
+          <h4>Szybkie linki</h4>
+          {quickLinks.map(link => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+        </div>
+      </nav>
     </div>
-    <nav aria-label="Footer" class="footer-nav">
-        {footerLinks.map(link => (
+    
+    <div class="footer-bottom">
+      <p>&copy; {year} {t('footer.copyright')}</p>
+      <div class="legal-links">
+        {legalLinks.map(link => (
           <a href={link.href}>{link.label}</a>
         ))}
-    </nav>
-    <p>&copy; {year} {t('footer.copyright')}</p>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <style>
-    footer {
-        /* Dark warm charcoal/brown gradient (USER APPROVED) */
-        background: linear-gradient(
-            135deg,
-            #3A3530 0%,
-            #2C2520 50%,
-            #3A3530 100%
-        );
-        color: rgba(255, 252, 247, 0.9);
-        position: relative;
-        text-align: center;
-        padding: 3rem 2rem;
-        margin-top: auto;
-    }
+  footer {
+    /* Dark warm charcoal/brown gradient */
+    background: linear-gradient(
+      180deg,
+      #1a1815 0%,
+      #2C2520 50%,
+      #3A3530 100%
+    );
+    color: rgba(255, 252, 247, 0.9);
+    position: relative;
+    padding: 4rem 2rem 2rem;
+    margin-top: auto;
+    overflow: hidden;
+  }
 
-    /* Decorative top border with golden glow */
-    footer::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: linear-gradient(
-            90deg,
-            transparent 0%,
-            var(--color-gold) 50%,
-            transparent 100%
-        );
-        box-shadow: 0 0 12px rgba(230, 168, 104, 0.5);
-    }
+  .footer-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-gold) 50%,
+      transparent 100%
+    );
+    box-shadow: 
+      0 0 20px rgba(212, 175, 119, 0.5),
+      0 0 40px rgba(230, 168, 104, 0.3);
+  }
 
-    .footer-motto {
-        font-size: 1.2rem;
-        color: var(--color-gold);
-        text-align: center;
-        margin-bottom: 2rem;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        letter-spacing: 0.05em;
-        font-style: italic;
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(212, 175, 119, 0.15);
+    margin-bottom: 2rem;
+  }
+
+  .footer-brand {
+    max-width: 300px;
+  }
+
+  .footer-logo {
+    font-family: var(--font-family-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .footer-motto {
+    font-size: 1rem;
+    color: rgba(255, 252, 247, 0.7);
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .footer-ornament {
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    opacity: 0.3;
+    margin-top: 1.5rem;
+    text-shadow: 0 0 10px rgba(212, 175, 119, 0.4);
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-section h4 {
+    font-family: var(--font-family-serif);
+    font-size: 1.1rem;
+    color: var(--color-gold);
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+  }
+
+  .nav-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .nav-section a {
+    color: rgba(255, 252, 247, 0.75);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+
+  .nav-section a:hover {
+    color: var(--color-gold);
+    text-shadow: 0 0 8px rgba(230, 168, 104, 0.4);
+    padding-left: 4px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-bottom p {
+    color: rgba(255, 252, 247, 0.5);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .legal-links a {
+    color: rgba(255, 252, 247, 0.4);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+  }
+
+  .legal-links a:hover {
+    color: rgba(255, 252, 247, 0.7);
+  }
+
+  @media (max-width: 768px) {
+    .footer-main {
+      flex-direction: column;
+      gap: 2rem;
     }
 
     .footer-nav {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1rem 1.5rem;
-        margin-bottom: 1.5rem;
+      gap: 2rem;
     }
 
-    footer p {
-        color: rgba(255, 252, 247, 0.7);
-        font-size: 0.9rem;
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
     }
-
-    footer a {
-        color: rgba(212, 175, 119, 0.8);
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-
-    footer a:hover {
-        color: var(--color-gold);
-        text-shadow: 0 0 8px rgba(230, 168, 104, 0.4);
-    }
+  }
 </style>

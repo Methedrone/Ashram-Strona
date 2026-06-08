@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
+import Hero from '../../components/Hero.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'en';
@@ -14,38 +15,66 @@ const t = useTranslations(lang);
   "url": "https://babaji.org.pl/en/about",
   "inLanguage": "en"
 }}>
+  <Hero
+    title={t('nav.about')}
+    subtitle="Truth, Simplicity, Love"
+    ctaText="Contact"
+    ctaLink="/en/contact"
+    size="large"
+  />
+
   <div class="about-page">
     <section class="intro">
       <div class="container">
-        <SectionHeading title="About Us" subtitle="Truth, Simplicity, Love" level={1} />
-        
         <div class="content-grid">
-          <div class="text-content">
-            <h2>Our Mission</h2>
+          <div class="text-content reveal">
+            <p class="eyebrow">the place</p>
+            <h2>Our mission</h2>
             <p>
-              <strong>Babaji Ashram</strong> is a spiritual center in Mąkolno (Lower Silesia), dedicated to the teachings of
-              <a href="/en/babaji">Sri Haidakhan Babaji</a>. Since 1990 we have created a space for practice,
-              meditation and service rooted in three pillars: <strong>Truth, Simplicity and Love</strong>.
+              <strong>Babaji Ashram</strong> is a spiritual center in Mąkolno, Lower Silesia, dedicated to the teachings of
+              <a href="/en/babaji">Sri Haidakhan Babaji</a>. Since 1990 it has been a place for practice,
+              meditation, and service grounded in three pillars: <strong>Truth, Simplicity, and Love</strong>.
             </p>
             <p>
-              We believe that through daily practice of Karma Yoga (work as service), Japa Yoga (repetition of God's name) 
-              and living together in harmony with nature, we can achieve inner peace and spiritual realization.
+              Through Karma Yoga, Japa Yoga, and shared life close to nature, the Ashram holds a daily rhythm
+              that supports inner quiet, steadiness, and spiritual discipline.
             </p>
 
             <h2>Sri Haidakhan Babaji</h2>
             <p>
-              Babaji taught that in the present age (Kali Yuga), the most important practice is repetition of God's name 
-              and selfless service. His message is universal and transcends the boundaries of any single religion, 
-              encouraging people of all faiths to follow the path of the heart.
+              Babaji taught that in the present age, repetition of God&apos;s name and selfless service are essential.
+              His message crosses religious boundaries and invites people of every background to follow the path of the heart.
             </p>
             <p>
-              Learn more on the page about
-              <a href="/en/babaji">Sri Haidakhan Babaji</a>.
+              Learn more on the page about <a href="/en/babaji">Sri Haidakhan Babaji</a>.
             </p>
           </div>
-          
-          <div class="image-content">
-            <img src="/images/gallery/babaji-with-devotees-vintage.webp" alt="Sri Haidakhan Babaji with devotees at ashram construction site" class="rounded-image shadow-lg" />
+
+          <div class="image-content reveal">
+            <img src="/images/gallery/babaji-with-devotees-vintage.webp" alt="Sri Haidakhan Babaji with devotees at the ashram construction site" />
+            <div class="image-ornament"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pillars-section">
+      <div class="container">
+        <div class="pillars-grid reveal-children">
+          <div class="pillar-card">
+            <div class="pillar-icon">☉</div>
+            <h3>Truth</h3>
+            <p>Honesty in thought, speech, and action. The ground of any serious spiritual path.</p>
+          </div>
+          <div class="pillar-card pillar-card--offset">
+            <div class="pillar-icon">○</div>
+            <h3>Simplicity</h3>
+            <p>Life lived close to nature. A quiet refusal of what is unnecessary.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">♥</div>
+            <h3>Love</h3>
+            <p>Care expressed through service. Practice becomes real when it reaches other people.</p>
           </div>
         </div>
       </div>
@@ -53,48 +82,69 @@ const t = useTranslations(lang);
 
     <section class="eeat">
       <div class="container">
-        <SectionHeading title="Experience and community" subtitle="Practice that lives day by day" />
-        <div class="eeat-grid">
+        <div class="section-split reveal">
+          <div>
+            <p class="eyebrow">community</p>
+            <SectionHeading title="Experience and community" subtitle="Practice becomes visible in the way the day is lived" align="left" />
+          </div>
+          <p class="section-note">
+            The Ashram is not designed as a retreat product. It is a working place shaped by ritual,
+            service, quiet, and shared responsibility.
+          </p>
+        </div>
+
+        <div class="eeat-grid reveal-children">
           <div class="eeat-card">
-            <h2>Daily practice</h2>
+            <div class="card-icon">☀</div>
+            <h3>Daily practice</h3>
             <p>
-              At the ashram we practice Karma Yoga, meditation, japa, and the Aarti and Havan ceremonies.
-              This rhythm strengthens awareness and builds spiritual discipline.
+              Karma Yoga, meditation, japa, Aarti, and Havan form a daily rhythm that builds steadiness and attention.
             </p>
-            <a href="/en/practices">Explore practices</a>
+            <a href="/en/practices">Explore practices →</a>
           </div>
           <div class="eeat-card">
-            <h2>Programs and events</h2>
+            <div class="card-icon">✦</div>
+            <h3>Programs and events</h3>
             <p>
-              We organize retreats, workshops and spiritual festivals, including Navaratri.
-              We meet regularly to practice and serve together.
+              Retreats, workshops, and spiritual festivals create moments of concentrated shared practice.
             </p>
-            <a href="/en/events">Upcoming events</a>
+            <a href="/en/events">Upcoming events →</a>
           </div>
           <div class="eeat-card">
-            <h2>Guests and volunteering</h2>
+            <div class="card-icon">❋</div>
+            <h3>Guests and volunteering</h3>
             <p>
-              The ashram community offers support at every stage of the path.
-              You are welcome to visit and practice in a spirit of openness.
+              Visitors are welcome to take part in the atmosphere of service, openness, and simple daily life.
             </p>
-            <a href="/en/contact">Get in touch</a>
+            <a href="/en/contact">Get in touch →</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="ashrams bg-alt">
+    <section class="ashrams">
       <div class="container">
-        <SectionHeading title="Our Centers" />
-        
-        <div class="ashram-grid">
+        <div class="section-split reveal">
+          <div>
+            <p class="eyebrow">place</p>
+            <SectionHeading title="Our center" align="left" />
+          </div>
+          <p class="section-note">
+            The physical space matters here. The surrounding landscape, the temple rooms, and the working grounds
+            are all part of the practice.
+          </p>
+        </div>
+
+        <div class="ashram-grid reveal-children">
           <div class="ashram-card">
-            <img src="/images/gallery/ashram-courtyard-garden-archway.webp" alt="Ashram courtyard in Mąkolno with brick archway" />
+            <div class="ashram-image">
+              <img src="/images/gallery/ashram-courtyard-garden-archway.webp" alt="Ashram courtyard in Mąkolno with a brick archway" />
+            </div>
             <div class="card-content">
-              <h2>Ashram in Mąkolno</h2>
+              <h3>Ashram in Mąkolno</h3>
               <p>
-                A historic place where the tradition of havan (fire ceremony) and aarti has been cultivated for years. 
-                Located in the picturesque area of the Golden Mountains, it provides an oasis of peace for seekers.
+                A long-standing place of fire ceremony, Aarti, and shared work. Set in the Golden Mountains,
+                it offers a calm physical setting for people who want to stay close to practice.
               </p>
               <p class="address">
                 <strong>Address:</strong><br />
@@ -115,148 +165,297 @@ const t = useTranslations(lang);
   }
 
   .container {
-    max-width: 1200px;
+    width: min(100% - 2.5rem, 1200px);
     margin: 0 auto;
-    padding: 0 2rem;
   }
 
   section {
-    padding: 4rem 0;
+    padding: 5rem 0;
   }
 
-  .bg-alt {
-    background-color: var(--color-bg-alt);
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    font-weight: 600;
+  }
+
+  .intro {
+    background: var(--color-bg);
   }
 
   .content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 5rem;
     align-items: center;
   }
 
-  .text-content h3 {
+  .text-content h2 {
     font-family: var(--font-family-serif);
     color: var(--color-orange);
     font-size: 1.8rem;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
   }
 
-  .text-content h3:first-child {
+  .text-content h2:first-of-type {
     margin-top: 0;
   }
 
   .text-content p {
-    line-height: 1.8;
+    line-height: 1.9;
     color: var(--color-text);
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+  }
+
+  .text-content strong {
+    color: var(--color-orange);
+    font-weight: 600;
+  }
+
+  .image-content {
+    position: relative;
   }
 
   .image-content img {
     width: 100%;
     height: auto;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(155, 85, 57, 0.15);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 20px 40px -10px rgba(155, 85, 57, 0.2), 0 10px 20px -5px rgba(155, 85, 57, 0.1);
   }
 
-  .ashram-grid {
+  .image-ornament {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--color-gold);
+    border-radius: var(--radius-m);
+    opacity: 0.3;
+    z-index: -1;
+  }
+
+  .pillars-section {
+    background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+  }
+
+  .pillars-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+  }
+
+  .pillar-card {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(255, 252, 247, 0.9) 0%, rgba(250, 248, 245, 0.7) 100%);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 20px 40px -30px rgba(58, 35, 20, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    transition: transform 320ms cubic-bezier(0.32, 0.72, 0, 1), box-shadow 320ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .pillar-card--offset {
+    transform: translateY(2rem);
+  }
+
+  .pillar-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 46px -26px rgba(58, 35, 20, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  }
+
+  .pillar-icon {
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    margin-bottom: 1.5rem;
+    display: block;
+    text-shadow: 0 0 20px rgba(212, 175, 119, 0.4);
+  }
+
+  .pillar-card h3 {
+    font-family: var(--font-family-serif);
+    color: var(--color-orange);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .pillar-card p {
+    color: var(--color-text-light);
+    line-height: 1.7;
   }
 
   .eeat {
     background: var(--color-bg-warm);
   }
 
+  .section-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 24rem);
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: 2rem;
+  }
+
+  .section-split :global(.section-heading) {
+    margin-bottom: 0;
+  }
+
+  .section-note {
+    margin: 0;
+    max-width: none;
+    color: var(--color-text-medium);
+  }
+
   .eeat-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
   }
 
   .eeat-card {
-    background: var(--color-bg-alt);
-    border-radius: 16px;
-    padding: 2rem;
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-soft);
+    background: linear-gradient(135deg, rgba(255, 252, 247, 0.95) 0%, rgba(250, 248, 245, 0.75) 100%);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px -28px rgba(58, 35, 20, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition: transform 320ms cubic-bezier(0.32, 0.72, 0, 1), box-shadow 320ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .eeat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 48px -28px rgba(58, 35, 20, 0.34), inset 0 1px 0 rgba(255, 255, 255, 1);
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    display: block;
   }
 
   .eeat-card h3 {
     font-family: var(--font-family-serif);
     color: var(--color-text);
+    font-size: 1.4rem;
     margin-top: 0;
+    margin-bottom: 1rem;
   }
 
   .eeat-card p {
     color: var(--color-text-light);
-    line-height: 1.6;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
   }
 
   .eeat-card a {
     display: inline-flex;
-    margin-top: 1rem;
+    align-items: center;
+    gap: 0.5rem;
     color: var(--color-orange);
     text-decoration: none;
+    font-weight: 600;
+    transition: gap 220ms ease, text-shadow 220ms ease;
   }
 
   .eeat-card a:hover {
-    text-decoration: underline;
+    gap: 0.75rem;
+    text-shadow: 0 0 8px rgba(155, 85, 57, 0.25);
+  }
+
+  .ashrams {
+    background: var(--color-bg-alt);
+  }
+
+  .ashram-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
   }
 
   .ashram-card {
-    background: var(--color-bg-warm);
-    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255, 252, 247, 0.9) 0%, rgba(250, 248, 245, 0.7) 100%);
+    border-radius: var(--radius-xl);
     overflow: hidden;
-    box-shadow: var(--shadow-soft);
-    transition: transform 0.3s ease;
+    box-shadow: 0 24px 44px -30px rgba(58, 35, 20, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition: transform 320ms cubic-bezier(0.32, 0.72, 0, 1), box-shadow 320ms cubic-bezier(0.32, 0.72, 0, 1);
   }
 
   .ashram-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 30px 54px -30px rgba(58, 35, 20, 0.32), inset 0 1px 0 rgba(255, 255, 255, 1);
   }
 
-  .ashram-card img {
+  .ashram-image {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ashram-image img {
     width: 100%;
-    height: 250px;
+    height: 280px;
     object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .ashram-card:hover .ashram-image img {
+    transform: scale(1.05);
   }
 
   .card-content {
-    padding: 2rem;
+    padding: 2.5rem;
   }
 
   .card-content h3 {
     font-family: var(--font-family-serif);
     color: var(--color-text);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.25rem;
   }
 
   .card-content p {
     color: var(--color-text-light);
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 1.5rem;
   }
 
   .address {
     font-style: italic;
     border-top: 1px solid var(--color-border);
-    padding-top: 1rem;
+    padding-top: 1.5rem;
     margin-bottom: 0 !important;
+    color: var(--color-text) !important;
+  }
+
+  @media (max-width: 1024px) {
+    .pillars-grid,
+    .section-split {
+      grid-template-columns: 1fr;
+    }
+
+    .pillar-card--offset {
+      transform: none;
+    }
   }
 
   @media (max-width: 768px) {
+    .container {
+      width: min(100% - 1.5rem, 1200px);
+    }
+
     .content-grid {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 3rem;
     }
 
     .image-content {
       order: -1;
+    }
+
+    section {
+      padding: 3rem 0;
     }
   }
 </style>

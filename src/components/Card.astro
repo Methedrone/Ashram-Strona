@@ -13,45 +13,49 @@ const { class: className, ...rest } = Astro.props;
 
 <style>
   .card-base {
-    /* Warm gradient background */
+    /* Glassmorphism background */
     background: linear-gradient(
       135deg,
-      rgba(255, 252, 247, 1) 0%,
-      rgba(250, 248, 245, 1) 50%,
-      rgba(255, 252, 247, 1) 100%
+      rgba(255, 252, 247, 0.85) 0%,
+      rgba(250, 248, 245, 0.65) 50%,
+      rgba(255, 252, 247, 0.85) 100%
     );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
      
     /* Softer organic corners */
     border-radius: var(--radius-l);
     
-    /* Multi-layer depth: amber glow + terracotta shadow + inner highlight */
+    /* Multi-layer depth: colored shadow + edge refraction */
     box-shadow: 
-      0 4px 24px -4px var(--color-amber-glow),
-      0 2px 12px -2px var(--color-terracotta-glow),
-      inset 0 1px 3px rgba(255, 255, 255, 0.9),
-      inset 0 -1px 2px rgba(212, 175, 119, 0.08);
+      0 12px 32px -8px var(--color-amber-glow),
+      inset 0 1px 1px rgba(255, 255, 255, 0.9),
+      inset 0 -1px 1px rgba(212, 175, 119, 0.1),
+      inset 1px 0 1px rgba(255, 255, 255, 0.5),
+      inset -1px 0 1px rgba(212, 175, 119, 0.05);
      
-    /* Warm border */
-    border: 1px solid rgba(212, 175, 119, 0.25);
+    /* No generic border, relying on inner shadow for edge definition */
+    border: none;
     
     /* Allow overflow for ornaments */
     overflow: visible;
     position: relative;
     
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Spring physics transition */
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     height: 100%;
     display: flex;
   }
 
   .card-base:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px) scale(1.01);
     box-shadow: 
-      0 6px 32px -4px rgba(230, 168, 104, 0.3),
-      0 3px 16px -2px rgba(155, 85, 57, 0.15),
-      inset 0 1px 3px rgba(255, 255, 255, 1),
-      /* Golden aura on hover */
-      0 0 0 2px rgba(212, 175, 119, 0.2);
-    border-color: rgba(212, 175, 119, 0.4);
+      0 20px 40px -10px rgba(230, 168, 104, 0.4),
+      0 8px 24px -6px rgba(155, 85, 57, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 1),
+      inset 0 -1px 1px rgba(212, 175, 119, 0.1),
+      /* Golden aura on hover using shadow instead of border */
+      0 0 0 1px rgba(212, 175, 119, 0.3);
   }
 
   /* Paper texture overlay */

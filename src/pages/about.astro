@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+import Hero from '../components/Hero.astro';
 import { useTranslations } from '../i18n/utils';
 
 const lang = 'pl';
@@ -14,13 +15,20 @@ const t = useTranslations(lang);
   "url": "https://babaji.org.pl/about",
   "inLanguage": "pl"
 }}>
+  <Hero 
+    title={t('nav.about')}
+    subtitle="Prawda, Prostota, Miłość"
+    ctaText="Kontakt"
+    ctaLink="/contact"
+    size="large"
+  />
+
   <div class="about-page">
     <section class="intro">
       <div class="container">
-        <SectionHeading title="O Nas" subtitle="Prawda, Prostota, Miłość" level={1} />
-        
         <div class="content-grid">
-          <div class="text-content">
+          <div class="text-content reveal">
+            <p class="eyebrow">to miejsce</p>
             <h2>Nasza Misja</h2>
             <p>
               <strong>Ashram Babaji</strong> to duchowe centrum w Mąkolnie (Dolny Śląsk), poświęcone naukom
@@ -44,8 +52,31 @@ const t = useTranslations(lang);
             </p>
           </div>
           
-          <div class="image-content">
+          <div class="image-content reveal" style="animation-delay: 0.15s;">
             <img src="/images/gallery/babaji-with-devotees-vintage.webp" alt="Śri Haidakhan Babaji z wyznawcami na budowie aszramu" class="rounded-image shadow-lg" />
+            <div class="image-ornament"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pillars-section">
+      <div class="container">
+        <div class="pillars-grid reveal-children">
+          <div class="pillar-card">
+            <div class="pillar-icon">☉</div>
+            <h3>Prawda</h3>
+            <p>Szczerość w myślach, słowach i czynach. Podstawa każdej duchowej ścieżki.</p>
+          </div>
+          <div class="pillar-card pillar-card--offset">
+            <div class="pillar-icon">○</div>
+            <h3>Prostota</h3>
+            <p>Życie w harmonii z naturą. Odrzucenie tego, co niepotrzebne.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">♥</div>
+            <h3>Miłość</h3>
+            <p>Bezwarunkowa troska o innych. Służba jako wyraz miłości.</p>
           </div>
         </div>
       </div>
@@ -53,45 +84,67 @@ const t = useTranslations(lang);
 
     <section class="eeat">
       <div class="container">
-        <SectionHeading title="Doświadczenie i wspólnota" subtitle="Praktyka, która żyje na co dzień" />
-        <div class="eeat-grid">
+        <div class="section-split reveal">
+          <div>
+            <p class="eyebrow">wspólnota</p>
+            <SectionHeading title="Doświadczenie i wspólnota" subtitle="Praktyka, która żyje na co dzień" align="left" />
+          </div>
+          <p class="section-note">
+            To nie jest odseparowany produkt retreatowy. Aszram żyje dzięki rytuałowi,
+            służbie, ciszy i zwykłej odpowiedzialności za wspólną przestrzeń.
+          </p>
+        </div>
+        <div class="eeat-grid reveal-children">
           <div class="eeat-card">
-            <h2>Codzienna praktyka</h2>
+            <div class="card-icon">☀</div>
+            <h3>Codzienna praktyka</h3>
             <p>
               W aszramie praktykujemy Karma Yogę, medytację, japa i ceremonie Aarti oraz Havan.
               To rytm, który wzmacnia uważność i buduje duchową dyscyplinę.
             </p>
-            <a href="/praktyki">Zobacz praktyki</a>
+            <a href="/praktyki">Zobacz praktyki →</a>
           </div>
           <div class="eeat-card">
-            <h2>Programy i wydarzenia</h2>
+            <div class="card-icon">✦</div>
+            <h3>Programy i wydarzenia</h3>
             <p>
               Organizujemy rekolekcje, warsztaty i święta duchowe, w tym Navaratri.
               Spotykamy się regularnie, aby wspólnie praktykować i służyć.
             </p>
-            <a href="/events">Nadchodzące wydarzenia</a>
+            <a href="/events">Nadchodzące wydarzenia →</a>
           </div>
           <div class="eeat-card">
-            <h2>Goście i wolontariat</h2>
+            <div class="card-icon">❋</div>
+            <h3>Goście i wolontariat</h3>
             <p>
               Wspólnota aszramu tworzy przestrzeń wsparcia dla osób w każdym etapie drogi.
               Zapraszamy do odwiedzin i praktyki w duchu otwartości.
             </p>
-            <a href="/contact">Skontaktuj się</a>
+            <a href="/contact">Skontaktuj się →</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="ashrams bg-alt">
+    <section class="ashrams">
       <div class="container">
-        <SectionHeading title="Nasze Ośrodki" />
+        <div class="section-split reveal">
+          <div>
+            <p class="eyebrow">miejsce</p>
+            <SectionHeading title="Nasze Ośrodki" align="left" />
+          </div>
+          <p class="section-note">
+            Fizyczna przestrzeń ma tu znaczenie. Krajobraz, świątynia i codzienna praca tworzą razem warunki do praktyki.
+          </p>
+        </div>
         
-        <div class="ashram-grid">
+        <div class="ashram-grid reveal-children">
           <div class="ashram-card">
-            <img src="/images/gallery/ashram-courtyard-garden-archway.webp" alt="Dziedziniec aszramu w Mąkolnie z ceglanym przejściem" />
+            <div class="ashram-image">
+              <img src="/images/gallery/ashram-courtyard-garden-archway.webp" alt="Dziedziniec aszramu w Mąkolnie z ceglanym przejściem" />
+            </div>
             <div class="card-content">
-              <h2>Ashram w Mąkolnie</h2>
+              <h3>Ashram w Mąkolnie</h3>
               <p>
                 Historyczne miejsce, gdzie od lat kultywowana jest tradycja havan (ceremonii ognia) i aarti. 
                 Położony w malowniczej okolicy Gór Złotych, stanowi oazę spokoju dla poszukujących.
@@ -121,142 +174,329 @@ const t = useTranslations(lang);
   }
 
   section {
-    padding: 4rem 0;
+    padding: 5rem 0;
   }
 
-  .bg-alt {
-    background-color: var(--color-bg-alt);
+  .intro {
+    background: var(--color-bg);
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    font-weight: 600;
   }
 
   .content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 5rem;
     align-items: center;
   }
 
-  .text-content h3 {
+  .text-content h2 {
     font-family: var(--font-family-serif);
     color: var(--color-orange);
     font-size: 1.8rem;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
   }
 
-  .text-content h3:first-child {
+  .text-content h2:first-child {
     margin-top: 0;
   }
 
   .text-content p {
-    line-height: 1.8;
+    line-height: 1.9;
     color: var(--color-text);
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+  }
+
+  .text-content strong {
+    color: var(--color-orange);
+    font-weight: 600;
+  }
+
+  .image-content {
+    position: relative;
   }
 
   .image-content img {
     width: 100%;
     height: auto;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(155, 85, 57, 0.15);
+    border-radius: var(--radius-xl);
+    box-shadow: 
+      0 20px 40px -10px rgba(155, 85, 57, 0.2),
+      0 10px 20px -5px rgba(155, 85, 57, 0.1);
   }
 
-  .ashram-grid {
+  .image-ornament {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--color-gold);
+    border-radius: var(--radius-m);
+    opacity: 0.3;
+    z-index: -1;
+  }
+
+  /* Pillars Section */
+  .pillars-section {
+    background: linear-gradient(
+      180deg,
+      var(--color-bg) 0%,
+      var(--color-bg-alt) 100%
+    );
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .pillar-card {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 252, 247, 0.9) 0%,
+      rgba(250, 248, 245, 0.7) 100%
+    );
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(212, 175, 119, 0.15);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .pillar-card--offset {
+    transform: translateY(2rem);
+  }
+
+  .pillar-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+      0 20px 40px -10px rgba(230, 168, 104, 0.25),
+      0 8px 16px -4px rgba(155, 85, 57, 0.15);
+  }
+
+  .pillar-icon {
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    margin-bottom: 1.5rem;
+    display: block;
+    text-shadow: 0 0 20px rgba(212, 175, 119, 0.4);
+  }
+
+  .pillar-card h3 {
+    font-family: var(--font-family-serif);
+    color: var(--color-orange);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .pillar-card p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  /* EEAT Section */
+  .eeat {
+    background: var(--color-bg-warm);
+  }
+
+  .section-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 24rem);
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: 2rem;
+  }
+
+  .section-split :global(.section-heading) {
+    margin-bottom: 0;
+  }
+
+  .section-note {
+    margin: 0;
+    max-width: none;
+    color: var(--color-text-medium);
+  }
+
+  .eeat-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
   }
 
-  .eeat {
-    background: var(--color-bg-warm);
-  }
-
-  .eeat-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
-  }
-
   .eeat-card {
-    background: var(--color-bg-alt);
-    border-radius: 16px;
-    padding: 2rem;
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-soft);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 252, 247, 0.95) 0%,
+      rgba(250, 248, 245, 0.75) 100%
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    box-shadow: 
+      0 16px 40px -12px var(--color-amber-glow),
+      inset 0 1px 1px rgba(255, 255, 255, 0.9),
+      inset 0 -1px 1px rgba(212, 175, 119, 0.1);
+    border: none;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .eeat-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 
+      0 24px 48px -12px rgba(230, 168, 104, 0.35),
+      0 12px 24px -6px rgba(155, 85, 57, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 1),
+      inset 0 -1px 1px rgba(212, 175, 119, 0.1);
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    display: block;
   }
 
   .eeat-card h3 {
     font-family: var(--font-family-serif);
     color: var(--color-text);
+    font-size: 1.4rem;
     margin-top: 0;
+    margin-bottom: 1rem;
   }
 
   .eeat-card p {
     color: var(--color-text-light);
-    line-height: 1.6;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
   }
 
   .eeat-card a {
     display: inline-flex;
-    margin-top: 1rem;
+    align-items: center;
+    gap: 0.5rem;
     color: var(--color-orange);
     text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
   }
 
   .eeat-card a:hover {
-    text-decoration: underline;
+    gap: 0.75rem;
+    text-shadow: 0 0 8px rgba(155, 85, 57, 0.3);
+  }
+
+  /* Ashrams Section */
+  .ashrams {
+    background: var(--color-bg-alt);
+  }
+
+  .ashram-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
   }
 
   .ashram-card {
-    background: var(--color-bg-warm);
-    border-radius: 16px;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 252, 247, 0.9) 0%,
+      rgba(250, 248, 245, 0.7) 100%
+    );
+    border-radius: var(--radius-xl);
     overflow: hidden;
-    box-shadow: var(--shadow-soft);
-    transition: transform 0.3s ease;
+    box-shadow: 
+      0 16px 40px -12px var(--color-amber-glow),
+      inset 0 1px 1px rgba(255, 255, 255, 0.9),
+      inset 0 -1px 1px rgba(212, 175, 119, 0.1);
+    border: none;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   .ashram-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 
+      0 24px 48px -12px rgba(230, 168, 104, 0.3),
+      0 12px 24px -6px rgba(155, 85, 57, 0.15),
+      inset 0 1px 1px rgba(255, 255, 255, 1),
+      inset 0 -1px 1px rgba(212, 175, 119, 0.1);
   }
 
-  .ashram-card img {
+  .ashram-image {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ashram-image img {
     width: 100%;
-    height: 250px;
+    height: 280px;
     object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .ashram-card:hover .ashram-image img {
+    transform: scale(1.05);
   }
 
   .card-content {
-    padding: 2rem;
+    padding: 2.5rem;
   }
 
   .card-content h3 {
     font-family: var(--font-family-serif);
     color: var(--color-text);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.25rem;
   }
 
   .card-content p {
     color: var(--color-text-light);
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 1.5rem;
   }
 
   .address {
     font-style: italic;
     border-top: 1px solid var(--color-border);
-    padding-top: 1rem;
+    padding-top: 1.5rem;
     margin-bottom: 0 !important;
+    color: var(--color-text) !important;
+  }
+
+  @media (max-width: 1024px) {
+    .pillars-grid,
+    .section-split {
+      grid-template-columns: 1fr;
+    }
+
+    .pillar-card--offset {
+      transform: none;
+    }
   }
 
   @media (max-width: 768px) {
     .content-grid {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 3rem;
     }
 
     .image-content {
       order: -1;
+    }
+
+    section {
+      padding: 3rem 0;
     }
   }
 </style>

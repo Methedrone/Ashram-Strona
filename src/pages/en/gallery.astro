@@ -50,8 +50,37 @@ const archivalArticles = [
 <Layout title={t('nav.gallery')} description={t('meta.gallery.description')}>
   <div class="gallery-page">
     <div class="container">
-      <div class="intro">
-        <SectionHeading title="Photo Gallery" subtitle="Welcome to view photos of our Ashram life, ceremonies and beautiful surroundings." level={1} />
+      <div class="intro reveal">
+        <div class="intro-shell">
+          <div>
+            <p class="eyebrow">images of the place</p>
+            <SectionHeading title="Photo gallery" subtitle="Ceremonies, daily life, and archive material that show how the Ashram has been lived over the years." level={1} align="left" />
+          </div>
+          <div class="intro-aside">
+            <p>
+              This gallery is more than event documentation. It also shows the landscape, the work,
+              and the ordinary atmosphere from which practice in Mąkolno grows.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-overview reveal-children">
+        <article class="overview-card">
+          <span>now</span>
+          <strong>ashram life</strong>
+          <p>recent photographs from practice, temple rooms, and the surrounding land</p>
+        </article>
+        <article class="overview-card overview-card--offset">
+          <span>archive</span>
+          <strong>1997-2012</strong>
+          <p>early years, older ceremonies, and the gradual growth of the community</p>
+        </article>
+        <article class="overview-card">
+          <span>documents</span>
+          <strong>Radio Herakhan</strong>
+          <p>scanned newsletters and reading material kept alongside the image archive</p>
+        </article>
       </div>
       
       <!-- Current Life -->
@@ -93,7 +122,7 @@ const archivalArticles = [
 
 <style>
   .gallery-page {
-    padding: 4rem 0;
+    padding: 4rem 0 5rem;
   }
 
   .container {
@@ -103,23 +132,79 @@ const archivalArticles = [
   }
 
   .intro {
-    text-align: center;
     margin-bottom: 2rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
-  h1 {
-    font-family: var(--font-family-serif);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--color-orange);
+  .intro-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
+    gap: 2rem;
+    align-items: end;
+    padding: 2.25rem;
+    border-radius: 2rem;
+    background: rgba(255, 252, 247, 0.76);
+    box-shadow: 0 28px 54px -38px rgba(58, 35, 20, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.9);
   }
 
-  p {
-    font-size: 1.2rem;
+  .intro-shell :global(.section-heading) {
+    margin-bottom: 0;
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
     color: var(--color-text-light);
+    font-weight: 600;
+  }
+
+  .intro-aside p {
+    margin: 0;
+    max-width: none;
+    color: var(--color-text-medium);
+  }
+
+  .gallery-overview {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .overview-card {
+    padding: 1.4rem 1.5rem;
+    border-radius: 1.5rem;
+    background: rgba(255, 252, 247, 0.66);
+    box-shadow: 0 22px 40px -34px rgba(58, 35, 20, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.84);
+  }
+
+  .overview-card--offset {
+    transform: translateY(1.4rem);
+  }
+
+  .overview-card span {
+    display: block;
+    margin-bottom: 0.55rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    font-weight: 600;
+  }
+
+  .overview-card strong {
+    display: block;
+    font-family: var(--font-family-serif);
+    font-size: 1.35rem;
+    line-height: 1.05;
+    color: var(--color-text-warm);
+  }
+
+  .overview-card p {
+    margin: 0.5rem 0 0;
+    max-width: none;
+    color: var(--color-text-medium);
   }
 
   .gallery-section {
@@ -139,5 +224,16 @@ const archivalArticles = [
   
   .gallery-section:last-child::after {
     display: none;
+  }
+
+  @media (max-width: 960px) {
+    .intro-shell,
+    .gallery-overview {
+      grid-template-columns: 1fr;
+    }
+
+    .overview-card--offset {
+      transform: none;
+    }
   }
 </style>

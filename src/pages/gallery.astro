@@ -50,37 +50,66 @@ const archivalArticles = [
 <Layout title={t('nav.gallery')} description={t('meta.gallery.description')}>
   <div class="gallery-page">
     <div class="container">
-      <div class="intro">
-        <SectionHeading title="Galeria Zdjęć" subtitle="Zapraszamy do obejrzenia zdjęć z życia naszego Ashramu, ceremonii i pięknej okolicy." level={1} />
+      <div class="intro reveal">
+        <div class="intro-shell">
+          <div>
+            <p class="eyebrow">obrazy miejsca</p>
+            <SectionHeading title="Galeria zdjęć" subtitle="Ceremonie, codzienne życie i archiwalne obrazy, które pokazują rytm ashramu na przestrzeni lat." level={1} align="left" />
+          </div>
+          <div class="intro-aside">
+            <p>
+              Ta galeria nie jest tylko dokumentacją wydarzeń. Pokazuje także krajobraz, pracę i codzienną atmosferę,
+              z której wyrasta praktyka w Mąkolnie.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-overview reveal-children">
+        <article class="overview-card">
+          <span>teraz</span>
+          <strong>życie ashramu</strong>
+          <p>najnowsze zdjęcia z praktyki, świątyni i otoczenia</p>
+        </article>
+        <article class="overview-card overview-card--offset">
+          <span>archiwum</span>
+          <strong>1997-2012</strong>
+          <p>początki miejsca, dawne ceremonie i rozwój wspólnoty</p>
+        </article>
+        <article class="overview-card">
+          <span>materiały</span>
+          <strong>Radio Herakhan</strong>
+          <p>zeskanowane gazetki i dokumenty do dalszego czytania</p>
+        </article>
       </div>
       
       <!-- Current Life -->
-      <div class="gallery-section">
+      <div class="gallery-section reveal">
         <GalleryGrid images={currentImages} title="Współczesne życie Ashramu" />
       </div>
 
       <!-- Historical Ashram -->
-      <div class="gallery-section">
+      <div class="gallery-section reveal">
         <GalleryGrid images={archiveAshramImages} title="Archiwum: Ashram (2001-2012)" />
       </div>
 
       <!-- Historical Havan -->
-      <div class="gallery-section">
+      <div class="gallery-section reveal">
         <GalleryGrid images={archiveHavanImages} title="Archiwum: Havan (2000-2012)" />
       </div>
 
       <!-- Early Days -->
-      <div class="gallery-section">
+      <div class="gallery-section reveal">
         <GalleryGrid images={archiveEarlyImages} title="Początki Ashramu (1997-1998)" />
       </div>
 
       <!-- Future: Budowa Ashramu -->
-      <div class="gallery-section empty">
+      <div class="gallery-section reveal empty">
         <GalleryGrid images={[]} title="Budowa Ashramu" emptyStateText="Wkrótce" />
       </div>
 
       <!-- Historical Articles -->
-      <div class="gallery-section">
+      <div class="gallery-section reveal">
         <GalleryGrid images={archivalArticles} title="Gazetki Archiwalne: Radio Herakhan" />
       </div>
 
@@ -90,7 +119,7 @@ const archivalArticles = [
 
 <style>
   .gallery-page {
-    padding: 4rem 0;
+    padding: 4rem 0 5rem;
   }
 
   .container {
@@ -100,23 +129,79 @@ const archivalArticles = [
   }
 
   .intro {
-    text-align: center;
     margin-bottom: 2rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
-  h1 {
-    font-family: var(--font-family-serif);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--color-orange);
+  .intro-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
+    gap: 2rem;
+    align-items: end;
+    padding: 2.25rem;
+    border-radius: 2rem;
+    background: rgba(255, 252, 247, 0.76);
+    box-shadow: 0 28px 54px -38px rgba(58, 35, 20, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.9);
   }
 
-  p {
-    font-size: 1.2rem;
+  .intro-shell :global(.section-heading) {
+    margin-bottom: 0;
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
     color: var(--color-text-light);
+    font-weight: 600;
+  }
+
+  .intro-aside p {
+    margin: 0;
+    max-width: none;
+    color: var(--color-text-medium);
+  }
+
+  .gallery-overview {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .overview-card {
+    padding: 1.4rem 1.5rem;
+    border-radius: 1.5rem;
+    background: rgba(255, 252, 247, 0.66);
+    box-shadow: 0 22px 40px -34px rgba(58, 35, 20, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.84);
+  }
+
+  .overview-card--offset {
+    transform: translateY(1.4rem);
+  }
+
+  .overview-card span {
+    display: block;
+    margin-bottom: 0.55rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    font-weight: 600;
+  }
+
+  .overview-card strong {
+    display: block;
+    font-family: var(--font-family-serif);
+    font-size: 1.35rem;
+    line-height: 1.05;
+    color: var(--color-text-warm);
+  }
+
+  .overview-card p {
+    margin: 0.5rem 0 0;
+    max-width: none;
+    color: var(--color-text-medium);
   }
 
   .gallery-section {
@@ -154,5 +239,16 @@ const archivalArticles = [
 
   :global(.download-link:hover) {
     background-color: var(--color-orange-dark, #e67e22);
+  }
+
+  @media (max-width: 960px) {
+    .intro-shell,
+    .gallery-overview {
+      grid-template-columns: 1fr;
+    }
+
+    .overview-card--offset {
+      transform: none;
+    }
   }
 </style>

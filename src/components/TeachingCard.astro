@@ -27,7 +27,7 @@ const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US',
 });
 ---
 
-<Card class="teaching-card">
+<Card class="teaching-card card-spotlight">
   <div class="content">
     <div class="meta">
       <span class="date">{formattedDate}</span>
@@ -99,9 +99,9 @@ const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US',
     gap: 0.5rem;
     color: var(--color-orange);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     margin-top: auto;
-    transition: all 0.2s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     padding: 0.5rem 1rem;
     margin-left: -1rem; /* Align text visually with other content */
     border-radius: 50px;
@@ -109,7 +109,11 @@ const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US',
 
   .read-more:hover {
     gap: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.4);
-    animation: candlelight 2s ease-in-out infinite;
+    background-color: var(--color-orange-tint);
+    transform: translateX(4px);
+  }
+
+  .read-more:active {
+    transform: translateX(2px) scale(0.98);
   }
 </style>

@@ -30,7 +30,7 @@
   --radius-xl: 32px;
   
   /* Typography - Ascetic Pairing */
-  --font-family-sans: 'Work Sans', system-ui, -apple-system, sans-serif;
+  --font-family-sans: 'Outfit', system-ui, -apple-system, sans-serif;
   --font-family-serif: 'Cormorant Garamond', Georgia, serif;
   
   --line-height-base: 1.7; /* Increased for calm readability */
@@ -85,6 +85,8 @@ body {
       rgba(245, 212, 170, 0.12) 0%,
       transparent 50%
     ),
+    /* Subtle noise grain texture */
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E"),
     /* Paper texture */
     repeating-linear-gradient(
       0deg,
@@ -115,7 +117,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: var(--spacing-md);
   color: var(--color-text-warm);
   text-shadow: 0 1px 2px rgba(212, 175, 119, 0.15);
-  letter-spacing: 0.01em;
+  letter-spacing: -0.02em;
 }
 
 h1 { 
@@ -141,7 +143,8 @@ p {
   color: var(--color-text-warm);
   line-height: 1.8;
   margin-bottom: var(--spacing-md);
-  max-width: 70ch; /* Readable line length */
+  max-width: 65ch; /* Readable line length */
+  text-wrap: pretty;
 }
 
 /* Links & Buttons */
@@ -151,8 +154,12 @@ a {
   text-decoration-color: rgba(155, 85, 57, 0.3);
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   font-weight: 500;
+}
+
+a:active {
+  transform: translateY(1px) scale(0.98);
 }
 
 a:hover {
@@ -172,12 +179,16 @@ button, .btn, .btn-primary, .btn-secondary, .btn-white, .btn-secondary-neutral {
   text-decoration: none;
   border: 2px solid transparent;
   border-radius: 50px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   min-height: 44px; /* Accessibility target size */
   padding: 0.75rem 2rem;
   font-size: 1rem;
   line-height: 1.2;
   background: none;
+}
+
+button:active, .btn:active, .btn-primary:active, .btn-secondary:active, .btn-white:active, .btn-secondary-neutral:active {
+  transform: translateY(1px) scale(0.98) !important;
 }
 
 .btn:disabled {
@@ -213,6 +224,8 @@ button, .btn, .btn-primary, .btn-secondary, .btn-white, .btn-secondary-neutral {
   color: white;
   text-decoration: none;
   text-shadow: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(155, 85, 57, 0.2);
 }
 
 /* White Button (for dark/orange backgrounds) */
@@ -242,6 +255,8 @@ button, .btn, .btn-primary, .btn-secondary, .btn-white, .btn-secondary-neutral {
   background-color: var(--color-text);
   color: white;
   text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Focus Styles - Accessible with new palette */
@@ -325,6 +340,128 @@ img {
       inset 0 1px 0 rgba(255, 255, 255, 0.25),
       0 0 40px rgba(245, 212, 170, 0.4);
   }
+}
+
+/* Staggered entrance animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUpScale {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Scroll-driven reveal - elements animate when entering viewport */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children - for grids and lists */
+.reveal-children > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.reveal-children.visible > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-children.visible > *:nth-child(2) { transition-delay: 0.1s; }
+.reveal-children.visible > *:nth-child(3) { transition-delay: 0.15s; }
+.reveal-children.visible > *:nth-child(4) { transition-delay: 0.2s; }
+.reveal-children.visible > *:nth-child(5) { transition-delay: 0.25s; }
+.reveal-children.visible > *:nth-child(6) { transition-delay: 0.3s; }
+.reveal-children.visible > *:nth-child(7) { transition-delay: 0.35s; }
+.reveal-children.visible > *:nth-child(8) { transition-delay: 0.4s; }
+.reveal-children.visible > *:nth-child(9) { transition-delay: 0.45s; }
+.reveal-children.visible > *:nth-child(10) { transition-delay: 0.5s; }
+
+.reveal-children.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes spotlightBorder {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Entrance animation utilities */
+.animate-in {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.animate-in-scale {
+  opacity: 0;
+  animation: fadeInUpScale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Spotlight card effect */
+.card-spotlight {
+  position: relative;
+}
+
+.card-spotlight::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    var(--color-orange) 0%,
+    var(--color-gold) 50%,
+    var(--color-orange) 100%
+  );
+  background-size: 200% 200%;
+  animation: spotlightBorder 3s ease infinite;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card-spotlight:hover::before {
+  opacity: 1;
 }
 
 
