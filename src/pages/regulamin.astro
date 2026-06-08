@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Regulamin" description="Podstawowe zasady odwiedzin i pobytu w Ashramie Babaji.">
+  <section class="legal-page">
+    <div class="container">
+      <p class="eyebrow">informacje prawne</p>
+      <h1>Regulamin</h1>
+      <div class="legal-shell">
+        <p>
+          Ashram jest miejscem praktyki, ciszy i wspólnego życia. Osoby planujące przyjazd prosimy o wcześniejszy kontakt,
+          aby ustalić termin pobytu, charakter wizyty i aktualny rytm dnia w ashramie.
+        </p>
+        <p>
+          Podczas pobytu prosimy o szacunek dla wspólnej przestrzeni, udział w podstawowych pracach porządkowych
+          oraz dostosowanie się do harmonogramu obowiązującego w danym czasie.
+        </p>
+        <p>
+          Jeśli pojawiają się pytania dotyczące noclegu, wyżywienia lub udziału w wydarzeniach, najlepiej omówić je z nami przed przyjazdem.
+          Dzięki temu pobyt pozostaje spokojny i dobrze przygotowany dla wszystkich stron.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-page {
+    padding: 5rem 1.25rem 6rem;
+  }
+
+  .container {
+    width: min(100%, 960px);
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    font-weight: 600;
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    line-height: 0.96;
+    letter-spacing: -0.05em;
+  }
+
+  .legal-shell {
+    padding: 2rem;
+    border-radius: 1.75rem;
+    background: rgba(255, 252, 247, 0.76);
+    box-shadow: 0 30px 60px -42px rgba(58, 35, 20, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  }
+
+  .legal-shell p:last-child {
+    margin-bottom: 0;
+  }
+</style>
