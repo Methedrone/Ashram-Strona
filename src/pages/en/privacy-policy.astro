@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Privacy policy" description="Information about contact data and privacy on the Babaji Ashram website.">
+  <section class="legal-page">
+    <div class="container">
+      <p class="eyebrow">legal information</p>
+      <h1>Privacy policy</h1>
+      <div class="legal-shell">
+        <p>
+          We respect the privacy of visitors using the website and of everyone contacting Babaji Ashram.
+          Information shared by e-mail, phone, or contact form is used only to answer the message,
+          arrange a visit, or provide the information that was requested.
+        </p>
+        <p>
+          We do not sell personal data and we do not share it with third parties except where required by law
+          or where it is necessary for the technical operation of the site.
+        </p>
+        <p>
+          Questions related to personal data can be sent to the contact address listed on the contact page.
+          On request, we remove stored contact details unless they are still needed to complete earlier arrangements.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-page {
+    padding: 5rem 1.25rem 6rem;
+  }
+
+  .container {
+    width: min(100%, 960px);
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    font-weight: 600;
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    line-height: 0.96;
+    letter-spacing: -0.05em;
+  }
+
+  .legal-shell {
+    padding: 2rem;
+    border-radius: 1.75rem;
+    background: rgba(255, 252, 247, 0.76);
+    box-shadow: 0 30px 60px -42px rgba(58, 35, 20, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  }
+
+  .legal-shell p:last-child {
+    margin-bottom: 0;
+  }
+</style>

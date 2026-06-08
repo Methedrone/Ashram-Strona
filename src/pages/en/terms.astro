@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Terms" description="Basic visit and stay guidelines for Babaji Ashram.">
+  <section class="legal-page">
+    <div class="container">
+      <p class="eyebrow">legal information</p>
+      <h1>Terms</h1>
+      <div class="legal-shell">
+        <p>
+          The Ashram is a place for practice, silence, and shared daily life. If you plan to visit,
+          please contact us in advance so we can confirm timing, the purpose of the stay, and the current rhythm of the Ashram.
+        </p>
+        <p>
+          During a stay we ask visitors to respect the shared space, take part in simple daily tasks,
+          and follow the schedule that is in place at that time.
+        </p>
+        <p>
+          If you need details about accommodation, meals, or participation in events, the best approach is to discuss them before arrival.
+          That keeps the visit calm and clear for everyone involved.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-page {
+    padding: 5rem 1.25rem 6rem;
+  }
+
+  .container {
+    width: min(100%, 960px);
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    font-weight: 600;
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    line-height: 0.96;
+    letter-spacing: -0.05em;
+  }
+
+  .legal-shell {
+    padding: 2rem;
+    border-radius: 1.75rem;
+    background: rgba(255, 252, 247, 0.76);
+    box-shadow: 0 30px 60px -42px rgba(58, 35, 20, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  }
+
+  .legal-shell p:last-child {
+    margin-bottom: 0;
+  }
+</style>
