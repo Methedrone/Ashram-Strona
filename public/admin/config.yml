@@ -9,6 +9,7 @@ backend:
   base_url: https://babaji.org.pl
   auth_endpoint: api/auth   # Sveltia zbuduje: https://babaji.org.pl/api/auth
   # UWAGA: bez wiodącego / i BEZ pełnego URL — patrz git-based-cms-github-oauth skill §1
+  commit_mode: editorial_workflow   # Sveltia tworzy branch + PR zamiast pushować wprost na master
 
 media_folder: "public"
 public_folder: "/"
