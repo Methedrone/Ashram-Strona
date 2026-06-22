@@ -1,0 +1,173 @@
+# Sveltia CMS — Babaji Ashram
+# Plik 1:1 mapuje src/content/config.ts (Astro content collections).
+# Edycja wpisu w Sveltia → commit na GitHub → CF Pages auto-rebuild.
+
+backend:
+  name: github
+  repo: Methedrone/Ashram-Strona
+  branch: master
+  base_url: https://babaji.org.pl
+  auth_endpoint: api/auth   # Sveltia zbuduje: https://babaji.org.pl/api/auth
+  # UWAGA: bez wiodącego / i BEZ pełnego URL — patrz git-based-cms-github-oauth skill §1
+  commit_mode: editorial_workflow   # Sveltia tworzy branch + PR zamiast pushować wprost na master
+
+media_folder: "public"
+public_folder: "/"
+
+# i18n realizujemy przez 4 kolekcje (pl/en × events/teachings) zamiast jednej z view_filters.
+# view_filters to TYLKO filtr UI — nie przenosi pliku między kolekcjami (§7 skill).
+collections:
+  # === EVENTS ===
+  - name: events_pl
+    label: "Wydarzenia (PL)"
+    folder: "src/content/events/pl"
+    extension: md
+    format: yaml-frontmatter
+    media_folder: "/public"
+    public_folder: ""
+    slug: "{{slug}}"
+    create: true
+    delete: true
+    fields: &event_fields
+      - name: title
+        label: "Tytuł"
+        widget: string
+      - name: description
+        label: "Opis"
+        widget: text
+      - name: date
+        label: "Data"
+        widget: datetime
+      - name: endDate
+        label: "Data końcowa"
+        widget: datetime
+        required: false
+      - name: time
+        label: "Godzina"
+        widget: string
+        required: false
+      - name: location
+        label: "Miejsce"
+        widget: string
+        default: "Ashram Babaji, Mąkolno 129"
+      - name: featuredImage
+        label: "Obrazek"
+        widget: image
+        required: false
+      - name: tags
+        label: "Tagi"
+        widget: list
+        required: false
+      - name: isOnline
+        label: "Online?"
+        widget: boolean
+        default: false
+      - name: featured
+        label: "Wyróżnione?"
+        widget: boolean
+        default: false
+      - name: registrationUrl
+        label: "URL rejestracji"
+        widget: string
+        required: false
+      - name: faqs
+        label: "FAQ"
+        widget: list
+        required: false
+        fields:
+          - name: question
+            widget: string
+          - name: answer
+            widget: text
+      - name: body
+        label: "Treść"
+        widget: markdown
+
+  - name: events_en
+    label: "Events (EN)"
+    folder: "src/content/events/en"
+    extension: md
+    format: yaml-frontmatter
+    media_folder: "/public"
+    public_folder: ""
+    slug: "{{slug}}"
+    create: true
+    delete: true
+    fields: *event_fields   # YAML anchor — ten sam schemat co events_pl
+
+  # === TEACHINGS ===
+  - name: teachings_pl
+    label: "Nauki (PL)"
+    folder: "src/content/teachings/pl"
+    extension: md
+    format: yaml-frontmatter
+    media_folder: "/public"
+    public_folder: ""
+    slug: "{{slug}}"
+    create: true
+    delete: true
+    fields: &teaching_fields
+      - name: title
+        label: "Tytuł"
+        widget: string
+      - name: description
+        label: "Opis"
+        widget: text
+      - name: date
+        label: "Data"
+        widget: datetime
+      - name: author
+        label: "Autor"
+        widget: string
+        default: "Babaji"
+      - name: featuredImage
+        label: "Obrazek"
+        widget: image
+        required: false
+      - name: tags
+        label: "Tagi"
+        widget: list
+        required: false
+      - name: difficulty
+        label: "Trudność"
+        widget: select
+        options:
+          - beginner
+          - intermediate
+          - advanced
+        required: false
+      - name: duration
+        label: "Czas (min)"
+        widget: number
+        required: false
+      - name: relatedTeachings
+        label: "Powiązane nauki"
+        widget: list
+        required: false
+        field:
+          name: ref
+          widget: string
+      - name: faqs
+        label: "FAQ"
+        widget: list
+        required: false
+        fields:
+          - name: question
+            widget: string
+          - name: answer
+            widget: text
+      - name: body
+        label: "Treść"
+        widget: markdown
+
+  - name: teachings_en
+    label: "Teachings (EN)"
+    folder: "src/content/teachings/en"
+    extension: md
+    format: yaml-frontmatter
+    media_folder: "/public"
+    public_folder: ""
+    slug: "{{slug}}"
+    create: true
+    delete: true
+    fields: *teaching_fields
