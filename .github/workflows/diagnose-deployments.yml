@@ -2,6 +2,10 @@ name: List CF Pages deployments (one-time diagnostic)
 
 on:
   workflow_dispatch:
+  push:
+    branches: [dev, master]
+    paths:
+      - '.github/workflows/diagnose-deployments.yml'
 
 jobs:
   list-deployments:
