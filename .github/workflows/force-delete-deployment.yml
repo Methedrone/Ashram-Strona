@@ -69,11 +69,11 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
         run: |
-          echo "=== Direct API: GET /deployments (top 5) ==="
+          echo "=== Direct API: GET /deployments ==="
           curl -s \
-            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFLARE_PROJECT_NAME/deployments?per_page=50" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFLARE_PROJECT_NAME/deployments" \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            -w "\nHTTP_STATUS: %{http_code}\n" 2>&1 | head -300
+            -w "\nHTTP_STATUS: %{http_code}\n" 2>&1 | head -500
 
       - name: Try wrangler pages deployment delete (only if deployment_id given)
         if: env.DEPLOYMENT_ID != ''
