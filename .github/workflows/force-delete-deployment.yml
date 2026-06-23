@@ -4,9 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       deployment_id:
-        description: 'Deployment ID to delete (e.g. 22c51586-25ac-44d6-9478-87518c43f617)'
-        required: true
+        description: 'Deployment ID to delete (leave empty to list deployments first)'
+        required: false
         type: string
+        default: ''
+      force:
+        description: 'Force delete aliased deployment (USE WITH CARE)'
+        required: false
+        type: boolean
+        default: false
   push:
     branches: [dev, master]
     paths:
@@ -38,61 +44,78 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
         run: |
-          echo "=== All production deployments ==="
+          echo "=== All production deployments (via wrangler) ==="
           npx wrangler pages deployment list \
             --project-name="$CLOUDFLARE_PROJECT_NAME" \
             --environment=production \
-            --json 2>&1 | tee /tmp/prod_deploys.json | head -100
+            --json 2>&1 | head -200 > /tmp/prod_deploys.json
+          cat /tmp/prod_deploys.json
 
-      - name: Try wrangler pages deployment delete
+      - name: List all preview deployments (top 50)
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
         run: |
-          if [ -z "${{ inputs.deployment_id }}" ]; then
-            echo "::warning::No deployment_id provided (push trigger), skipping delete"
-            exit 0
-          fi
-          echo "=== wrangler pages deployment help (4.103.0) ==="
+          echo "=== Preview deployments (top 10) ==="
+          npx wrangler pages deployment list \
+            --project-name="$CLOUDFLARE_PROJECT_NAME" \
+            --environment=preview \
+            --json 2>&1 | head -100
+
+      - name: List all deployments via direct CF API
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+        run: |
+          echo "=== Direct API: GET /deployments (top 5) ==="
+          curl -s \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFLARE_PROJECT_NAME/deployments?per_page=50" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -w "\nHTTP_STATUS: %{http_code}\n" 2>&1 | head -300
+
+      - name: Try wrangler pages deployment delete (only if deployment_id given)
+        if: env.DEPLOYMENT_ID != ''
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+          DEPLOYMENT_ID: ${{ inputs.deployment_id }}
+        run: |
+          echo "=== wrangler pages deployment --help (4.103.0) ==="
           npx wrangler pages deployment --help 2>&1 | head -30
 
           echo ""
           echo "=== Try wrangler pages deployment delete ==="
           npx wrangler pages deployment delete \
             --project-name="$CLOUDFLARE_PROJECT_NAME" \
-            --deployment-id="${{ inputs.deployment_id }}" 2>&1 | head -20 || echo "delete command failed"
+            --deployment-id="$DEPLOYMENT_ID" 2>&1 | head -20 || echo "wrangler delete failed, will try direct API"
 
-      - name: Try direct CF API DELETE (fallback)
+      - name: Try direct CF API DELETE (with force option)
+        if: env.DEPLOYMENT_ID != ''
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+          DEPLOYMENT_ID: ${{ inputs.deployment_id }}
+          FORCE: ${{ inputs.force }}
         run: |
-          if [ -z "${{ inputs.deployment_id }}" ]; then
-            echo "::warning::No deployment_id, skipping CF API DELETE"
-            exit 0
+          FORCE_PARAM=""
+          if [ "$FORCE" = "true" ]; then
+            FORCE_PARAM="?force=true"
+            echo "⚠️  USING FORCE DELETE ⚠️"
           fi
-          echo "=== Direct CF API: DELETE deployment ==="
+
+          echo "=== Direct CF API: DELETE deployment $DEPLOYMENT_ID $FORCE_PARAM ==="
           curl -X DELETE \
-            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFLARE_PROJECT_NAME/deployments/${{ inputs.deployment_id }}" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFLARE_PROJECT_NAME/deployments/$DEPLOYMENT_ID$FORCE_PARAM" \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             -H "Content-Type: application/json" \
             -w "\nHTTP_STATUS: %{http_code}\n" 2>&1 | head -30
 
-      - name: List current aliases / production deployment
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
-        run: |
-          echo "=== Project info (current production) ==="
-          curl -s \
-            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFLARE_PROJECT_NAME" \
-            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            -w "\nHTTP_STATUS: %{http_code}\n" 2>&1 | head -50
-
       - name: List all deployments (final state)
+        if: env.DEPLOYMENT_ID != ''
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -102,4 +125,4 @@ jobs:
           npx wrangler pages deployment list \
             --project-name="$CLOUDFLARE_PROJECT_NAME" \
             --environment=production \
-            --json 2>&1 | head -50
+            --json 2>&1 | head -30
