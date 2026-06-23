@@ -7,6 +7,10 @@ on:
         description: 'Deployment ID to delete (e.g. 22c51586-25ac-44d6-9478-87518c43f617)'
         required: true
         type: string
+  push:
+    branches: [dev, master]
+    paths:
+      - '.github/workflows/force-delete-deployment.yml'
 
 jobs:
   force-delete:
