@@ -1,0 +1,93 @@
+name: Force-delete old CF Pages deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_id:
+        description: 'Deployment ID to delete (e.g. 22c51586-25ac-44d6-9478-87518c43f617)'
+        required: true
+        type: string
+
+jobs:
+  force-delete:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies (with new wrangler 4.103.0)
+        run: |
+          npm install --no-save wrangler@4.103.0 2>&1 | tail -5
+          npx wrangler --version
+
+      - name: List all production deployments
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+        run: |
+          echo "=== All production deployments ==="
+          npx wrangler pages deployment list \
+            --project-name="$CLOUDFLARE_PROJECT_NAME" \
+            --environment=production \
+            --json 2>&1 | tee /tmp/prod_deploys.json | head -100
+
+      - name: Try force-delete via wrangler (if supported in 4.103.0)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+        run: |
+          echo "=== wrangler pages deployment help (4.103.0) ==="
+          npx wrangler pages deployment --help 2>&1 | head -30
+
+          echo ""
+          echo "=== Try wrangler pages deployment delete ==="
+          npx wrangler pages deployment delete \
+            --project-name="$CLOUDFLARE_PROJECT_NAME" \
+            --deployment-id="${{ inputs.deployment_id }}" 2>&1 | head -20
+
+      - name: Try direct CF API DELETE (fallback)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+        run: |
+          echo "=== Direct CF API: DELETE deployment ==="
+          curl -X DELETE \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFORM_PROJECT_NAME/deployments/${{ inputs.deployment_id }}" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -H "Content-Type: application/json" \
+            -w "\nHTTP_STATUS: %{http_code}\n" 2>&1 | head -30
+
+      - name: List current aliases / production deployment
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+        run: |
+          echo "=== Project info (current production) ==="
+          curl -s \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFLARE_PROJECT_NAME" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -w "\nHTTP_STATUS: %{http_code}\n" 2>&1 | head -50
+
+      - name: List all deployments (final state)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+        run: |
+          echo "=== Deployments after delete attempt ==="
+          npx wrangler pages deployment list \
+            --project-name="$CLOUDFLARE_PROJECT_NAME" \
+            --environment=production \
+            --json 2>&1 | head -50
