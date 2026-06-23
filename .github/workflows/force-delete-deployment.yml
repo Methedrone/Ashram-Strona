@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
 
       - name: Install dependencies (with new wrangler 4.103.0)
@@ -44,12 +44,16 @@ jobs:
             --environment=production \
             --json 2>&1 | tee /tmp/prod_deploys.json | head -100
 
-      - name: Try force-delete via wrangler (if supported in 4.103.0)
+      - name: Try wrangler pages deployment delete
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
         run: |
+          if [ -z "${{ inputs.deployment_id }}" ]; then
+            echo "::warning::No deployment_id provided (push trigger), skipping delete"
+            exit 0
+          fi
           echo "=== wrangler pages deployment help (4.103.0) ==="
           npx wrangler pages deployment --help 2>&1 | head -30
 
@@ -57,7 +61,7 @@ jobs:
           echo "=== Try wrangler pages deployment delete ==="
           npx wrangler pages deployment delete \
             --project-name="$CLOUDFLARE_PROJECT_NAME" \
-            --deployment-id="${{ inputs.deployment_id }}" 2>&1 | head -20
+            --deployment-id="${{ inputs.deployment_id }}" 2>&1 | head -20 || echo "delete command failed"
 
       - name: Try direct CF API DELETE (fallback)
         env:
@@ -65,9 +69,13 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
         run: |
+          if [ -z "${{ inputs.deployment_id }}" ]; then
+            echo "::warning::No deployment_id, skipping CF API DELETE"
+            exit 0
+          fi
           echo "=== Direct CF API: DELETE deployment ==="
           curl -X DELETE \
-            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFORM_PROJECT_NAME/deployments/${{ inputs.deployment_id }}" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFLARE_PROJECT_NAME/deployments/${{ inputs.deployment_id }}" \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             -H "Content-Type: application/json" \
             -w "\nHTTP_STATUS: %{http_code}\n" 2>&1 | head -30
