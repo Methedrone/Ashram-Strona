@@ -1,9 +1,9 @@
 ---
 title: "Havan - Rytuał Ognia"
-description: "Wieczorny rytuał ognia (homa) ku czci Sri Haidakhan Babaji, z mantrami, ofiarą ghee i medytacją w blasku świętego płomienia."
+description: "Poranny rytuał ognia (homa) ku czci Sri Haidakhan Babaji, z mantrami, ofiarą ghee i medytacją w blasku świętego płomienia."
 date: 2026-06-30
 endDate: 2026-06-30
-time: "18:00"
+time: "07:00"
 location: "Ashram Babaji, Mąkolno 129"
 lang: pl
 featuredImage: "/images/gallery/babaji-with-devotees-vintage.webp"
@@ -31,16 +31,22 @@ Sri Haidakhan Babaji wielokrotnie podkreślał, że ogień jest żywym, świadom
 
 Rytuał ten nie wymaga żadnego specjalnego przygotowania — wystarczy szczere serce i gotowość do wspólnego śpiewu. Ogień ogrzewa ciała, mantry poruszają umysły, a cisza między śpiewami otwiera serca. To jedna z najprostszych, a zarazem najgłębszych form bhakti, jakie praktykujemy.
 
-## Przebieg wieczoru
+## Poranek w Ashramie Babaji
 
-Ceremonia rozpocznie się od krótkiego wprowadzenia i synchronizacji oddechu. Następnie rozpalimy święty ogień z użyciem tradycyjnego drewna mango, a każdy uczestnik otrzyma możliwość złożenia symbolicznej ofiary ghee i ziarna z wypowiedzeniem własnej intencji.
+Havan w naszym ashramie tradycyjnie odprawiamy o świcie — w porze, gdy ogień jest najczystszy, a umysł po nocnym odpoczynku najbardziej otwarty. Poranny rytuał wyznacza ton całemu dniu: uczestnicy wchodzą w ciszę jeszcze przed pierwszym posiłkiem, a każda mantra recytowana przy ogniu zyskuje wyjątkową moc.
 
-Główną część stanowi odśpiewanie Mahamrityunjaya Mantra oraz Gayatri Mantra w rytmie oddechu, przez co ogień staje się coraz jaśniejszy, a przestrzeń napełnia się zapachem sandałowca i ciepłem transformacji. Wieczór zakończymy wspólną medytacją w blasku ognia, symbolizującą wewnętrzne światło, które rozpala się, gdy zewnętrzne płomienie cichą.
+Sri Haidakhan Babaji wielokrotnie podkreślał, że ogień jest żywym, świadomym elementem — najczystszym z żywiołów, zdolnym do transformacji materii w światło. Poranne słońce łączy się z płomieniami havana, a zapach sandałowca i ghee niesie się przez ashram, zanim wzejdzie pełne słońce. To jedna z najprostszych, a zarazem najgłębszych form bhakti, jakie praktykujemy — ciało jest wypoczęte, oddech spokojny, a serce gotowe na przyjęcie nauki.
+
+## Przebieg poranku
+
+Ceremonia rozpocznie się o wschodzie słońca od krótkiego wprowadzenia i synchronizacji oddechu. Następnie rozpalimy święty ogień z użyciem tradycyjnego drewna mango, a każdy uczestnik otrzyma możliwość złożenia symbolicznej ofiary ghee i ziarna z wypowiedzeniem własnej intencji.
+
+Główną część stanowi odśpiewanie Mahamrityunjaya Mantra oraz Gayatri Mantra w rytmie oddechu, przez co ogień staje się coraz jaśniejszy, a przestrzeń napełnia się zapachem sandałowca i ciepłem transformacji. Poranek zakończymy wspólną medytacją w blasku ognia i pierwszych promieni słońca, po czym uczestnicy będą mogli wspólnie zjeść lekkie śniadanie (prasad) w ciszy.
 
 ## Program
 
-- 18:00 - Wprowadzenie i rozpalenie świętego ognia
-- 18:30 - Havan z Mahamrityunjaya Mantrą i ofiarą ghee
-- 19:30 - Gayatri Mantra i bhajan przy ogniu
-- 20:00 - Satsang o nauce Babaji o ogniu i transformacji
-- 21:00 - Medytacja w blasku świętego ognia
+- 07:00 - Wprowadzenie i rozpalenie świętego ognia
+- 07:30 - Havan z Mahamrityunjaya Mantrą i ofiarą ghee
+- 08:30 - Gayatri Mantra i bhajan przy ogniu
+- 09:00 - Medytacja w blasku ognia i wschodzącego słońca
+- 09:30 - Prasad (wspólne śniadanie) w ciszy
