@@ -1,52 +1,60 @@
 ---
-title: "Havan - Fire Ritual"
-description: "Morning fire ritual (homa) in honor of Sri Haidakhan Babaji, with mantras, ghee offerings and meditation in the glow of the sacred flame."
+title: "Havan - Sacred Fire Ceremony in the Kłodzko Valley"
+description: "We invite you to the Kłodzko Valley for the Havan fire ceremony with collective mantra chanting, Arti and a vegetarian meal."
 date: 2026-06-30
 endDate: 2026-06-30
-time: "07:00"
+time: "11:00"
 location: "Babaji Ashram, Mąkolno 129"
 lang: en
-featuredImage: "/images/gallery/babaji-with-devotees-vintage.webp"
+featuredImage: "/images/gallery/havan-ceremony-fire-pit-devotees.webp"
 tags:
   - havan
-  - fire-ritual
-  - agni
-  - bhakti
+  - fire-ceremony
+  - mantras
+  - arti
+  - kłodzko-valley
 faqs:
-  - question: "What is a havan?"
-    answer: "Havan (also known as homa or yagna) is an ancient Vedic ritual of making offerings into a sacred fire while reciting mantras."
-  - question: "Why is havan important in the Babaji tradition?"
-    answer: "Sri Haidakhan Babaji emphasized fire as a carrier of prayer — it transmits offerings and mantras to the spiritual realm, purifying both the space and the participants."
+  - question: "What is the Havan ceremony?"
+    answer: "Havan (also called Yajna) is an ancient Vedic ceremony of offering into the sacred fire. The flames carry mantras, herbs and ghee to the divine source, purifying the space and the minds of the participants."
+  - question: "Can I join only part of the ceremony?"
+    answer: "Yes. The main Havan ceremony begins at 11:00. Those interested in the full experience are welcome from dawn (Paduka Puja at 7:30, Arti at 8:00)."
+  - question: "Is accommodation available on site?"
+    answer: "Yes. The ashram offers accommodation, so you can arrive earlier and stay longer. Please contact us in advance regarding accommodation."
+  - question: "Is a meal provided?"
+    answer: "After the Havan ceremony, you are invited to share a vegetarian meal."
+  - question: "How do I register?"
+    answer: "For organisational reasons, please contact us in advance by phone: 536 555 899 (Mohan)."
 registrationUrl: "/en/contact"
 isOnline: false
 featured: false
 updatedAt: 2026-06-29
 ---
 
-Havan is one of the oldest and most purifying rituals of the Vedic tradition. It involves kindling a sacred fire in a special vessel (kund) and making offerings into it — grains, ghee, herbs, sandalwood — while reciting mantras. Fire (Agni) serves as the messenger between the human and the divine, carrying the prayers and intentions of all participants.
+We invite you to the Kłodzko Valley for the Havan fire ceremony. If you are interested in collective mantra chanting, Arti, rest away from civilisation and meeting interesting people — you are welcome.
 
-## Significance at Babaji Ashram
+The main Havan ceremony begins at 11:00. Those interested in the full ceremony are welcome from dawn. The ashram also offers accommodation, so you can arrive earlier.
 
-Sri Haidakhan Babaji often stressed that fire is a living, conscious element — the purest of the elements, capable of transforming matter into light. At our ashram, havan is practiced regularly as a form of collective prayer, space purification and union of disciples in a single intention.
+## Programme of the Day
 
-This ritual requires no special preparation — only a sincere heart and a willingness to chant together. The fire warms the body, the mantras move the mind, and the silence between chants opens the heart. It is one of the simplest yet most profound forms of bhakti we practice.
+- 7:30 - Paduka Puja
+- 8:00 - Arti
+- 11:00 - Havan Fire Ceremony
+- after Havan - shared vegetarian meal
 
-## Morning at Babaji Ashram
+## About the Ceremony
 
-At our ashram, havan is traditionally performed at dawn — the hour when fire is at its purest and the mind, after the night's rest, is most open. The morning ritual sets the tone for the entire day: participants enter the silence before the first meal, and every mantra chanted by the fire gains exceptional power.
+Havan is one of the oldest Vedic rituals — an offering into the sacred fire, in which mantras, ghee and herbs are carried by the flames to the divine source. Collective chanting, the rhythm of bells and the warmth of the fire create a space of silence and inner focus. Read more about the ceremony in the teaching [Havan — the Sacrificial Fire](/en/teachings/havan-ogien).
 
-Sri Haidakhan Babaji often stressed that fire is a living, conscious element — the purest of the elements, capable of transforming matter into light. The morning sun joins the flames of the havan, and the scent of sandalwood and ghee spreads through the ashram before the sun has fully risen. It is one of the simplest yet most profound forms of bhakti we practice — the body is rested, the breath calm, and the heart ready to receive the teaching.
+## Travel and Accommodation
 
-## Course of the Morning
+Babaji Ashram is located in Mąkolno, in the Kłodzko Valley — away from the bustle of the city. We offer accommodation for those who would like to arrive earlier or stay longer. After the ceremony you are invited to share a vegetarian meal.
 
-The ceremony will begin at sunrise with a short introduction and breath synchronisation. We will then kindle the sacred fire using traditional mango wood, and each participant will have the opportunity to make a symbolic offering of ghee and grain while voicing their own intention.
+## Registration
 
-The main part consists of chanting the Mahamrityunjaya Mantra and the Gayatri Mantra in the rhythm of the breath, through which the fire grows brighter and the space fills with the scent of sandalwood and the warmth of transformation. The morning will conclude with collective meditation in the glow of the fire and the first rays of the sun, after which participants may share a light breakfast (prasad) in silence.
+For organisational reasons, please contact us in advance:
 
-## Program
+- **phone:** 536 555 899 (Mohan)
 
-- 07:00 - Introduction and kindling of the sacred fire
-- 07:30 - Havan with the Mahamrityunjaya Mantra and ghee offering
-- 08:30 - Gayatri Mantra and bhajan by the fire
-- 09:00 - Meditation in the glow of the fire and the rising sun
-- 09:30 - Prasad (shared breakfast) in silence
+Facebook event: [Havan Fire Ceremony](https://www.facebook.com/share/18x2oHfXEz/?mibextid=wwXIfr).
+
+*Om Shanti*
