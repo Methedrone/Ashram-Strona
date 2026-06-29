@@ -1,52 +1,60 @@
 ---
-title: "Havan - Rytuał Ognia"
-description: "Poranny rytuał ognia (homa) ku czci Sri Haidakhan Babaji, z mantrami, ofiarą ghee i medytacją w blasku świętego płomienia."
+title: "Havan - Ceremonia Ognia w Kotlinie Kłodzkiej"
+description: "Zapraszamy do Kotliny Kłodzkiej na ceremonię ognia Havan ze wspólnym śpiewaniem mantr, Arti i wegetariańskim posiłkiem."
 date: 2026-06-30
 endDate: 2026-06-30
-time: "07:00"
+time: "11:00"
 location: "Ashram Babaji, Mąkolno 129"
 lang: pl
-featuredImage: "/images/gallery/babaji-with-devotees-vintage.webp"
+featuredImage: "/images/gallery/havan-ceremony-fire-pit-devotees.webp"
 tags:
   - havan
-  - rytuał-ognia
-  - agni
-  - bhakti
+  - ceremonia-ognia
+  - mantry
+  - arti
+  - kotlinia-klodzka
 faqs:
-  - question: "Co to jest havan?"
-    answer: "Havan (znany też jako homa lub jagni) to starożytny rytuał wedyjski polegający na składaniu ofiar w świętym ogniu przy akompaniamencie mantr."
-  - question: "Dlaczego havan jest ważny w tradycji Babaji?"
-    answer: "Sri Haidakhan Babaji przywiązywał ogromną wagę do ognia jako nośnika modlitwy — ogień przenosi ofiary i mantry do sfery duchowej, oczyszczając przestrzeń i uczestników."
+  - question: "Co to jest ceremonia Havan?"
+    answer: "Havan (nazywany także Yajna) to starożytna wedyjska ceremonia ofiarowania w świętym ogniu. Płomienie niosą mantry, zioła i ghee do boskiego źródła, oczyszczając przestrzeń i umysły uczestników."
+  - question: "Czy mogę dołączyć tylko na część ceremonii?"
+    answer: "Tak. Główna ceremonia Havan rozpoczyna się o 11:00. Osoby zainteresowane pełnym przeżyciem zapraszamy o świcie (Paduka Puja o 7:30, Arti o 8:00)."
+  - question: "Czy są miejsca noclegowe na miejscu?"
+    answer: "Tak. Ashram dysponuje miejscami noclegowymi, więc można przyjechać wcześniej i zostać dłużej. Prosimy o wcześniejszy kontakt w sprawie noclegu."
+  - question: "Czy posiłek jest zapewniony?"
+    answer: "Po ceremonii Havan zapraszamy na wspólny posiłek wegetariański."
+  - question: "Jak się zgłosić?"
+    answer: "Ze względów organizacyjnych prosimy o wcześniejszy kontakt telefoniczny: 536 555 899 (Mohan)."
 registrationUrl: "/contact"
 isOnline: false
 featured: false
 updatedAt: 2026-06-29
 ---
 
-Havan to jeden z najstarszych i najbardziej oczyszczających rytuałów tradycji wedyjskiej. Polega na rozpaleniu świętego ognia w specjalnym naczyniu (kund) i składaniu w nim ofiar — ziarna, ghee, ziół, drewna sandalowego — przy jednoczesnym recytowaniu mantr. Ogień (Agni) pełni tu rolę posłańca między światem ludzkim a boskim, niosąc modlitwy i intencje uczestników.
+Zapraszamy do Kotliny Kłodzkiej na ceremonię ognia Havan. Jeśli jesteś zainteresowany wspólnym śpiewaniem mantr, Arti, odpoczynkiem z dala od cywilizacji oraz spotkaniem z interesującymi ludźmi - zapraszamy.
 
-## Znaczenie w Ashramie Babaji
+Główna ceremonia Havan rozpoczyna się o godzinie 11:00, wszystkich zainteresowanych pełną ceremonią zapraszamy o świcie. Ashram dysponuje również miejscami noclegowymi, więc można przyjechać wcześniej.
 
-Sri Haidakhan Babaji wielokrotnie podkreślał, że ogień jest żywym, świadomym elementem — najczystszym z żywiołów, zdolnym do transformacji materii w światło. Havan w naszym ashramie jest praktykowany regularnie jako forma wspólnej modlitwy, oczyszczenia przestrzeni i zjednoczenia uczniów w jednej intencji.
+## Program dnia
 
-Rytuał ten nie wymaga żadnego specjalnego przygotowania — wystarczy szczere serce i gotowość do wspólnego śpiewu. Ogień ogrzewa ciała, mantry poruszają umysły, a cisza między śpiewami otwiera serca. To jedna z najprostszych, a zarazem najgłębszych form bhakti, jakie praktykujemy.
+- 7:30 - Paduka Puja
+- 8:00 - Arti
+- 11:00 - Ceremonia Ognia Havan
+- po Havanie - wspólny posiłek wegetariański
 
-## Poranek w Ashramie Babaji
+## O ceremonii
 
-Havan w naszym ashramie tradycyjnie odprawiamy o świcie — w porze, gdy ogień jest najczystszy, a umysł po nocnym odpoczynku najbardziej otwarty. Poranny rytuał wyznacza ton całemu dniu: uczestnicy wchodzą w ciszę jeszcze przed pierwszym posiłkiem, a każda mantra recytowana przy ogniu zyskuje wyjątkową moc.
+Havan to jeden z najstarszych rytuałów wedyjskich - ofiarowanie w świętym ogniu, w którym mantry, ghee i zioła niesione są przez płomienie do boskiego źródła. Wspólne śpiewanie, rytm dzwonków i ciepło ognia tworzą przestrzeń wyciszenia i wewnętrznego skupienia. Więcej o samej ceremonii przeczytasz w nauce [Havan - ogień ofiarny](/teachings/havan-ogien).
 
-Sri Haidakhan Babaji wielokrotnie podkreślał, że ogień jest żywym, świadomym elementem — najczystszym z żywiołów, zdolnym do transformacji materii w światło. Poranne słońce łączy się z płomieniami havana, a zapach sandałowca i ghee niesie się przez ashram, zanim wzejdzie pełne słońce. To jedna z najprostszych, a zarazem najgłębszych form bhakti, jakie praktykujemy — ciało jest wypoczęte, oddech spokojny, a serce gotowe na przyjęcie nauki.
+## Dojazd i nocleg
 
-## Przebieg poranku
+Ashram Babaji położony jest w Mąkolnie, w Kotlinie Kłodzkiej - z dala od miejskiego zgiełku. Dysponujemy miejscami noclegowymi dla osób, które chciałyby przyjechać wcześniej lub zostać dłużej. Po ceremonii zapraszamy na wspólny posiłek wegetariański.
 
-Ceremonia rozpocznie się o wschodzie słońca od krótkiego wprowadzenia i synchronizacji oddechu. Następnie rozpalimy święty ogień z użyciem tradycyjnego drewna mango, a każdy uczestnik otrzyma możliwość złożenia symbolicznej ofiary ghee i ziarna z wypowiedzeniem własnej intencji.
+## Zgłoszenia
 
-Główną część stanowi odśpiewanie Mahamrityunjaya Mantra oraz Gayatri Mantra w rytmie oddechu, przez co ogień staje się coraz jaśniejszy, a przestrzeń napełnia się zapachem sandałowca i ciepłem transformacji. Poranek zakończymy wspólną medytacją w blasku ognia i pierwszych promieni słońca, po czym uczestnicy będą mogli wspólnie zjeść lekkie śniadanie (prasad) w ciszy.
+Ze względów organizacyjnych prosimy o wcześniejszy kontakt:
 
-## Program
+- **telefon:** 536 555 899 (Mohan)
 
-- 07:00 - Wprowadzenie i rozpalenie świętego ognia
-- 07:30 - Havan z Mahamrityunjaya Mantrą i ofiarą ghee
-- 08:30 - Gayatri Mantra i bhajan przy ogniu
-- 09:00 - Medytacja w blasku ognia i wschodzącego słońca
-- 09:30 - Prasad (wspólne śniadanie) w ciszy
+Wydarzenie na Facebooku: [Ceremonia Ognia Havan](https://www.facebook.com/share/18x2oHfXEz/?mibextid=wwXIfr).
+
+*Om Shanti*
