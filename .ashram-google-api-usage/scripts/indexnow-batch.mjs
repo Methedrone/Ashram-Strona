@@ -126,14 +126,14 @@ if (useIndexNow) {
   }
 }
 
-// ── 3. Bing WMT SubmitUrlBatch (wymaga apikey, działa natychmiast) ──
+// ── 3. Bing WMT Content Submission API (wymaga apikey, działa natychmiast) ──
 if (useBingWMT) {
-  console.log(`\n📤 Bing WMT SubmitUrlBatch (${urls.length} URLs):`);
-  // Bing WMT limit: 100 URLs per request, 10k/month
-  const BING_LIMIT = 100;
+  console.log(`\n📤 Bing WMT Content Submission API (${urls.length} URLs):`);
+  // Bing limit: 500 URLs per request
+  const BING_LIMIT = 500;
   for (const chunk of chunks(urls, BING_LIMIT)) {
     const res = await fetch(
-      `https://ssl.bing.com/webmaster/api.svc/SubmitUrlBatch?apikey=${BING_API_KEY}`,
+      `https://api.bing.com/contentsubmission/v1.0/submitBatch?apikey=${BING_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json; charset=utf-8' },
@@ -148,11 +148,16 @@ if (useBingWMT) {
       stats.bingwmt.fail += chunk.length;
       const text = await res.text();
       console.log(`  ✗ ${status} — ${text.slice(0, 200)}`);
+      if (status === 400 && text.includes('InvalidApiKey')) {
+        console.log(`     💡 Invalid API key — sprawdź INDEXNOW_BING_API_KEY w .env`);
+        console.log(`        Bing WMT → babaji.org.pl → Settings → API Access → Generate API Key`);
+      }
     }
   }
 } else if (!only || only === 'all') {
-  console.log(`\n💡 Bing WMT SubmitUrlBatch wyłączony — dodaj INDEXNOW_BING_API_KEY w .env`);
-  console.log(`   (Bing WMT → Settings → API Access → Generate API Key)`);
+  console.log(`\n💡 Bing WMT Content Submission API wyłączony — dodaj INDEXNOW_BING_API_KEY w .env`);
+  console.log(`   (Bing WMT → babaji.org.pl → Settings → API Access → Generate API Key)`);
+  console.log(`   Endpoint: https://api.bing.com/contentsubmission/v1.0/submitBatch?apikey=...`);
 }
 
 console.log(`\n📊 Wynik:`);

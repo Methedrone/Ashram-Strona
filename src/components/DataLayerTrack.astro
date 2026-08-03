@@ -1,10 +1,14 @@
-// SSR-renderowany komponent (zero client JS w bundlu)
-// Zmienne inline przekazujemy bezpośrednio do skryptu
----
-
-<script
-  is:inline
->
+<!--
+  dataLayer-track.astro — Wstrzykuje globalny tracker do <body>.
+  Użycie w Layout.astro (raz): <body><DataLayerTrack /></body>
+  Automatycznie łapie:
+   - Każdy element z data-event="<name>" + data-event-data="{...}" → push do dataLayer
+   - Outbound links (href z innego hostname)
+   - Scroll depth 25/50/75/100
+   - Language switch (klik na [data-lang-switch])
+   - File downloads (.pdf, .doc, .zip)
+-->
+<script is:inline>
   // Konfiguracja — łatwa do zmiany w jednym miejscu
   const TRACK_OUTBOUND = true;
   const TRACK_DOWNLOADS = true;
@@ -17,7 +21,7 @@
 
   // ─── 1. data-event="..." click handler ───────────────────────
   document.addEventListener('click', (e) => {
-    const target = e.target instanceof Element ? e.target.closest('[data-event]') : null;
+    const target = e.target instanceof Element ? target.closest('[data-event]') : null;
     if (!target) return;
     let data = {};
     try {
@@ -39,81 +43,85 @@
     document.addEventListener('click', (e) => {
       const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
       if (!a) return;
-      const href = a.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('/') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+      const href = a.getAttribute('href') || '';
+      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
       try {
-        const url = new URL(href);
-        if (url.hostname !== window.location.hostname) {
+        const u = new URL(href, window.location.origin);
+        if (u.hostname !== window.location.hostname) {
           window.dataLayer.push({
             event: 'outbound_link',
-            outbound_url: href,
-            outbound_host: url.hostname,
+            link_url: u.href,
+            link_domain: u.hostname,
+            link_text: (a.textContent || '').trim().slice(0, 100),
             page_path: window.location.pathname,
           });
         }
-      } catch {}
+      } catch (_) { /* ignore */ }
     });
   }
 
-  // ─── 3. File downloads ──────────────────────────────────────
+  // ─── 3. Scroll depth ────────────────────────────────────────
+  if (TRACK_SCROLL_DEPTH) {
+    const seen = new Set();
+    let scrollTicking = false;
+    function onScroll() {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(() => {
+        const doc = document.documentElement;
+        const total = Math.max(1, doc.scrollHeight - window.innerHeight);
+        const pct = Math.min(100, Math.round((window.scrollY / total) * 100));
+        for (const t of SCROLL_THRESHOLDS) {
+          if (pct >= t && !seen.has(t)) {
+            seen.add(t);
+            window.dataLayer.push({
+              event: 'scroll_depth',
+              percent: t,
+              page_path: window.location.pathname,
+            });
+          }
+        }
+        scrollTicking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  // ─── 4. File downloads ──────────────────────────────────────
   if (TRACK_DOWNLOADS) {
     document.addEventListener('click', (e) => {
       const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
       if (!a) return;
-      const href = a.getAttribute('href') ?? '';
-      const match = href.match(DOWNLOAD_EXTENSIONS);
-      if (match) {
+      const href = a.getAttribute('href') || '';
+      if (DOWNLOAD_EXTENSIONS.test(href)) {
         window.dataLayer.push({
           event: 'file_download',
           file_name: href.split('/').pop(),
-          file_type: match[1].toLowerCase(),
+          file_url: href,
           page_path: window.location.pathname,
         });
       }
     });
   }
 
-  // ─── 4. Scroll depth ────────────────────────────────────────
-  if (TRACK_SCROLL_DEPTH) {
-    const fired = new Set();
-    const checkScroll = () => {
-      const h = document.documentElement;
-      const b = document.body;
-      const st = window.pageYOffset || h.scrollTop || b.scrollTop || 0;
-      const sh = (h.scrollHeight || b.scrollHeight) - h.clientHeight;
-      if (sh <= 0) return;
-      const pct = Math.round((st / sh) * 100);
-      for (const t of SCROLL_THRESHOLDS) {
-        if (pct >= t && !fired.has(t)) {
-          fired.add(t);
-          window.dataLayer.push({
-            event: 'scroll_depth',
-            scroll_percent: t,
-            page_path: window.location.pathname,
-          });
-        }
-      }
-    };
-    let scrollTimer;
-    window.addEventListener('scroll', () => {
-      if (scrollTimer) return;
-      scrollTimer = setTimeout(() => { scrollTimer = null; checkScroll(); }, 200);
-    }, { passive: true });
-  }
-
   // ─── 5. Language switch ─────────────────────────────────────
   document.addEventListener('click', (e) => {
     const a = e.target instanceof Element ? e.target.closest('[data-lang-switch]') : null;
     if (!a) return;
-    const to = a.dataset.langSwitch;
-    const from = document.documentElement.lang ?? 'pl';
-    if (to && to !== from) {
-      window.dataLayer.push({
-        event: 'language_switch',
-        from_lang: from,
-        to_lang: to,
-        page_path: window.location.pathname,
-      });
-    }
+    window.dataLayer.push({
+      event: 'language_switch',
+      from: document.documentElement.lang || 'pl',
+      to: a.dataset.langSwitch,
+      page_path: window.location.pathname,
+    });
+  });
+
+  // ─── 6. Initial page_view ───────────────────────────────────
+  window.dataLayer.push({
+    event: 'page_view',
+    page_path: window.location.pathname,
+    page_title: document.title,
+    page_lang: document.documentElement.lang || 'pl',
+    page_referrer: document.referrer || '',
   });
 </script>
