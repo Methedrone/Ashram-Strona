@@ -36,7 +36,16 @@ tmp/
 .crush/
 .factory/
 .codacy/
-
+.roo/
+.opencode/
+.opencode-router/
+.github/skills/
+.antigravity/
+opencode.jsonc
+skills/
+.skillkit/
+skillkit.yaml
+skills-lock.json
 
 #Ignore vscode AI rules
 .github/instructions/codacy.instructions.md
