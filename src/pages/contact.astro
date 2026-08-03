@@ -153,7 +153,13 @@ const localBusinessSchema = {
           <h3>{t('contact.title')}</h3>
           <div class="mailto-card">
             <p>{t('contact.mailto.text')}</p>
-            <a href={`mailto:${contactInfo.email}`} class="btn-primary">
+            <a
+              href={`mailto:${contactInfo.email}`}
+              class="btn-primary"
+              data-event="contact_form_submit"
+              data-event-label="Click mailto CTA"
+              data-event-data={JSON.stringify({ source: 'mailto_button', page_path: '/contact' })}
+            >
               {t('contact.mailto.btn')}
             </a>
           </div>

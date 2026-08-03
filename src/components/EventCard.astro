@@ -47,7 +47,19 @@ const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US',
     
     <p>{description}</p>
     
-    <a href={href} class="register-btn">
+    <a
+      href={href}
+      class="register-btn"
+      data-event="sign_up_havan"
+      data-event-label={`Signup: ${title}`}
+      data-event-data={JSON.stringify({
+        havan_id: post.slug,
+        havan_date: date.toISOString().slice(0, 10),
+        havan_location: location,
+        event_type: post.data.eventType ?? 'havan',
+        is_online: post.data.isOnline ?? false,
+      })}
+    >
       {t('events.register')}
       <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
     </a>

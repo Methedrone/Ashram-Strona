@@ -4,6 +4,7 @@ import { getLangFromUrl, useTranslations, translatePath } from '../i18n/utils';
 import Schema from '../components/Schema.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import DataLayerTrack from '../components/DataLayerTrack.astro';
 
 interface Props {
   title: string;
@@ -33,6 +34,11 @@ const description = customDescription || t('common.description');
 const currentPath = Astro.url.pathname;
 const robotsExtras = 'max-image-preview:large, max-snippet:-1, max-video-preview:-1';
 
+// GTM container ID — z .env (GTM_CONTAINER_ID) z fallbackiem na obecny hardcoded
+const gtmId = process.env.GTM_CONTAINER_ID || 'GTM-5J4NL66W';
+// GA4 measurement ID — z .env
+const ga4Id = process.env.GA4_MEASUREMENT_ID || 'G-QPJ40KK4Z4';
+
 // Check if this is the homepage
 const isHome = currentPath === '/' || currentPath === '/en/' || currentPath === '/en';
 
@@ -49,7 +55,7 @@ const gtagSnippet = `
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-QPJ40KK4Z4');
+  gtag('config', '${ga4Id}');
 `;
 
 const defaultSchema: Record<string, any> = {
@@ -160,10 +166,10 @@ if (isHome) {
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5J4NL66W');</script>
+})(window,document,'script','dataLayer','{gtmId}');</script>
 		<!-- End Google Tag Manager -->
 		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPJ40KK4Z4"></script>
+		<script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
 		<script set:html={gtagSnippet} />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -238,9 +244,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	</head>
 	<body>
 		<!-- Google Tag Manager (noscript) -->
-		<noscript is:inline><iframe title="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=GTM-5J4NL66W"
+		<noscript is:inline><iframe title="Google Tag Manager" src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<!-- End Google Tag Manager (noscript) -->
+		<DataLayerTrack />
 		<a href="#main-content" class="skip-link">{t('common.skipToContent')}</a>
 		<Header activePath={currentPath} />
 		<main id="main-content" tabindex="-1">
