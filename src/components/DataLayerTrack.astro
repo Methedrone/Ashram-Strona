@@ -1,21 +1,5 @@
-/**
- * dataLayer-track.astro — Wstrzykuje globalny tracker do <body>.
- *
- * Użycie w Layout.astro (raz):
- *   <body>
- *     <DataLayerTrack />
- *     ...
- *
- * Automatycznie łapie:
- *   - Każdy element z data-event="<name>" + data-event-data="{...}" → push do dataLayer
- *   - Outbound links (href z innego hostname)
- *   - Scroll depth 25/50/75/100
- *   - Language switch (klik na [data-lang-switch])
- *   - File downloads (.pdf, .doc, .zip)
- */
----
 // SSR-renderowany komponent (zero client JS w bundlu)
-// Zmienne inline przekazujemy bezpośrednio do skryptu (Astro define:vars przekaże wartości)
+// Zmienne inline przekazujemy bezpośrednio do skryptu
 ---
 
 <script
