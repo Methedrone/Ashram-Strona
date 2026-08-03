@@ -21,6 +21,24 @@ const SUPPORTED_EXTENSIONS = ['.webp', '.jpg', '.jpeg', '.png', '.avif'];
 const PREFERRED_SIZE = 'w1600';
 
 /**
+ * Information about an image found in content collections (events, teachings)
+ */
+export interface ContentImageInfo {
+  /** Full path to the image (e.g., /images/gallery/meditation.webp) */
+  path: string;
+  /** Title of the content entry */
+  title: string;
+  /** Alt text for the image (derived from title) */
+  alt: string;
+  /** URL to the content page */
+  pageUrl: string;
+  /** Type of content: 'event' or 'teaching' */
+  contentType: 'event' | 'teaching';
+  /** Slug of the content entry */
+  slug: string;
+}
+
+/**
  * Checks if a file is an image based on its extension
  * @param filename - The filename to check
  * @returns True if the file has a supported image extension
@@ -141,60 +159,69 @@ export function scanGalleryImages(galleryPath?: string): ImageInfo[] {
 }
 
 /**
- * Scans gallery images asynchronously for better performance with large directories
- * 
- * @param galleryPath - Optional custom path to gallery directory
- * @returns Promise resolving to array of ImageInfo objects
+ * Scans gallery images and returns a map of base filename -> optimized w1600 path
+ * This allows content images to be matched to their optimized variants
  */
-export async function scanGalleryImagesAsync(galleryPath?: string): Promise<ImageInfo[]> {
-  return new Promise((resolve) => {
-    const images = scanGalleryImages(galleryPath);
-    resolve(images);
-  });
+export function scanGalleryImageMap(galleryPath?: string): Map<string, string> {
+  const defaultPath = path.join(process.cwd(), 'public', 'images', 'optimized', 'gallery');
+  const targetPath = galleryPath || defaultPath;
+  
+  if (!fs.existsSync(targetPath)) {
+    console.warn(`Gallery directory not found: ${targetPath}`);
+    return new Map();
+  }
+  
+  const imageMap = new Map<string, string>();
+  const publicDir = path.join(process.cwd(), 'public');
+  
+  function scanDir(dirPath: string) {
+    const entries = fs.readdirSync(dirPath, { withFileTypes: true });
+    
+    for (const entry of entries) {
+      const fullPath = path.join(dirPath, entry.name);
+      
+      if (entry.isDirectory()) {
+        scanDir(fullPath);
+      } else if (entry.isFile() && isImageFile(entry.name)) {
+        if (isPreferredVariant(entry.name)) {
+          const relativePath = path.relative(publicDir, fullPath);
+          const webPath = '/' + relativePath.replace(/\\/g, '/');
+          
+          // Extract base name without size suffix (e.g., "aarti-ceremony" from "aarti-ceremony-w1600.webp")
+          const withoutExt = entry.name.replace(/\.[^/.]+$/, '');
+          const baseName = withoutExt.replace(/-w\d+$/, '');
+          
+          // Map both with and without extension
+          imageMap.set(baseName, webPath);
+          imageMap.set(baseName + '.webp', webPath);
+        }
+      }
+    }
+  }
+  
+  scanDir(targetPath);
+  return imageMap;
 }
 
 /**
- * Gets the total count of unique gallery images (only counting preferred variants)
- * 
- * @param galleryPath - Optional custom path to gallery directory
- * @returns Number of unique images found
- */
-export function getGalleryImageCount(galleryPath?: string): number {
-  return scanGalleryImages(galleryPath).length;
-}
-
-/**
- * Information about an image found in content collections (events, teachings)
- */
-export interface ContentImageInfo {
-  /** Full path to the image (e.g., /images/gallery/meditation.webp) */
-  path: string;
-  /** Title of the content entry */
-  title: string;
-  /** Alt text for the image (derived from title) */
-  alt: string;
-  /** URL to the content page */
-  pageUrl: string;
-  /** Type of content: 'event' or 'teaching' */
-  contentType: 'event' | 'teaching';
-  /** Slug of the content entry */
-  slug: string;
-}
-
-/**
- * Scans content collections (events, teachings) for featured images
+ * Scans content collections (events, teachings) for featured images and maps them to optimized variants
  * @param lang - Language code ('pl' or 'en')
- * @returns Array of content image information
+ * @returns Array of content image information with corrected paths
  */
 export async function scanContentImages(lang: 'pl' | 'en'): Promise<ContentImageInfo[]> {
   const images: ContentImageInfo[] = [];
-
+  const galleryMap = scanGalleryImageMap();
+  
   // Scan events collection
   const events = await getCollection('events', (entry: CollectionEntry<'events'>) => entry.data.lang === lang);
   for (const event of events) {
     if (event.data.featuredImage) {
+      // Try to find optimized variant
+      const baseName = event.data.featuredImage.replace(/\.[^/.]+$/, '').replace(/^\/images\/gallery\//, '');
+      const optimizedPath = galleryMap.get(baseName) || galleryMap.get(baseName + '.webp') || event.data.featuredImage;
+      
       images.push({
-        path: event.data.featuredImage,
+        path: optimizedPath,
         title: event.data.title,
         alt: `${event.data.title} - featured image`,
         pageUrl: `/events/${event.slug}`,
@@ -208,8 +235,11 @@ export async function scanContentImages(lang: 'pl' | 'en'): Promise<ContentImage
   const teachings = await getCollection('teachings', (entry: CollectionEntry<'teachings'>) => entry.data.lang === lang);
   for (const teaching of teachings) {
     if (teaching.data.featuredImage) {
+      const baseName = teaching.data.featuredImage.replace(/\.[^/.]+$/, '').replace(/^\/images\/gallery\//, '');
+      const optimizedPath = galleryMap.get(baseName) || galleryMap.get(baseName + '.webp') || teaching.data.featuredImage;
+      
       images.push({
-        path: teaching.data.featuredImage,
+        path: optimizedPath,
         title: teaching.data.title,
         alt: `${teaching.data.title} - featured image`,
         pageUrl: `/teachings/${teaching.slug}`,

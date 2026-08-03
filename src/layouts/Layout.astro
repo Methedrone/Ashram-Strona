@@ -36,8 +36,6 @@ const robotsExtras = 'max-image-preview:large, max-snippet:-1, max-video-preview
 
 // GTM container ID — z .env (GTM_CONTAINER_ID) z fallbackiem na obecny hardcoded
 const gtmId = process.env.GTM_CONTAINER_ID || 'GTM-5J4NL66W';
-// GA4 measurement ID — z .env
-const ga4Id = process.env.GA4_MEASUREMENT_ID || 'G-QPJ40KK4Z4';
 
 // Check if this is the homepage
 const isHome = currentPath === '/' || currentPath === '/en/' || currentPath === '/en';
@@ -51,12 +49,10 @@ const hreflangs = alternateLocales.map((locale) => ({
 
 // OG image with default fallback
 const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/havan-ceremony-group-fire-offerings.webp`;
-const gtagSnippet = `
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '${ga4Id}');
-`;
+
+// GTM-only tracking (gtag.js removed to avoid double tracking)
+// GTM container already includes GA4 config tag
+// gtagSnippet removed - GTM handles GA4 initialization
 
 const defaultSchema: Record<string, any> = {
   "@context": "https://schema.org",
@@ -168,9 +164,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','{gtmId}');</script>
 		<!-- End Google Tag Manager -->
-		<!-- Google tag (gtag.js) -->
-		<script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
-		<script set:html={gtagSnippet} />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />

@@ -1,0 +1,86 @@
+---
+interface Props {
+  data: {
+    title: string;
+    description: string;
+    date: Date;
+    endDate?: Date;
+    time?: string;
+    location: string;
+    lang: string;
+    featuredImage?: string;
+    isOnline?: boolean;
+    registrationUrl?: string;
+    tags?: string[];
+    faqs?: { question: string; answer: string }[];
+    updatedAt?: Date;
+    slug?: string;
+  };
+  lang: 'pl' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const siteUrl = 'https://babaji.org.pl';
+
+const formattedDate = data.date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  weekday: 'long',
+});
+
+const ogImagePath = data.featuredImage || '/images/havan-ceremony-group-fire-offerings.webp';
+const baseSlug = data.slug || '';
+const eventUrl = `${siteUrl}/${lang === 'pl' ? '' : 'en/'}events/${baseSlug}`;
+const eventImage = `${siteUrl}${ogImagePath}`;
+const eventEndDate = data.endDate ? data.endDate.toISOString() : undefined;
+const eventAttendanceMode = data.isOnline
+  ? 'https://schema.org/OnlineEventAttendanceMode'
+  : 'https://schema.org/OfflineEventAttendanceMode';
+const eventLocation = data.isOnline
+  ? { '@type': 'VirtualLocation', 'url': data.registrationUrl || eventUrl }
+  : {
+      '@type': 'Place',
+      'name': 'Ashram Babaji',
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': 'Mąkolno 129',
+        'addressLocality': 'Mąkolno',
+        'postalCode': '57-250',
+        'addressRegion': 'Dolnośląskie',
+        'addressCountry': 'PL'
+      }
+    };
+const registrationUrl = data.registrationUrl
+  ? (data.registrationUrl.startsWith('http') ? data.registrationUrl : `${siteUrl}${data.registrationUrl}`)
+  : `${siteUrl}/${lang === 'pl' ? '' : 'en/'}contact`;
+
+const eventSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  'name': data.title,
+  'description': data.description,
+  'startDate': data.date.toISOString(),
+  'endDate': eventEndDate,
+  'eventStatus': 'https://schema.org/EventScheduled',
+  'eventAttendanceMode': eventAttendanceMode,
+  'location': eventLocation,
+  'organizer': {
+    '@type': 'ReligiousOrganization',
+    'name': 'Ashram Babaji',
+    'url': 'https://babaji.org.pl'
+  },
+  'offers': {
+    '@type': 'Offer',
+    'price': '0',
+    'priceCurrency': 'PLN',
+    'availability': 'https://schema.org/InStock',
+    'url': registrationUrl
+  },
+  'image': eventImage,
+  'inLanguage': lang,
+  'url': eventUrl
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
