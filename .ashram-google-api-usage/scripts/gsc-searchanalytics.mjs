@@ -73,7 +73,9 @@ async function call(path, method = 'GET', body = null) {
     const encodedSite = encodeURIComponent(SITE);
     url = `https://www.googleapis.com/webmasters/v3/sites/${encodedSite}${path}`;
   }
-  const res = await client.request({ url, method, data: body });
+  const opts = { url, method };
+  if (body !== null) opts.data = body;
+  const res = await client.request(opts);
   return res.data;
 }
 
