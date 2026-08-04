@@ -8,8 +8,8 @@
  * Usage: run AFTER `npm run build`:
  *   node scripts/build-llms-full.mjs
  */
-import { readdir, readFile, writeFile, stat } from 'node:fs/promises';
-import { join, relative, sep } from 'node:path';
+import { readdir, readFile, writeFile } from 'node:fs/promises';
+import { join, relative } from 'node:path';
 
 const DIST = 'dist';
 const OUT = 'public/llms-full.txt';
