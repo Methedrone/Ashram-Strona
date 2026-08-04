@@ -1,0 +1,4 @@
+=== BASELINE Astro 5.17.1 2026-08-04T03:32:02+02:00 ===
+HTML pages: 72
+dist size: 428M
+build: OK (4.99s), sitemap-index OK, IndexNow 403 (znany Bing issue), _routes.json include: ["/api/*","/_server-islands/*"]

@@ -405,14 +405,25 @@ Dodatkowo: walidacja RSS i sitemap (`xmllint --noout` jeśli dostępny, albo otw
 npm run audit:quick        # obrazy + JSON-LD + axe (wymaga działającego serwera na 4321)
 ```
 
-### Task C3: PR i deploy na master
+### Task C3: PR i wdrożenie na dev (decyzja z 2026-08-04: PR-y lecą na `dev`)
 
 ```bash
 git push -u origin feat/astro7-upgrade
-gh pr create --base master --head feat/astro7-upgrade --title "feat(astro7): upgrade Astro 5.17 → 7.1.6 (Content Layer, Vite 8, Rust compiler)" --body "..."
+gh pr create --base dev --head feat/astro7-upgrade --title "feat(astro7): upgrade Astro 5.17 → 7.1.6 (Content Layer, Vite 8, Rust compiler)" --body "..."
 ```
 
-Po zielonym CI + audit na PR → merge → `deploy.yml` (Node 24, `npm run build:cf`, wrangler pages deploy).
+Po zielonym CI na PR (build + Playwright) → merge do `dev`. **Uwaga:** deploy.yml odpala się tylko na push do `master` — nic nie wchodzi na produkcję, dopóki wszystkie PR-y nie zleją się na `dev`.
+
+### Task C3b: Finalny release — duży PR `dev → master`
+
+Po mergu wszystkich PR-ów (1–4) na `dev`:
+
+```bash
+git checkout dev && git pull origin dev
+gh pr create --base master --head dev --title "release(astro7): Astro 7 + nowości v7 + ekosystem integracji" --body "..."
+```
+
+Dopiero ten PR odpala `deploy.yml` (Node 24, `npm run build:cf`, wrangler pages deploy `dist/client`). Jeśli coś padnie — revert tego PR-a albo rollback deploymentu w CF Pages; `dev` zostaje nietknięty jako źródło prawdy.
 
 ### Task C4: Weryfikacja produkcyjna (po deploy)
 
