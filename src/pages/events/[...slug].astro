@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { useTranslations } from '../../i18n/utils';
 import Breadcrumb from '../../components/Breadcrumb.astro';
@@ -8,11 +9,11 @@ import RelatedTeachings from '../../components/RelatedTeachings.astro';
 import RelatedEvents from '../../components/RelatedEvents.astro';
 
 export async function getStaticPaths() {
-  const events = await getCollection('events', ({ data }) => {
+  const events = await getCollection('events', ({ data }: { data: CollectionEntry<'events'>['data'] }) => {
     return data.lang === 'pl';
   });
   
-  return events.map(entry => {
+  return events.map((entry: CollectionEntry<'events'>) => {
     const [lang, ...slugParts] = entry.id.split('/');
     const slug = slugParts.join('/');
     return {
@@ -22,14 +23,14 @@ export async function getStaticPaths() {
   });
 }
 
-const { entry } = Astro.props as { entry: any };
+const { entry } = Astro.props as { entry: CollectionEntry<'events'> };
 const { Content } = await render(entry);
 
 const lang = 'pl';
 const t = useTranslations(lang);
 const siteUrl = 'https://babaji.org.pl';
 
-const data = entry.data as Record<string, any>;
+const data = entry.data;
 
 const breadcrumbItems = [
   { label: t('nav.home'), href: '/' },

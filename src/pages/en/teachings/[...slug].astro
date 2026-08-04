@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import { useTranslations } from '../../../i18n/utils';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
@@ -8,11 +9,11 @@ import RelatedTeachings from '../../../components/RelatedTeachings.astro';
 import RelatedEvents from '../../../components/RelatedEvents.astro';
 
 export async function getStaticPaths() {
-  const teachings = await getCollection('teachings', ({ data }) => {
+  const teachings = await getCollection('teachings', ({ data }: { data: CollectionEntry<'teachings'>['data'] }) => {
     return data.lang === 'en';
   });
   
-  return teachings.map(entry => {
+  return teachings.map((entry: CollectionEntry<'teachings'>) => {
     const [lang, ...slugParts] = entry.id.split('/');
     const slug = slugParts.join('/');
     return {
@@ -22,14 +23,14 @@ export async function getStaticPaths() {
   });
 }
 
-const { entry } = Astro.props as { entry: any };
+const { entry } = Astro.props as { entry: CollectionEntry<'teachings'> };
 const { Content } = await render(entry);
 
 const lang = 'en';
 const t = useTranslations(lang);
 const siteUrl = 'https://babaji.org.pl';
 
-const data = entry.data as Record<string, any>;
+const data = entry.data;
 const breadcrumbItems = [
   { label: t('nav.home'), href: '/en' },
   { label: t('nav.teachings'), href: '/en/teachings' },
@@ -49,7 +50,7 @@ const ogImagePath = data.featuredImage || '/images/havan-ceremony-group-fire-off
 const articleImage = `${siteUrl}${ogImagePath}`;
 const updatedAt = data.updatedAt ?? data.date;
 const keywords = data.tags?.join(', ');
-const faqItems = (data.faqs as { question: string; answer: string }[]) ?? [];
+const faqItems = data.faqs ?? [];
 const updatedLabel = 'Last updated';
 ---
 

@@ -43,6 +43,7 @@ const eventsCollection = defineCollection({
     registrationUrl: z.string().optional(),
     isOnline: z.boolean().default(false),
     featured: z.boolean().default(false),
+    eventType: z.string().optional(),
     updatedAt: z.date().optional(),
   }),
 });

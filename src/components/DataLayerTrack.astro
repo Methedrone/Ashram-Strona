@@ -7,6 +7,7 @@
    - Scroll depth 25/50/75/100
    - Language switch (klik na [data-lang-switch])
    - File downloads (.pdf, .doc, .zip)
+   - ClientRouter navigation (astro:page-load) — unikamy podwójnych page_view
 -->
 <script is:inline>
   // Konfiguracja — łatwa do zmiany w jednym miejscu
@@ -18,6 +19,16 @@
 
   // Inicjalizacja dataLayer
   window.dataLayer = window.dataLayer || [];
+
+  function pushPageView() {
+    window.dataLayer.push({
+      event: 'page_view',
+      page_path: window.location.pathname,
+      page_title: document.title,
+      page_lang: document.documentElement.lang || 'pl',
+      page_referrer: document.referrer || '',
+    });
+  }
 
   // ─── 1. data-event="..." click handler ───────────────────────
   document.addEventListener('click', (e) => {
@@ -116,12 +127,16 @@
     });
   });
 
-  // ─── 6. Initial page_view ───────────────────────────────────
-  window.dataLayer.push({
-    event: 'page_view',
-    page_path: window.location.pathname,
-    page_title: document.title,
-    page_lang: document.documentElement.lang || 'pl',
-    page_referrer: document.referrer || '',
+  // ─── 6. Initial page_view (first load) ──────────────────────
+  pushPageView();
+
+  // ─── 7. ClientRouter navigation page_view (avoid double on first load) ─────
+  let initialPageViewDone = true;
+  document.addEventListener('astro:page-load', () => {
+    if (initialPageViewDone) {
+      initialPageViewDone = false;
+      return;
+    }
+    pushPageView();
   });
 </script>
