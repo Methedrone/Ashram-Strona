@@ -12,7 +12,7 @@ const { currentSlug, lang, tags = [], limit = 3 } = Astro.props;
 
 const allTeachings = await getCollection('teachings', ({ data }) => data.lang === lang);
 const related = allTeachings
-  .filter(entry => entry.slug !== currentSlug)
+  .filter(entry => entry.id !== currentSlug)
   .filter(entry => tags.length === 0 || entry.data.tags?.some(tag => tags.includes(tag)))
   .slice(0, limit);
 ---
@@ -23,7 +23,7 @@ const related = allTeachings
     <ul>
       {related.map(teaching => (
         <li>
-          <a href={lang === 'pl' ? `/teachings/${teaching.slug.split('/').slice(1).join('/')}` : `/en/teachings/${teaching.slug.split('/').slice(1).join('/')}`}>
+          <a href={lang === 'pl' ? `/teachings/${teaching.id.split('/').slice(1).join('/')}` : `/en/teachings/${teaching.id.split('/').slice(1).join('/')}`}>
             {teaching.data.title}
           </a>
         </li>

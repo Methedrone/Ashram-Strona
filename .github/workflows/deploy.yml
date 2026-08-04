@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: 'npm'
 
       - name: Install dependencies
@@ -32,11 +32,12 @@ jobs:
       # Use wrangler pages deploy directly instead of cloudflare/pages-action.
       # pages-action with `directory: dist` only uploads dist/ contents as
       # static assets — it does NOT register dist/functions/*.ts as Pages
-      # Functions. wrangler pages deploy does both: uploads dist/ as static
-      # AND compiles + uploads dist/functions/ as Functions.
+      # Functions. wrangler pages deploy does both: uploads the build output
+      # directory as static AND compiles + uploads <dir>/functions/ as Functions.
+      # Adapter v14 layout: static assets now live in dist/client/.
       - name: Deploy to Cloudflare Pages
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
-        run: npx wrangler pages deploy dist --project-name="$CLOUDFLARE_PROJECT_NAME" --branch=master --commit-dirty=true
+        run: npx wrangler pages deploy dist/client --project-name="$CLOUDFLARE_PROJECT_NAME" --branch=master --commit-dirty=true

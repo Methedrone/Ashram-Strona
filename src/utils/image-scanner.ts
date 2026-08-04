@@ -224,9 +224,9 @@ export async function scanContentImages(lang: 'pl' | 'en'): Promise<ContentImage
         path: optimizedPath,
         title: event.data.title,
         alt: `${event.data.title} - featured image`,
-        pageUrl: `/events/${event.slug}`,
+        pageUrl: `/events/${event.id}`,
         contentType: 'event',
-        slug: event.slug,
+        slug: event.id,
       });
     }
   }
@@ -242,9 +242,9 @@ export async function scanContentImages(lang: 'pl' | 'en'): Promise<ContentImage
         path: optimizedPath,
         title: teaching.data.title,
         alt: `${teaching.data.title} - featured image`,
-        pageUrl: `/teachings/${teaching.slug}`,
+        pageUrl: `/teachings/${teaching.id}`,
         contentType: 'teaching',
-        slug: teaching.slug,
+        slug: teaching.id,
       });
     }
   }

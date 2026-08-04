@@ -12,7 +12,7 @@ const { currentSlug, lang, tags = [], limit = 3 } = Astro.props;
 
 const allEvents = await getCollection('events', ({ data }) => data.lang === lang);
 const related = allEvents
-  .filter(entry => entry.slug !== currentSlug)
+  .filter(entry => entry.id !== currentSlug)
   .filter(entry => tags.length === 0 || entry.data.tags?.some(tag => tags.includes(tag)))
   .slice(0, limit);
 ---
@@ -23,7 +23,7 @@ const related = allEvents
     <ul>
       {related.map(event => (
         <li>
-          <a href={lang === 'pl' ? `/events/${event.slug.split('/').slice(1).join('/')}` : `/en/events/${event.slug.split('/').slice(1).join('/')}`}>
+          <a href={lang === 'pl' ? `/events/${event.id.split('/').slice(1).join('/')}` : `/en/events/${event.id.split('/').slice(1).join('/')}`}>
             {event.data.title}
           </a>
         </li>

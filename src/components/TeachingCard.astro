@@ -14,7 +14,7 @@ const t = useTranslations(lang);
 const { title, description, date, author } = post.data;
 
 // Construct URL: /lang/teachings/slug-without-lang
-const [postLang, ...slugParts] = post.slug.split('/');
+const [postLang, ...slugParts] = post.id.split('/');
 const slug = slugParts.join('/');
 const href = postLang === 'pl' 
   ? `/teachings/${slug}` 

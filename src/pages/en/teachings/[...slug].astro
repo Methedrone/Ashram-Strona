@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import { useTranslations } from '../../../i18n/utils';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
@@ -13,7 +13,7 @@ export async function getStaticPaths() {
   });
   
   return teachings.map(entry => {
-    const [lang, ...slugParts] = entry.slug.split('/');
+    const [lang, ...slugParts] = entry.id.split('/');
     const slug = slugParts.join('/');
     return {
       params: { slug },
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props as { entry: any };
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 const lang = 'en';
 const t = useTranslations(lang);
@@ -44,7 +44,7 @@ const formattedDate = data.date.toLocaleDateString('en-US', {
 
 const shareUrl = encodeURIComponent(Astro.url.href);
 const shareTitle = encodeURIComponent(data.title);
-const articleUrl = `${siteUrl}/en/teachings/${entry.slug.split('/').slice(1).join('/')}`;
+const articleUrl = `${siteUrl}/en/teachings/${entry.id.split('/').slice(1).join('/')}`;
 const ogImagePath = data.featuredImage || '/images/havan-ceremony-group-fire-offerings.webp';
 const articleImage = `${siteUrl}${ogImagePath}`;
 const updatedAt = data.updatedAt ?? data.date;
@@ -131,8 +131,8 @@ const updatedLabel = 'Last updated';
         </div>
       </div>
 
-      <RelatedTeachings currentSlug={entry.slug} lang="en" tags={data.tags} />
-      <RelatedEvents currentSlug={entry.slug} lang="en" tags={data.tags} />
+      <RelatedTeachings currentSlug={entry.id} lang="en" tags={data.tags} />
+      <RelatedEvents currentSlug={entry.id} lang="en" tags={data.tags} />
     </div>
   </article>
 </Layout>

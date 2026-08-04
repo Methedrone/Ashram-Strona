@@ -21,7 +21,7 @@ const itemList = sortedEvents.map((event, index) => ({
   "@type": "ListItem",
   "position": index + 1,
   "name": event.data.title,
-  "url": `${siteUrl}/events/${event.slug.split('/').slice(1).join('/')}`
+  "url": `${siteUrl}/events/${event.id.split('/').slice(1).join('/')}`
 }));
 ---
 
