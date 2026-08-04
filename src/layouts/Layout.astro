@@ -159,13 +159,16 @@ if (isHome) {
 <!doctype html>
 <html lang={lang}>
 	<head>
-		<!-- Google Tag Manager -->
-		<script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		<!-- Google Tag Manager (snippet inlined verbatim, with the container
+		     id baked into the GTM URL at build time so the browser-side
+		     template literal 'i' always receives a real value). -->
+		<script is:inline define:vars={{ gtmUrl: `https://www.googletagmanager.com/gtm.js?id=${gtmId}` }}>
+		(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','{gtmId}');</script>
-		<!-- End Google Tag Manager -->
+gtmUrl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','');
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
