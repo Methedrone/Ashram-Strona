@@ -1,7 +1,10 @@
-import { defineCollection, z } from 'astro:content';
+// src/content.config.ts  (was src/content/config.ts)
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const teachingsCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/teachings' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -22,7 +25,7 @@ const teachingsCollection = defineCollection({
 });
 
 const eventsCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/events' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -40,11 +43,12 @@ const eventsCollection = defineCollection({
     registrationUrl: z.string().optional(),
     isOnline: z.boolean().default(false),
     featured: z.boolean().default(false),
+    eventType: z.string().optional(),
     updatedAt: z.date().optional(),
   }),
 });
 
 export const collections = {
-  'teachings': teachingsCollection,
-  'events': eventsCollection,
+  teachings: teachingsCollection,
+  events: eventsCollection,
 };

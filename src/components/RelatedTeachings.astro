@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 interface Props {
   currentSlug: string;
@@ -10,10 +10,10 @@ interface Props {
 
 const { currentSlug, lang, tags = [], limit = 3 } = Astro.props;
 
-const allTeachings = await getCollection('teachings', ({ data }) => data.lang === lang);
+const allTeachings = await getCollection('teachings', ({ data }: { data: CollectionEntry<'teachings'>['data'] }) => data.lang === lang);
 const related = allTeachings
-  .filter(entry => entry.slug !== currentSlug)
-  .filter(entry => tags.length === 0 || entry.data.tags?.some(tag => tags.includes(tag)))
+  .filter((entry: CollectionEntry<'teachings'>) => entry.id !== currentSlug)
+  .filter((entry: CollectionEntry<'teachings'>) => tags.length === 0 || entry.data.tags?.some((tag: string) => tags.includes(tag)))
   .slice(0, limit);
 ---
 
@@ -21,9 +21,9 @@ const related = allTeachings
   <section class="related-content">
     <h2>{lang === 'pl' ? 'Powiązane nauki' : 'Related teachings'}</h2>
     <ul>
-      {related.map(teaching => (
+      {related.map((teaching: CollectionEntry<'teachings'>) => (
         <li>
-          <a href={lang === 'pl' ? `/teachings/${teaching.slug.split('/').slice(1).join('/')}` : `/en/teachings/${teaching.slug.split('/').slice(1).join('/')}`}>
+          <a href={lang === 'pl' ? `/teachings/${teaching.id.split('/').slice(1).join('/')}` : `/en/teachings/${teaching.id.split('/').slice(1).join('/')}`}>
             {teaching.data.title}
           </a>
         </li>

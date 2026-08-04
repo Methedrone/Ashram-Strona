@@ -14,7 +14,7 @@ const t = useTranslations(lang);
 const { title, description, date, location } = post.data;
 
 // Construct URL: /lang/events/slug-without-lang
-const [postLang, ...slugParts] = post.slug.split('/');
+const [postLang, ...slugParts] = post.id.split('/');
 const slug = slugParts.join('/');
 const href = postLang === 'pl' 
   ? `/events/${slug}` 
@@ -53,7 +53,7 @@ const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US',
       data-event="sign_up_havan"
       data-event-label={`Signup: ${title}`}
       data-event-data={JSON.stringify({
-        havan_id: post.slug,
+        havan_id: post.id,
         havan_date: date.toISOString().slice(0, 10),
         havan_location: location,
         event_type: post.data.eventType ?? 'havan',

@@ -1,7 +1,7 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
-import sitemap from '@astrojs/sitemap';
+import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
 import indexnow from 'astro-indexnow';
 import 'dotenv/config';
 
@@ -9,7 +9,20 @@ import 'dotenv/config';
 export default defineConfig({
   site: 'https://babaji.org.pl',
   trailingSlash: 'never',
-  adapter: cloudflare(),
+  // v7 domyślnie używa 'jsx' (tnie spacje między inline elementami).
+  // true = poprzednie HTML-aware zachowanie — zero ryzyka wizualnego.
+  compressHTML: true,
+  // ClientRouter + prefetch (v7 stable)
+  prefetch: { prefetchAll: false, defaultStrategy: 'hover' },
+  // astro:env — type-safe env (GTM_CONTAINER_ID z fallbackem w Layout)
+  env: {
+    schema: {
+      GTM_CONTAINER_ID: envField.string({ context: 'server', access: 'public', optional: true }),
+    },
+  },
+  // prerenderEnvironment: 'node' — image-sitemap.xml.ts (via image-scanner.ts)
+  // czyta filesystem (fs/path) w trakcie prerenderu; workerd tego nie eksternalizuje.
+  adapter: cloudflare({ prerenderEnvironment: 'node' }),
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/404'),
@@ -31,7 +44,7 @@ export default defineConfig({
           return {
             ...item,
             priority: 1.0,
-            changefreq: 'monthly',
+            changefreq: ChangeFreqEnum.MONTHLY,
           };
         }
         
@@ -40,7 +53,7 @@ export default defineConfig({
           return {
             ...item,
             priority: 0.9,
-            changefreq: 'weekly',
+            changefreq: ChangeFreqEnum.WEEKLY,
           };
         }
         
@@ -49,7 +62,7 @@ export default defineConfig({
           return {
             ...item,
             priority: 0.8,
-            changefreq: 'weekly',
+            changefreq: ChangeFreqEnum.WEEKLY,
           };
         }
         
@@ -59,7 +72,7 @@ export default defineConfig({
           return {
             ...item,
             priority: 0.7,
-            changefreq: 'monthly',
+            changefreq: ChangeFreqEnum.MONTHLY,
           };
         }
         
@@ -67,7 +80,7 @@ export default defineConfig({
         return {
           ...item,
           priority: 0.6,
-          changefreq: 'monthly',
+          changefreq: ChangeFreqEnum.MONTHLY,
         };
       },
     }),
@@ -80,6 +93,8 @@ export default defineConfig({
     locales: ['pl', 'en'],
     routing: {
       prefixDefaultLocale: false,
+      // v6+: redirectToDefaultLocale domyślnie false; ręczny middleware w src/middleware.ts
+      // obsługuje /pl/* → 301 do root. NIE włączać redirectToDefaultLocale (konflikt = pętla).
     },
   },
 });

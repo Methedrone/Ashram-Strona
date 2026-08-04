@@ -18,7 +18,7 @@ const itemList = sortedTeachings.map((teaching, index) => ({
   "@type": "ListItem",
   "position": index + 1,
   "name": teaching.data.title,
-  "url": `${siteUrl}/en/teachings/${teaching.slug.split('/').slice(1).join('/')}`
+  "url": `${siteUrl}/en/teachings/${teaching.id.split('/').slice(1).join('/')}`
 }));
 ---
 

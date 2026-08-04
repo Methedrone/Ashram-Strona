@@ -15,23 +15,29 @@
     "audit:ci": "npm run generate-images && npm run build && AUDIT_PORT=4321 node scripts/jsonld-validate.mjs && AUDIT_PORT=4321 node scripts/axe-run.mjs && node scripts/axe-check.mjs",
     "psi": "node .ashram-google-api-usage/scripts/psi-snapshot.mjs",
     "llms-full": "node scripts/build-llms-full.mjs",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.12",
-    "@astrojs/rss": "^4.0.15",
-    "@astrojs/sitemap": "^3.7.0",
-    "astro": "^5.17.1",
-    "astro-indexnow": "^2.1.0",
-    "astro-lightgallery": "^2.3.0",
+    "@astrojs/cloudflare": "^14.1.7",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.1.6",
+    "astro-indexnow": "^2.3.10",
+    "astro-lightgallery": "^2.6.0",
     "astro-seo": "^1.1.0",
     "dotenv": "^17.3.1"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
     "@playwright/test": "^1.58.2",
     "axe-core": "^4.11.1",
     "lighthouse": "^13.0.2",
     "playwright": "^1.58.2",
-    "sharp": "^0.32.5"
+    "sharp": "^0.32.5",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   }
 }
