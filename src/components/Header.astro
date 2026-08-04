@@ -71,7 +71,15 @@ const switchText = lang === "pl" ? "English" : "Polski";
     </div>
 </header>
 
-<script>
+<!--
+  Mobile menu toggle script.
+  is:inline prevents Astro from bundling this DOM script — it is plain
+  ES2015+ that runs as-is in the browser. Without is:inline Astro wraps
+  the file in its own module loader, which can produce a TDZ ("Cannot
+  access 'target' before initialization") error in some browsers when
+  the script is hoisted relative to the menu DOM nodes.
+-->
+<script is:inline>
     const menuToggle = document.getElementById("menu-toggle");
     const nav = document.getElementById("main-navigation");
     const headerContainer = document.querySelector(".header-container");
@@ -79,7 +87,7 @@ const switchText = lang === "pl" ? "English" : "Polski";
     if (menuToggle && nav && headerContainer) {
         menuToggle.addEventListener("click", () => {
             const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-            
+
             // Toggle state
             menuToggle.setAttribute("aria-expanded", (!isExpanded).toString());
             nav.setAttribute("data-visible", (!isExpanded).toString());
