@@ -35,9 +35,14 @@ jobs:
       # Functions. wrangler pages deploy does both: uploads the build output
       # directory as static AND compiles + uploads <dir>/functions/ as Functions.
       # Adapter v14 layout: static assets now live in dist/client/.
+      # Deploy to production. The previous version passed --branch=master,
+      # which in wrangler 4.x targets the preview alias (master.pages.dev)
+      # instead of the custom-domain production build. Without --branch,
+      # wrangler uploads to the project's production branch and updates
+      # the custom domain in one step.
       - name: Deploy to Cloudflare Pages
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
-        run: npx wrangler pages deploy dist/client --project-name="$CLOUDFLARE_PROJECT_NAME" --branch=master --commit-dirty=true
+        run: npx wrangler pages deploy dist/client --project-name="$CLOUDFLARE_PROJECT_NAME" --commit-dirty=true
