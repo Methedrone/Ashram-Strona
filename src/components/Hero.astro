@@ -41,7 +41,7 @@ if (image) {
     <picture class="hero-image" aria-hidden="true">
       <source type="image/avif" srcset={optimizedWidths.map(w => `/images/optimized/${heroBaseNoExt}-w${w}.avif ${w}w`).join(', ')} sizes="100vw" />
       <source type="image/webp" srcset={optimizedWidths.map(w => `/images/optimized/${heroBaseNoExt}-w${w}.webp ${w}w`).join(', ')} sizes="100vw" />
-      <img src={`/images/optimized/${heroBaseNoExt}-w1024.webp`} alt="" loading="lazy" decoding="async" />
+      <img src={`/images/optimized/${heroBaseNoExt}-w1024.webp`} alt="" width="1024" height="768" fetchpriority="high" decoding="async" />
     </picture>
   )}
   <div class="overlay"></div>

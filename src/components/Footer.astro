@@ -11,6 +11,8 @@ const footerLinks: { href: string; label: string }[] = [
   { href: getLocalizedPath('/contact', lang), label: t('nav.contact') },
   { href: getLocalizedPath('/babaji', lang), label: 'Babaji' },
   { href: 'https://www.facebook.com/haidakhandisevadham.polska.9', label: 'Facebook' },
+  { href: lang === 'en' ? '/en/privacy-policy' : '/polityka-prywatnosci', label: t('footer.privacy') },
+  { href: lang === 'en' ? '/en/terms' : '/regulamin', label: t('footer.terms') },
 ];
 ---
 

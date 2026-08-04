@@ -177,7 +177,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=optional" rel="stylesheet" />
+
+		<!-- LCP: preload hero image on homepage -->
+		{isHome && (
+			<link rel="preload" as="image" href="/images/optimized/havan-ceremony-group-fire-offerings-w1600.webp"
+				imagesrcset="/images/optimized/havan-ceremony-group-fire-offerings-w480.webp 480w, /images/optimized/havan-ceremony-group-fire-offerings-w768.webp 768w, /images/optimized/havan-ceremony-group-fire-offerings-w1024.webp 1024w, /images/optimized/havan-ceremony-group-fire-offerings-w1600.webp 1600w"
+				imagesizes="100vw" fetchpriority="high" />
+		)}
 
         <SEO
           title={title}
