@@ -3,6 +3,11 @@ import { defineConfig, envField } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
 import indexnow from 'astro-indexnow';
+import mdx from '@astrojs/mdx';
+import partytown from '@astrojs/partytown';
+import robotsTxt from 'astro-robots-txt';
+import icon from 'astro-icon';
+import compress from 'astro-compress';
 import 'dotenv/config';
 
 // https://astro.build/config
@@ -24,6 +29,26 @@ export default defineConfig({
   // czyta filesystem (fs/path) w trakcie prerenderu; workerd tego nie eksternalizuje.
   adapter: cloudflare({ prerenderEnvironment: 'node' }),
   integrations: [
+    // Content authoring: allows .mdx entries alongside .md.
+    mdx(),
+    // Third-party scripts can be moved to a web worker by adding
+    // type="text/partytown" to the script element.
+    partytown({ config: { forward: ['dataLayer.push'] } }),
+    // Inline SVG icons with a consistent Astro component API.
+    icon(),
+    // Generate robots.txt from the canonical site URL; replaces public/robots.txt.
+    robotsTxt({
+      policy: [{
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/api/', '/*.json$', '/404'],
+      }],
+      sitemap: [
+        'https://babaji.org.pl/sitemap-index.xml',
+        'https://babaji.org.pl/image-sitemap.xml',
+        'https://babaji.org.pl/rss.xml',
+      ],
+    }),
     sitemap({
       filter: (page) => !page.includes('/404'),
       i18n: {
@@ -87,6 +112,11 @@ export default defineConfig({
     ...(process.env.INDEXNOW_KEY ? [indexnow({
       key: process.env.INDEXNOW_KEY,
     })] : []),
+    // Must remain last: optimizes the final static output produced by all
+    // preceding integrations (HTML, CSS, JS, SVG, JSON and images).
+    // Do not recompress the 400+ MB image archive during every build;
+    // Astro/image-scanner already handles image variants separately.
+    compress({ Image: false }),
   ],
   i18n: {
     defaultLocale: 'pl',

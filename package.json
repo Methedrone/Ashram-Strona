@@ -20,11 +20,16 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.1.7",
+    "@astrojs/mdx": "^7.0.5",
+    "@astrojs/partytown": "^2.1.7",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^7.1.6",
+    "astro-compress": "^2.4.1",
+    "astro-icon": "^1.1.5",
     "astro-indexnow": "^2.3.10",
     "astro-lightgallery": "^2.6.0",
+    "astro-robots-txt": "^1.0.0",
     "astro-seo": "^1.1.0",
     "dotenv": "^17.3.1"
   },
