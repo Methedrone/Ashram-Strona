@@ -35,14 +35,14 @@ export async function GET() {
     ...recentEvents.map(event => ({
       title: event.data.title,
       description: event.data.description,
-      link: `/events/${event.slug.split('/').slice(1).join('/')}`,
+      link: `/events/${event.id.split('/').slice(1).join('/')}`,
       pubDate: event.data.date,
       customData: `<language>pl</language>`,
     })),
     ...recentTeachings.map(teaching => ({
       title: teaching.data.title,
       description: teaching.data.description,
-      link: `/teachings/${teaching.slug.split('/').slice(1).join('/')}`,
+      link: `/teachings/${teaching.id.split('/').slice(1).join('/')}`,
       pubDate: teaching.data.date,
       customData: `<language>pl</language>`,
     })),

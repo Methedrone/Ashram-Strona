@@ -9,7 +9,12 @@ import 'dotenv/config';
 export default defineConfig({
   site: 'https://babaji.org.pl',
   trailingSlash: 'never',
-  adapter: cloudflare(),
+  // v7 domyślnie używa 'jsx' (tnie spacje między inline elementami).
+  // true = poprzednie HTML-aware zachowanie — zero ryzyka wizualnego.
+  compressHTML: true,
+  // prerenderEnvironment: 'node' — image-sitemap.xml.ts (via image-scanner.ts)
+  // czyta filesystem (fs/path) w trakcie prerenderu; workerd tego nie eksternalizuje.
+  adapter: cloudflare({ prerenderEnvironment: 'node' }),
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/404'),
@@ -80,6 +85,8 @@ export default defineConfig({
     locales: ['pl', 'en'],
     routing: {
       prefixDefaultLocale: false,
+      // v6+: redirectToDefaultLocale domyślnie false; ręczny middleware w src/middleware.ts
+      // obsługuje /pl/* → 301 do root. NIE włączać redirectToDefaultLocale (konflikt = pętla).
     },
   },
 });
