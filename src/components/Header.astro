@@ -47,17 +47,18 @@ const switchText = lang === "pl" ? "English" : "Polski";
         <nav id="main-navigation" data-visible="false" aria-label={t('nav.main')}>
             <ul class="nav-main">
                 {navItems.map(item => {
-                    const normalizedHref = item.href.replace(/\/$/, '');
-                    return (
-                    <li>
-                        <a 
-                            href={item.href} 
-                            class={currentPath === normalizedHref ? "active" : ""}
-                            aria-current={currentPath === normalizedHref ? "page" : undefined}
-                        >
-                            {item.text}
-                        </a>
-                    </li>
+                                    const normalizedHref = item.href.replace(/\/$/, '');
+                                    return (
+                                    <li>
+                                        <a
+                                            href={item.href}
+                                            data-astro-prefetch
+                                            class={currentPath === normalizedHref ? "active" : ""}
+                                            aria-current={currentPath === normalizedHref ? "page" : undefined}
+                                        >
+                                            {item.text}
+                                        </a>
+                                    </li>
                 )})}
             </ul>
             <div class="nav-language">
