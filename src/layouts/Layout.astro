@@ -159,12 +159,17 @@ if (isHome) {
 <!doctype html>
 <html lang={lang}>
 	<head>
-		<!-- Google Tag Manager -->
-		{gtmId && <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		<!-- Google Tag Manager (snippet inlined verbatim, container id baked
+		     into the GTM URL at build time via define:vars so the browser-side
+		     template literal always receives a real value; rendered only when
+		     GTM_CONTAINER_ID is set in astro:env — no hardcoded fallback). -->
+		{gtmId && <script is:inline define:vars={{ gtmUrl: `https://www.googletagmanager.com/gtm.js?id=${gtmId}` }}>
+		(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','{gtmId}');</script>}
+gtmUrl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','');
+		</script>}
 		<!-- End Google Tag Manager -->
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
