@@ -1,0 +1,115 @@
+---
+import Breadcrumb from '../Breadcrumb.astro';
+import SectionHeading from '../SectionHeading.astro';
+import { useTranslations } from '../../i18n/utils';
+import Layout from '../../layouts/Layout.astro';
+
+interface Props {
+  lang: 'pl' | 'en';
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const slugPath = (page: string) => (lang === 'pl' ? `/${page}` : `/en/${page}`);
+const practicesHref = lang === 'pl' ? '/praktyki' : '/en/practices';
+const springHref = lang === 'pl' ? '/events/wiosenny-retreat' : '/en/events/spring-retreat';
+const summerHref = lang === 'pl' ? '/events/letni-retreat' : '/en/events/summer-retreat';
+const navaratriHref = lang === 'pl' ? '/events/navaratri-festiwal' : '/en/events/navaratri-festival';
+const contactHref = slugPath('contact');
+const eventsHref = slugPath('events');
+const donationsHref = slugPath('donations');
+---
+
+<Layout title={t('nav.retreats')} description={t('meta.retreats.description')}>
+  <section class="retreats-page">
+    <div class="container">
+      <Breadcrumb items={[{ label: t('nav.home'), href: lang === 'pl' ? '/' : '/en' }, { label: t('nav.retreats') }]} />
+      <SectionHeading title={t('retreats.title')} subtitle={t('retreats.subtitle')} level={1} />
+
+      <p class="intro">
+        {t('retreats.intro.before')} <a href={slugPath('teachings')}>{t('retreats.intro.teachingsLink')}</a>
+        {t('retreats.intro.mid')} <a href={practicesHref}>{t('retreats.intro.practicesLink')}</a>{t('retreats.intro.after')}
+      </p>
+
+      <h2>{t('retreats.whatIs.title')}</h2>
+      <p>
+        {t('retreats.whatIs.text')}
+      </p>
+
+      <h2>{t('retreats.schedule.title')}</h2>
+      <div class="schedule">
+        <div><strong>5:30</strong> {t('retreats.schedule.0530')}</div>
+        <div><strong>7:00</strong> {t('retreats.schedule.0700')}</div>
+        <div><strong>9:00–12:00</strong> {t('retreats.schedule.0900')}</div>
+        <div><strong>18:00</strong> {t('retreats.schedule.1800')}</div>
+      </div>
+
+      <h2>{t('retreats.types.title')}</h2>
+      <ul>
+        <li><a href={springHref}>{t('retreats.types.spring.link')}</a> — {t('retreats.types.spring.desc')}</li>
+        <li><a href={summerHref}>{t('retreats.types.summer.link')}</a> — {t('retreats.types.summer.desc')}</li>
+        <li><a href={navaratriHref}>{t('retreats.types.navaratri.link')}</a> — {t('retreats.types.navaratri.desc')}</li>
+      </ul>
+
+      <h2>{t('retreats.prepare.title')}</h2>
+      <p>
+        {t('retreats.prepare.before')} <a href={donationsHref}>{t('retreats.prepare.donationsLink')}</a>{t('retreats.prepare.after')}
+      </p>
+
+      <div class="cta">
+        <a href={contactHref} class="btn-primary">{t('retreats.cta.contact')}</a>
+        <a href={eventsHref} class="btn-secondary">{t('retreats.cta.events')}</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .retreats-page {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .intro a {
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .schedule {
+    display: grid;
+    gap: 0.75rem;
+    margin: 1rem 0 2rem;
+    padding: 1.5rem;
+    background: var(--color-bg-warm);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+  }
+
+  ul a {
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .cta {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+</style>
