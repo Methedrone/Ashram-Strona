@@ -1,6 +1,6 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { type CollectionEntry, getCollection } from 'astro:content';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
 export interface ImageInfo {
   path: string;
@@ -53,7 +53,7 @@ function scanDirectory(dirPath: string, baseDir: string, images: ImageInfo[]): v
       // Keep only the largest (w1600) webp variants — avoids sitemap duplicates
       if (isPreferredVariant(entry.name)) {
         const relativePath = path.relative(baseDir, fullPath);
-        const webPath = '/' + relativePath.replace(/\\/g, '/');
+        const webPath = `/${relativePath.replace(/\\/g, '/')}`;
         const title = extractBaseName(entry.name);
         images.push({ path: webPath, title, alt: `Image: ${title}` });
       }
@@ -105,13 +105,13 @@ function scanGalleryImageMap(galleryPath?: string): Map<string, string> {
       } else if (entry.isFile() && isImageFile(entry.name)) {
         if (isPreferredVariant(entry.name)) {
           const relativePath = path.relative(publicDir, fullPath);
-          const webPath = '/' + relativePath.replace(/\\/g, '/');
+          const webPath = `/${relativePath.replace(/\\/g, '/')}`;
           
           const withoutExt = entry.name.replace(/\.[^/.]+$/, '');
           const baseName = withoutExt.replace(/-w\d+$/, '');
           // Lookups come both with and without the .webp suffix
           imageMap.set(baseName, webPath);
-          imageMap.set(baseName + '.webp', webPath);
+          imageMap.set(`${baseName}.webp`, webPath);
         }
       }
     }
@@ -129,7 +129,7 @@ export async function scanContentImages(lang: 'pl' | 'en'): Promise<ContentImage
   for (const event of events) {
     if (event.data.featuredImage) {
       const baseName = event.data.featuredImage.replace(/\.[^/.]+$/, '').replace(/^\/images\/gallery\//, '');
-      const optimizedPath = galleryMap.get(baseName) || galleryMap.get(baseName + '.webp') || event.data.featuredImage;
+      const optimizedPath = galleryMap.get(baseName) || galleryMap.get(`${baseName}.webp`) || event.data.featuredImage;
       
       images.push({
         path: optimizedPath,
@@ -146,7 +146,7 @@ export async function scanContentImages(lang: 'pl' | 'en'): Promise<ContentImage
   for (const teaching of teachings) {
     if (teaching.data.featuredImage) {
       const baseName = teaching.data.featuredImage.replace(/\.[^/.]+$/, '').replace(/^\/images\/gallery\//, '');
-      const optimizedPath = galleryMap.get(baseName) || galleryMap.get(baseName + '.webp') || teaching.data.featuredImage;
+      const optimizedPath = galleryMap.get(baseName) || galleryMap.get(`${baseName}.webp`) || teaching.data.featuredImage;
       
       images.push({
         path: optimizedPath,

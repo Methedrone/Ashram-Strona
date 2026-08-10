@@ -1,14 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
 import DailySchedule from '../components/DailySchedule.astro';
 import EventCard from '../components/EventCard.astro';
-import TeachingCard from '../components/TeachingCard.astro';
+import Hero from '../components/Hero.astro';
 import LocationMap from '../components/LocationMap.astro';
-import SectionHeading from '../components/SectionHeading.astro';
 import LotusDivider from '../components/LotusDivider.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import TeachingCard from '../components/TeachingCard.astro';
 import { useTranslations } from '../i18n/utils';
+import Layout from '../layouts/Layout.astro';
 
 const lang = 'pl';
 const t = useTranslations(lang);

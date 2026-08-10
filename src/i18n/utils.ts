@@ -1,4 +1,4 @@
-import { ui, defaultLang } from './ui';
+import { defaultLang, ui } from './ui';
 
 const normalizePath = (path: string) => {
   if (!path) return '/';
