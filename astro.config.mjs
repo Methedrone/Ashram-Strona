@@ -48,8 +48,8 @@ export default defineConfig({
           };
         }
         
-        // Events: priority 0.9, weekly (both /events and /events/xxx)
-        if (url.includes('/events') || url.includes('/wydarzenia')) {
+        // Events: priority 0.9, weekly
+        if (url.includes('/events')) {
           return {
             ...item,
             priority: 0.9,
@@ -57,8 +57,8 @@ export default defineConfig({
           };
         }
         
-        // Teachings: priority 0.8, weekly (both /teachings and /teachings/xxx)
-        if (url.includes('/teachings') || url.includes('/nauki')) {
+        // Teachings: priority 0.8, weekly
+        if (url.includes('/teachings')) {
           return {
             ...item,
             priority: 0.8,
@@ -67,8 +67,7 @@ export default defineConfig({
         }
         
         // Static pages (about, contact): priority 0.7, monthly
-        if (url.includes('/about') || url.includes('/o-nas') || 
-            url.includes('/contact') || url.includes('/kontakt')) {
+        if (url.includes('/about') || url.includes('/contact')) {
           return {
             ...item,
             priority: 0.7,
