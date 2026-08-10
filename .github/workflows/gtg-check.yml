@@ -1,0 +1,24 @@
+name: gtg-check
+
+on:
+  push:
+    branches: [ops/gtg-*]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fix GTG config via PUT (camelCase body)
+        run: |
+          TOKEN="${{ secrets.CLOUDFLARE_API_TOKEN }}"
+          ZONE="59909d191147c39a0d94461dcf2bb5ba"
+          echo "=== PUT config (camelCase: /lhsi, hideOriginalIp=false) ==="
+          curl -sS -w '\nHTTP:%{http_code}\n' -X PUT \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"enabled":true,"endpoint":"/lhsi","hideOriginalIp":false,"measurementId":"GTM-5J4NL66W","setUpTag":false}' \
+            "https://api.cloudflare.com/client/v4/zones/$ZONE/settings/google-tag-gateway/config"
+          echo "=== GET config po PUT ==="
+          curl -sS -w '\nHTTP:%{http_code}\n' \
+            -H "Authorization: Bearer $TOKEN" \
+            "https://api.cloudflare.com/client/v4/zones/$ZONE/settings/google-tag-gateway/config"
