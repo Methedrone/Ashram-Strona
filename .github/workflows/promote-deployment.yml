@@ -1,0 +1,50 @@
+name: Promote CF Pages deployment to custom domain
+
+# One-off ops helper: CF Pages custom domains do NOT follow new deployments
+# automatically (they stay pinned to the deployment they were added on).
+# The Dashboard "Promote to production" only moves the project alias, so the
+# custom domain must be moved via the REST API:
+#   POST /accounts/{id}/pages/projects/{name}/deployments/{id}/promote
+# Run: push to a branch named ops/promote-* (auto-triggers), or workflow_dispatch.
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_id:
+        description: 'Deployment ID to promote (e.g. 9f97e7ac-00b8-4171-acff-3e4a2f177f65)'
+        required: true
+        type: string
+  push:
+    branches:
+      - 'ops/promote-*'
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Determine deployment id
+        id: dep
+        run: |
+          DEP="${{ github.event.inputs.deployment_id }}"
+          if [ -z "$DEP" ]; then
+            # Auto-run from a push: read the id from the branch name after "ops/promote-"
+            DEP="${GITHUB_REF_NAME#ops/promote-}"
+          fi
+          echo "deployment_id=$DEP" >> "$GITHUB_OUTPUT"
+
+      - name: Promote deployment via CF REST API
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+          DEPLOYMENT_ID: ${{ steps.dep.outputs.deployment_id }}
+        run: |
+          echo "Promoting deployment: $DEPLOYMENT_ID"
+          RESP=$(curl -sS -X POST \
+            "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/${CLOUDFLARE_PROJECT_NAME}/deployments/${DEPLOYMENT_ID}/promote" \
+            -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            -H "Content-Type: application/json")
+          echo "$RESP"
+          echo "$RESP" | grep -q '"success":true' || { echo "PROMOTE FAILED"; exit 1; }
