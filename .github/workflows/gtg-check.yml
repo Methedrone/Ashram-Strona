@@ -1,0 +1,14 @@
+name: gtg-check
+
+on:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GET google tag gateway config
+        run: |
+          curl -sS -w '\nHTTP:%{http_code}' \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            "https://api.cloudflare.com/client/v4/zones/59909d191147c39a0d94461dcf2bb5ba/settings/google-tag-gateway/config"
