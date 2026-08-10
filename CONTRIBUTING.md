@@ -95,10 +95,11 @@ If you don't use `nvm`, install Node **≥ 22.12** manually.
 ```bash
 npm test           # full Playwright suite (42 tests, ~45–60s)
 npm run check      # astro check (TypeScript + content schemas)
+npm run lint:biome # Biome lint (local only — intentionally not in CI)
 npm run axe-local  # axe-core against local build
 ```
 
-Before opening a PR, at minimum run `npm test` and `npm run check`. CI will run them again on every push.
+Before opening a PR, at minimum run `npm test`, `npm run check` and `npm run lint:biome`. CI will run the first two again on every push.
 
 When you add a new page or change a route:
 
