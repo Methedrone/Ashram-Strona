@@ -2,7 +2,7 @@
 
 Modern multilingual static site for the Ashram Babaji community, built with **Astro 7** and deployed to **Cloudflare Pages**.
 
-- **Stack:** Astro 7.1.6, `@astrojs/cloudflare` 14, TypeScript (strict), Playwright, sharp
+- **Stack:** Astro 7.2.0, `@astrojs/cloudflare` 14, TypeScript (strict), Playwright, sharp
 - **Languages:** Polish (`pl`, default, served at root) & English (`en`, served under `/en/`)
 - **Output:** Fully static HTML for 71 prerendered routes, with two Cloudflare Pages Functions (`/api/auth`, `/api/callback`)
 - **Domain:** [babaji.org.pl](https://babaji.org.pl)
@@ -186,8 +186,6 @@ fix/*      ─┘
 | `ci.yml` | push to `dev`, PR to `dev` or `master` | install, `astro check`, build, Playwright |
 | `deploy.yml` | push to `master` | `wrangler pages deploy dist/client` |
 | `audit.yml` | PR to `master`, manual | image gen, build, JSON-LD, axe, Lighthouse |
-| `diagnose-deployments.yml` | manual | Wrangler / Pages diagnostics |
-| `force-delete-deployment.yml` | manual | recovery |
 
 ---
 
@@ -195,7 +193,7 @@ fix/*      ─┘
 
 - [x] Multilingual support (PL/EN, hreflang, no duplicate content)
 - [x] Content Layer + Content Collections (events, teachings)
-- [x] Astro 7.1.6 + Cloudflare adapter v14 + correct Pages output layout
+- [x] Astro 7.2.0 + Cloudflare adapter v14 + correct Pages output layout
 - [x] Schema.org graph (ReligiousOrganization, WebSite, Article/Event, TouristAttraction, BreadcrumbList, FAQPage)
 - [x] Image sitemap, RSS feed, IndexNow, OG/Twitter cards
 - [x] Playwright E2E (42 tests, all routes, language switching, schema verification)
