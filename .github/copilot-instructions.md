@@ -10,7 +10,7 @@ A multilingual (PL/EN) static site for the Ashram Babaji community in Mąkolno, 
 ## Technology Stack
 
 ### Framework
-- **Astro** 7.1.6 — static site generator with islands architecture
+- **Astro** 7.2.0 — static site generator with islands architecture
 - **@astrojs/cloudflare** v14 — Cloudflare Pages adapter (static output + two Pages Functions)
 - **@astrojs/rss** v4 — RSS feed for events and teachings
 - **@astrojs/sitemap** v3 — XML sitemap generation
@@ -97,8 +97,6 @@ npm run audit:ci
 | `ci.yml` | push to `dev`, PR to `dev` or `master` | install, `astro check`, build, Playwright |
 | `deploy.yml` | push to `master` | `wrangler pages deploy dist/client` |
 | `audit.yml` | PR to `master`, manual | image gen, build, JSON-LD, axe, Lighthouse |
-| `diagnose-deployments.yml` | manual | Wrangler / Pages diagnostics |
-| `force-delete-deployment.yml` | manual | recovery |
 
 ## i18n
 
