@@ -31,7 +31,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "@playwright/test": "^1.62.1",
-    "axe-core": "^4.11.1",
+    "axe-core": "^4.13.0",
     "lighthouse": "^13.0.2",
     "playwright": "^1.62.1",
     "sharp": "^0.35.3",
