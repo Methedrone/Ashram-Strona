@@ -41,10 +41,12 @@ jobs:
           CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
           DEPLOYMENT_ID: ${{ steps.dep.outputs.deployment_id }}
         run: |
-          echo "Promoting deployment: $DEPLOYMENT_ID"
+          # NOTE: there is no /promote endpoint in the CF API (405).
+          # /rollback makes the given deployment the active production one.
+          echo "Rollback-target deployment: $DEPLOYMENT_ID"
           RESP=$(curl -sS -X POST \
-            "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/${CLOUDFLARE_PROJECT_NAME}/deployments/${DEPLOYMENT_ID}/promote" \
+            "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/${CLOUDFLARE_PROJECT_NAME}/deployments/${DEPLOYMENT_ID}/rollback" \
             -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
             -H "Content-Type: application/json")
           echo "$RESP"
-          echo "$RESP" | grep -q '"success":true' || { echo "PROMOTE FAILED"; exit 1; }
+          echo "$RESP" | grep -q '"success":true' || { echo "ROLLBACK FAILED"; exit 1; }
