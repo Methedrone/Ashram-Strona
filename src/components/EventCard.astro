@@ -18,12 +18,6 @@ const slug = slugParts.join('/');
 const href = postLang === 'pl' 
   ? `/events/${slug}` 
   : `/en/events/${slug}`;
-
-const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
 ---
 
 <Card class="event-card">
