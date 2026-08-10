@@ -27,6 +27,9 @@ jobs:
       - name: Build
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY || vars.INDEXNOW_KEY }}
+          # CF Pages project env vars are NOT visible to GitHub Actions builds —
+          # GTM_CONTAINER_ID must live here (secret or repo variable).
+          GTM_CONTAINER_ID: ${{ secrets.GTM_CONTAINER_ID || vars.GTM_CONTAINER_ID }}
         run: npm run build:cf
 
       # Use wrangler pages deploy directly instead of cloudflare/pages-action.
