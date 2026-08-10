@@ -162,7 +162,7 @@ export function scanGalleryImages(galleryPath?: string): ImageInfo[] {
  * Scans gallery images and returns a map of base filename -> optimized w1600 path
  * This allows content images to be matched to their optimized variants
  */
-export function scanGalleryImageMap(galleryPath?: string): Map<string, string> {
+function scanGalleryImageMap(galleryPath?: string): Map<string, string> {
   const defaultPath = path.join(process.cwd(), 'public', 'images', 'optimized', 'gallery');
   const targetPath = galleryPath || defaultPath;
   
