@@ -80,7 +80,6 @@ type UiKey = keyof typeof ui[typeof defaultLang];
   }
 
   .period-column {
-    /* Semi-transparent warm background */
     background: linear-gradient(
       135deg,
       rgba(255, 252, 247, 0.9) 0%,
@@ -91,13 +90,11 @@ type UiKey = keyof typeof ui[typeof defaultLang];
     border-radius: var(--radius-l);
     padding: 2rem;
     
-    /* Golden glow shadows */
     box-shadow: 
       0 3px 20px -3px rgba(230, 168, 104, 0.2),
       0 2px 10px -2px rgba(155, 85, 57, 0.1),
       inset 0 1px 2px rgba(255, 255, 255, 0.8);
     
-    /* Warm border with thicker top accent */
     border: 1px solid rgba(212, 175, 119, 0.25);
     border-top: 3px solid var(--color-gold);
     
@@ -113,7 +110,6 @@ type UiKey = keyof typeof ui[typeof defaultLang];
       inset 0 1px 2px rgba(255, 255, 255, 1);
   }
 
-  /* Ornament */
   .period-column::before {
     content: '✦';
     position: absolute;
@@ -132,7 +128,6 @@ type UiKey = keyof typeof ui[typeof defaultLang];
     text-shadow: 0 0 10px var(--color-gold);
   }
 
-  /* Add paper texture */
   .period-column::after {
     content: '';
     position: absolute;
@@ -151,7 +146,6 @@ type UiKey = keyof typeof ui[typeof defaultLang];
     z-index: 0;
   }
   
-  /* Ensure content stays above textured background */
   .period-column > * {
     position: relative;
     z-index: 1;

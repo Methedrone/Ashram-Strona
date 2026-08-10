@@ -39,22 +39,17 @@ const robotsExtras = 'max-image-preview:large, max-snippet:-1, max-video-preview
 // GTM container ID — tylko z astro:env; bez wartości GTM w ogóle się nie renderuje
 const gtmId = GTM_CONTAINER_ID;
 
-// Check if this is the homepage
 const isHome = currentPath === '/' || currentPath === '/en/' || currentPath === '/en';
 
-// Generate hreflang alternate URLs
 const alternateLocales: ('pl' | 'en')[] = ['pl', 'en'];
 const hreflangs = alternateLocales.map((locale) => ({
   locale,
   url: `${siteUrl}${translatePath(currentPath, lang, locale)}`
 }));
 
-// OG image with default fallback
 const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/havan-ceremony-group-fire-offerings.webp`;
 
-// GTM-only tracking (gtag.js removed to avoid double tracking)
-// GTM container already includes GA4 config tag
-// gtagSnippet removed - GTM handles GA4 initialization
+// GTM-only tracking — gtag.js usunięty (GTM sam zawiera tag GA4); nie dodawać gtag ponownie
 
 const defaultSchema: Record<string, any> = {
   "@context": "https://schema.org",
@@ -119,7 +114,6 @@ if (schema) {
   }
 }
 
-// Add TouristAttraction schema for homepage
 if (isHome) {
   const touristAttraction = {
     "@type": "TouristAttraction",
@@ -186,10 +180,8 @@ gtmUrl;f.parentNode.insertBefore(j,f);
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=optional" rel="stylesheet" />
 
-		<!-- LCP hero: bez preloada — Hero.astro używa <picture> z srcsetem AVIF+WEBP
-		     i fetchpriority="high"; preload webp (Layout.astro) nie pokrywał się
-		     z faktycznie renderowanym wariantem (avif) → warning "preloaded but
-		     not used" + marnowany transfer. fetchpriority=high wystarcza. -->
+		<!-- LCP hero: bez preloada — Hero.astro <picture> (AVIF+WEBP, fetchpriority=high);
+		     preload webp nie pokrywał się z renderowanym wariantem (avif) → warning + marnowany transfer -->
 
         <SEO
           title={title}
