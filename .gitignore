@@ -67,3 +67,6 @@ lh.json
 .ashram-google-api-usage/
 *.tsbuildinfo
 .wrangler/
+
+# local npm config (npm 12 allow-scripts)
+/.npmrc
