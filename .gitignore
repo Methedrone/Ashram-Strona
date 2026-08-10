@@ -63,9 +63,7 @@ lh.json
 .astro-indexnow-cache.json
 .juno_task/logs/roundtable_mcp_server.log
 
-# .ashram-google-api-usage — ignore ONLY credentials (service account JSONs)
-# Reports and docs are tracked
-.ashram-google-api-usage/credentials/
-.ashram-google-api-usage/reports/
+# .ashram-google-api-usage — local tooling, untracked entirely
+.ashram-google-api-usage/
 *.tsbuildinfo
 .wrangler/
