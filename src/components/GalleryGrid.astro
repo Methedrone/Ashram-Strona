@@ -49,7 +49,7 @@ const displayImages = limit ? images.slice(0, limit) : images;
         options={{
           thumbnail: true,
           preload: 1,
-          // @ts-ignore - requested by prompt but not in types
+          // @ts-ignore — lazyLoad absent from lightgallery types
           lazyLoad: true
         }}
       />
@@ -86,18 +86,15 @@ const displayImages = limit ? images.slice(0, limit) : images;
     position: relative;
     border-radius: 16px;
     
-    /* Thicker border for mat effect */
     border: 4px solid rgba(212, 175, 119, 0.35);
     padding: 10px;
     
-    /* Warm papyrus mat background */
     background: linear-gradient(
       135deg,
       rgba(255, 252, 247, 1) 0%,
       rgba(250, 248, 245, 1) 100%
     );
     
-    /* Enhanced golden frame shadow */
     box-shadow: 
       0 4px 24px -4px rgba(230, 168, 104, 0.28),
       0 2px 12px -2px rgba(155, 85, 57, 0.18),
@@ -111,7 +108,6 @@ const displayImages = limit ? images.slice(0, limit) : images;
     text-decoration: none;
   }
 
-  /* Floral ornament */
   .gallery-item::before {
     content: '❀';
     position: absolute;
@@ -133,7 +129,6 @@ const displayImages = limit ? images.slice(0, limit) : images;
     border-color: rgba(212, 175, 119, 0.5);
     transform: translateY(-3px);
     
-    /* Golden aura on hover */
     box-shadow: 
       0 6px 32px -4px rgba(230, 168, 104, 0.35),
       0 3px 16px -2px rgba(155, 85, 57, 0.2),
@@ -143,7 +138,6 @@ const displayImages = limit ? images.slice(0, limit) : images;
 
   .gallery-item img {
     border-radius: 10px;
-    /* Ensure image fits within mat */
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -154,7 +148,7 @@ const displayImages = limit ? images.slice(0, limit) : images;
     opacity: 0.9;
   }
 
-  /* Removed overlay since LightGallery handles captions in lightbox */
+  /* No caption overlay — LightGallery handles captions in the lightbox */
 
   .view-all {
     text-align: center;
@@ -192,7 +186,6 @@ const displayImages = limit ? images.slice(0, limit) : images;
     box-shadow: 
       0 5px 16px rgba(155, 85, 57, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    /* Candlelight glow animation */
     animation: candlelight 2s ease-in-out infinite;
   }
 

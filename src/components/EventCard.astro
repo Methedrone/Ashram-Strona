@@ -13,7 +13,6 @@ const t = useTranslations(lang);
 
 const { title, description, date, location } = post.data;
 
-// Construct URL: /lang/events/slug-without-lang
 const [postLang, ...slugParts] = post.id.split('/');
 const slug = slugParts.join('/');
 const href = postLang === 'pl' 
@@ -79,7 +78,6 @@ const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US',
     justify-content: center;
     min-width: 80px;
     text-align: center;
-    /* Ensure badge respects border radius of card */
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
   }
@@ -177,7 +175,6 @@ const formattedDate = date.toLocaleDateString(lang === 'pl' ? 'pl-PL' : 'en-US',
     box-shadow: 
       0 5px 15px rgba(155, 85, 57, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    /* Candlelight glow animation */
     animation: candlelight 2s ease-in-out infinite;
   }
 </style>
