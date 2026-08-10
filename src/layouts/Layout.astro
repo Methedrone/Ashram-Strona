@@ -36,8 +36,8 @@ const description = customDescription || t('common.description');
 const currentPath = Astro.url.pathname;
 const robotsExtras = 'max-image-preview:large, max-snippet:-1, max-video-preview:-1';
 
-// GTM container ID — z astro:env (z fallbackiem na obecny hardcoded)
-const gtmId = GTM_CONTAINER_ID || 'GTM-5J4NL66W';
+// GTM container ID — tylko z astro:env; bez wartości GTM w ogóle się nie renderuje
+const gtmId = GTM_CONTAINER_ID;
 
 // Check if this is the homepage
 const isHome = currentPath === '/' || currentPath === '/en/' || currentPath === '/en';
@@ -160,11 +160,11 @@ if (isHome) {
 <html lang={lang}>
 	<head>
 		<!-- Google Tag Manager -->
-		<script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		{gtmId && <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','{gtmId}');</script>
+})(window,document,'script','dataLayer','{gtmId}');</script>}
 		<!-- End Google Tag Manager -->
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -181,12 +181,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=optional" rel="stylesheet" />
 
-		<!-- LCP: preload hero image on homepage -->
-		{isHome && (
-			<link rel="preload" as="image" href="/images/optimized/havan-ceremony-group-fire-offerings-w1600.webp"
-				imagesrcset="/images/optimized/havan-ceremony-group-fire-offerings-w480.webp 480w, /images/optimized/havan-ceremony-group-fire-offerings-w768.webp 768w, /images/optimized/havan-ceremony-group-fire-offerings-w1024.webp 1024w, /images/optimized/havan-ceremony-group-fire-offerings-w1600.webp 1600w"
-				imagesizes="100vw" fetchpriority="high" />
-		)}
+		<!-- LCP hero: bez preloada — Hero.astro używa <picture> z srcsetem AVIF+WEBP
+		     i fetchpriority="high"; preload webp (Layout.astro) nie pokrywał się
+		     z faktycznie renderowanym wariantem (avif) → warning "preloaded but
+		     not used" + marnowany transfer. fetchpriority=high wystarcza. -->
 
         <SEO
           title={title}
@@ -247,8 +245,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	</head>
 	<body>
 		<!-- Google Tag Manager (noscript) -->
-		<noscript><iframe title="Google Tag Manager" src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		{gtmId && <noscript><iframe title="Google Tag Manager" src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>}
 		<!-- End Google Tag Manager (noscript) -->
 		<DataLayerTrack />
 		<a href="#main-content" class="skip-link">{t('common.skipToContent')}</a>
