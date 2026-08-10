@@ -1,6 +1,6 @@
-import { scanGalleryImages, scanContentImages } from '../utils/image-scanner';
+import { scanContentImages, scanGalleryImages } from '../utils/image-scanner';
 
-const SITE_URL = 'https://babaji.org.pl';
+const SITE_URL = import.meta.env.SITE;
 
 function escapeXml(str: string): string {
   return str
@@ -17,16 +17,16 @@ function escapeXml(str: string): string {
  */
 function normalizePageUrl(pageUrl: string): string {
   if (pageUrl.startsWith('/events/en/')) {
-    return '/en/events/' + pageUrl.replace('/events/en/', '');
+    return `/en/events/${pageUrl.replace('/events/en/', '')}`;
   }
   if (pageUrl.startsWith('/teachings/en/')) {
-    return '/en/teachings/' + pageUrl.replace('/teachings/en/', '');
+    return `/en/teachings/${pageUrl.replace('/teachings/en/', '')}`;
   }
   if (pageUrl.startsWith('/events/pl/')) {
-    return '/events/' + pageUrl.replace('/events/pl/', '');
+    return `/events/${pageUrl.replace('/events/pl/', '')}`;
   }
   if (pageUrl.startsWith('/teachings/pl/')) {
-    return '/teachings/' + pageUrl.replace('/teachings/pl/', '');
+    return `/teachings/${pageUrl.replace('/teachings/pl/', '')}`;
   }
   return pageUrl;
 }
