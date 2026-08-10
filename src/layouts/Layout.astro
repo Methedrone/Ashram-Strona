@@ -157,8 +157,10 @@ if (isHome) {
 		<!-- Google Tag Manager (snippet inlined verbatim, container id baked
 		     into the GTM URL at build time via define:vars so the browser-side
 		     template literal always receives a real value; rendered only when
-		     GTM_CONTAINER_ID is set in astro:env — no hardcoded fallback). -->
-		{gtmId && <script is:inline define:vars={{ gtmUrl: `https://www.googletagmanager.com/gtm.js?id=${gtmId}` }}>
+		     GTM_CONTAINER_ID is set in astro:env — no hardcoded fallback).
+		     First-party mode: gtm.js is served via Cloudflare Google Tag Gateway
+		     (/lhsi) so browsers talk only to babaji.org.pl. -->
+		{gtmId && <script is:inline define:vars={{ gtmUrl: `${siteUrl}/lhsi/gtm.js?id=${gtmId}` }}>
 		(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
