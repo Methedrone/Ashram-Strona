@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && node scripts/copy-functions.mjs",
-    "build:cf": "astro build && node scripts/copy-functions.mjs",
     "preview": "astro preview",
     "test": "playwright test",
     "generate-images": "node scripts/image-gen.mjs",

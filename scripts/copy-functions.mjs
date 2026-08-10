@@ -12,7 +12,7 @@
  * array — otherwise CF Pages routes /api/* requests to the static asset
  * handler and 404s.
  *
- * Run automatically via `npm run build` / `npm run build:cf`.
+ * Run automatically via `npm run build`.
  * Idempotent — safe to run on every build.
  */
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
