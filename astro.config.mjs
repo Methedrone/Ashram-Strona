@@ -5,16 +5,13 @@ import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
 import indexnow from 'astro-indexnow';
 import 'dotenv/config';
 
-// https://astro.build/config
 export default defineConfig({
   site: 'https://babaji.org.pl',
   trailingSlash: 'never',
   // v7 domyślnie używa 'jsx' (tnie spacje między inline elementami).
   // true = poprzednie HTML-aware zachowanie — zero ryzyka wizualnego.
   compressHTML: true,
-  // ClientRouter + prefetch (v7 stable)
   prefetch: { prefetchAll: false, defaultStrategy: 'hover' },
-  // astro:env — type-safe env (GTM_CONTAINER_ID z fallbackem w Layout)
   env: {
     schema: {
       GTM_CONTAINER_ID: envField.string({ context: 'server', access: 'public', optional: true }),
@@ -35,10 +32,9 @@ export default defineConfig({
       },
       serialize: (item) => {
         const url = item.url;
-        
-        // Homepage: priority 1.0, monthly
-        // Handle /, empty string, /en, /en/, and base URL
-        if (url === '/' || url === '' || url === '/en' || url === '/en/' || 
+
+        // Handle /, empty string, /en, /en/, and bare base URL
+        if (url === '/' || url === '' || url === '/en' || url === '/en/' ||
             url === 'https://babaji.org.pl' || url === 'https://babaji.org.pl/' ||
             url === 'https://babaji.org.pl/en') {
           return {
@@ -47,8 +43,7 @@ export default defineConfig({
             changefreq: ChangeFreqEnum.MONTHLY,
           };
         }
-        
-        // Events: priority 0.9, weekly
+
         if (url.includes('/events')) {
           return {
             ...item,
@@ -56,8 +51,7 @@ export default defineConfig({
             changefreq: ChangeFreqEnum.WEEKLY,
           };
         }
-        
-        // Teachings: priority 0.8, weekly
+
         if (url.includes('/teachings')) {
           return {
             ...item,
@@ -65,8 +59,7 @@ export default defineConfig({
             changefreq: ChangeFreqEnum.WEEKLY,
           };
         }
-        
-        // Static pages (about, contact): priority 0.7, monthly
+
         if (url.includes('/about') || url.includes('/contact')) {
           return {
             ...item,
@@ -74,8 +67,7 @@ export default defineConfig({
             changefreq: ChangeFreqEnum.MONTHLY,
           };
         }
-        
-        // Other pages: priority 0.6, monthly
+
         return {
           ...item,
           priority: 0.6,
