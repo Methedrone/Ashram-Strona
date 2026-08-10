@@ -1,6 +1,6 @@
 #!/usr/bin/env node
+import fs from 'node:fs/promises';
 import { chromium } from 'playwright';
-import fs from 'fs/promises';
 
 const pages = ['/', '/en'];
 
@@ -34,7 +34,7 @@ async function main() {
       }
       const safeName = pagePath === '/' ? 'root' : pagePath.replace(/^\//, '').replace(/\//g, '_');
       await fs.writeFile(`test-results/jsonld-${safeName}.json`, JSON.stringify(results, null, 2));
-      console.log('Saved test-results/jsonld-' + safeName + '.json - scripts found:', scripts.length);
+      console.log(`Saved test-results/jsonld-${safeName}.json - scripts found:`, scripts.length);
     } catch (err) {
       console.error('Error validating JSON-LD on', url, err);
       hasErrors = true;

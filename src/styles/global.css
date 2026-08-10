@@ -55,10 +55,6 @@
    --color-amber-glow: rgba(230, 168, 104, 0.22);
    --color-terracotta-glow: rgba(155, 85, 57, 0.12);
    --color-gold-soft: rgba(212, 175, 119, 0.3);
-   
-   /* Warm text (not pure black) */
-   --color-text-warm: #3A3530;
-   --color-text-warm-light: #6B5D52;
 }
 
 /* Reset & Base */

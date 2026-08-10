@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-import fs from 'fs/promises';
-import path from 'path';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
 let sharp;
 try {
   // dynamic import so script can be added before deps are installed
   sharp = (await import('sharp')).default;
-} catch (err) {
+} catch (_err) {
   globalThis.console.error('The "sharp" module is not installed. Run `npm install` and try again.');
   globalThis.process.exit(1);
 }
@@ -70,8 +70,8 @@ async function processFile(filePath, inputDir, outBase, widths, quality) {
 
       variants.push({
         width: w,
-        webp: `/images/optimized/${dir ? dir + '/' : ''}${webpName}`,
-        avif: `/images/optimized/${dir ? dir + '/' : ''}${avifName}`
+        webp: `/images/optimized/${dir ? `${dir}/` : ''}${webpName}`,
+        avif: `/images/optimized/${dir ? `${dir}/` : ''}${avifName}`
       });
     }
 
