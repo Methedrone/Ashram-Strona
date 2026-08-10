@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { existsSync } from "node:fs";
 /**
  * Copy Cloudflare Pages Functions to dist/client so `wrangler pages deploy`
  * (which uploads the build output directory) can deploy them. Without this
@@ -12,13 +13,12 @@
  * array — otherwise CF Pages routes /api/* requests to the static asset
  * handler and 404s.
  *
- * Run automatically via `npm run build` / `npm run build:cf`.
+ * Run automatically via `npm run build`.
  * Idempotent — safe to run on every build.
  */
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
-import { existsSync } from "node:fs";
-import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, "..");
@@ -60,7 +60,7 @@ if (existsSync(distRoutes)) {
   if (!routes.include.includes("/api/*")) {
     routes.include.unshift("/api/*");
   }
-  await writeFile(distRoutes, JSON.stringify(routes, null, 2) + "\n");
+  await writeFile(distRoutes, `${JSON.stringify(routes, null, 2)}\n`);
   console.log(`copy-functions: patched ${distRoutes} → include: ${JSON.stringify(routes.include)}`);
 } else {
   console.warn("copy-functions: dist/client/_routes.json missing — /api/* may 404");

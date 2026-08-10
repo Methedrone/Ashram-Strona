@@ -1,7 +1,7 @@
 #!/usr/bin/env node
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import { chromium } from 'playwright';
-import fs from 'fs/promises';
-import path from 'path';
 
 const pages = [
   '/',
@@ -29,10 +29,10 @@ async function main() {
     const axeFilePath = path.join(process.cwd(), 'node_modules', 'axe-core', 'axe.min.js');
     try {
       axeSource = await fs.readFile(axeFilePath, 'utf8');
-    } catch (err) {
+    } catch (_err) {
       try {
         const axeModule = await import('axe-core');
-        axeSource = axeModule.source || (axeModule.default && axeModule.default.source) || '';
+        axeSource = axeModule.source || (axeModule.default?.source) || '';
       } catch (err2) {
         console.error('Failed to load axe-core source; axe injection will fail', err2);
       }
@@ -51,7 +51,7 @@ async function main() {
           try {
             // Prefer adding via local file path to avoid large-content serialization
             await page.addScriptTag({ path: axeFilePath });
-          } catch (e) {
+          } catch (_e) {
             // Fallback to injecting content if path-based injection fails
             await page.addScriptTag({ content: axeSource });
           }
@@ -61,7 +61,7 @@ async function main() {
       const result = await page.evaluate(async () => await window.axe.run());
       const safeName = pagePath === '/' ? 'root' : pagePath.replace(/^\//, '').replace(/\//g, '_');
       await fs.writeFile(`test-results/axe-${safeName}.json`, JSON.stringify(result, null, 2));
-      console.log('Saved test-results/axe-' + safeName + '.json - violations:', result.violations.length);
+      console.log(`Saved test-results/axe-${safeName}.json - violations:`, result.violations.length);
     } catch (err) {
       console.error('Error scanning', url, err);
       hasErrors = true;

@@ -1,168 +1,88 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { type CollectionEntry, getCollection } from 'astro:content';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
-/**
- * Interface representing information about a gallery image for sitemap generation
- */
 export interface ImageInfo {
-  /** Full path from site root (e.g., /images/optimized/gallery/image.jpg) */
   path: string;
-  /** Human-readable title for the image */
   title: string;
-  /** Alt text description for accessibility and SEO */
   alt: string;
 }
 
-/** Supported image file extensions for gallery scanning */
 const SUPPORTED_EXTENSIONS = ['.webp', '.jpg', '.jpeg', '.png', '.avif'];
 
-/** Preferred size suffix for sitemap (largest available) */
 const PREFERRED_SIZE = 'w1600';
 
-/**
- * Information about an image found in content collections (events, teachings)
- */
 export interface ContentImageInfo {
-  /** Full path to the image (e.g., /images/gallery/meditation.webp) */
   path: string;
-  /** Title of the content entry */
   title: string;
-  /** Alt text for the image (derived from title) */
   alt: string;
-  /** URL to the content page */
   pageUrl: string;
-  /** Type of content: 'event' or 'teaching' */
   contentType: 'event' | 'teaching';
-  /** Slug of the content entry */
   slug: string;
 }
 
-/**
- * Checks if a file is an image based on its extension
- * @param filename - The filename to check
- * @returns True if the file has a supported image extension
- */
 function isImageFile(filename: string): boolean {
   const ext = path.extname(filename).toLowerCase();
   return SUPPORTED_EXTENSIONS.includes(ext);
 }
 
-/**
- * Extracts the base name from an optimized image filename
- * Converts: "image-name-w1600.webp" → "image name"
- * @param filename - The optimized image filename
- * @returns The formatted title/alt text
- */
+// "image-name-w1600.webp" → "Image Name"
 function extractBaseName(filename: string): string {
-  // Remove extension
-  const withoutExt = filename.replace(/\.[^/.]+$/, '');
-  
-  // Remove size suffix (e.g., -w1600, -w1024, -w768, -w480)
-  const withoutSize = withoutExt.replace(/-w\d+$/, '');
-  
-  // Replace hyphens with spaces and capitalize first letter of each word
-  return withoutSize
+  return filename
+    .replace(/\.[^/.]+$/, '')
+    .replace(/-w\d+$/, '')
     .replace(/-/g, ' ')
     .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
-/**
- * Determines if this is the preferred size variant for sitemap inclusion
- * Prefer largest size (w1600) and webp format for optimal SEO
- * @param filename - The filename to evaluate
- * @returns True if this is the optimal variant to include
- */
 function isPreferredVariant(filename: string): boolean {
-  // Check if it's webp format
   const ext = path.extname(filename).toLowerCase();
-  if (ext !== '.webp') {
-    return false;
-  }
-  
-  // Check if it has the preferred size suffix
-  const withoutExt = filename.replace(/\.[^/.]+$/, '');
-  return withoutExt.endsWith(`-${PREFERRED_SIZE}`);
+  if (ext !== '.webp') return false;
+  return filename.replace(/\.[^/.]+$/, '').endsWith(`-${PREFERRED_SIZE}`);
 }
 
-/**
- * Recursively scans a directory for image files
- * @param dirPath - The directory path to scan
- * @param baseDir - The base directory for calculating relative paths
- * @param images - Array to collect found images
- */
 function scanDirectory(dirPath: string, baseDir: string, images: ImageInfo[]): void {
   const entries = fs.readdirSync(dirPath, { withFileTypes: true });
-  
+
   for (const entry of entries) {
     const fullPath = path.join(dirPath, entry.name);
-    
+
     if (entry.isDirectory()) {
-      // Recursively scan subdirectories (e.g., albums/)
       scanDirectory(fullPath, baseDir, images);
     } else if (entry.isFile() && isImageFile(entry.name)) {
-      // Only include preferred variants (largest webp images)
+      // Keep only the largest (w1600) webp variants — avoids sitemap duplicates
       if (isPreferredVariant(entry.name)) {
-        // Calculate path relative to public directory (for site root paths)
         const relativePath = path.relative(baseDir, fullPath);
-        const webPath = '/' + relativePath.replace(/\\/g, '/');
-        
-        // Generate title and alt from filename
+        const webPath = `/${relativePath.replace(/\\/g, '/')}`;
         const title = extractBaseName(entry.name);
-        const alt = `Image: ${title}`;
-        
-        images.push({
-          path: webPath,
-          title,
-          alt
-        });
+        images.push({ path: webPath, title, alt: `Image: ${title}` });
       }
     }
   }
 }
 
 /**
- * Scans the gallery directory and returns image information for sitemap generation.
- * Returns only the largest (w1600) webp variants to avoid duplicates in the sitemap.
- * 
- * @param galleryPath - Optional custom path to gallery directory. 
- *                     Defaults to 'public/images/optimized/gallery'
- * @returns Array of ImageInfo objects with path, title, and alt for each image
- * 
- * @example
- * ```typescript
- * const images = scanGalleryImages();
- * // Returns: [
- * //   { path: '/images/optimized/gallery/image-w1600.webp', title: 'Image', alt: 'Image: Image' },
- * //   { path: '/images/optimized/gallery/albums/1997-1998/photo-w1600.webp', title: 'Photo', alt: 'Image: Photo' }
- * // ]
- * ```
+ * Scans the gallery and returns only the largest (w1600) webp variants,
+ * so the image sitemap contains each image exactly once.
  */
 export function scanGalleryImages(galleryPath?: string): ImageInfo[] {
-  // Default to public/images/optimized/gallery from project root
   const defaultPath = path.join(process.cwd(), 'public', 'images', 'optimized', 'gallery');
   const targetPath = galleryPath || defaultPath;
-  
-  // Verify directory exists
+
   if (!fs.existsSync(targetPath)) {
     console.warn(`Gallery directory not found: ${targetPath}`);
     return [];
   }
-  
+
   const images: ImageInfo[] = [];
   const publicDir = path.join(process.cwd(), 'public');
-  
   scanDirectory(targetPath, publicDir, images);
-  
-  // Sort images by path for consistent ordering
   return images.sort((a, b) => a.path.localeCompare(b.path));
 }
 
-/**
- * Scans gallery images and returns a map of base filename -> optimized w1600 path
- * This allows content images to be matched to their optimized variants
- */
-export function scanGalleryImageMap(galleryPath?: string): Map<string, string> {
+// base filename (with/without .webp) -> optimized w1600 path, so content
+// images can be matched to their optimized variants
+function scanGalleryImageMap(galleryPath?: string): Map<string, string> {
   const defaultPath = path.join(process.cwd(), 'public', 'images', 'optimized', 'gallery');
   const targetPath = galleryPath || defaultPath;
   
@@ -185,15 +105,13 @@ export function scanGalleryImageMap(galleryPath?: string): Map<string, string> {
       } else if (entry.isFile() && isImageFile(entry.name)) {
         if (isPreferredVariant(entry.name)) {
           const relativePath = path.relative(publicDir, fullPath);
-          const webPath = '/' + relativePath.replace(/\\/g, '/');
+          const webPath = `/${relativePath.replace(/\\/g, '/')}`;
           
-          // Extract base name without size suffix (e.g., "aarti-ceremony" from "aarti-ceremony-w1600.webp")
           const withoutExt = entry.name.replace(/\.[^/.]+$/, '');
           const baseName = withoutExt.replace(/-w\d+$/, '');
-          
-          // Map both with and without extension
+          // Lookups come both with and without the .webp suffix
           imageMap.set(baseName, webPath);
-          imageMap.set(baseName + '.webp', webPath);
+          imageMap.set(`${baseName}.webp`, webPath);
         }
       }
     }
@@ -203,22 +121,15 @@ export function scanGalleryImageMap(galleryPath?: string): Map<string, string> {
   return imageMap;
 }
 
-/**
- * Scans content collections (events, teachings) for featured images and maps them to optimized variants
- * @param lang - Language code ('pl' or 'en')
- * @returns Array of content image information with corrected paths
- */
 export async function scanContentImages(lang: 'pl' | 'en'): Promise<ContentImageInfo[]> {
   const images: ContentImageInfo[] = [];
   const galleryMap = scanGalleryImageMap();
-  
-  // Scan events collection
+
   const events = await getCollection('events', (entry: CollectionEntry<'events'>) => entry.data.lang === lang);
   for (const event of events) {
     if (event.data.featuredImage) {
-      // Try to find optimized variant
       const baseName = event.data.featuredImage.replace(/\.[^/.]+$/, '').replace(/^\/images\/gallery\//, '');
-      const optimizedPath = galleryMap.get(baseName) || galleryMap.get(baseName + '.webp') || event.data.featuredImage;
+      const optimizedPath = galleryMap.get(baseName) || galleryMap.get(`${baseName}.webp`) || event.data.featuredImage;
       
       images.push({
         path: optimizedPath,
@@ -231,12 +142,11 @@ export async function scanContentImages(lang: 'pl' | 'en'): Promise<ContentImage
     }
   }
 
-  // Scan teachings collection
   const teachings = await getCollection('teachings', (entry: CollectionEntry<'teachings'>) => entry.data.lang === lang);
   for (const teaching of teachings) {
     if (teaching.data.featuredImage) {
       const baseName = teaching.data.featuredImage.replace(/\.[^/.]+$/, '').replace(/^\/images\/gallery\//, '');
-      const optimizedPath = galleryMap.get(baseName) || galleryMap.get(baseName + '.webp') || teaching.data.featuredImage;
+      const optimizedPath = galleryMap.get(baseName) || galleryMap.get(`${baseName}.webp`) || teaching.data.featuredImage;
       
       images.push({
         path: optimizedPath,

@@ -1,0 +1,97 @@
+---
+import Breadcrumb from '../Breadcrumb.astro';
+import SectionHeading from '../SectionHeading.astro';
+import { useTranslations } from '../../i18n/utils';
+import Layout from '../../layouts/Layout.astro';
+
+interface Props {
+  lang: 'pl' | 'en';
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const slugPath = (page: string) => (lang === 'pl' ? `/${page}` : `/en/${page}`);
+const retreatsHref = lang === 'pl' ? '/rekolekcje' : '/en/retreats';
+const havanTeachHref = lang === 'pl' ? '/teachings/havan-ogien' : '/en/teachings/sacred-fire-ceremony';
+const aartiHref = lang === 'pl' ? '/teachings/aarti-ceremonia' : '/en/teachings/aarti-ceremony';
+const beginnersHref = lang === 'pl' ? '/teachings/medytacja-dla-poczatkujacych' : '/en/teachings/meditation-for-beginners';
+const contactHref = slugPath('contact');
+const eventsHref = slugPath('events');
+---
+
+<Layout title={t('nav.practices')} description={t('meta.practices.description')}>
+  <section class="practices-page">
+    <div class="container">
+      <Breadcrumb items={[{ label: t('nav.home'), href: lang === 'pl' ? '/' : '/en' }, { label: t('nav.practices') }]} />
+      <SectionHeading title={t('practices.title')} subtitle={t('practices.subtitle')} level={1} />
+
+      <p class="intro">
+        {t('practices.intro.before')} <a href={slugPath('teachings')}>{t('practices.intro.teachingsLink')}</a>
+        {t('practices.intro.mid')} <a href={retreatsHref}>{t('practices.intro.retreatsLink')}</a>{t('practices.intro.after')}
+      </p>
+
+      <h2>{t('practices.karmaYoga.title')}</h2>
+      <p>
+        {t('practices.karmaYoga.before')} <a href={slugPath('teachings/karma-yoga')}>{t('practices.karmaYoga.link')}</a>{t('practices.karmaYoga.after')}
+      </p>
+
+      <h2>{t('practices.namaJapa.title')}</h2>
+      <p>
+        {t('practices.namaJapa.before')} <a href={slugPath('teachings/nama-japa')}>{t('practices.namaJapa.link')}</a>{t('practices.namaJapa.after')}
+      </p>
+
+      <h2>{t('practices.havan.title')}</h2>
+      <p>
+        {t('practices.havan.before')} <a href={havanTeachHref}>{t('practices.havan.havanLink')}</a>
+        {t('practices.havan.mid')} <a href={eventsHref}>{t('practices.havan.eventsLink')}</a>{t('practices.havan.after')}
+      </p>
+
+      <h2>{t('practices.aarti.title')}</h2>
+      <p>
+        {t('practices.aarti.before')} <a href={aartiHref}>{t('practices.aarti.link')}</a>{t('practices.aarti.after')}
+      </p>
+
+      <h2>{t('practices.meditation.title')}</h2>
+      <p>
+        {t('practices.meditation.before')} <a href={beginnersHref}>{t('practices.meditation.beginnerLink')}</a>
+        {t('practices.meditation.mid')} <a href={slugPath('teachings/kriya-yoga')}>{t('practices.meditation.kriyaLink')}</a>{t('practices.meditation.after')}
+      </p>
+
+      <div class="cta">
+        <a href={contactHref} class="btn-primary">{t('practices.cta.contact')}</a>
+        <a href={eventsHref} class="btn-secondary">{t('practices.cta.ashram')}</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .practices-page {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .intro a {
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .cta {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+</style>

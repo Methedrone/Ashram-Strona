@@ -1,4 +1,4 @@
-import { ui, defaultLang } from './ui';
+import { defaultLang, ui } from './ui';
 
 const normalizePath = (path: string) => {
   if (!path) return '/';
@@ -25,6 +25,7 @@ export const slugTranslations = {
     '/events/ganesh-chaturthi': '/events/ganesh-chaturthi',
     '/events/dussehra': '/events/dussehra',
     '/events/diwali': '/events/diwali',
+    '/events/havan-ceremonia-ognia': '/events/havan-fire-ceremony',
     '/teachings/aarti-ceremonia': '/teachings/aarti-ceremony',
     '/teachings/havan-ogien': '/teachings/sacred-fire-ceremony',
     '/teachings/medytacja-dla-poczatkujacych': '/teachings/meditation-for-beginners',
@@ -45,6 +46,7 @@ export const slugTranslations = {
     '/events/ganesh-chaturthi': '/events/ganesh-chaturthi',
     '/events/dussehra': '/events/dussehra',
     '/events/diwali': '/events/diwali',
+    '/events/havan-fire-ceremony': '/events/havan-ceremonia-ognia',
     '/teachings/aarti-ceremony': '/teachings/aarti-ceremonia',
     '/teachings/sacred-fire-ceremony': '/teachings/havan-ogien',
     '/teachings/meditation-for-beginners': '/teachings/medytacja-dla-poczatkujacych',

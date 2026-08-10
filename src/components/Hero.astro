@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
+import { getLangFromUrl, getLocalizedPath, useTranslations } from '../i18n/utils';
 
 interface Props {
   title: string;
@@ -29,7 +29,6 @@ const buttonLink = ctaLink || getLocalizedPath('/contact', lang);
 
 const optimizedWidths = [480, 768, 1024, 1600];
 
-// Compute optimized image paths when an `image` prop is provided.
 let heroBaseNoExt = null;
 if (image) {
   heroBaseNoExt = image.replace(/^\/images\//, '').replace(/\.(jpg|jpeg|png|webp|avif)$/i, '');
@@ -55,7 +54,6 @@ if (image) {
 <style>
   .hero {
     position: relative;
-    /* Warm golden background for pages without images */
     background: linear-gradient(
       135deg,
       rgba(212, 175, 119, 0.9) 0%,
@@ -104,7 +102,6 @@ if (image) {
     );
     z-index: 1;
     pointer-events: none;
-    /* Breathing animation - meditative 6s cycle */
     animation: ambient-breath 6s ease-in-out infinite;
   }
 
@@ -124,7 +121,6 @@ if (image) {
     display: block;
   }
   
-  /* When no image, use golden glow overlay */
   .hero:not(.has-image) .overlay {
     background: radial-gradient(
       circle at center,
@@ -172,7 +168,6 @@ if (image) {
 
   .cta-button {
     display: inline-block;
-    /* Vibrant terracotta with golden glow */
     background: linear-gradient(
       135deg,
       var(--color-orange) 0%,
@@ -205,7 +200,6 @@ if (image) {
       0 4px 12px rgba(0, 0, 0, 0.25),
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
     border-color: rgba(255, 255, 255, 0.5);
-    /* Candlelight glow animation */
     animation: candlelight 2s ease-in-out infinite;
   }
 

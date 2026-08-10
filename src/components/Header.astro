@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations, translatePath } from "../i18n/utils";
+import { getLangFromUrl, translatePath, useTranslations } from "../i18n/utils";
 
 interface Props {
   activePath?: string;
@@ -19,7 +19,6 @@ const navItems = [
   { href: lang === 'pl' ? '/donations' : `/${lang}/donations`, text: t("nav.donations") },
 ];
 
-// Language switcher logic
 const currentPath = activePath || Astro.url.pathname;
 const targetLang = lang === "pl" ? "en" : "pl";
 const switchPath = translatePath(currentPath, lang, targetLang);
@@ -71,14 +70,7 @@ const switchText = lang === "pl" ? "English" : "Polski";
     </div>
 </header>
 
-<!--
-  Mobile menu toggle script.
-  is:inline prevents Astro from bundling this DOM script — it is plain
-  ES2015+ that runs as-is in the browser. Without is:inline Astro wraps
-  the file in its own module loader, which can produce a TDZ ("Cannot
-  access 'target' before initialization") error in some browsers when
-  the script is hoisted relative to the menu DOM nodes.
--->
+<!-- is:inline — plain ES2015 runs as-is; Astro's module wrapper caused a TDZ error here -->
 <script is:inline>
     const menuToggle = document.getElementById("menu-toggle");
     const nav = document.getElementById("main-navigation");
@@ -88,7 +80,6 @@ const switchText = lang === "pl" ? "English" : "Polski";
         menuToggle.addEventListener("click", () => {
             const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
 
-            // Toggle state
             menuToggle.setAttribute("aria-expanded", (!isExpanded).toString());
             nav.setAttribute("data-visible", (!isExpanded).toString());
             headerContainer.classList.toggle("menu-open");
@@ -129,7 +120,6 @@ const switchText = lang === "pl" ? "English" : "Polski";
 
 <style>
     header {
-        /* Warm gradient instead of flat */
         background: linear-gradient(
             180deg,
             rgba(250, 248, 245, 0.98) 0%,
@@ -139,7 +129,7 @@ const switchText = lang === "pl" ? "English" : "Polski";
         position: sticky;
         top: 0;
         z-index: 1000;
-        box-shadow: 0 2px 8px rgba(212, 175, 119, 0.08); /* Warm shadow */
+        box-shadow: 0 2px 8px rgba(212, 175, 119, 0.08);
         backdrop-filter: blur(8px);
     }
 
@@ -171,7 +161,6 @@ const switchText = lang === "pl" ? "English" : "Polski";
         text-overflow: ellipsis;
     }
 
-    /* Decorative underline for logo */
     .logo::after {
         content: '';
         position: absolute;
@@ -188,7 +177,6 @@ const switchText = lang === "pl" ? "English" : "Polski";
         opacity: 0.4;
     }
 
-    /* Mobile Menu Toggle */
     .menu-icon {
         display: none;
         flex-direction: column;
@@ -206,7 +194,7 @@ const switchText = lang === "pl" ? "English" : "Polski";
         width: 100%;
         height: 2px;
         background-color: var(--color-text-light);
-        border-radius: 4px; /* More organic */
+        border-radius: 4px;
         transition: all 0.3s ease;
     }
 
@@ -214,9 +202,9 @@ const switchText = lang === "pl" ? "English" : "Polski";
         display: flex;
         align-items: center;
         gap: var(--spacing-lg);
-        flex: 1 1 auto; /* allow nav to take remaining space */
-        min-width: 0;   /* prevent overflowing flex children */
-        justify-content: flex-end; /* align nav items to the right */
+        flex: 1 1 auto;
+        min-width: 0;
+        justify-content: flex-end;
     }
 
     nav ul {
@@ -226,7 +214,7 @@ const switchText = lang === "pl" ? "English" : "Polski";
         padding: 0;
         margin: 0;
         align-items: center;
-        flex-wrap: nowrap; /* Prevent wrapping on desktop */
+        flex-wrap: nowrap;
     }
 
     .nav-language {
@@ -244,8 +232,8 @@ const switchText = lang === "pl" ? "English" : "Polski";
         transition: text-decoration-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
         padding: var(--spacing-xs) var(--spacing-sm);
         border-bottom: 2px solid transparent; /* Reserve space for active border */
-        white-space: nowrap; /* Prevent menu item text wrapping */
-        flex-shrink: 0;     /* Prevent menu items from shrinking */
+        white-space: nowrap;
+        flex-shrink: 0;
     }
 
     nav a:hover {
@@ -258,7 +246,7 @@ const switchText = lang === "pl" ? "English" : "Polski";
         color: var(--color-orange);
         border-bottom-color: var(--color-orange);
         text-decoration: none;
-        text-shadow: 0 0 8px rgba(230, 168, 104, 0.2); /* Golden glow */
+        text-shadow: 0 0 8px rgba(230, 168, 104, 0.2);
     }
 
     nav a:focus-visible {
@@ -294,8 +282,29 @@ const switchText = lang === "pl" ? "English" : "Polski";
         font-size: 0.9rem;
     }
 
-    /* Responsive Styles */
-    @media (max-width: 768px) {
+    @media (min-width: 1101px) {
+        /* Tighten desktop spacing so the Polish nav (wider labels) fits one row
+           even with font-metric differences between OSes. */
+        nav {
+            gap: var(--spacing-md);
+        }
+
+        nav ul {
+            gap: 0.75rem;
+        }
+
+        nav a {
+            padding: var(--spacing-xs) 0.5rem;
+        }
+    }
+
+    @media (min-width: 1101px) and (max-width: 1280px) {
+        nav a {
+            font-size: 0.95rem;
+        }
+    }
+
+    @media (max-width: 1100px) {
         .menu-icon {
             display: flex;
         }
@@ -391,7 +400,6 @@ const switchText = lang === "pl" ? "English" : "Polski";
         }
     }
 
-    /* Slightly tighter logo cap on very wide screens */
     @media (min-width: 1200px) {
         .logo {
             max-width: 220px;

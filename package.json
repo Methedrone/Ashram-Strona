@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && node scripts/copy-functions.mjs",
-    "build:cf": "astro build && node scripts/copy-functions.mjs",
     "preview": "astro preview",
     "test": "playwright test",
     "generate-images": "node scripts/image-gen.mjs",
@@ -16,7 +15,8 @@
     "psi": "node .ashram-google-api-usage/scripts/psi-snapshot.mjs",
     "llms-full": "node scripts/build-llms-full.mjs",
     "astro": "astro",
-    "check": "astro check"
+    "check": "astro check",
+    "lint:biome": "biome check src scripts tests"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.2.0",
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@biomejs/biome": "^2.5.7",
     "@playwright/test": "^1.62.1",
     "axe-core": "^4.13.0",
     "lighthouse": "^13.0.2",

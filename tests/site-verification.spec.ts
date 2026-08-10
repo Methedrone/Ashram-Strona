@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 const pages = [
   '/',
@@ -115,6 +115,8 @@ test.describe('Ashram Website QA', () => {
       { from: '/en/events/dussehra', to: '/events/dussehra' },
       { from: '/events/diwali', to: '/en/events/diwali' },
       { from: '/en/events/diwali', to: '/events/diwali' },
+      { from: '/events/havan-ceremonia-ognia', to: '/en/events/havan-fire-ceremony' },
+      { from: '/en/events/havan-fire-ceremony', to: '/events/havan-ceremonia-ognia' },
       { from: '/teachings/havan-ogien', to: '/en/teachings/sacred-fire-ceremony' },
       { from: '/en/teachings/sacred-fire-ceremony', to: '/teachings/havan-ogien' }
     ];

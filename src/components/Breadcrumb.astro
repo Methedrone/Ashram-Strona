@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { items, includeSchema = true } = Astro.props;
-const siteUrl = 'https://babaji.org.pl';
+const siteUrl = import.meta.env.SITE;
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -27,7 +27,7 @@ const breadcrumbSchema = {
 ---
 
 {includeSchema && (
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 )}
 
 <nav aria-label="Breadcrumb" class="breadcrumb">

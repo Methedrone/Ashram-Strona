@@ -1,12 +1,12 @@
 ---
-import { SEO } from 'astro-seo';
-import { getLangFromUrl, useTranslations, translatePath } from '../i18n/utils';
-import Schema from '../components/Schema.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import DataLayerTrack from '../components/DataLayerTrack.astro';
-import { ClientRouter } from 'astro:transitions';
 import { GTM_CONTAINER_ID } from 'astro:env/server';
+import { ClientRouter } from 'astro:transitions';
+import { SEO } from 'astro-seo';
+import DataLayerTrack from '../components/DataLayerTrack.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Schema from '../components/Schema.astro';
+import { getLangFromUrl, translatePath, useTranslations } from '../i18n/utils';
 
 interface Props {
   title: string;
@@ -14,7 +14,7 @@ interface Props {
   ogImage?: string;
   ogImageAlt?: string;
   ogType?: string;
-  schema?: Record<string, any>;
+  schema?: Record<string, unknown>;
   noIndex?: boolean;
 }
 
@@ -30,7 +30,7 @@ const {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const siteUrl = 'https://babaji.org.pl';
+const siteUrl = import.meta.env.SITE;
 const pageUrl = new URL(Astro.url.pathname, siteUrl).href;
 const description = customDescription || t('common.description');
 const currentPath = Astro.url.pathname;
@@ -39,24 +39,19 @@ const robotsExtras = 'max-image-preview:large, max-snippet:-1, max-video-preview
 // GTM container ID — tylko z astro:env; bez wartości GTM w ogóle się nie renderuje
 const gtmId = GTM_CONTAINER_ID;
 
-// Check if this is the homepage
 const isHome = currentPath === '/' || currentPath === '/en/' || currentPath === '/en';
 
-// Generate hreflang alternate URLs
 const alternateLocales: ('pl' | 'en')[] = ['pl', 'en'];
 const hreflangs = alternateLocales.map((locale) => ({
   locale,
   url: `${siteUrl}${translatePath(currentPath, lang, locale)}`
 }));
 
-// OG image with default fallback
 const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/havan-ceremony-group-fire-offerings.webp`;
 
-// GTM-only tracking (gtag.js removed to avoid double tracking)
-// GTM container already includes GA4 config tag
-// gtagSnippet removed - GTM handles GA4 initialization
+// GTM-only tracking — gtag.js usunięty (GTM sam zawiera tag GA4); nie dodawać gtag ponownie
 
-const defaultSchema: Record<string, any> = {
+const defaultSchema: Record<string, unknown> = {
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -109,17 +104,17 @@ const defaultSchema: Record<string, any> = {
   ]
 };
 
-const schemaOrg: Record<string, any> = { ...defaultSchema };
+const schemaOrg: Record<string, unknown> = { ...defaultSchema };
+const graph = schemaOrg['@graph'] as unknown[];
 
 if (schema) {
   if (schema['@graph']) {
-    schemaOrg['@graph'].push(...schema['@graph']);
+    graph.push(...(schema['@graph'] as unknown[]));
   } else {
-    schemaOrg['@graph'].push(schema);
+    graph.push(schema);
   }
 }
 
-// Add TouristAttraction schema for homepage
 if (isHome) {
   const touristAttraction = {
     "@type": "TouristAttraction",
@@ -152,7 +147,7 @@ if (isHome) {
     "priceRange": "$$",
     "touristType": ["Spiritual", "Pilgrimage", "Yoga"]
   };
-  schemaOrg['@graph'].push(touristAttraction);
+  graph.push(touristAttraction);
 }
 ---
 
@@ -188,10 +183,8 @@ gtmUrl;f.parentNode.insertBefore(j,f);
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=optional" rel="stylesheet" />
 
-		<!-- LCP hero: bez preloada — Hero.astro używa <picture> z srcsetem AVIF+WEBP
-		     i fetchpriority="high"; preload webp (Layout.astro) nie pokrywał się
-		     z faktycznie renderowanym wariantem (avif) → warning "preloaded but
-		     not used" + marnowany transfer. fetchpriority=high wystarcza. -->
+		<!-- LCP hero: bez preloada — Hero.astro <picture> (AVIF+WEBP, fetchpriority=high);
+		     preload webp nie pokrywał się z renderowanym wariantem (avif) → warning + marnowany transfer -->
 
         <SEO
           title={title}

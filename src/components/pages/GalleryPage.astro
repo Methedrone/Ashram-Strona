@@ -1,0 +1,168 @@
+---
+import GalleryGrid from '../GalleryGrid.astro';
+import SectionHeading from '../SectionHeading.astro';
+import { useTranslations } from '../../i18n/utils';
+import Layout from '../../layouts/Layout.astro';
+
+interface Props {
+  lang: 'pl' | 'en';
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const currentImages = [
+  { src: '/images/gallery/ashram-courtyard-garden-archway.webp', srcThumb: '/images/optimized/gallery/ashram-courtyard-garden-archway-w480.webp', alt: t('gallery.current.0.alt'), subHtml: t('gallery.current.0.sub') },
+  { src: '/images/gallery/winter-landscape-sunset-snow-hills.webp', srcThumb: '/images/optimized/gallery/winter-landscape-sunset-snow-hills-w480.webp', alt: t('gallery.current.1.alt'), subHtml: t('gallery.current.1.sub') },
+  { src: '/images/gallery/sacred-temple-room-candles-altar.webp', srcThumb: '/images/optimized/gallery/sacred-temple-room-candles-altar-w480.webp', alt: t('gallery.current.2.alt'), subHtml: t('gallery.current.2.sub') },
+  { src: '/images/gallery/havan-procession-woman-offerings.webp', srcThumb: '/images/optimized/gallery/havan-procession-woman-offerings-w480.webp', alt: t('gallery.current.3.alt'), subHtml: t('gallery.current.3.sub') },
+  { src: '/images/gallery/sunset-trees-silhouette-twilight.webp', srcThumb: '/images/optimized/gallery/sunset-trees-silhouette-twilight-w480.webp', alt: t('gallery.current.4.alt'), subHtml: t('gallery.current.4.sub') },
+  { src: '/images/gallery/vegetable-garden-leeks-organic.webp', srcThumb: '/images/optimized/gallery/vegetable-garden-leeks-organic-w480.webp', alt: t('gallery.current.5.alt'), subHtml: t('gallery.current.5.sub') },
+  { src: '/images/gallery/temple-room-babaji-portrait-altar.webp', srcThumb: '/images/optimized/gallery/temple-room-babaji-portrait-altar-w480.webp', alt: t('gallery.current.6.alt'), subHtml: t('gallery.current.6.sub') },
+  { src: '/images/gallery/autumn-meadow-mountains-golden-grass.webp', srcThumb: '/images/optimized/gallery/autumn-meadow-mountains-golden-grass-w480.webp', alt: t('gallery.current.7.alt'), subHtml: t('gallery.current.7.sub') },
+  { src: '/images/gallery/temple-interior-altar-shiva-parvati.webp', srcThumb: '/images/optimized/gallery/temple-interior-altar-shiva-parvati-w480.webp', alt: t('gallery.current.8.alt'), subHtml: t('gallery.current.8.sub') },
+  { src: '/images/gallery/winter-road-snow-covered-trees-tractor.webp', srcThumb: '/images/optimized/gallery/winter-road-snow-covered-trees-tractor-w480.webp', alt: t('gallery.current.9.alt'), subHtml: t('gallery.current.9.sub') },
+].map(img => ({ ...img, loading: 'lazy' as const }));
+
+function generateAlbumImages(albumName: string, count: number, altPrefix: string) {
+  return Array.from({ length: count }, (_, i) => {
+    const num = String(i + 1).padStart(3, '0');
+    return {
+      src: `/images/gallery/albums/${albumName}/${albumName}-${num}.webp`,
+      srcThumb: `/images/optimized/gallery/albums/${albumName}/${albumName}-${num}-w480.webp`,
+      alt: `${altPrefix} - ${i + 1}`,
+      loading: 'lazy' as const
+    };
+  });
+}
+
+const archiveAshramImages = generateAlbumImages('ashram-2001-2012', 45, t('gallery.album.ashram'));
+const archiveHavanImages = generateAlbumImages('havan-2000-2012', 28, t('gallery.album.havan'));
+const archiveEarlyImages = generateAlbumImages('1997-1998', 29, t('gallery.album.early'));
+
+const archivalArticles = [
+  { src: '/images/gallery/gazetki/radio-herakhan-kwiecien-czerwiec-1997.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-kwiecien-czerwiec-1997-w480.webp', alt: t('gallery.gazetki.0.alt'), subHtml: t('gallery.gazetki.0.sub'), loading: 'lazy' as const },
+  { src: '/images/gallery/gazetki/radio-herakhan-lipiec-wrzesien-1997.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-lipiec-wrzesien-1997-w480.webp', alt: t('gallery.gazetki.1.alt'), subHtml: t('gallery.gazetki.1.sub'), loading: 'lazy' as const },
+  { src: '/images/gallery/gazetki/radio-herakhan-pazdziernik-luty-1997-1998-.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-pazdziernik-luty-1997-1998--w480.webp', alt: t('gallery.gazetki.2.alt'), subHtml: t('gallery.gazetki.2.sub'), loading: 'lazy' as const },
+  { src: '/images/gallery/gazetki/radio-herakhan-marzec-grudzien-1998.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-marzec-grudzien-1998-w480.webp', alt: t('gallery.gazetki.3.alt'), subHtml: t('gallery.gazetki.3.sub'), loading: 'lazy' as const },
+  { src: '/images/gallery/gazetki/radio-herakhan-czerwiec-2000.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-czerwiec-2000-w480.webp', alt: t('gallery.gazetki.4.alt'), subHtml: t('gallery.gazetki.4.sub'), loading: 'lazy' as const },
+  { src: '/images/gallery/gazetki/radio-herakhan-styczen-2002.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-styczen-2002-w480.webp', alt: t('gallery.gazetki.5.alt'), subHtml: t('gallery.gazetki.5.sub'), loading: 'lazy' as const },
+  { src: '/images/gallery/gazetki/radio-herakhan-kwiecien-maj-2002.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-kwiecien-maj-2002-w480.webp', alt: t('gallery.gazetki.6.alt'), subHtml: t('gallery.gazetki.6.sub'), loading: 'lazy' as const },
+  { src: '/images/gallery/gazetki/radio-herakhan-grudzien-2005.webp', srcThumb: '/images/optimized/gallery/gazetki/radio-herakhan-grudzien-2005-w480.webp', alt: t('gallery.gazetki.7.alt'), subHtml: t('gallery.gazetki.7.sub'), loading: 'lazy' as const },
+];
+---
+<Layout title={t('nav.gallery')} description={t('meta.gallery.description')}>
+  <div class="gallery-page">
+    <div class="container">
+      <div class="intro">
+        <SectionHeading title={t('gallery.title')} subtitle={t('gallery.subtitle')} level={1} />
+      </div>
+      
+      <!-- Current Life -->
+      <div class="gallery-section">
+        <GalleryGrid images={currentImages} title={t('gallery.current.title')} />
+      </div>
+
+      <!-- Historical Ashram -->
+      <div class="gallery-section">
+        <GalleryGrid images={archiveAshramImages} title={t('gallery.archive.ashram.title')} />
+      </div>
+
+      <!-- Historical Havan -->
+      <div class="gallery-section">
+        <GalleryGrid images={archiveHavanImages} title={t('gallery.archive.havan.title')} />
+      </div>
+
+      <!-- Early Days -->
+      <div class="gallery-section">
+        <GalleryGrid images={archiveEarlyImages} title={t('gallery.early.title')} />
+      </div>
+
+      <!-- Future: Budowa Ashramu -->
+      <div class="gallery-section empty">
+        <GalleryGrid images={[]} title={t('gallery.construction.title')} emptyStateText={t('gallery.empty')} />
+      </div>
+
+      <Fragment set:html={lang === 'en' ? '<!-- Archival Articles -->' : '<!-- Historical Articles -->'} />
+      <div class="gallery-section">
+        <GalleryGrid images={archivalArticles} title={t('gallery.gazetki.title')} />
+      </div>
+
+      {lang === 'en' && (
+        <div class="gallery-section empty">
+          <GalleryGrid images={[]} title={t('gallery.archival.title')} emptyStateText={t('gallery.empty')} />
+        </div>
+      )}
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .gallery-page {
+    padding: 4rem 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .intro {
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1 {
+    font-family: var(--font-family-serif);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-orange);
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+  }
+
+  .gallery-section {
+    margin-bottom: 4rem;
+    position: relative;
+  }
+  
+  .gallery-section::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--color-gold);
+    margin: 4rem auto 0;
+    opacity: 0.3;
+  }
+  
+  .gallery-section:last-child::after {
+    display: none;
+  }
+
+  /* Styl dla linku do pobrania w opisie zdjęcia */
+  :global(.download-link) {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.3rem 0.8rem;
+    background-color: var(--color-orange);
+    color: white !important;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+  }
+
+  :global(.download-link:hover) {
+    background-color: var(--color-orange-dark, #e67e22);
+  }
+</style>

@@ -1,9 +1,0 @@
-credentials/*.json
-credentials/*.pem
-.env
-reports/psi_*.json
-reports/compare_*.json
-reports/gsc_*.json
-reports/ga4_*.json
-reports/indexing_*.json
-node_modules/

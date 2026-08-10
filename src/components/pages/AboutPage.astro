@@ -1,0 +1,259 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import { useTranslations } from '../../i18n/utils';
+import Layout from '../../layouts/Layout.astro';
+
+interface Props {
+  lang: 'pl' | 'en';
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const siteUrl = import.meta.env.SITE;
+const slugPath = (page: string) => (lang === 'pl' ? `/${page}` : `/en/${page}`);
+const practicesHref = lang === 'pl' ? '/praktyki' : '/en/practices';
+---
+
+<Layout title={t('nav.about')} description={t('meta.about.description')} ogImage="/images/havan-ceremony-group-fire-offerings.webp" schema={{
+  "@type": "AboutPage",
+  "name": t('nav.about'),
+  "description": t('meta.about.description'),
+  "url": `${siteUrl}${slugPath('about')}`,
+  "inLanguage": lang
+}}>
+  <div class="about-page">
+    <section class="intro">
+      <div class="container">
+        <SectionHeading title={t('about.hero.title')} subtitle={t('about.hero.subtitle')} level={1} />
+        
+        <div class="content-grid">
+          <div class="text-content">
+            <h2>{t('about.mission.title')}</h2>
+            <p>
+              <strong>{t('about.mission.p1.strong1')}</strong> {t('about.mission.p1.after1')} <a href={slugPath('babaji')}>{t('about.mission.p1.link')}</a>{t('about.mission.p1.after2')} <strong>{t('about.mission.p1.strong2')}</strong>.
+            </p>
+            <p>
+              {t('about.mission.p2')}
+            </p>
+
+            <h2>{t('about.babaji.title')}</h2>
+            <p>
+              {t('about.babaji.p1')}
+            </p>
+            <p>
+              {t('about.babaji.p2.before')} <a href={slugPath('babaji')}>{t('about.babaji.p2.link')}</a>.
+            </p>
+          </div>
+          
+          <div class="image-content">
+            <img src="/images/gallery/babaji-with-devotees-vintage.webp" alt={t('about.image.alt')} class="rounded-image shadow-lg" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="eeat">
+      <div class="container">
+        <SectionHeading title={t('about.eeat.title')} subtitle={t('about.eeat.subtitle')} />
+        <div class="eeat-grid">
+          <div class="eeat-card">
+            <h2>{t('about.eeat.card1.title')}</h2>
+            <p>
+              {t('about.eeat.card1.text')}
+            </p>
+            <a href={practicesHref}>{t('about.eeat.card1.link')}</a>
+          </div>
+          <div class="eeat-card">
+            <h2>{t('about.eeat.card2.title')}</h2>
+            <p>
+              {t('about.eeat.card2.text')}
+            </p>
+            <a href={slugPath('events')}>{t('about.eeat.card2.link')}</a>
+          </div>
+          <div class="eeat-card">
+            <h2>{t('about.eeat.card3.title')}</h2>
+            <p>
+              {t('about.eeat.card3.text')}
+            </p>
+            <a href={slugPath('contact')}>{t('about.eeat.card3.link')}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ashrams bg-alt">
+      <div class="container">
+        <SectionHeading title={t('about.ashrams.title')} />
+        
+        <div class="ashram-grid">
+          <div class="ashram-card">
+            <img src="/images/gallery/ashram-courtyard-garden-archway.webp" alt={t('about.ashrams.card.image.alt')} />
+            <div class="card-content">
+              <h2>{t('about.ashrams.card.title')}</h2>
+              <p>
+                {t('about.ashrams.card.text')}
+              </p>
+              <p class="address">
+                <strong>{t('about.ashrams.card.addressLabel')}</strong><br />
+                Mąkolno 129<br />
+                57-250 Mąkolno
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .about-page {
+    padding-bottom: 4rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+
+  .bg-alt {
+    background-color: var(--color-bg-alt);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .text-content h3 {
+    font-family: var(--font-family-serif);
+    color: var(--color-orange);
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .text-content h3:first-child {
+    margin-top: 0;
+  }
+
+  .text-content p {
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .image-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(155, 85, 57, 0.15);
+  }
+
+  .ashram-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .eeat {
+    background: var(--color-bg-warm);
+  }
+
+  .eeat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  .eeat-card {
+    background: var(--color-bg-alt);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .eeat-card h3 {
+    font-family: var(--font-family-serif);
+    color: var(--color-text);
+    margin-top: 0;
+  }
+
+  .eeat-card p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .eeat-card a {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: var(--color-orange);
+    text-decoration: none;
+  }
+
+  .eeat-card a:hover {
+    text-decoration: underline;
+  }
+
+  .ashram-card {
+    background: var(--color-bg-warm);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease;
+  }
+
+  .ashram-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .ashram-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 2rem;
+  }
+
+  .card-content h3 {
+    font-family: var(--font-family-serif);
+    color: var(--color-text);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-content p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .address {
+    font-style: italic;
+    border-top: 1px solid var(--color-border);
+    padding-top: 1rem;
+    margin-bottom: 0 !important;
+  }
+
+  @media (max-width: 768px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .image-content {
+      order: -1;
+    }
+  }
+</style>
