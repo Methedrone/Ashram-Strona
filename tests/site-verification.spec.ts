@@ -155,4 +155,20 @@ test.describe('Ashram Website QA', () => {
     await toggle.click();
     await expect(page.locator('#main-navigation')).toHaveAttribute('data-visible', 'true');
   });
+
+  test('data-event clicks reach dataLayer', async ({ page }) => {
+    await page.goto('http://localhost:39755/contact');
+
+    const cta = page.locator('[data-event="contact_form_submit"]').first();
+    await expect(cta).toBeVisible();
+    await cta.click();
+
+    const tracked = await page.evaluate(
+      () =>
+        (window as unknown as { dataLayer?: Array<Record<string, unknown>> }).dataLayer?.some(
+          (entry) => entry.event === 'contact_form_submit'
+        ) ?? false
+    );
+    expect(tracked).toBe(true);
+  });
 });
