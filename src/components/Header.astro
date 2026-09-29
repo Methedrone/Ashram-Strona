@@ -70,13 +70,19 @@ const switchText = lang === "pl" ? "English" : "Polski";
     </div>
 </header>
 
-<!-- is:inline — plain ES2015 runs as-is; Astro's module wrapper caused a TDZ error here -->
+<!-- is:inline — plain ES2015 runs as-is; Astro's module wrapper caused a TDZ error here.
+     Under <ClientRouter /> the header DOM is replaced on every navigation, so the menu
+     bindings are (re)created via astro:page-load and every handler is idempotent. -->
 <script is:inline>
-    const menuToggle = document.getElementById("menu-toggle");
-    const nav = document.getElementById("main-navigation");
-    const headerContainer = document.querySelector(".header-container");
+    function initMenu() {
+        const menuToggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("main-navigation");
+        const headerContainer = document.querySelector(".header-container");
 
-    if (menuToggle && nav && headerContainer) {
+        if (!menuToggle || !nav || !headerContainer) return;
+        if (menuToggle.dataset.menuBound === "1") return;
+        menuToggle.dataset.menuBound = "1";
+
         menuToggle.addEventListener("click", () => {
             const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
 
@@ -84,9 +90,25 @@ const switchText = lang === "pl" ? "English" : "Polski";
             nav.setAttribute("data-visible", (!isExpanded).toString());
             headerContainer.classList.toggle("menu-open");
         });
+    }
 
-        // Keyboard navigation (Escape to close, Tab trap)
+    initMenu();
+
+    if (!window.__menuLoadBound) {
+        window.__menuLoadBound = true;
+        document.addEventListener("astro:page-load", initMenu);
+    }
+
+    // Keyboard navigation (Escape to close, Tab trap) — bound once; each keypress
+    // resolves the current header nodes so it survives client-side navigation.
+    if (!window.__menuKeydownBound) {
+        window.__menuKeydownBound = true;
         document.addEventListener("keydown", (e) => {
+            const menuToggle = document.getElementById("menu-toggle");
+            const nav = document.getElementById("main-navigation");
+            const headerContainer = document.querySelector(".header-container");
+            if (!menuToggle || !nav || !headerContainer) return;
+
             const isMenuOpen = headerContainer.classList.contains("menu-open");
             if (!isMenuOpen) return;
 
