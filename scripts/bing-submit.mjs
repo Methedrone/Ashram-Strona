@@ -4,29 +4,28 @@
 // this site with 403 UserForbiddedToAccessSite (see the ashram-google-apis
 // skill). Non-fatal on purpose: a failed submit must not fail a deploy.
 // Quota: ~99 URLs/day, ~199/month (checked before submitting).
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
 
 const API = 'https://ssl.bing.com/webmaster/api.svc/json/';
 const SITE = 'https://babaji.org.pl/';
 const KEY = process.env.INDEXNOW_BING_API_KEY;
-const DIST = 'dist/client';
+const SITEMAP = 'dist/client/sitemap-0.xml';
 
 if (!KEY) {
   console.warn('[bing-submit] INDEXNOW_BING_API_KEY not set — skipping.');
   process.exit(0);
 }
-if (!existsSync(DIST)) {
-  console.warn(`[bing-submit] ${DIST} not found — skipping.`);
+if (!existsSync(SITEMAP)) {
+  console.warn(`[bing-submit] ${SITEMAP} not found — skipping.`);
   process.exit(0);
 }
 
+// ponytail: one sitemap chunk is enough — @astrojs/sitemap only splits past
+// 45k URLs; if that day comes, read sitemap-index.xml first.
+const xml = readFileSync(SITEMAP, 'utf8');
 const urls = new Set();
-for (const f of readdirSync(DIST).filter((f) => f.includes('sitemap') && f.endsWith('.xml'))) {
-  const xml = readFileSync(join(DIST, f), 'utf8');
-  for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
-    if (!m[1].endsWith('.xml')) urls.add(m[1]);
-  }
+for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+  if (!m[1].endsWith('.xml')) urls.add(m[1]);
 }
 if (urls.size === 0) {
   console.warn('[bing-submit] no URLs found in sitemaps — skipping.');
