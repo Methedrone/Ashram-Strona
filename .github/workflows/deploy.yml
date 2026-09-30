@@ -49,3 +49,13 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
         run: npx wrangler pages deploy dist/client --project-name="$CLOUDFLARE_PROJECT_NAME" --commit-dirty=true
+
+      # IndexNow key-file submissions are rejected by Bing for this site
+      # (403 UserForbiddedToAccessSite — site is verified in WMT, key file is
+      # fetchable; the pair is stuck on Bing's side). Use the Webmaster URL
+      # Submission API with the account that verified the site instead.
+      # Quota-guarded (~99/day) and non-fatal — see scripts/bing-submit.mjs.
+      - name: Submit URLs to Bing (Webmaster API)
+        env:
+          INDEXNOW_BING_API_KEY: ${{ secrets.INDEXNOW_BING_API_KEY || vars.INDEXNOW_BING_API_KEY }}
+        run: node scripts/bing-submit.mjs
