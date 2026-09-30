@@ -131,4 +131,44 @@ test.describe('Ashram Website QA', () => {
       expect(response?.status()).toBe(200);
     }
   });
+
+  test('Mobile menu opens after client-side navigation', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('http://localhost:39755/');
+
+    const toggle = page.locator('#menu-toggle');
+    await expect(toggle).toBeVisible();
+
+    await toggle.click();
+    await expect(page.locator('#main-navigation')).toHaveAttribute('data-visible', 'true');
+
+    // Mark the window: a ClientRouter navigation keeps it, a full reload would drop it.
+    await page.evaluate(() => {
+      (window as unknown as { __navMarker?: string }).__navMarker = 'persisted';
+    });
+
+    await page.locator('#main-navigation a[href="/about"]').click();
+    await page.waitForURL('**/about');
+    expect(await page.evaluate(() => (window as unknown as { __navMarker?: string }).__navMarker)).toBe('persisted');
+
+    await expect(page.locator('#main-navigation')).toHaveAttribute('data-visible', 'false');
+    await toggle.click();
+    await expect(page.locator('#main-navigation')).toHaveAttribute('data-visible', 'true');
+  });
+
+  test('data-event clicks reach dataLayer', async ({ page }) => {
+    await page.goto('http://localhost:39755/contact');
+
+    const cta = page.locator('[data-event="contact_form_submit"]').first();
+    await expect(cta).toBeVisible();
+    await cta.click();
+
+    const tracked = await page.evaluate(
+      () =>
+        (window as unknown as { dataLayer?: Array<Record<string, unknown>> }).dataLayer?.some(
+          (entry) => entry.event === 'contact_form_submit'
+        ) ?? false
+    );
+    expect(tracked).toBe(true);
+  });
 });

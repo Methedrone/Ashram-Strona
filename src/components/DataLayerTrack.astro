@@ -32,7 +32,7 @@
 
   // ─── 1. data-event="..." click handler ───────────────────────
   document.addEventListener('click', (e) => {
-    const target = e.target instanceof Element ? target.closest('[data-event]') : null;
+    const target = e.target instanceof Element ? e.target.closest('[data-event]') : null;
     if (!target) return;
     let data = {};
     try {
