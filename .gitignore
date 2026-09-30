@@ -59,6 +59,8 @@ lh.json
 .vibe/skills/stitch-loop
 
 
+# astro-indexnow
+.astro-indexnow-cache.json
 .juno_task/logs/roundtable_mcp_server.log
 
 # .ashram-google-api-usage — local tooling, untracked entirely
