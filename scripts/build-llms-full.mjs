@@ -14,7 +14,6 @@ import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 
 const DIST = 'dist/client';
-const OUTS = ['public/llms-full.txt', 'dist/client/llms-full.txt'];
 const SITE_URL = 'https://babaji.org.pl';
 
 async function walk(dir) {
@@ -70,8 +69,9 @@ async function main() {
     .join('\n---\n\n');
 
   const out = header + body;
-  for (const f of OUTS) await writeFile(f, out, 'utf-8');
-  console.log(`✅ ${OUTS.join(' + ')} — ${pages.length} pages, ${(out.length / 1024) | 0} KB`);
+  await writeFile('public/llms-full.txt', out, 'utf-8');
+  await writeFile('dist/client/llms-full.txt', out, 'utf-8');
+  console.log(`✅ public/llms-full.txt + dist/client/llms-full.txt — ${pages.length} pages, ${(out.length / 1024) | 0} KB`);
 }
 
 main().catch(err => { console.error('❌', err.message); process.exit(1); });
