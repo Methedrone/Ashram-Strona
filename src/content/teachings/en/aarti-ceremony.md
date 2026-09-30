@@ -44,6 +44,6 @@ Babaji loved bhajans and often sang them himself, leading his devotees in ecstat
 
 ## Aarti at Babaji Ashram
 
-At Babaji Ashram, Aarti is the heart of the day — morning and evening ceremonies set the rhythm of practice. If you want to experience Aarti in community, see [upcoming events](/en/events) or plan a visit through [contact](/en/contact). Aarti naturally complements practices like [Nama Japa](/en/teachings/nama-japa) and [Havan](/en/teachings/sacred-fire-ceremony).
+At Babaji Ashram, Aarti is the heart of the day — morning and evening ceremonies set the rhythm of practice. If you want to experience Aarti in community, see [upcoming events](/en/events/) or plan a visit through [contact](/en/contact/). Aarti naturally complements practices like [Nama Japa](/en/teachings/nama-japa/) and [Havan](/en/teachings/sacred-fire-ceremony/).
 
 *Om Namah Shivay*

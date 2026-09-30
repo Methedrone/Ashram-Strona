@@ -71,4 +71,4 @@ if (existsSync(distRoutes)) {
 //    (potwierdzone na żywo 2026-08-10: /about → 308 pomimo reguły
 //    `/about /about/index.html 200`). Łańcuch 308 → /about/ → 200 jest
 //    natywnym zachowaniem Pages i działa w każdej przeglądarce i dla
-//    Google. Właściwy fix (zero hopów) = trailingSlash: 'always' w Astro.
+//    Google. Właściwy fix (zero hopów) = trailingSlash: 'always' w Astro — wdrożone 2026-09-30 (linki/canonical/sitemap/hreflang w wersji ze slashem).

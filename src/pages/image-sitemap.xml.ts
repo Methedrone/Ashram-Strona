@@ -16,19 +16,18 @@ function escapeXml(str: string): string {
  * /en/events/xxx, and 'pl/xxx' maps to /events/xxx (no prefix for the default locale).
  */
 function normalizePageUrl(pageUrl: string): string {
+  let url = pageUrl;
   if (pageUrl.startsWith('/events/en/')) {
-    return `/en/events/${pageUrl.replace('/events/en/', '')}`;
+    url = `/en/events/${pageUrl.replace('/events/en/', '')}`;
+  } else if (pageUrl.startsWith('/teachings/en/')) {
+    url = `/en/teachings/${pageUrl.replace('/teachings/en/', '')}`;
+  } else if (pageUrl.startsWith('/events/pl/')) {
+    url = `/events/${pageUrl.replace('/events/pl/', '')}`;
+  } else if (pageUrl.startsWith('/teachings/pl/')) {
+    url = `/teachings/${pageUrl.replace('/teachings/pl/', '')}`;
   }
-  if (pageUrl.startsWith('/teachings/en/')) {
-    return `/en/teachings/${pageUrl.replace('/teachings/en/', '')}`;
-  }
-  if (pageUrl.startsWith('/events/pl/')) {
-    return `/events/${pageUrl.replace('/events/pl/', '')}`;
-  }
-  if (pageUrl.startsWith('/teachings/pl/')) {
-    return `/teachings/${pageUrl.replace('/teachings/pl/', '')}`;
-  }
-  return pageUrl;
+  // Strony na CF Pages mają kanoniczną formę ze slashem — trzymamy spójność.
+  return url.endsWith('/') ? url : `${url}/`;
 }
 
 export async function GET() {
@@ -40,7 +39,7 @@ export async function GET() {
   const urlSet = new Map<string, { lang: string; images: Array<{ path: string; title: string; alt: string }> }>();
 
   if (galleryImages.length > 0) {
-    urlSet.set('/gallery', {
+    urlSet.set('/gallery/', {
       lang: 'pl',
       images: galleryImages.map(img => ({
         path: img.path,

@@ -44,6 +44,6 @@ Babadżi kochał bhajany i często sam je śpiewał, prowadząc swoich bhaktów 
 
 ## Aarti w Ashramie Babaji
 
-W Ashramie Babaji Aarti stanowi serce dnia — poranna i wieczorna ceremonia wyznacza rytm praktyki. Jeśli chcesz doświadczyć Aarti w grupie, zobacz [nadchodzące wydarzenia](/events) lub zaplanuj wizytę przez [kontakt](/contact). Aarti jest naturalnym uzupełnieniem praktyk takich jak [Nama Japa](/teachings/nama-japa) oraz [Havan](/teachings/havan-ogien).
+W Ashramie Babaji Aarti stanowi serce dnia — poranna i wieczorna ceremonia wyznacza rytm praktyki. Jeśli chcesz doświadczyć Aarti w grupie, zobacz [nadchodzące wydarzenia](/events/) lub zaplanuj wizytę przez [kontakt](/contact/). Aarti jest naturalnym uzupełnieniem praktyk takich jak [Nama Japa](/teachings/nama-japa/) oraz [Havan](/teachings/havan-ogien/).
 
 *Om Namah Shivay*

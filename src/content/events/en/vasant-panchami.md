@@ -40,6 +40,6 @@ Vasant Panchami symbolizes the awakening of nature after winter and the beginnin
 
 ## Information for Participants
 
-All who wish to honor the goddess of wisdom and welcome spring in their hearts are welcome. Please arrive before 10:00 and wear a yellow element as a symbol of joy and spiritual awakening. After the ceremony, we invite you to join the communal lunch and satsang. For details and registration: [contact](/en/contact).
+All who wish to honor the goddess of wisdom and welcome spring in their hearts are welcome. Please arrive before 10:00 and wear a yellow element as a symbol of joy and spiritual awakening. After the ceremony, we invite you to join the communal lunch and satsang. For details and registration: [contact](/en/contact/).
 
 *Om Namah Shivay*

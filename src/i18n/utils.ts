@@ -9,6 +9,13 @@ const normalizePath = (path: string) => {
   return withLeading;
 };
 
+// CF Pages serwuje strony katalogowe pod adresem ze slashem (308 na wersję
+// ze slashem). Linki/sygnały generujemy od razu w tej formie — zero przekierowań.
+const withTrailingSlash = (path: string) => {
+  if (path === '/' || path.endsWith('/')) return path;
+  return `${path}/`;
+};
+
 export const slugTranslations = {
   pl: {
     '/praktyki': '/practices',
@@ -54,6 +61,12 @@ export const slugTranslations = {
   },
 } as const;
 
+// Map.get zamiast indeksowania obiektu zmienną (static analiza: object injection sink)
+const translationMaps = {
+  pl: new Map<string, string>(Object.entries(slugTranslations.pl)),
+  en: new Map<string, string>(Object.entries(slugTranslations.en)),
+};
+
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/');
   if (lang in ui) return lang as keyof typeof ui;
@@ -64,10 +77,10 @@ export function getLocalizedPath(path: string, lang: keyof typeof ui): string {
   const normalizedPath = normalizePath(path);
 
   if (lang === defaultLang) {
-    return normalizedPath;
+    return withTrailingSlash(normalizedPath);
   }
 
-  return normalizedPath === '/' ? `/${lang}` : `/${lang}${normalizedPath}`;
+  return withTrailingSlash(normalizedPath === '/' ? `/${lang}` : `/${lang}${normalizedPath}`);
 }
 
 export function translatePath(
@@ -77,22 +90,21 @@ export function translatePath(
 ): string {
   const normalizedPath = normalizePath(path);
   if (fromLang === toLang) {
-    return normalizedPath;
+    return withTrailingSlash(normalizedPath);
   }
 
   const withoutLocale = fromLang === 'en'
     ? normalizedPath.replace(/^\/en(?=\/|$)/, '')
     : normalizedPath;
   const cleanPath = withoutLocale === '' ? '/' : withoutLocale;
-  const map = fromLang === 'pl' ? slugTranslations.pl : slugTranslations.en;
-  const translated = map[cleanPath as keyof typeof map];
+  const translated = (fromLang === 'pl' ? translationMaps.pl : translationMaps.en).get(cleanPath);
 
   if (toLang === defaultLang) {
-    return translated ?? cleanPath;
+    return withTrailingSlash(translated ?? cleanPath);
   }
 
   const targetPath = translated ?? (cleanPath === '/' ? '' : cleanPath);
-  return targetPath ? `/${toLang}${targetPath}` : `/${toLang}`;
+  return withTrailingSlash(targetPath ? `/${toLang}${targetPath}` : `/${toLang}`);
 }
 
 export function useTranslations(lang: keyof typeof ui) {

@@ -31,7 +31,7 @@ const latestTeachings = allTeachings
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 
-const path = (page: string) => (lang === 'pl' ? `/${page}` : `/en/${page}`);
+const path = (page: string) => (lang === 'pl' ? `/${page}/` : `/en/${page}/`);
 ---
 
 <Layout title={t('nav.home')} description={t('meta.home.description')}>

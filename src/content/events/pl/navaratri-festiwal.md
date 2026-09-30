@@ -51,6 +51,6 @@ Każda noc Navaratri jest poświęcona innej formie Boskiej Matki. To czas inten
 
 Wszyscy są mile widziani, by przyłączyć się do ceremonii. Prosimy o wcześniejszy kontakt, jeśli planujesz wielodniowy pobyt podczas festiwalu.
 
-Navaratri łączy praktyki [Havan](/teachings/havan-ogien), [Aarti](/teachings/aarti-ceremonia) i [Nama Japa](/teachings/nama-japa). Jeśli chcesz przygotować się do udziału, zapraszamy do [kontaktu](/contact).
+Navaratri łączy praktyki [Havan](/teachings/havan-ogien/), [Aarti](/teachings/aarti-ceremonia/) i [Nama Japa](/teachings/nama-japa/). Jeśli chcesz przygotować się do udziału, zapraszamy do [kontaktu](/contact/).
 
 *Om Namah Shivay*

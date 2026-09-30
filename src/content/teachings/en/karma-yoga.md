@@ -42,8 +42,8 @@ Babaji taught: "Work here together as one. There are no class distinctions or re
 
 ## Karma Yoga at Babaji Ashram
 
-At Babaji Ashram we practice Karma Yoga every day — in the kitchen, garden, and in caring for the space. It naturally complements [Nama Japa](/en/teachings/nama-japa) and [meditation](/en/teachings/meditation-for-beginners). During retreats, communal work shapes the rhythm of the day alongside [Havan](/en/teachings/sacred-fire-ceremony) and [Aarti](/en/teachings/aarti-ceremony).
+At Babaji Ashram we practice Karma Yoga every day — in the kitchen, garden, and in caring for the space. It naturally complements [Nama Japa](/en/teachings/nama-japa/) and [meditation](/en/teachings/meditation-for-beginners/). During retreats, communal work shapes the rhythm of the day alongside [Havan](/en/teachings/sacred-fire-ceremony/) and [Aarti](/en/teachings/aarti-ceremony/).
 
-Want to experience this practice in daily life? See [upcoming events](/en/events) or [contact us](/en/contact) to plan a stay. If you want to support the ashram, visit [donations](/en/donations).
+Want to experience this practice in daily life? See [upcoming events](/en/events/) or [contact us](/en/contact/) to plan a stay. If you want to support the ashram, visit [donations](/en/donations/).
 
 *Om Namah Shivay*
