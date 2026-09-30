@@ -10,8 +10,8 @@
  *
  * Usage: node scripts/build-llms-full.mjs (or just `npm run build`)
  */
-import { readdir, readFile, writeFile } from 'node:fs/promises';
-import { join, relative } from 'node:path';
+import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
+import { dirname, join, relative } from 'node:path';
 
 const DIST = 'dist/client';
 const SITE_URL = 'https://babaji.org.pl';
@@ -32,6 +32,10 @@ function htmlToText(html) {
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
     .replace(/<noscript[\s\S]*?<\/noscript>/gi, ' ')
     .replace(/<svg[\s\S]*?<\/svg>/gi, ' ')
+    .replace(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi, (_m, href, inner) => {
+      const abs = href.startsWith('/') ? SITE_URL + href : href;
+      return `[${inner}](${abs})`;
+    })
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
@@ -58,7 +62,8 @@ async function main() {
     const text = mainMatch ? htmlToText(mainMatch[0]) : '';
     if (!text) continue;
     const titleMatch = html.match(/<title>([^<]*)<\/title>/i);
-    pages.push({ url, title: titleMatch ? titleMatch[1].trim() : url, text });
+    const title = (titleMatch ? titleMatch[1].trim() : url).replace(/\s*\|\s*Ashram Babaji$/, '');
+    pages.push({ url, title, text });
   }
 
   pages.sort((a, b) => a.url.localeCompare(b.url));
@@ -71,7 +76,17 @@ async function main() {
   const out = header + body;
   await writeFile('public/llms-full.txt', out, 'utf-8');
   await writeFile('dist/client/llms-full.txt', out, 'utf-8');
-  console.log(`✅ public/llms-full.txt + dist/client/llms-full.txt — ${pages.length} pages, ${(out.length / 1024) | 0} KB`);
+
+  // llmstxt.org v2: per-page markdown versions under <page>/index.md
+  let mdCount = 0;
+  for (const p of pages) {
+    const rel = p.url.replace(`${SITE_URL}/`, '');
+    const outFile = join(DIST, rel, 'index.md');
+    await mkdir(dirname(outFile), { recursive: true });
+    await writeFile(outFile, `# ${p.title}\n\nSource: ${p.url}\n\n${p.text}\n`, 'utf-8');
+    mdCount += 1;
+  }
+  console.log(`✅ llms-full (${pages.length} pages, ${(out.length / 1024) | 0} KB) + ${mdCount}× per-page index.md`);
 }
 
 main().catch(err => { console.error('❌', err.message); process.exit(1); });
