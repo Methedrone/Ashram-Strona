@@ -1,4 +1,6 @@
 import { expect, test } from '@playwright/test';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 
 const pages = [
   '/',
@@ -170,5 +172,16 @@ test.describe('Ashram Website QA', () => {
         ) ?? false
     );
     expect(tracked).toBe(true);
+  });
+
+  test('Image sitemap: brak <image:alt> i martwych ścieżek plików', async ({ request }) => {
+    const res = await request.get('http://localhost:39755/image-sitemap.xml');
+    expect(res.status()).toBe(200);
+    const xml = await res.text();
+    expect(xml).not.toContain('<image:alt>');
+    const locs = [...xml.matchAll(/<image:loc>(.*?)<\/image:loc>/g)].map((m) => m[1]);
+    expect(locs.length).toBeGreaterThan(0);
+    const missing = locs.filter((u) => !existsSync(join('public', new URL(u).pathname)));
+    expect(missing, `martwe obrazy w sitemapie: ${missing.join(', ')}`).toEqual([]);
   });
 });
