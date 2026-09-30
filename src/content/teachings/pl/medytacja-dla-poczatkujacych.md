@@ -50,7 +50,7 @@ Zacznij od **10 minut dziennie**, najlepiej rano, zaraz po przebudzeniu. Poranna
 
 Kazdy poczatkujacy napotyka te same wyzwania:
 
-- **Niespokojny umysl** — to normalne, nie oznaka porazki. Umysl produkuje mysli tak, jak pluca produkuja oddech. Praktyka polega na tym, by nie podazac za kazda mysla. [Praktyka Nama Japa](/teachings/nama-japa) jest tu szczegolnie pomocna.
+- **Niespokojny umysl** — to normalne, nie oznaka porazki. Umysl produkuje mysli tak, jak pluca produkuja oddech. Praktyka polega na tym, by nie podazac za kazda mysla. [Praktyka Nama Japa](/teachings/nama-japa/) jest tu szczegolnie pomocna.
 - **Dyskomfort ciala** — jesli nogi dretnieja lub plecy bola, zmien pozycje. Medytacja nie powinna byc cierpieniem. Z czasem cialo przyzwyczai sie do siedzenia w ciszy.
 - **Niecierpliwosc** — oczekiwanie natychmiastowych rezultatow jest pulapka ego. Babadzi uczyl, ze **Karma Yoga** — bezinteresowne dzialanie — dotyczy takze medytacji. Praktykuj bez przywiazania do efektow.
 - **Nieregularnosc** — latwiej jest praktykowac codziennie o tej samej porze. Wlacz medytacje w swoj rytm dnia jak mycie zebow — nie jako luksus, lecz jako koniecznosc.
@@ -61,6 +61,6 @@ Prawdziwa medytacja nie konczy sie, gdy wstajemy z poduszki. Babadzi nauczal, ze
 
 W aszramie Babadziego praca fizyczna — **Karma Yoga** — jest rownie wazna jak siedzenie w medytacji. Sluzba innym, wykonywana z miloscia i bez oczekiwania nagrody, jest jedna z najpotezniejszych form duchowej praktyki.
 
-Zapraszamy do odwiedzenia [aszramu](/contact), aby doswiadczyc medytacji w grupie i poczuc energie miejsca, ktore od lat wspiera duchowy rozwoj poszukujacych.
+Zapraszamy do odwiedzenia [aszramu](/contact/), aby doswiadczyc medytacji w grupie i poczuc energie miejsca, ktore od lat wspiera duchowy rozwoj poszukujacych.
 
 *Om Namah Shivay*

@@ -23,7 +23,7 @@ const related = allEvents
     <ul>
       {related.map((event: CollectionEntry<'events'>) => (
         <li>
-          <a href={lang === 'pl' ? `/events/${event.id.split('/').slice(1).join('/')}` : `/en/events/${event.id.split('/').slice(1).join('/')}`}>
+          <a href={lang === 'pl' ? `/events/${event.id.split('/').slice(1).join('/')}/` : `/en/events/${event.id.split('/').slice(1).join('/')}/`}>
             {event.data.title}
           </a>
         </li>

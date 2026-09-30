@@ -51,6 +51,6 @@ Each night of Navaratri is dedicated to a different form of the Divine Mother. I
 
 All are welcome to join the ceremonies. Please contact us in advance if you plan a multi-day stay during the festival.
 
-Navaratri weaves together [Havan](/en/teachings/sacred-fire-ceremony), [Aarti](/en/teachings/aarti-ceremony), and [Nama Japa](/en/teachings/nama-japa). If you want to prepare, please [contact us](/en/contact).
+Navaratri weaves together [Havan](/en/teachings/sacred-fire-ceremony/), [Aarti](/en/teachings/aarti-ceremony/), and [Nama Japa](/en/teachings/nama-japa/). If you want to prepare, please [contact us](/en/contact/).
 
 *Om Namah Shivay*

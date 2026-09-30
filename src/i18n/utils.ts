@@ -9,6 +9,13 @@ const normalizePath = (path: string) => {
   return withLeading;
 };
 
+// CF Pages serwuje strony katalogowe pod adresem ze slashem (308 na wersję
+// ze slashem). Linki/sygnały generujemy od razu w tej formie — zero przekierowań.
+const withTrailingSlash = (path: string) => {
+  if (path === '/' || path.endsWith('/')) return path;
+  return `${path}/`;
+};
+
 export const slugTranslations = {
   pl: {
     '/praktyki': '/practices',
@@ -64,10 +71,10 @@ export function getLocalizedPath(path: string, lang: keyof typeof ui): string {
   const normalizedPath = normalizePath(path);
 
   if (lang === defaultLang) {
-    return normalizedPath;
+    return withTrailingSlash(normalizedPath);
   }
 
-  return normalizedPath === '/' ? `/${lang}` : `/${lang}${normalizedPath}`;
+  return withTrailingSlash(normalizedPath === '/' ? `/${lang}` : `/${lang}${normalizedPath}`);
 }
 
 export function translatePath(
@@ -77,7 +84,7 @@ export function translatePath(
 ): string {
   const normalizedPath = normalizePath(path);
   if (fromLang === toLang) {
-    return normalizedPath;
+    return withTrailingSlash(normalizedPath);
   }
 
   const withoutLocale = fromLang === 'en'
@@ -88,11 +95,11 @@ export function translatePath(
   const translated = map[cleanPath as keyof typeof map];
 
   if (toLang === defaultLang) {
-    return translated ?? cleanPath;
+    return withTrailingSlash(translated ?? cleanPath);
   }
 
   const targetPath = translated ?? (cleanPath === '/' ? '' : cleanPath);
-  return targetPath ? `/${toLang}${targetPath}` : `/${toLang}`;
+  return withTrailingSlash(targetPath ? `/${toLang}${targetPath}` : `/${toLang}`);
 }
 
 export function useTranslations(lang: keyof typeof ui) {

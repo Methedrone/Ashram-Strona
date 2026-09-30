@@ -32,8 +32,8 @@ const siteUrl = import.meta.env.SITE;
 
 const data = entry.data;
 const breadcrumbItems = [
-  { label: t('nav.home'), href: '/en' },
-  { label: t('nav.events'), href: '/en/events' },
+  { label: t('nav.home'), href: '/en/' },
+  { label: t('nav.events'), href: '/en/events/' },
   { label: data.title },
 ];
 
@@ -46,7 +46,7 @@ const formattedDate = data.date.toLocaleDateString('en-US', {
 const shareUrl = encodeURIComponent(Astro.url.href);
 const shareTitle = encodeURIComponent(data.title);
 const ogImagePath = data.featuredImage || '/images/havan-ceremony-group-fire-offerings.webp';
-const eventUrl = `${siteUrl}/en/events/${entry.id.split('/').slice(1).join('/')}`;
+const eventUrl = `${siteUrl}/en/events/${entry.id.split('/').slice(1).join('/')}/`;
 const eventImage = `${siteUrl}${ogImagePath}`;
 const eventEndDate = data.endDate ? data.endDate.toISOString() : undefined;
 const eventAttendanceMode = data.isOnline
@@ -103,7 +103,7 @@ const faqItems = (data.faqs as { question: string; answer: string }[]) ?? [];
     <div class="container">
       <header class="event-header">
         <Breadcrumb items={breadcrumbItems} />
-        <a href="/en/events" class="back-link">
+        <a href="/en/events/" class="back-link">
           <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
           {t('common.back')}
         </a>

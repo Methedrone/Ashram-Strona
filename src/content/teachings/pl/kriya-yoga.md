@@ -26,12 +26,12 @@ Kriya Yoga to starozytna technika medytacji oparta na oddechu i skupieniu. W tra
 
 ## Oddech jako narzedzie ciszy
 
-W Kriya Yodze oddech staje sie mostem miedzy cialem a umyslem. Spokojny, rowny oddech uspokaja mysli i pomaga zakotwiczyc sie w chwili obecnej. To dlatego praktyka Kriya Yogi tak dobrze laczy sie z [medytacja](/teachings/medytacja-dla-poczatkujacych) oraz [Nama Japa](/teachings/nama-japa).
+W Kriya Yodze oddech staje sie mostem miedzy cialem a umyslem. Spokojny, rowny oddech uspokaja mysli i pomaga zakotwiczyc sie w chwili obecnej. To dlatego praktyka Kriya Yogi tak dobrze laczy sie z [medytacja](/teachings/medytacja-dla-poczatkujacych/) oraz [Nama Japa](/teachings/nama-japa/).
 
 ## Kriya Yoga w praktyce aszramu
 
-W aszramie praktykujemy proste formy medytacji i skupienia oparte na oddechu. Dla osob przygotowanych i prowadzonych przez nauczycieli dostepne sa glebsze techniki. Kriya Yoga wzmacnia efekty praktyk takich jak [Karma Yoga](/teachings/karma-yoga), a takze pomaga utrzymac uwaznosc podczas ceremonii [Aarti](/teachings/aarti-ceremonia) i [Havan](/teachings/havan-ogien).
+W aszramie praktykujemy proste formy medytacji i skupienia oparte na oddechu. Dla osob przygotowanych i prowadzonych przez nauczycieli dostepne sa glebsze techniki. Kriya Yoga wzmacnia efekty praktyk takich jak [Karma Yoga](/teachings/karma-yoga/), a takze pomaga utrzymac uwaznosc podczas ceremonii [Aarti](/teachings/aarti-ceremonia/) i [Havan](/teachings/havan-ogien/).
 
-Jesli chcesz dowiedziec sie wiecej, zapraszamy do kontaktu lub uczestnictwa w [wydarzeniach](/events). Wspolna praktyka ulatwia wejscie w rytm oddechu i ciszy.
+Jesli chcesz dowiedziec sie wiecej, zapraszamy do kontaktu lub uczestnictwa w [wydarzeniach](/events/). Wspolna praktyka ulatwia wejscie w rytm oddechu i ciszy.
 
 *Om Namah Shivay*

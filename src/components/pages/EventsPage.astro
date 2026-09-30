@@ -12,8 +12,8 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const siteUrl = import.meta.env.SITE;
-const slugPath = (page: string) => (lang === 'pl' ? `/${page}` : `/en/${page}`);
-const practicesHref = lang === 'pl' ? '/praktyki' : '/en/practices';
+const slugPath = (page: string) => (lang === 'pl' ? `/${page}/` : `/en/${page}/`);
+const practicesHref = lang === 'pl' ? '/praktyki/' : '/en/practices/';
 
 const allEvents = await getCollection('events', ({ data }) => {
   return data.lang === lang;
@@ -27,7 +27,7 @@ const itemList = sortedEvents.map((event, index) => ({
   "@type": "ListItem",
   "position": index + 1,
   "name": event.data.title,
-  "url": `${siteUrl}${slugPath('events')}/${event.id.split('/').slice(1).join('/')}`
+  "url": `${siteUrl}${slugPath('events')}${event.id.split('/').slice(1).join('/')}/`
 }));
 ---
 

@@ -7,7 +7,9 @@ import 'dotenv/config';
 
 export default defineConfig({
   site: 'https://babaji.org.pl',
-  trailingSlash: 'never',
+  // 'always' — linki/canonical/sitemap zgodne z natywnym serwowaniem katalogów
+  // przez CF Pages (zero przekierowań; patrz notka w scripts/copy-functions.mjs).
+  trailingSlash: 'always',
   // v7 domyślnie używa 'jsx' (tnie spacje między inline elementami).
   // true = poprzednie HTML-aware zachowanie — zero ryzyka wizualnego.
   compressHTML: true,

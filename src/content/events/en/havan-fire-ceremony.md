@@ -43,7 +43,7 @@ The main Havan ceremony begins at 11:00. Those interested in the full day are in
 
 ## About the Ceremony
 
-Havan is one of the oldest Vedic rituals - an offering into the sacred fire in which mantras, ghee, and herbs are carried by the flames to the divine source. Collective chanting, the rhythm of bells, and the warmth of the fire create a space of inner stillness and focus. You can read more about the ceremony in the teaching [Sacred Fire Ceremony](/teachings/sacred-fire-ceremony).
+Havan is one of the oldest Vedic rituals - an offering into the sacred fire in which mantras, ghee, and herbs are carried by the flames to the divine source. Collective chanting, the rhythm of bells, and the warmth of the fire create a space of inner stillness and focus. You can read more about the ceremony in the teaching [Sacred Fire Ceremony](/en/teachings/sacred-fire-ceremony/).
 
 ## Travel and Accommodation
 

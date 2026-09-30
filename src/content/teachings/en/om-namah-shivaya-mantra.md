@@ -57,7 +57,7 @@ Regular practice of Om Namah Shivaya brings profound changes on many levels. On 
 
 Babaji said: **"This mantra is more powerful than all others."** This is not about a magical formula, but about a vibration that resonates with the deepest truth of our being. Each repetition is a small act of devotion — **a pranam to the Absolute that lives within each of us**.
 
-In the [Aarti ceremony](/en/teachings/aarti-ceremony) and in the [practice of Nama Japa](/en/teachings/nama-japa), the Om Namah Shivaya mantra forms the heart of spiritual sadhana. It is also an integral part of the [sacred fire ceremony Havan](/en/teachings/sacred-fire-ceremony), where we offer the mantra together with ghee and grains to the holy fire.
+In the [Aarti ceremony](/en/teachings/aarti-ceremony/) and in the [practice of Nama Japa](/en/teachings/nama-japa/), the Om Namah Shivaya mantra forms the heart of spiritual sadhana. It is also an integral part of the [sacred fire ceremony Havan](/en/teachings/sacred-fire-ceremony/), where we offer the mantra together with ghee and grains to the holy fire.
 
 Begin with one round of the mala per day. Let the mantra become your breath.
 

@@ -40,6 +40,6 @@ Te trzy zasady, praktykowane razem, prowadzą do jedności z Boskością i słu�
 
 ## Praktyka w Ashramie Babaji
 
-W Ashramie Babaji te zasady urzeczywistniają się w codziennych praktykach: [Karma Yodze](/teachings/karma-yoga), [Nama Japa](/teachings/nama-japa), [Havan](/teachings/havan-ogien) i [Aarti](/teachings/aarti-ceremonia). Więcej o źródłach nauk znajdziesz na stronie [Śri Haidakhan Babaji](/babaji).
+W Ashramie Babaji te zasady urzeczywistniają się w codziennych praktykach: [Karma Yodze](/teachings/karma-yoga/), [Nama Japa](/teachings/nama-japa/), [Havan](/teachings/havan-ogien/) i [Aarti](/teachings/aarti-ceremonia/). Więcej o źródłach nauk znajdziesz na stronie [Śri Haidakhan Babaji](/babaji/).
 
 *Om Namah Shivay*

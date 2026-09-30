@@ -12,7 +12,7 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const siteUrl = import.meta.env.SITE;
-const slugPath = (page: string) => (lang === 'pl' ? `/${page}` : `/en/${page}`);
+const slugPath = (page: string) => (lang === 'pl' ? `/${page}/` : `/en/${page}/`);
 
 const description = t('babaji.description');
 
@@ -61,7 +61,7 @@ const babajiSchema = {
     <section class="intro">
       <div class="container">
         <Breadcrumb items={[
-          { label: t('nav.home'), href: lang === 'pl' ? '/' : '/en' },
+          { label: t('nav.home'), href: lang === 'pl' ? '/' : '/en/' },
           { label: 'Babaji' }
         ]} />
         <SectionHeading title={t('babaji.title')} subtitle={t('babaji.hero.subtitle')} level={1} />
