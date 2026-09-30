@@ -43,7 +43,7 @@ Główna ceremonia Havan rozpoczyna się o godzinie 11:00, wszystkich zaintereso
 
 ## O ceremonii
 
-Havan to jeden z najstarszych rytuałów wedyjskich - ofiarowanie w świętym ogniu, w którym mantry, ghee i zioła niesione są przez płomienie do boskiego źródła. Wspólne śpiewanie, rytm dzwonków i ciepło ognia tworzą przestrzeń wyciszenia i wewnętrznego skupienia. Więcej o samej ceremonii przeczytasz w nauce [Havan - ogień ofiarny](/teachings/havan-ogien).
+Havan to jeden z najstarszych rytuałów wedyjskich - ofiarowanie w świętym ogniu, w którym mantry, ghee i zioła niesione są przez płomienie do boskiego źródła. Wspólne śpiewanie, rytm dzwonków i ciepło ognia tworzą przestrzeń wyciszenia i wewnętrznego skupienia. Więcej o samej ceremonii przeczytasz w nauce [Havan - ogień ofiarny](/teachings/havan-ogien/).
 
 ## Dojazd i nocleg
 

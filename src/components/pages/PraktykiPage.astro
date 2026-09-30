@@ -10,11 +10,11 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const slugPath = (page: string) => (lang === 'pl' ? `/${page}` : `/en/${page}`);
-const retreatsHref = lang === 'pl' ? '/rekolekcje' : '/en/retreats';
-const havanTeachHref = lang === 'pl' ? '/teachings/havan-ogien' : '/en/teachings/sacred-fire-ceremony';
-const aartiHref = lang === 'pl' ? '/teachings/aarti-ceremonia' : '/en/teachings/aarti-ceremony';
-const beginnersHref = lang === 'pl' ? '/teachings/medytacja-dla-poczatkujacych' : '/en/teachings/meditation-for-beginners';
+const slugPath = (page: string) => (lang === 'pl' ? `/${page}/` : `/en/${page}/`);
+const retreatsHref = lang === 'pl' ? '/rekolekcje/' : '/en/retreats/';
+const havanTeachHref = lang === 'pl' ? '/teachings/havan-ogien/' : '/en/teachings/sacred-fire-ceremony/';
+const aartiHref = lang === 'pl' ? '/teachings/aarti-ceremonia/' : '/en/teachings/aarti-ceremony/';
+const beginnersHref = lang === 'pl' ? '/teachings/medytacja-dla-poczatkujacych/' : '/en/teachings/meditation-for-beginners/';
 const contactHref = slugPath('contact');
 const eventsHref = slugPath('events');
 ---
@@ -22,7 +22,7 @@ const eventsHref = slugPath('events');
 <Layout title={t('nav.practices')} description={t('meta.practices.description')}>
   <section class="practices-page">
     <div class="container">
-      <Breadcrumb items={[{ label: t('nav.home'), href: lang === 'pl' ? '/' : '/en' }, { label: t('nav.practices') }]} />
+      <Breadcrumb items={[{ label: t('nav.home'), href: lang === 'pl' ? '/' : '/en/' }, { label: t('nav.practices') }]} />
       <SectionHeading title={t('practices.title')} subtitle={t('practices.subtitle')} level={1} />
 
       <p class="intro">

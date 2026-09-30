@@ -1,0 +1,4 @@
+# /pl/* → root (301). Static fallback for the dev-only middleware — CF Pages
+# serves prerendered files, so request-time middleware never runs in production.
+/pl / 301
+/pl/* /:splat 301

@@ -48,8 +48,8 @@ W obecnych czasach świata, Nama Japa jest szczególnie ważna, by pozostać spo
 
 ## Nama Japa w codziennej praktyce
 
-Nama Japa jest naturalnym uzupełnieniem [medytacji](/teachings/medytacja-dla-poczatkujacych) i [Karma Yogi](/teachings/karma-yoga). W aszramie praktykujemy ją rano i wieczorem, a mantra towarzyszy także ceremonii [Havan](/teachings/havan-ogien) oraz [Aarti](/teachings/aarti-ceremonia).
+Nama Japa jest naturalnym uzupełnieniem [medytacji](/teachings/medytacja-dla-poczatkujacych/) i [Karma Yogi](/teachings/karma-yoga/). W aszramie praktykujemy ją rano i wieczorem, a mantra towarzyszy także ceremonii [Havan](/teachings/havan-ogien/) oraz [Aarti](/teachings/aarti-ceremonia/).
 
-Jeśli chcesz dołączyć do wspólnej praktyki, sprawdź [nadchodzące wydarzenia](/events) lub skontaktuj się przez [kontakt](/contact).
+Jeśli chcesz dołączyć do wspólnej praktyki, sprawdź [nadchodzące wydarzenia](/events/) lub skontaktuj się przez [kontakt](/contact/).
 
 *Om Namah Shivay*

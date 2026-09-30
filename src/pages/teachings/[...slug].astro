@@ -33,7 +33,7 @@ const siteUrl = import.meta.env.SITE;
 const data = entry.data;
 const breadcrumbItems = [
   { label: t('nav.home'), href: '/' },
-  { label: t('nav.teachings'), href: '/teachings' },
+  { label: t('nav.teachings'), href: '/teachings/' },
   { label: data.title },
 ];
 
@@ -45,7 +45,7 @@ const formattedDate = data.date.toLocaleDateString('pl-PL', {
 
 const shareUrl = encodeURIComponent(Astro.url.href);
 const shareTitle = encodeURIComponent(data.title);
-const articleUrl = `${siteUrl}/teachings/${entry.id.split('/').slice(1).join('/')}`;
+const articleUrl = `${siteUrl}/teachings/${entry.id.split('/').slice(1).join('/')}/`;
 const ogImagePath = data.featuredImage || '/images/havan-ceremony-group-fire-offerings.webp';
 const articleImage = `${siteUrl}${ogImagePath}`;
 const updatedAt = data.updatedAt ?? data.date;
@@ -82,7 +82,7 @@ const updatedLabel = 'Ostatnia aktualizacja';
     <div class="container">
       <header class="teaching-header">
         <Breadcrumb items={breadcrumbItems} />
-        <a href="/teachings" class="back-link">
+        <a href="/teachings/" class="back-link">
           <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
           {t('common.back')}
         </a>

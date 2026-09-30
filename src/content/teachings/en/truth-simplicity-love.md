@@ -40,6 +40,6 @@ These three principles, practiced together, lead to unity with the Divine and se
 
 ## Practice at Babaji Ashram
 
-At Babaji Ashram these principles are embodied in daily practices like [Karma Yoga](/en/teachings/karma-yoga), [Nama Japa](/en/teachings/nama-japa), [Havan](/en/teachings/sacred-fire-ceremony), and [Aarti](/en/teachings/aarti-ceremony). Learn more about the source of the teachings on the [Sri Haidakhan Babaji](/en/babaji) page.
+At Babaji Ashram these principles are embodied in daily practices like [Karma Yoga](/en/teachings/karma-yoga/), [Nama Japa](/en/teachings/nama-japa/), [Havan](/en/teachings/sacred-fire-ceremony/), and [Aarti](/en/teachings/aarti-ceremony/). Learn more about the source of the teachings on the [Sri Haidakhan Babaji](/en/babaji/) page.
 
 *Om Namah Shivay*

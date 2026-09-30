@@ -23,7 +23,7 @@ const contactPageSchema = {
   "@type": "ContactPage",
   "name": t('nav.contact'),
   "description": t('meta.contact.description'),
-  "url": `${import.meta.env.SITE}${lang === 'pl' ? '/contact' : '/en/contact'}`,
+  "url": `${import.meta.env.SITE}${lang === 'pl' ? '/contact/' : '/en/contact/'}`,
   "inLanguage": lang
 };
 
@@ -134,7 +134,7 @@ const localBusinessSchema = {
                 class="btn-primary"
                 data-event="contact_form_submit"
                 data-event-label="Click mailto CTA"
-                data-event-data={JSON.stringify({ source: 'mailto_button', page_path: '/contact' })}
+                data-event-data={JSON.stringify({ source: 'mailto_button', page_path: '/contact/' })}
               >
                 {t('contact.mailto.btn')}
               </a>

@@ -40,6 +40,6 @@ Pan Rama jest symbolem idealnego człowieka, który żył zgodnie z dharmą nawe
 
 ## Informacje dla Uczestników
 
-Zapraszamy wszystkich pragnących uczcić narodziny Pana Ramy i zgłębić naukę o dharmie. Prosimy przybyć przed 10:00. Po ceremonii zapraszamy na świąteczny posiłek i wspólne śpiewanie kirtanów. Szczegóły i zapisy: [kontakt](/contact).
+Zapraszamy wszystkich pragnących uczcić narodziny Pana Ramy i zgłębić naukę o dharmie. Prosimy przybyć przed 10:00. Po ceremonii zapraszamy na świąteczny posiłek i wspólne śpiewanie kirtanów. Szczegóły i zapisy: [kontakt](/contact/).
 
 *Om Shri Ramay namah*
