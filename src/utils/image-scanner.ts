@@ -121,6 +121,10 @@ function scanGalleryImageMap(galleryPath?: string): Map<string, string> {
   return imageMap;
 }
 
+function imageExists(webPath: string): boolean {
+  return fs.existsSync(path.join(process.cwd(), 'public', webPath.replace(/^\//, '')));
+}
+
 export async function scanContentImages(lang: 'pl' | 'en'): Promise<ContentImageInfo[]> {
   const images: ContentImageInfo[] = [];
   const galleryMap = scanGalleryImageMap();
@@ -130,7 +134,12 @@ export async function scanContentImages(lang: 'pl' | 'en'): Promise<ContentImage
     if (event.data.featuredImage) {
       const baseName = event.data.featuredImage.replace(/\.[^/.]+$/, '').replace(/^\/images\/gallery\//, '');
       const optimizedPath = galleryMap.get(baseName) || galleryMap.get(`${baseName}.webp`) || event.data.featuredImage;
-      
+
+      if (!imageExists(optimizedPath)) {
+        console.warn(`[image-scanner] brak pliku obrazu, pomijam: ${optimizedPath} (/${collection}/${event.id})`);
+        continue;
+      }
+
       images.push({
         path: optimizedPath,
         title: event.data.title,
@@ -147,7 +156,12 @@ export async function scanContentImages(lang: 'pl' | 'en'): Promise<ContentImage
     if (teaching.data.featuredImage) {
       const baseName = teaching.data.featuredImage.replace(/\.[^/.]+$/, '').replace(/^\/images\/gallery\//, '');
       const optimizedPath = galleryMap.get(baseName) || galleryMap.get(`${baseName}.webp`) || teaching.data.featuredImage;
-      
+
+      if (!imageExists(optimizedPath)) {
+        console.warn(`[image-scanner] brak pliku obrazu, pomijam: ${optimizedPath} (/${collection}/${teaching.id})`);
+        continue;
+      }
+
       images.push({
         path: optimizedPath,
         title: teaching.data.title,
