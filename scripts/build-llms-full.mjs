@@ -82,7 +82,10 @@ async function main() {
   for (const p of pages) {
     const rel = p.url.replace(`${SITE_URL}/`, '');
     const outFile = join(DIST, rel, 'index.md');
+    // Zmienna ścieżka jest tu nieodzowna (generacja per-strona); reguła nie ma zastosowania.
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     await mkdir(dirname(outFile), { recursive: true });
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     await writeFile(outFile, `# ${p.title}\n\nSource: ${p.url}\n\n${p.text}\n`, 'utf-8');
     mdCount += 1;
   }
