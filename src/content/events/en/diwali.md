@@ -6,7 +6,7 @@ endDate: 2026-11-08
 time: "18:00"
 location: "Babaji Ashram, Mąkolno 129"
 lang: en
-featuredImage: "/images/gallery/aarti-ceremony.webp"
+featuredImage: "/images/gallery/sacred-temple-room-candles-altar.webp"
 tags:
   - diwali
   - festival

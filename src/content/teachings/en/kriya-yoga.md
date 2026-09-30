@@ -4,7 +4,7 @@ description: "An introduction to Kriya Yoga in the Babaji tradition and the role
 date: 2026-01-01
 author: "Babaji"
 lang: en
-featuredImage: "/images/gallery/meditation-group.webp"
+featuredImage: "/images/fromFacebook/ashram-dhuni-meditation-room-interior.webp"
 tags:
   - kriya yoga
   - meditation

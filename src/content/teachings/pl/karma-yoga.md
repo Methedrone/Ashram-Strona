@@ -4,7 +4,7 @@ description: "Nauka Babadziego o sluzbie ludziom jako najwyzszej formie praktyki
 date: 2026-02-09
 author: "Babaji"
 lang: pl
-featuredImage: "/images/gallery/community-work.webp"
+featuredImage: "/images/gallery/vegetable-garden-leeks-organic.webp"
 tags:
   - karma yoga
   - sluzba

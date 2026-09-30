@@ -4,7 +4,7 @@ description: "Wprowadzenie do Kriya Yogi w tradycji Babadziego oraz rola oddechu
 date: 2026-01-01
 author: "Babaji"
 lang: pl
-featuredImage: "/images/gallery/meditation-group.webp"
+featuredImage: "/images/fromFacebook/ashram-dhuni-meditation-room-interior.webp"
 tags:
   - kriya yoga
   - medytacja

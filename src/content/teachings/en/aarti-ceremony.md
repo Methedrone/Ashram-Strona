@@ -4,7 +4,7 @@ description: "Daily Aarti ceremony as a practice of bhakti yoga and a way to con
 date: 2026-02-07
 author: "Babaji"
 lang: en
-featuredImage: "/images/gallery/aarti-ceremony.webp"
+featuredImage: "/images/gallery/sacred-temple-room-candles-altar.webp"
 tags:
   - aarti
   - bhakti

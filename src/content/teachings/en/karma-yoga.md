@@ -4,7 +4,7 @@ description: "Babaji's teaching on service to humanity as the highest form of sp
 date: 2026-02-09
 author: "Babaji"
 lang: en
-featuredImage: "/images/gallery/community-work.webp"
+featuredImage: "/images/gallery/vegetable-garden-leeks-organic.webp"
 tags:
   - karma yoga
   - service

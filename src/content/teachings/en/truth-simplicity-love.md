@@ -4,7 +4,7 @@ description: "The three fundamental principles of Babaji's teachings - the path 
 date: 2026-02-10
 author: "Babaji"
 lang: en
-featuredImage: "/images/gallery/temple-interior.webp"
+featuredImage: "/images/gallery/temple-interior-altar-shiva-parvati.webp"
 tags:
   - truth
   - simplicity
