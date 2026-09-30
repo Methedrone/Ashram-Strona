@@ -16,8 +16,8 @@ const { title, description, date, location } = post.data;
 const [postLang, ...slugParts] = post.id.split('/');
 const slug = slugParts.join('/');
 const href = postLang === 'pl' 
-  ? `/events/${slug}` 
-  : `/en/events/${slug}`;
+  ? `/events/${slug}/` 
+  : `/en/events/${slug}/`;
 ---
 
 <Card class="event-card">

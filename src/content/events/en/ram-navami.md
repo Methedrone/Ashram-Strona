@@ -40,6 +40,6 @@ Lord Rama symbolizes the ideal human who lived in accordance with dharma even in
 
 ## Information for Participants
 
-All who wish to honor the birth of Lord Rama and explore the teachings of dharma are welcome. Please arrive before 10:00. After the ceremony, we invite you to join the festive lunch and collective kirtan singing. For details and registration: [contact](/en/contact).
+All who wish to honor the birth of Lord Rama and explore the teachings of dharma are welcome. Please arrive before 10:00. After the ceremony, we invite you to join the festive lunch and collective kirtan singing. For details and registration: [contact](/en/contact/).
 
 *Om Shri Ramaya namah*

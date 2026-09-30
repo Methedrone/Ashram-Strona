@@ -48,8 +48,8 @@ In today's world, Nama Japa is especially important to remain calm and centered.
 
 ## Nama Japa in daily practice
 
-Nama Japa naturally complements [meditation](/en/teachings/meditation-for-beginners) and [Karma Yoga](/en/teachings/karma-yoga). At the ashram we practice it in the morning and evening, and the mantra accompanies the [Havan](/en/teachings/sacred-fire-ceremony) and [Aarti](/en/teachings/aarti-ceremony) ceremonies.
+Nama Japa naturally complements [meditation](/en/teachings/meditation-for-beginners/) and [Karma Yoga](/en/teachings/karma-yoga/). At the ashram we practice it in the morning and evening, and the mantra accompanies the [Havan](/en/teachings/sacred-fire-ceremony/) and [Aarti](/en/teachings/aarti-ceremony/) ceremonies.
 
-If you want to join the practice, see [upcoming events](/en/events) or reach out via [contact](/en/contact).
+If you want to join the practice, see [upcoming events](/en/events/) or reach out via [contact](/en/contact/).
 
 *Om Namah Shivay*

@@ -12,7 +12,8 @@ const t = useTranslations(lang);
 
 const bankAccount = {
   name: "Haidakhandi Samaj - Polska",
-  number: "90 1240 6726 1111 0000 5636 8550",
+  number: "PL90 1240 6726 1111 0000 5636 8550",
+  swift: "PKOPPLPW",
   bank: "Bank PEKAO S.A.",
   nip: "894 24 30 294",
   tel: "+48 536 555 899",
@@ -55,6 +56,10 @@ const bankAccount = {
                 <span class="value highlight">{bankAccount.number}</span>
               </div>
               <div class="detail-row">
+                <span class="label">{t('donations.labels.swift')}:</span>
+                <span class="value">{bankAccount.swift}</span>
+              </div>
+              <div class="detail-row">
                 <span class="label">{t('donations.labels.bank')}:</span>
                 <span class="value">{bankAccount.bank}</span>
               </div>
@@ -85,7 +90,7 @@ const bankAccount = {
             <p>
               {t('donations.otherText')}
             </p>
-            <a href={lang === 'pl' ? '/contact' : '/en/contact'} class="btn-secondary-neutral">{t('donations.contactBtn')}</a>
+            <a href={lang === 'pl' ? '/contact/' : '/en/contact/'} class="btn-secondary-neutral">{t('donations.contactBtn')}</a>
           </div>
         </div>
       </div>

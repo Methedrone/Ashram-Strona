@@ -10,8 +10,8 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const siteUrl = import.meta.env.SITE;
-const slugPath = (page: string) => (lang === 'pl' ? `/${page}` : `/en/${page}`);
-const practicesHref = lang === 'pl' ? '/praktyki' : '/en/practices';
+const slugPath = (page: string) => (lang === 'pl' ? `/${page}/` : `/en/${page}/`);
+const practicesHref = lang === 'pl' ? '/praktyki/' : '/en/practices/';
 ---
 
 <Layout title={t('nav.about')} description={t('meta.about.description')} ogImage="/images/havan-ceremony-group-fire-offerings.webp" schema={{

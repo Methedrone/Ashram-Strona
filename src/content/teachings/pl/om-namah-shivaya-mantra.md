@@ -57,7 +57,7 @@ Regularna praktyka mantry Om Namah Shivaya przynosi glebokie zmiany na wielu poz
 
 Babadzi powiedzial: **"Ta mantra jest potezniejsza niz wszystkie inne"**. Nie chodzi o magiczna formule, lecz o wibracje, ktora rezonuje z najglebsza prawda naszego istnienia. Kazde powtorzenie to maly akt oddania — **pranam wobec Absolutu, ktory zyje w kazdym z nas**.
 
-W [ceremonii Aarti](/teachings/aarti-ceremonia) i w [praktyce Nama Japa](/teachings/nama-japa) mantra Om Namah Shivaya stanowi serce duchowej sadhany. Jest ona rowniez integralna czescia [ceremonii ognia Havan](/teachings/havan-ogien), podczas ktorej ofiarujemy mantre razem z ghee i ziarnami swietemu ogniowi.
+W [ceremonii Aarti](/teachings/aarti-ceremonia/) i w [praktyce Nama Japa](/teachings/nama-japa/) mantra Om Namah Shivaya stanowi serce duchowej sadhany. Jest ona rowniez integralna czescia [ceremonii ognia Havan](/teachings/havan-ogien/), podczas ktorej ofiarujemy mantre razem z ghee i ziarnami swietemu ogniowi.
 
 Zacznij od jednego okrazenia mali dziennie. Niech mantra stanie sie Twoim oddechem.
 

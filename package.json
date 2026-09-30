@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/copy-functions.mjs",
+    "build": "astro build && node scripts/copy-functions.mjs && node scripts/build-llms-full.mjs",
     "preview": "astro preview",
     "test": "playwright test",
     "generate-images": "node scripts/image-gen.mjs",

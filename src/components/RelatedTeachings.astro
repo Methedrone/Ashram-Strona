@@ -23,7 +23,7 @@ const related = allTeachings
     <ul>
       {related.map((teaching: CollectionEntry<'teachings'>) => (
         <li>
-          <a href={lang === 'pl' ? `/teachings/${teaching.id.split('/').slice(1).join('/')}` : `/en/teachings/${teaching.id.split('/').slice(1).join('/')}`}>
+          <a href={lang === 'pl' ? `/teachings/${teaching.id.split('/').slice(1).join('/')}/` : `/en/teachings/${teaching.id.split('/').slice(1).join('/')}/`}>
             {teaching.data.title}
           </a>
         </li>

@@ -1,18 +1,19 @@
 #!/usr/bin/env node
 /**
- * build-llms-full.mjs — generates public/llms-full.txt from the built site.
+ * build-llms-full.mjs — generates llms-full.txt from the built site.
  *
- * Walks dist (recursive), extracts the <main> content of each HTML page,
- * and assembles one markdown file for AI crawlers (llmstxt.org pattern).
+ * Walks dist/client (Cloudflare adapter v14 output), extracts the <main>
+ * content of each HTML page, and assembles one markdown file for AI crawlers
+ * (llmstxt.org pattern). Writes both the repo copy (public/) and the copy
+ * that ships in the deploy (dist/client/), so the deployed file is always in
+ * sync with the site content. Wired into `npm run build`.
  *
- * Usage: run AFTER `npm run build`:
- *   node scripts/build-llms-full.mjs
+ * Usage: node scripts/build-llms-full.mjs (or just `npm run build`)
  */
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 
-const DIST = 'dist';
-const OUT = 'public/llms-full.txt';
+const DIST = 'dist/client';
 const SITE_URL = 'https://babaji.org.pl';
 
 async function walk(dir) {
@@ -47,7 +48,10 @@ async function main() {
   const pages = [];
 
   for (const file of files) {
-    const rel = relative(DIST, file).replace(/\\/g, '/').replace(/\/index\.html$/, '/').replace(/\.html$/, '/');
+    let rel = relative(DIST, file).replace(/\\/g, '/');
+    // "index.html" -> "", "about/index.html" -> "about/", "404.html" -> "404/"
+    rel = rel.replace(/(^|\/)index\.html$/, '$1').replace(/\.html$/, '/');
+    if (rel === '404/') continue; // error page — not part of the site content
     const url = `${SITE_URL}/${rel}`;
     const html = await readFile(file, 'utf-8');
     const mainMatch = html.match(/<main[\s\S]*?<\/main>/i) || html.match(/<body[\s\S]*?<\/body>/i);
@@ -64,8 +68,10 @@ async function main() {
     .map(p => `## ${p.title}\n\nSource: ${p.url}\n\n${p.text}\n`)
     .join('\n---\n\n');
 
-  await writeFile(OUT, header + body, 'utf-8');
-  console.log(`✅ ${OUT} — ${pages.length} pages, ${(header.length + body.length) / 1024 | 0} KB`);
+  const out = header + body;
+  await writeFile('public/llms-full.txt', out, 'utf-8');
+  await writeFile('dist/client/llms-full.txt', out, 'utf-8');
+  console.log(`✅ public/llms-full.txt + dist/client/llms-full.txt — ${pages.length} pages, ${(out.length / 1024) | 0} KB`);
 }
 
 main().catch(err => { console.error('❌', err.message); process.exit(1); });

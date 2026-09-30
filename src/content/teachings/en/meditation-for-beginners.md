@@ -50,7 +50,7 @@ Start with **10 minutes daily**, ideally in the morning, right after waking up. 
 
 Every beginner encounters the same challenges:
 
-- **Restless mind** — this is normal, not a sign of failure. The mind produces thoughts just as the lungs produce breath. The practice lies in not following every thought. [The practice of Nama Japa](/en/teachings/nama-japa) is particularly helpful here.
+- **Restless mind** — this is normal, not a sign of failure. The mind produces thoughts just as the lungs produce breath. The practice lies in not following every thought. [The practice of Nama Japa](/en/teachings/nama-japa/) is particularly helpful here.
 - **Physical discomfort** — if your legs go numb or your back aches, change position. Meditation should not be suffering. Over time, the body adapts to sitting in stillness.
 - **Impatience** — expecting immediate results is a trap of the ego. Babaji taught that **Karma Yoga** — selfless action — applies to meditation too. Practice without attachment to outcomes.
 - **Inconsistency** — it is easier to practice daily at the same time. Make meditation part of your routine like brushing your teeth — not a luxury, but a necessity.
@@ -61,6 +61,6 @@ True meditation does not end when we rise from the cushion. Babaji taught that *
 
 In Babaji's ashram, physical work — **Karma Yoga** — is equally as important as sitting in meditation. Service to others, carried out with love and without expectation of reward, is one of the most powerful forms of spiritual practice.
 
-We invite you to visit the [ashram](/en/contact) to experience group meditation and feel the energy of a place that has supported the spiritual growth of seekers for years.
+We invite you to visit the [ashram](/en/contact/) to experience group meditation and feel the energy of a place that has supported the spiritual growth of seekers for years.
 
 *Om Namah Shivay*

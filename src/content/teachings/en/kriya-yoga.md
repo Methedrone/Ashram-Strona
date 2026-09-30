@@ -26,12 +26,12 @@ Kriya Yoga is an ancient meditation technique centered on breath and attention. 
 
 ## Breath as a path to stillness
 
-In Kriya Yoga, the breath becomes a bridge between body and mind. A calm, even breath quiets thought and helps anchor attention in the present moment. This is why Kriya Yoga naturally complements [meditation](/en/teachings/meditation-for-beginners) and [Nama Japa](/en/teachings/nama-japa).
+In Kriya Yoga, the breath becomes a bridge between body and mind. A calm, even breath quiets thought and helps anchor attention in the present moment. This is why Kriya Yoga naturally complements [meditation](/en/teachings/meditation-for-beginners/) and [Nama Japa](/en/teachings/nama-japa/).
 
 ## Kriya Yoga in ashram practice
 
-At the ashram we practice simple forms of meditation and breath-focused attention. For those who are prepared and guided by teachers, deeper techniques are available. Kriya Yoga strengthens practices like [Karma Yoga](/en/teachings/karma-yoga) and helps maintain awareness during [Aarti](/en/teachings/aarti-ceremony) and [Havan](/en/teachings/sacred-fire-ceremony).
+At the ashram we practice simple forms of meditation and breath-focused attention. For those who are prepared and guided by teachers, deeper techniques are available. Kriya Yoga strengthens practices like [Karma Yoga](/en/teachings/karma-yoga/) and helps maintain awareness during [Aarti](/en/teachings/aarti-ceremony/) and [Havan](/en/teachings/sacred-fire-ceremony/).
 
-If you want to learn more, we invite you to reach out or join an [event](/en/events). Practicing together makes it easier to enter the rhythm of breath and silence.
+If you want to learn more, we invite you to reach out or join an [event](/en/events/). Practicing together makes it easier to enter the rhythm of breath and silence.
 
 *Om Namah Shivay*

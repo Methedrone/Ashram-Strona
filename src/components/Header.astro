@@ -9,14 +9,15 @@ const { activePath } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+const base = lang === 'pl' ? '' : `/${lang}`;
 const navItems = [
-  { href: lang === 'pl' ? '/' : `/${lang}`, text: t("nav.home") },
-  { href: lang === 'pl' ? '/about' : `/${lang}/about`, text: t("nav.about") },
-  { href: lang === 'pl' ? '/teachings' : `/${lang}/teachings`, text: t("nav.teachings") },
-  { href: lang === 'pl' ? '/events' : `/${lang}/events`, text: t("nav.events") },
-  { href: lang === 'pl' ? '/gallery' : `/${lang}/gallery`, text: t("nav.gallery") },
-  { href: lang === 'pl' ? '/contact' : `/${lang}/contact`, text: t("nav.contact") },
-  { href: lang === 'pl' ? '/donations' : `/${lang}/donations`, text: t("nav.donations") },
+  { href: `${base}/`, text: t("nav.home") },
+  { href: `${base}/about/`, text: t("nav.about") },
+  { href: `${base}/teachings/`, text: t("nav.teachings") },
+  { href: `${base}/events/`, text: t("nav.events") },
+  { href: `${base}/gallery/`, text: t("nav.gallery") },
+  { href: `${base}/contact/`, text: t("nav.contact") },
+  { href: `${base}/donations/`, text: t("nav.donations") },
 ];
 
 const currentPath = activePath || Astro.url.pathname;
@@ -28,7 +29,7 @@ const switchText = lang === "pl" ? "English" : "Polski";
 
 <header>
     <div class="header-container">
-        <a href={lang === 'pl' ? '/' : `/${lang}`} class="logo">Ashram Babaji</a>
+        <a href={`${base}/`} class="logo">Ashram Babaji</a>
         
         <button 
             type="button"
@@ -45,20 +46,18 @@ const switchText = lang === "pl" ? "English" : "Polski";
 
         <nav id="main-navigation" data-visible="false" aria-label={t('nav.main')}>
             <ul class="nav-main">
-                {navItems.map(item => {
-                                    const normalizedHref = item.href.replace(/\/$/, '');
-                                    return (
+                {navItems.map(item => (
                                     <li>
                                         <a
                                             href={item.href}
                                             data-astro-prefetch
-                                            class={currentPath === normalizedHref ? "active" : ""}
-                                            aria-current={currentPath === normalizedHref ? "page" : undefined}
+                                            class={currentPath === item.href ? "active" : ""}
+                                            aria-current={currentPath === item.href ? "page" : undefined}
                                         >
                                             {item.text}
                                         </a>
                                     </li>
-                )})}
+                ))}
             </ul>
             <div class="nav-language">
                 <a href={switchPath} class="lang-switch" aria-label={`Switch to ${switchText}`}>
@@ -70,13 +69,19 @@ const switchText = lang === "pl" ? "English" : "Polski";
     </div>
 </header>
 
-<!-- is:inline — plain ES2015 runs as-is; Astro's module wrapper caused a TDZ error here -->
+<!-- is:inline — plain ES2015 runs as-is; Astro's module wrapper caused a TDZ error here.
+     Under <ClientRouter /> the header DOM is replaced on every navigation, so the menu
+     bindings are (re)created via astro:page-load and every handler is idempotent. -->
 <script is:inline>
-    const menuToggle = document.getElementById("menu-toggle");
-    const nav = document.getElementById("main-navigation");
-    const headerContainer = document.querySelector(".header-container");
+    function initMenu() {
+        const menuToggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("main-navigation");
+        const headerContainer = document.querySelector(".header-container");
 
-    if (menuToggle && nav && headerContainer) {
+        if (!menuToggle || !nav || !headerContainer) return;
+        if (menuToggle.dataset.menuBound === "1") return;
+        menuToggle.dataset.menuBound = "1";
+
         menuToggle.addEventListener("click", () => {
             const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
 
@@ -84,9 +89,25 @@ const switchText = lang === "pl" ? "English" : "Polski";
             nav.setAttribute("data-visible", (!isExpanded).toString());
             headerContainer.classList.toggle("menu-open");
         });
+    }
 
-        // Keyboard navigation (Escape to close, Tab trap)
+    initMenu();
+
+    if (!window.__menuLoadBound) {
+        window.__menuLoadBound = true;
+        document.addEventListener("astro:page-load", initMenu);
+    }
+
+    // Keyboard navigation (Escape to close, Tab trap) — bound once; each keypress
+    // resolves the current header nodes so it survives client-side navigation.
+    if (!window.__menuKeydownBound) {
+        window.__menuKeydownBound = true;
         document.addEventListener("keydown", (e) => {
+            const menuToggle = document.getElementById("menu-toggle");
+            const nav = document.getElementById("main-navigation");
+            const headerContainer = document.querySelector(".header-container");
+            if (!menuToggle || !nav || !headerContainer) return;
+
             const isMenuOpen = headerContainer.classList.contains("menu-open");
             if (!isMenuOpen) return;
 

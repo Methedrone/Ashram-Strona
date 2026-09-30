@@ -42,8 +42,8 @@ Babadzi nauczal: "Pracujcie tutaj razem jako jedno. Nie ma tu roznic klas spolec
 
 ## Karma Yoga w Ashramie Babaji
 
-W Ashramie Babaji praktykujemy Karma Yoge codziennie — w kuchni, ogrodzie i przy utrzymaniu przestrzeni. Jest to naturalne przedluzenie praktyk takich jak [Nama Japa](/teachings/nama-japa) i [medytacja](/teachings/medytacja-dla-poczatkujacych). Podczas rekolekcji praca wspolnotowa tworzy rytm dnia obok ceremonii [Havan](/teachings/havan-ogien) i [Aarti](/teachings/aarti-ceremonia).
+W Ashramie Babaji praktykujemy Karma Yoge codziennie — w kuchni, ogrodzie i przy utrzymaniu przestrzeni. Jest to naturalne przedluzenie praktyk takich jak [Nama Japa](/teachings/nama-japa/) i [medytacja](/teachings/medytacja-dla-poczatkujacych/). Podczas rekolekcji praca wspolnotowa tworzy rytm dnia obok ceremonii [Havan](/teachings/havan-ogien/) i [Aarti](/teachings/aarti-ceremonia/).
 
-Chcesz doswiadczyc tej praktyki w zyciu codziennym? Sprawdz [nadchodzace wydarzenia](/events) lub [skontaktuj sie z nami](/contact), aby zaplanowac pobyt. Jesli chcesz wspierac aszram, zobacz [darowizny](/donations).
+Chcesz doswiadczyc tej praktyki w zyciu codziennym? Sprawdz [nadchodzace wydarzenia](/events/) lub [skontaktuj sie z nami](/contact/), aby zaplanowac pobyt. Jesli chcesz wspierac aszram, zobacz [darowizny](/donations/).
 
 *Om Namah Shivay*

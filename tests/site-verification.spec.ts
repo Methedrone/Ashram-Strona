@@ -2,44 +2,44 @@ import { expect, test } from '@playwright/test';
 
 const pages = [
   '/',
-  '/teachings',
-  '/about',
-  '/contact',
-  '/gallery',
-  '/events',
-  '/donations',
-  '/en',
-  '/en/teachings',
-  '/en/about',
-  '/en/contact',
-  '/en/gallery',
-  '/en/events',
-  '/en/donations',
-  '/events/siwaratri',
-  '/en/events/shivaratri',
-  '/events/holi',
-  '/events/makar-sankranti',
-  '/en/events/makar-sankranti',
-  '/events/vasant-panchami',
-  '/en/events/vasant-panchami',
-  '/events/chaitra-navaratri',
-  '/en/events/chaitra-navaratri',
-  '/events/ram-navami',
-  '/en/events/ram-navami',
-  '/events/guru-purnima',
-  '/en/events/guru-purnima',
-  '/events/janmashtami',
-  '/en/events/janmashtami',
-  '/events/ganesh-chaturthi',
-  '/en/events/ganesh-chaturthi',
-  '/events/dussehra',
-  '/en/events/dussehra',
-  '/events/diwali',
-  '/en/events/diwali',
-  '/events/navaratri-festiwal',
-  '/en/events/navaratri-festival',
-  '/teachings/havan-ogien',
-  '/en/teachings/sacred-fire-ceremony'
+  '/teachings/',
+  '/about/',
+  '/contact/',
+  '/gallery/',
+  '/events/',
+  '/donations/',
+  '/en/',
+  '/en/teachings/',
+  '/en/about/',
+  '/en/contact/',
+  '/en/gallery/',
+  '/en/events/',
+  '/en/donations/',
+  '/events/siwaratri/',
+  '/en/events/shivaratri/',
+  '/events/holi/',
+  '/events/makar-sankranti/',
+  '/en/events/makar-sankranti/',
+  '/events/vasant-panchami/',
+  '/en/events/vasant-panchami/',
+  '/events/chaitra-navaratri/',
+  '/en/events/chaitra-navaratri/',
+  '/events/ram-navami/',
+  '/en/events/ram-navami/',
+  '/events/guru-purnima/',
+  '/en/events/guru-purnima/',
+  '/events/janmashtami/',
+  '/en/events/janmashtami/',
+  '/events/ganesh-chaturthi/',
+  '/en/events/ganesh-chaturthi/',
+  '/events/dussehra/',
+  '/en/events/dussehra/',
+  '/events/diwali/',
+  '/en/events/diwali/',
+  '/events/navaratri-festiwal/',
+  '/en/events/navaratri-festival/',
+  '/teachings/havan-ogien/',
+  '/en/teachings/sacred-fire-ceremony/',
 ];
 
 test.describe('Ashram Website QA', () => {
@@ -83,7 +83,7 @@ test.describe('Ashram Website QA', () => {
   });
 
   test('Schema.org verification', async ({ page }) => {
-    for (const pagePath of ['/', '/en']) {
+    for (const pagePath of ['/', '/en/']) {
       await page.goto(`http://localhost:39755${pagePath}`);
       const schema = await page.locator('script[type="application/ld+json"]').innerText();
       expect(schema).toContain('WebSite');
@@ -122,13 +122,53 @@ test.describe('Ashram Website QA', () => {
     ];
 
     for (const { from, to } of switchCases) {
-      await page.goto(`http://localhost:39755${from}`);
+      await page.goto(`http://localhost:39755${from.replace(/\/$/, '')}/`);
       const langSwitcher = page.locator('nav').locator('a.lang-switch');
       const href = await langSwitcher.getAttribute('href');
-      expect(href).toBe(to);
+      expect(href?.replace(/\/$/, '')).toBe(to.replace(/\/$/, ''));
       
       const response = await page.goto(`http://localhost:39755${href}`);
       expect(response?.status()).toBe(200);
     }
+  });
+
+  test('Mobile menu opens after client-side navigation', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('http://localhost:39755/');
+
+    const toggle = page.locator('#menu-toggle');
+    await expect(toggle).toBeVisible();
+
+    await toggle.click();
+    await expect(page.locator('#main-navigation')).toHaveAttribute('data-visible', 'true');
+
+    // Mark the window: a ClientRouter navigation keeps it, a full reload would drop it.
+    await page.evaluate(() => {
+      (window as unknown as { __navMarker?: string }).__navMarker = 'persisted';
+    });
+
+    await page.locator('#main-navigation a[href="/about/"]').click();
+    await page.waitForURL('**/about/');
+    expect(await page.evaluate(() => (window as unknown as { __navMarker?: string }).__navMarker)).toBe('persisted');
+
+    await expect(page.locator('#main-navigation')).toHaveAttribute('data-visible', 'false');
+    await toggle.click();
+    await expect(page.locator('#main-navigation')).toHaveAttribute('data-visible', 'true');
+  });
+
+  test('data-event clicks reach dataLayer', async ({ page }) => {
+    await page.goto('http://localhost:39755/contact/');
+
+    const cta = page.locator('[data-event="contact_form_submit"]').first();
+    await expect(cta).toBeVisible();
+    await cta.click();
+
+    const tracked = await page.evaluate(
+      () =>
+        (window as unknown as { dataLayer?: Array<Record<string, unknown>> }).dataLayer?.some(
+          (entry) => entry.event === 'contact_form_submit'
+        ) ?? false
+    );
+    expect(tracked).toBe(true);
   });
 });
