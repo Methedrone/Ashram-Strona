@@ -61,6 +61,12 @@ export const slugTranslations = {
   },
 } as const;
 
+// Map.get zamiast indeksowania obiektu zmienną (static analiza: object injection sink)
+const translationMaps = {
+  pl: new Map<string, string>(Object.entries(slugTranslations.pl)),
+  en: new Map<string, string>(Object.entries(slugTranslations.en)),
+};
+
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/');
   if (lang in ui) return lang as keyof typeof ui;
@@ -91,8 +97,7 @@ export function translatePath(
     ? normalizedPath.replace(/^\/en(?=\/|$)/, '')
     : normalizedPath;
   const cleanPath = withoutLocale === '' ? '/' : withoutLocale;
-  const map: Record<string, string> = fromLang === 'pl' ? slugTranslations.pl : slugTranslations.en;
-  const translated = map[cleanPath];
+  const translated = (fromLang === 'pl' ? translationMaps.pl : translationMaps.en).get(cleanPath);
 
   if (toLang === defaultLang) {
     return withTrailingSlash(translated ?? cleanPath);
