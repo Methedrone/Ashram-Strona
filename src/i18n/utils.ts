@@ -91,8 +91,8 @@ export function translatePath(
     ? normalizedPath.replace(/^\/en(?=\/|$)/, '')
     : normalizedPath;
   const cleanPath = withoutLocale === '' ? '/' : withoutLocale;
-  const map = fromLang === 'pl' ? slugTranslations.pl : slugTranslations.en;
-  const translated = map[cleanPath as keyof typeof map];
+  const map: Record<string, string> = fromLang === 'pl' ? slugTranslations.pl : slugTranslations.en;
+  const translated = map[cleanPath];
 
   if (toLang === defaultLang) {
     return withTrailingSlash(translated ?? cleanPath);
