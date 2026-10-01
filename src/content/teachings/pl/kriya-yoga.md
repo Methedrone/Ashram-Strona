@@ -1,5 +1,5 @@
 ---
-title: "Kriya Yoga"
+title: "Kriya Yoga – świadomy oddech i medytacja"
 description: "Wprowadzenie do Kriya Yogi w tradycji Babadziego oraz rola oddechu i medytacji w oczyszczeniu umysłu."
 date: 2026-01-01
 author: "Babaji"
