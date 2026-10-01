@@ -1,6 +1,6 @@
 ---
-title: "Medytacja dla Poczatkujacych"
-description: "Praktyczny przewodnik po medytacji w tradycji Babadziego. Proste techniki, codzienna rutyna i wskazowki jak zaczac praktyke duchowa od podstaw."
+title: "Medytacja dla Początkujących"
+description: "Praktyczny przewodnik po medytacji w tradycji Babadziego. Proste techniki, codzienna rutyna i wskazówki, jak zacząć praktykę duchową od podstaw."
 date: 2026-02-12
 author: "Babaji"
 lang: pl

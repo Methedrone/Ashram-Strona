@@ -1,6 +1,6 @@
 ---
 title: "Karma Yoga - Praca jest Modlitwa"
-description: "Nauka Babadziego o sluzbie ludziom jako najwyzszej formie praktyki duchowej w obecnym wieku."
+description: "Nauka Babadziego o służbie ludziom jako najwyższej formie praktyki duchowej w obecnym wieku."
 date: 2026-02-09
 author: "Babaji"
 lang: pl
