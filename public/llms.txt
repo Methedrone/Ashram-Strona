@@ -1,80 +1,49 @@
-# Babaji Ashram Poland — LLM Context
+# Babaji Ashram Poland
 
-## Organization
-- **Name**: Ashram Babaji (Ashram Haidakhan Babaji)
-- **Type**: ReligiousOrganization, TouristAttraction
-- **URL**: https://babaji.org.pl
-- **Location**: Mąkolno 129, 57-250 Mąkolno, Dolnośląskie, Poland
-- **Coordinates**: 50.5297, 16.9567
-- **Founded**: 1990
-- **Languages**: Polish, English
-- **Contact**: +48 536 555 899, babaji.poland@gmail.com
+> Spiritual retreat center in the Kłodzko Valley (Poland), following the teachings of Sri Haidakhan Babaji — Truth, Simplicity, Love.
 
-## Mission & Teachings
-Ashram Babaji is a spiritual retreat center in the Kłodzko Valley (Kotlina Kłodzka), Poland, following the teachings of Sri Haidakhan Babaji. Core philosophy: **Truth, Simplicity, Love** (Prawda, Prostota, Miłość).
+Key facts:
+- **Name**: Ashram Babaji (Ashram Haidakhan Babaji) · **Founded**: 1990
+- **URL**: https://babaji.org.pl (Polish, default) · https://babaji.org.pl/en/ (English)
+- **Location**: Mąkolno 129, 57-250 Mąkolno, Dolnośląskie, Poland — coordinates 50.5297, 16.9567
+- **Contact**: +48 536 555 899 (general) · +48 570 016 826 (accommodation/events) · babaji.poland@gmail.com
+- **Practices**: Karma Yoga ("Work is Worship"), Nama Japa (Om Namah Shivay), Havan (fire ceremony), Aarti (light ceremony), meditation, Kriya Yoga
+- **Schedule**: weekly Havan; annual festivals (Navaratri, Shivaratri, Guru Purnima, Janmashtami, Diwali, Holi, Makar Sankranti, Chaitra Navaratri, Ram Navami, Ganesh Chaturthi, Dussehra, Vasant Panchami); spring and summer retreats
+- **Visiting**: advance contact required; guest rooms; student discounts; the ashram is a place of silence and focus
+- **Donations**: bank transfer (IBAN PL90 1240 6726 1111 0000 5636 8550, SWIFT PKOPPLPW) — details on the donations page
 
-Key practices:
-- **Karma Yoga** — selfless service as highest spiritual practice ("Work is Worship")
-- **Nama Japa** — mantra repetition (Om Namah Shivay)
-- **Havan** — traditional fire ceremony
-- **Aarti** — devotional light ceremony
-- **Meditation** — various techniques
-- **Kriya Yoga** — advanced breathing and meditation practices
+## Events
 
-## Key Pages
-- **Homepage**: https://babaji.org.pl — overview of ashram, daily schedule, upcoming events
-- **Teachings (PL)**: https://babaji.org.pl/teachings — articles on Karma Yoga, Om Namah Shivay, Havan, Aarti, meditation
-- **Teachings (EN)**: https://babaji.org.pl/en/teachings
-- **Events (PL)**: https://babaji.org.pl/events — workshops, ceremonies, Navaratri festival, retreats
-- **Events (EN)**: https://babaji.org.pl/en/events
-- **About**: https://babaji.org.pl/about — history, mission, values
-- **Contact**: https://babaji.org.pl/contact — address, phone, email, visitor guidelines
-- **Donations**: https://babaji.org.pl/donations — support the ashram
-- **Gallery**: https://babaji.org.pl/gallery — photos from ceremonies and community life
-- **Babaji**: https://babaji.org.pl/babaji — life and teachings of Sri Haidakhan Babaji
-- **Retreats**: https://babaji.org.pl/retreats — spring and summer spiritual retreats
-- **Practices**: https://babaji.org.pl/practices — step-by-step guides for spiritual practices
+- [Events (PL)](https://babaji.org.pl/events/index.md): workshops, ceremonies and festivals — schedule and details
+- [Events (EN)](https://babaji.org.pl/en/events/index.md): English version of the event calendar
 
-## Key Figures
-- **Sri Haidakhan Babaji** — spiritual teacher, master of Karma Yoga and mantra. Taught "Work is Worship" and the three pillars: Truth, Simplicity, Love.
+## Teachings
 
-## Events Calendar
-Regular weekly Havan ceremonies. Major annual festivals:
-- Navaratri (9 nights festival)
-- Shivaratri
-- Guru Purnima
-- Janmashtami
-- Diwali
-- Makar Sankranti
-- Chaitra Navaratri
-- Ram Navami
-- Ganesh Chaturthi
-- Dussehra
-- Holi
-- Vasant Panchami
+- [Teachings (PL)](https://babaji.org.pl/teachings/index.md): articles on Karma Yoga, Nama Japa, Havan, Aarti, meditation, Kriya Yoga
+- [Teachings (EN)](https://babaji.org.pl/en/teachings/index.md): English versions of the teachings
 
-Spring and summer retreats available.
+## Visit & About
 
-## Visitor Information
-- **Address**: Mąkolno 129, 57-250 Mąkolno, Poland
-- **Phone**: +48 536 555 899 (general), +48 570 016 826 (accommodation/events)
-- **Email**: babaji.poland@gmail.com
-- **Advance contact required** before visiting
-- **Quiet hours and conduct guidelines** apply — ashram is a place of silence and focus
-- **Student discounts** available
-- **Accessibility**: Near Kudowa-Zdrój, Stołowe Mountains
+- [Home (PL)](https://babaji.org.pl/index.md): overview, daily schedule, upcoming events
+- [Home (EN)](https://babaji.org.pl/en/index.md): English homepage
+- [About](https://babaji.org.pl/about/index.md): history, mission and values of the ashram
+- [Contact](https://babaji.org.pl/contact/index.md): address, phones, e-mail and visitor guidelines
+- [FAQ](https://babaji.org.pl/faq/index.md): common questions about visiting and practice
+- [Sri Haidakhan Babaji](https://babaji.org.pl/babaji/index.md): life and teachings of Babaji
+- [Gallery](https://babaji.org.pl/gallery/index.md): photos from ceremonies and community life
+- [Retreats (PL)](https://babaji.org.pl/rekolekcje/index.md): wiosenne i letnie rekolekcje — cisza i praktyka
+- [Retreats (EN)](https://babaji.org.pl/en/retreats/index.md): spring and summer spiritual retreats
+- [Practices (PL)](https://babaji.org.pl/praktyki/index.md): przewodniki krok po kroku po praktykach duchowych
+- [Practices (EN)](https://babaji.org.pl/en/practices/index.md): step-by-step guides for the practices
 
-## Donations & Support
-- Bank transfer details on /donations page
-- Funds support: maintaining the center, organizing Havan ceremonies, community service
-- Every amount matters — recurring donations welcome
+## Donations
 
-## Social Media
-- Facebook: https://www.facebook.com/babajiashrampoland
+- [Donations](https://babaji.org.pl/donations/index.md): how to support the ashram — bank transfer, IBAN and SWIFT
 
-## Languages
-- Polish (default): https://babaji.org.pl
-- English: https://babaji.org.pl/en
+## Optional
 
-## Last Updated
-2026-08-03
+- [Full site content](https://babaji.org.pl/llms-full.txt): every page as plain text in a single file
+- [Facebook](https://www.facebook.com/babajiashrampoland): community updates
+- [Sitemap](https://babaji.org.pl/sitemap-index.xml)
+
+_Last updated: 2026-09-30._
