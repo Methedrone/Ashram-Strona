@@ -264,7 +264,7 @@ export const ui = {
     'donations.title': 'Wspieraj Ashram',
     'donations.description': 'Twoje darowizny pomagają nam utrzymywać to miejsce i służyć innym.',
     // Page-specific descriptions (SEO)
-    'meta.home.description': 'Ashram Babaji w Polsce – ośrodek duchowości, medytacji i jogi w Kotlinie Kłodzkiej. Nauki Śri Haidakhan Babaji, ceremonie Havan i Aarti, Karma Yoga. Prawda, Prostota, Miłość.',
+    'meta.home.description': 'Ashram Babaji w Polsce – ośrodek medytacji i jogi w Kotlinie Kłodzkiej. Nauki Śri Haidakhan Babaji, ceremonie Havan i Aarti, Karma Yoga. Prawda, Prostota, Miłość.',
       'meta.about.description': 'Historia i misja Ashramu Babaji w Polsce. Poznaj nauczanie Śri Haidakhan Babaji, wartości społeczności i miejsce praktyki duchowej w Mąkolnie koło Kudowy-Zdroju.',
       'meta.teachings.description': 'Nauczanie Śri Haidakhan Babaji: Karma Yoga, Om Namah Shivay, Nama Japa, ceremonie Havan i Aarti. Prawda, Prostota, Miłość w codziennej praktyce duchowej.',
       'meta.events.description': 'Nadchodzące wydarzenia w Ashramie Babaji: warsztaty jogi, ceremonie Havan, święta Navaratri, rekolekcje. Dołącz do naszej społeczności w Mąkolnie.',
@@ -586,8 +586,8 @@ export const ui = {
     'donations.title': 'Support the Ashram',
     'donations.description': 'Your donations help us maintain this place and serve others.',
     // Page-specific descriptions (SEO)
-      'meta.home.description': 'Babaji Ashram in Poland – center of spirituality, meditation and yoga in the Kłodzko Valley. Teachings of Sri Haidakhan Babaji, Havan and Aarti ceremonies, Karma Yoga. Truth, Simplicity, Love.',
-      'meta.about.description': 'History and mission of Babaji Ashram in Poland. Discover the teachings of Sri Haidakhan Babaji, community values, and the spiritual practice center in Mąkolno near Kudowa-Zdrój.',
+      'meta.home.description': 'Babaji Ashram in Poland – a center of meditation in the Kłodzko Valley. Teachings of Sri Haidakhan Babaji, Havan and Aarti ceremonies. Truth, Simplicity, Love.',
+      'meta.about.description': 'History and mission of Babaji Ashram in Poland. Discover the teachings of Sri Haidakhan Babaji and the spiritual practice center in Mąkolno near Kudowa-Zdrój.',
       'meta.home.title': 'Meditation centre – Kłodzko Valley',
       'meta.about.title': 'About us – Mąkolno, Kłodzko Valley',
       'meta.contact.title': 'Contact – address & directions',

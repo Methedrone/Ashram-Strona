@@ -1,6 +1,6 @@
 ---
 title: "Vasant Panchami - Święto Wiosny"
-description: "Dzień oddania bogini Saraswati, patronce wiedzy, sztuki i mądrości."
+description: "Vasant Panchami – dzień oddania bogini Saraswati, patronce wiedzy, sztuki i mądrości. Święto wiosny obchodzone w Ashramie Babaji w Mąkolnie."
 date: 2026-02-03
 endDate: 2026-02-03
 time: "10:00"
