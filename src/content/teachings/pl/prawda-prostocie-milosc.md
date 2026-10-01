@@ -4,7 +4,7 @@ description: "Trzy fundamentalne zasady nauk Babadżiego - droga do duchowego pr
 date: 2026-02-10
 author: "Babaji"
 lang: pl
-featuredImage: "/images/gallery/temple-interior.webp"
+featuredImage: "/images/gallery/temple-interior-altar-shiva-parvati.webp"
 tags:
   - prawda
   - prostota

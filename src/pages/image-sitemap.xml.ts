@@ -109,7 +109,6 @@ export async function GET() {
       xml += `    <image:image>
       <image:loc>${escapeXml(imageLoc)}</image:loc>
       <image:title>${escapeXml(image.title)}</image:title>
-      <image:alt>${escapeXml(image.alt)}</image:alt>
     </image:image>
 `;
     }

@@ -4,7 +4,7 @@ description: "Starożytna praktyka wedyjska oczyszczania poprzez ogień, nauczan
 date: 2026-02-06
 author: "Babaji"
 lang: pl
-featuredImage: "/images/gallery/ceremony-fire.webp"
+featuredImage: "/images/gallery/havan-ceremony-fire-pit-devotees.webp"
 tags:
   - havan
   - ceremonia ognia

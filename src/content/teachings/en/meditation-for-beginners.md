@@ -4,7 +4,7 @@ description: "A practical guide to meditation in the Babaji tradition. Simple te
 date: 2026-02-12
 author: "Babaji"
 lang: en
-featuredImage: "/images/gallery/meditation-group.webp"
+featuredImage: "/images/fromFacebook/ashram-dhuni-meditation-room-interior.webp"
 tags:
   - meditation
   - beginners
