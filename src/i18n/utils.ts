@@ -37,6 +37,8 @@ export const slugTranslations = {
     '/teachings/havan-ogien': '/teachings/sacred-fire-ceremony',
     '/teachings/medytacja-dla-poczatkujacych': '/teachings/meditation-for-beginners',
     '/teachings/prawda-prostocie-milosc': '/teachings/truth-simplicity-love',
+    '/polityka-prywatnosci': '/privacy-policy',
+    '/regulamin': '/terms',
   },
   en: {
     '/practices': '/praktyki',
@@ -58,6 +60,8 @@ export const slugTranslations = {
     '/teachings/sacred-fire-ceremony': '/teachings/havan-ogien',
     '/teachings/meditation-for-beginners': '/teachings/medytacja-dla-poczatkujacych',
     '/teachings/truth-simplicity-love': '/teachings/prawda-prostocie-milosc',
+    '/privacy-policy': '/polityka-prywatnosci',
+    '/terms': '/regulamin',
   },
 } as const;
 
