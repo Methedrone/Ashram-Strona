@@ -4,7 +4,7 @@ description: "Ancient Vedic practice of purification through fire, taught by Bab
 date: 2026-02-06
 author: "Babaji"
 lang: en
-featuredImage: "/images/gallery/ceremony-fire.webp"
+featuredImage: "/images/gallery/havan-ceremony-fire-pit-devotees.webp"
 tags:
   - havan
   - fire ceremony

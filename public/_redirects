@@ -2,3 +2,7 @@
 # serves prerendered files, so request-time middleware never runs in production.
 /pl / 301
 /pl/* /:splat 301
+
+# GSC 404 (2026-09-30): stary link EN ze sluga PL
+/en/teachings/prawda-prostocie-milosc /en/teachings/truth-simplicity-love/ 301
+/en/teachings/prawda-prostocie-milosc/* /en/teachings/truth-simplicity-love/ 301

@@ -4,7 +4,7 @@ description: "Praktyczny przewodnik po medytacji w tradycji Babadziego. Proste t
 date: 2026-02-12
 author: "Babaji"
 lang: pl
-featuredImage: "/images/gallery/meditation-group.webp"
+featuredImage: "/images/fromFacebook/ashram-dhuni-meditation-room-interior.webp"
 tags:
   - medytacja
   - poczatkujacy

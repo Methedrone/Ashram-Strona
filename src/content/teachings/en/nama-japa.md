@@ -4,7 +4,7 @@ description: "The power of the Om Namah Shivay mantra and the practice of repeat
 date: 2026-02-08
 author: "Babaji"
 lang: en
-featuredImage: "/images/gallery/meditation-group.webp"
+featuredImage: "/images/fromFacebook/ashram-dhuni-meditation-room-interior.webp"
 tags:
   - nama japa
   - mantra

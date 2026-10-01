@@ -4,7 +4,7 @@ description: "Meaning, practice and transformative power of the Om Namah Shivaya
 date: 2026-02-12
 author: "Babaji"
 lang: en
-featuredImage: "/images/gallery/ceremony-fire.webp"
+featuredImage: "/images/gallery/havan-ceremony-fire-pit-devotees.webp"
 tags:
   - mantra
   - om namah shivaya

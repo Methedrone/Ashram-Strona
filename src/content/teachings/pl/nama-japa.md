@@ -4,7 +4,7 @@ description: "Moc mantry Om Namah Shivay i praktyka powtarzania boskiego imienia
 date: 2026-02-08
 author: "Babaji"
 lang: pl
-featuredImage: "/images/gallery/meditation-group.webp"
+featuredImage: "/images/fromFacebook/ashram-dhuni-meditation-room-interior.webp"
 tags:
   - nama japa
   - mantra

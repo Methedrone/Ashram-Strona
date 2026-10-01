@@ -121,6 +121,18 @@ function scanGalleryImageMap(galleryPath?: string): Map<string, string> {
   return imageMap;
 }
 
+function imageExists(webPath: string): boolean {
+  // Ścieżka dynamiczna jest tu nieodzowna (guard build-time); reguła nie ma zastosowania.
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
+  return fs.existsSync(path.join(process.cwd(), 'public', webPath.replace(/^\//, '')));
+}
+
+function resolveImagePath(featuredImage: string, galleryMap: Map<string, string>): string | null {
+  const baseName = featuredImage.replace(/\.[^/.]+$/, '').replace(/^\/images\/gallery\//, '');
+  const candidate = galleryMap.get(baseName) ?? galleryMap.get(`${baseName}.webp`) ?? featuredImage;
+  return imageExists(candidate) ? candidate : null;
+}
+
 export async function scanContentImages(lang: 'pl' | 'en'): Promise<ContentImageInfo[]> {
   const images: ContentImageInfo[] = [];
   const galleryMap = scanGalleryImageMap();
@@ -128,9 +140,13 @@ export async function scanContentImages(lang: 'pl' | 'en'): Promise<ContentImage
   const events = await getCollection('events', (entry: CollectionEntry<'events'>) => entry.data.lang === lang);
   for (const event of events) {
     if (event.data.featuredImage) {
-      const baseName = event.data.featuredImage.replace(/\.[^/.]+$/, '').replace(/^\/images\/gallery\//, '');
-      const optimizedPath = galleryMap.get(baseName) || galleryMap.get(`${baseName}.webp`) || event.data.featuredImage;
-      
+      const optimizedPath = resolveImagePath(event.data.featuredImage, galleryMap);
+
+      if (!optimizedPath) {
+        console.warn(`[image-scanner] brak pliku obrazu, pomijam: ${event.data.featuredImage} (/events/${event.id})`);
+        continue;
+      }
+
       images.push({
         path: optimizedPath,
         title: event.data.title,
@@ -145,9 +161,13 @@ export async function scanContentImages(lang: 'pl' | 'en'): Promise<ContentImage
   const teachings = await getCollection('teachings', (entry: CollectionEntry<'teachings'>) => entry.data.lang === lang);
   for (const teaching of teachings) {
     if (teaching.data.featuredImage) {
-      const baseName = teaching.data.featuredImage.replace(/\.[^/.]+$/, '').replace(/^\/images\/gallery\//, '');
-      const optimizedPath = galleryMap.get(baseName) || galleryMap.get(`${baseName}.webp`) || teaching.data.featuredImage;
-      
+      const optimizedPath = resolveImagePath(teaching.data.featuredImage, galleryMap);
+
+      if (!optimizedPath) {
+        console.warn(`[image-scanner] brak pliku obrazu, pomijam: ${teaching.data.featuredImage} (/teachings/${teaching.id})`);
+        continue;
+      }
+
       images.push({
         path: optimizedPath,
         title: teaching.data.title,

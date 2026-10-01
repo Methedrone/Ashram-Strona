@@ -6,7 +6,7 @@ endDate: 2026-10-19
 time: "06:00"
 location: "Babaji Ashram, Mąkolno 129"
 lang: en
-featuredImage: "/images/gallery/aarti-ceremony.webp"
+featuredImage: "/images/gallery/sacred-temple-room-candles-altar.webp"
 tags:
   - navaratri
   - festival
