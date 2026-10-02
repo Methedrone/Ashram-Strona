@@ -13,6 +13,7 @@ interface Props {
   description?: string;
   ogImage?: string;
   ogImageAlt?: string;
+  preloadImage?: string;
   ogType?: string;
   schema?: Record<string, unknown>;
   noIndex?: boolean;
@@ -23,6 +24,7 @@ const {
   description: customDescription,
   ogImage,
   ogImageAlt,
+  preloadImage,
   ogType = 'website',
   schema,
   noIndex = false
@@ -48,6 +50,11 @@ const hreflangs = alternateLocales.map((locale) => ({
 }));
 
 const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/havan-ceremony-group-fire-offerings.webp`;
+
+// LCP hero (tylko strony z <Hero image>) — warianty AVIF identyczne z Hero.astro <picture>
+const preloadBase = preloadImage
+  ? preloadImage.replace(/^\/images\//, '').replace(/\.(jpg|jpeg|png|webp|avif)$/i, '')
+  : null;
 
 // GTM-only tracking — gtag.js usunięty (GTM sam zawiera tag GA4); nie dodawać gtag ponownie
 
@@ -184,8 +191,18 @@ gtmUrl;f.parentNode.insertBefore(j,f);
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=optional" rel="stylesheet" />
 
-		<!-- LCP hero: bez preloada — Hero.astro <picture> (AVIF+WEBP, fetchpriority=high);
-		     preload webp nie pokrywał się z renderowanym wariantem (avif) → warning + marnowany transfer -->
+		<!-- LCP hero preload: AVIF (te same warianty i sizes=100vw co Hero.astro <picture>) -->
+		{preloadBase && (
+			<link
+				rel="preload"
+				as="image"
+				type="image/avif"
+				href={`/images/optimized/${preloadBase}-w1024.avif`}
+				imagesrcset={[480, 768, 1024, 1600].map((w) => `/images/optimized/${preloadBase}-w${w}.avif ${w}w`).join(', ')}
+				imagesizes="100vw"
+				fetchpriority="high"
+			/>
+		)}
 
         <SEO
           title={title}

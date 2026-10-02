@@ -1,5 +1,5 @@
 ---
-title: "Kriya Yoga"
+title: "Kriya Yoga – conscious breath & meditation"
 description: "An introduction to Kriya Yoga in the Babaji tradition and the role of breath and meditation in clearing the mind."
 date: 2026-01-01
 author: "Babaji"

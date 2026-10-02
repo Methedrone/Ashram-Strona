@@ -1,5 +1,5 @@
 ---
-title: "Havan - Ceremonia Ognia w Kotlinie Kłodzkiej"
+title: "Havan - Ceremonia Ognia (30.06.2026)"
 description: "Zapraszamy do Kotliny Kłodzkiej na ceremonię ognia Havan ze wspólnym śpiewaniem mantr, Arti i wegetariańskim posiłkiem."
 date: 2026-06-30
 endDate: 2026-06-30

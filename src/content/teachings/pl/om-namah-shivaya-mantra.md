@@ -1,6 +1,6 @@
 ---
-title: "Om Namah Shivaya - Mantra Najwyzsza"
-description: "Znaczenie, praktyka i transformacyjna moc mantry Om Namah Shivaya w tradycji Haidakhan Babadziego. Dowiedz sie, jak mantra oczyszcza umysl i otwiera serce."
+title: "Om Namah Shivaya - Mantra Najwyższa"
+description: "Znaczenie, praktyka i transformacyjna moc mantry Om Namah Shivaya w tradycji Haidakhan Babadziego. Dowiedz się, jak mantra oczyszcza umysł i otwiera serce."
 date: 2026-02-12
 author: "Babaji"
 lang: pl

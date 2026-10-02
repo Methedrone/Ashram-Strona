@@ -1,5 +1,5 @@
 ---
-title: "Havan - Sacred Fire Ceremony in the Kłodzko Valley"
+title: "Havan - Sacred Fire Ceremony (30.06.2026)"
 description: "We invite you to the Kłodzko Valley for the Havan fire ceremony with collective mantra chanting, Arti and a vegetarian meal."
 date: 2026-06-30
 endDate: 2026-06-30

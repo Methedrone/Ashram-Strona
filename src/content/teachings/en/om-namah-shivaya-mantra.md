@@ -1,6 +1,6 @@
 ---
 title: "Om Namah Shivaya - The Supreme Mantra"
-description: "Meaning, practice and transformative power of the Om Namah Shivaya mantra in the Haidakhan Babaji tradition. Learn how this mantra purifies the mind and opens the heart."
+description: "Meaning, practice and power of the Om Namah Shivaya mantra in the Haidakhan Babaji tradition. Learn how this mantra purifies the mind and opens the heart."
 date: 2026-02-12
 author: "Babaji"
 lang: en

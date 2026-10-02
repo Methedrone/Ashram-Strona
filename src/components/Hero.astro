@@ -5,6 +5,7 @@ interface Props {
   title: string;
   subtitle?: string;
   image?: string;
+  alt?: string;
   ctaText?: string;
   ctaLink?: string;
   align?: 'center' | 'left';
@@ -15,6 +16,7 @@ const {
   title, 
   subtitle, 
   image, 
+  alt = '',
   ctaText, 
   ctaLink, 
   align = 'center', 
@@ -37,10 +39,10 @@ if (image) {
 
 <section class:list={['hero', align, size, { 'has-image': !!image }]}> 
   {heroBaseNoExt && (
-    <picture class="hero-image" aria-hidden="true">
+    <picture class="hero-image" aria-hidden={alt ? undefined : 'true'}>
       <source type="image/avif" srcset={optimizedWidths.map(w => `/images/optimized/${heroBaseNoExt}-w${w}.avif ${w}w`).join(', ')} sizes="100vw" />
       <source type="image/webp" srcset={optimizedWidths.map(w => `/images/optimized/${heroBaseNoExt}-w${w}.webp ${w}w`).join(', ')} sizes="100vw" />
-      <img src={`/images/optimized/${heroBaseNoExt}-w1024.webp`} alt="" width="1024" height="768" fetchpriority="high" decoding="async" />
+      <img src={`/images/optimized/${heroBaseNoExt}-w1024.webp`} alt={alt} width="1024" height="768" fetchpriority="high" decoding="async" />
     </picture>
   )}
   <div class="overlay"></div>
